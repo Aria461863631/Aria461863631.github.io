@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ACM,kuangbin专题四 最短路," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="This guy is so lazy that he left nothing">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aria">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一个农场有n (1 ~ 1000)个landmarks，有t (1 ~ 2000)条道路连接，问Bessie要从编号为n的landmarks到编号为1的landmarks，最少得走多少的路程? Dijskstra 模板 和算导上的伪代码一模一样 就是结构有点复杂 1234567891011121314151617181">
+<meta name="keywords" content="ACM,kuangbin专题四 最短路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Dijkstra] POJ 2387">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/Dijkstra-POJ-2387/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="This guy is so lazy that he left nothing">
+<meta property="og:description" content="一个农场有n (1 ~ 1000)个landmarks，有t (1 ~ 2000)条道路连接，问Bessie要从编号为n的landmarks到编号为1的landmarks，最少得走多少的路程? Dijskstra 模板 和算导上的伪代码一模一样 就是结构有点复杂 12345678910111213141516171819202122232425262728293031323334353637383">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-04T14:51:03.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aria">
-<meta name="twitter:description" content="This guy is so lazy that he left nothing">
+<meta name="twitter:title" content="[Dijkstra] POJ 2387">
+<meta name="twitter:description" content="一个农场有n (1 ~ 1000)个landmarks，有t (1 ~ 2000)条道路连接，问Bessie要从编号为n的landmarks到编号为1的landmarks，最少得走多少的路程? Dijskstra 模板 和算导上的伪代码一模一样 就是结构有点复杂 12345678910111213141516171819202122232425262728293031323334353637383">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/04/Dijkstra-POJ-2387/"/>
 
 
 
 
 
-  <title>Aria</title>
+  <title>[Dijkstra] POJ 2387 | Aria</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,132 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/2253/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Break.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/04/2253/" itemprop="url">[Dijkstra] POJ 2253</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-04T22:52:29+08:00">
-                2017-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>给出一个无向图,求一条1~2的路径使得该路径上的最大边权最小.</p>
-<p> Dijkstra 变形</p>
-<p>把relax那里存的数据改成求该路径上的最大边的长度就好了</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x7f7f7f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">209</span>;</span><br><span class="line"><span class="keyword">double</span> v[ N ][ N ]; <span class="comment">//边</span></span><br><span class="line"><span class="keyword">double</span> d[ N ];      <span class="comment">//距离</span></span><br><span class="line"><span class="keyword">bool</span> vis[ N ];</span><br><span class="line"><span class="keyword">int</span> x[ N ], y[ N ];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        d[ i ] = v[ i ][ <span class="number">1</span> ]; <span class="comment">//初始化，每个点的d是到出发点的直接距离</span></span><br><span class="line">    d[ <span class="number">1</span> ] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="number">0</span>, <span class="keyword">sizeof</span> ( vis ) ); <span class="comment">//初始化已经走过的集合</span></span><br><span class="line">    vis[ <span class="number">1</span> ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// while Q != empty</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">0</span>;         <span class="comment">//点</span></span><br><span class="line">        <span class="keyword">double</span> mind = INF; <span class="comment">//距离</span></span><br><span class="line">        <span class="comment">//在剩下的节点里面找到距离s最小的(u = ExtractMin(Q))</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; d[ j ] &lt; mind )</span><br><span class="line">                u = j, mind = d[ j ];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        vis[ u ] = <span class="literal">true</span>; <span class="comment">// S = S 并 u</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// for each vertex v in G.adj[ u ], relax</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] ) &#123;</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                 * if(mindistance+cost[nextnode][i]&lt;distance[i])</span></span><br><span class="line"><span class="comment">                    &#123;</span></span><br><span class="line"><span class="comment">                        distance[i]=mindistance+cost[nextnode][i];</span></span><br><span class="line"><span class="comment">                        pred[i]=nextnode;</span></span><br><span class="line"><span class="comment">                    &#125;</span></span><br><span class="line"><span class="comment">                */</span></span><br><span class="line">                <span class="keyword">double</span> minimax = max ( mind, v[ j ][ u ] );</span><br><span class="line">                <span class="keyword">if</span> ( minimax &lt; d[ j ] )</span><br><span class="line">                    d[ j ] = minimax;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d[ <span class="number">2</span> ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, T = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ( <span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n ) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( T != <span class="number">1</span> )</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x[ i ] &gt;&gt; y[ i ];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">                v[ i ][ j ] = v[ j ][ i ] = <span class="built_in">sqrt</span> ( ( x[ i ] - x[ j ] ) * ( x[ i ] - x[ j ] ) +</span><br><span class="line">                                                   ( y[ i ] - y[ j ] ) * ( y[ i ] - y[ j ] ) );</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Scenario #"</span> &lt;&lt; T++ &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Frog Distance = "</span>;</span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"%.3f\n"</span>, dijkstra ( n ) );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -392,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/04/Dijkstra-POJ-2387/" itemprop="url">[Dijkstra] POJ 2387</a></h1>
+          <h1 class="post-title" itemprop="name headline">[Dijkstra] POJ 2387</h1>
         
 
         <div class="post-meta">
@@ -444,16 +320,12 @@
       
 
       
-        
-          
-            <p>一个农场有n (1 ~ 1000)个landmarks，有t (1 ~ 2000)条道路连接，问Bessie要从编号为n的landmarks到编号为1的landmarks，最少得走多少的路程?</p>
+        <p>一个农场有n (1 ~ 1000)个landmarks，有t (1 ~ 2000)条道路连接，问Bessie要从编号为n的landmarks到编号为1的landmarks，最少得走多少的路程?</p>
 <p>Dijskstra 模板</p>
 <p>和算导上的伪代码一模一样</p>
 <p>就是结构有点复杂</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2000</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> from, to, w;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> d, u; <span class="comment">//距离，编号</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; ( <span class="keyword">const</span> Node &amp;rhs ) <span class="keyword">const</span> &#123; <span class="keyword">return</span> d &gt; rhs.d; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CLRS 24.3</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Dijkstra</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> n, m;              <span class="comment">//点数，边数</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;Edge&gt; edges;    <span class="comment">//边集合</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[ maxn ]; <span class="comment">//邻接的边集</span></span><br><span class="line">    <span class="keyword">int</span> dis[ maxn ];       <span class="comment">//当前找到路径下所有节点的最短距离</span></span><br><span class="line">    <span class="keyword">bool</span> done[ maxn ];     <span class="comment">//集合S,代表是否已經访问过</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span> <span class="params">( <span class="keyword">int</span> N )</span> </span>&#123;</span><br><span class="line">        n = N; <span class="comment">//设置好点的个数</span></span><br><span class="line">        <span class="built_in">memset</span> ( dis, INF, <span class="keyword">sizeof</span> ( dis ) );</span><br><span class="line">        <span class="built_in">memset</span> ( done, <span class="number">0</span>, <span class="keyword">sizeof</span> ( done ) );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i )</span><br><span class="line">            G[ i ].clear ();</span><br><span class="line">        edges.clear ();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddEdge</span> <span class="params">( <span class="keyword">int</span> f, <span class="keyword">int</span> t, <span class="keyword">int</span> w )</span> </span>&#123;</span><br><span class="line">        edges.push_back ( ( Edge )&#123;f, t, w&#125; ); <span class="comment">//这么骚</span></span><br><span class="line">        m = edges.size ();</span><br><span class="line">        G[ f ].push_back ( m - <span class="number">1</span> ); <span class="comment">//???</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从第s个点出发</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dijikstra</span> <span class="params">( <span class="keyword">int</span> s )</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;Node&gt; Q;</span><br><span class="line">        dis[ s ] = <span class="number">0</span>;</span><br><span class="line">        Q.push ( ( Node )&#123;dis[ s ], s&#125; );</span><br><span class="line">        <span class="keyword">while</span> ( !Q.empty () ) &#123;</span><br><span class="line">            <span class="comment">// u = Extract_Min( Q )</span></span><br><span class="line">            Node x = Q.top ();</span><br><span class="line">            Q.pop ();</span><br><span class="line">            <span class="keyword">int</span> u = x.u;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ( done[ u ] )</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            done[ u ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// for each vertex v in G.adj[ u ]</span></span><br><span class="line">            <span class="keyword">int</span> len = G[ u ].size ();</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i ) &#123;</span><br><span class="line">                Edge &amp;e = edges[ G[ u ][ i ] ];</span><br><span class="line">                <span class="comment">// relax</span></span><br><span class="line">                <span class="keyword">if</span> ( dis[ e.to ] &gt; dis[ u ] + e.w ) &#123;</span><br><span class="line">                    dis[ e.to ] = dis[ u ] + e.w;</span><br><span class="line">                    Q.push ( ( Node )&#123;dis[ e.to ], e.to&#125; );</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Dijkstra di;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T, N;</span><br><span class="line">    <span class="keyword">while</span> ( ~<span class="built_in">scanf</span> ( <span class="string">"%d%d"</span>, &amp;T, &amp;N ) ) &#123;</span><br><span class="line">        di.init ( N );</span><br><span class="line">        <span class="keyword">while</span> ( T-- ) &#123;</span><br><span class="line">            <span class="keyword">int</span> f, t, w;</span><br><span class="line">            <span class="built_in">scanf</span> ( <span class="string">"%d%d%d"</span>, &amp;f, &amp;t, &amp;w );</span><br><span class="line">            di.AddEdge ( f, t, w );</span><br><span class="line">            di.AddEdge ( t, f, w );</span><br><span class="line">        &#125;</span><br><span class="line">        di.dijikstra ( <span class="number">1</span> );</span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, di.dis[ N ] );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -468,266 +340,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/Link/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Break.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/03/Link/" itemprop="url">Hexo 搭建 & 使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T15:32:06+08:00">
-                2017-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
           
-            
+            <a href="/tags/kuangbin专题四-最短路/" rel="tag"># kuangbin专题四 最短路</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Link:</p>
-<p>Hexo 博客搭建指南</p>
-<p><a href="https://github.com/limedroid/HexoLearning" target="_blank" rel="noopener">https://github.com/limedroid/HexoLearning</a></p>
-<p>用markdown写博客：hexo + gitcafe</p>
-<p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/hexo-tutor-3.html" target="_blank" rel="noopener">https://wizardforcel.gitbooks.io/markdown-simple-world/hexo-tutor-3.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Break.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/03/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T14:53:53+08:00">
-                2017-12-03
-              </time>
+              <a href="/2017/12/03/Link/" rel="next" title="Hexo 搭建 & 使用">
+                <i class="fa fa-chevron-left"></i> Hexo 搭建 & 使用
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2017/12/04/2253/" rel="prev" title="[Dijkstra] POJ 2253">
+                [Dijkstra] POJ 2253 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -737,10 +385,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -748,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -973,6 +626,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
