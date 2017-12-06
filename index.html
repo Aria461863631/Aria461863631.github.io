@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/3286/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/1502/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -271,7 +271,412 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/05/3286/" itemprop="url">[Dijkstra] POJ 3286</a></h1>
+                <a class="post-title-link" href="/2017/12/06/1502/" itemprop="url">[Dijkstra] POJ 1502</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T23:02:50+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>题意</strong></p>
+<blockquote>
+<p>n个处理器，第一个处理器要广播消息到其他所有的处理器，求需要时间最短是多少（从第一个点出发，求到其他点最短路的最大值）</p>
+</blockquote>
+<p><strong>思路</strong></p>
+<blockquote>
+<p>单源最短路，dijkstra</p>
+<p>下三角的邻接矩阵输入</p>
+</blockquote>
+<p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 509</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dis[ N ];</span><br><span class="line"><span class="keyword">bool</span> vis[ N ];</span><br><span class="line"><span class="keyword">int</span> v[ N ][ N ];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// INIt</span></span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span><br><span class="line">    vis[ <span class="number">1</span> ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = v[ <span class="number">1</span> ][ i ];</span><br><span class="line">    dis[ <span class="number">1</span> ] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ExtractMin</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, mmin = INF;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mmin )</span><br><span class="line">                mmin = dis[ u = j ];</span><br><span class="line"></span><br><span class="line">        vis[ u ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Relax</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] )</span><br><span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + v[ u ][ j ] );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mmx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        mmx = max ( mmx, dis[ i ] );</span><br><span class="line">    <span class="keyword">return</span> mmx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span> ( <span class="string">"%d"</span>, &amp;n );</span><br><span class="line">    <span class="built_in">memset</span> ( v, INF, <span class="keyword">sizeof</span> ( v ) );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i )</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; ++j ) &#123;</span><br><span class="line">            <span class="keyword">char</span> t[ <span class="number">10</span> ];</span><br><span class="line">            <span class="built_in">scanf</span> ( <span class="string">"%s"</span>, t );</span><br><span class="line">            <span class="keyword">if</span> ( t[ <span class="number">0</span> ] != <span class="string">'x'</span> ) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">0</span>; t[ k ] != <span class="string">'\0'</span>; ++k )</span><br><span class="line">                    x = x * <span class="number">10</span> + ( t[ k ] - <span class="string">'0'</span> );</span><br><span class="line">                v[ i ][ j ] = v[ j ][ i ] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sol = dijkstra ( n );</span><br><span class="line">    <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, sol );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/3259/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/06/3259/" itemprop="url">[SPFA] POJ 3259</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T23:01:50+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>题意</strong></p>
+<blockquote>
+<p>农场主拥有很多农场，在这些农场之间有很多条路，以及单向的虫洞，每条路走完会花费一定的时间，而虫洞可以回到之前的时间，问农场主是否可以通过特定的路径看到出发前的自己？(也就是回到自己出发时间前的出发点)</p>
+</blockquote>
+<p><strong>思路</strong></p>
+<blockquote>
+<p>将农场看做点，路和虫洞看做边，那么显然虫洞是负权边，这样题目就转化为求给定图中是否有负环的问题了。</p>
+<p>学了一波SPFA和链式前向星</p>
+</blockquote>
+<hr>
+<p>链式前向星 <a href="http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/</a></p>
+<blockquote>
+<p>这种存图方式的数据结构主要是<strong>边集数组</strong>，顾名思义，<strong>图的边是用数组来存储的</strong>。</p>
+<p>当然想要完美表示图结构，光有一个边集数组还不够，还要有一个数组存储指向每一个点的第一条边的“指针”。</p>
+<p>而每一条边都需要存储接下来一条边的“指针”，这样就能够像类似邻接表一样方便遍历每一个点的所有边了。</p>
+</blockquote>
+<hr>
+<p>SPFA  <a href="http://www.cnblogs.com/scau20110726/archive/2012/11/18/2776124.html" target="_blank" rel="noopener">http://www.cnblogs.com/scau20110726/archive/2012/11/18/2776124.html</a></p>
+<blockquote>
+<p><strong>队列+松弛操作</strong></p>
+<p>读取队头顶点u，并将队头顶点u出队（记得消除标记）；将与点u相连的所有点v进行松弛操作，如果能更新估计值（即令d[v]变小），那么就更新，另外，如果点v没有在队列中，那么要将点v入队（记得标记），如果已经在队列中了，那么就不用入队</p>
+</blockquote>
+<p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, cost, nex;</span><br><span class="line">&#125; edg[ N * N + <span class="number">200</span> ];</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">邻接表</span></span><br><span class="line"><span class="comment">vector&lt;Edge&gt; edg[ N ];</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">void AddEdge ( int u, int v, int w ) &#123; edg[ u ].push_back ( Edge&#123;v, w&#125; ); &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//链式前向星</span></span><br><span class="line"><span class="keyword">int</span> head[ N ];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddEdge</span> <span class="params">( <span class="keyword">int</span> i, <span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w )</span> </span>&#123;</span><br><span class="line">    edg[ i ] = Edge&#123;u, v, w, head[ u ]&#125;;</span><br><span class="line">    head[ u ] = i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dis[ N ];</span><br><span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">//代表在不在队列里</span></span><br><span class="line"><span class="keyword">int</span> cnt[ N ];</span><br><span class="line"></span><br><span class="line"><span class="comment">//期望的时间复杂度O(ke)，</span></span><br><span class="line"><span class="comment">//其中k为所有顶点进队的平均次数，</span></span><br><span class="line"><span class="comment">//可以证明k一般小于等于2。</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// INIT</span></span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span><br><span class="line">    vis[ s ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = INF;</span><br><span class="line">    dis[ s ] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span> ( cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> ( cnt ) );</span><br><span class="line">    cnt[ s ] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// BFS方式的spfa</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">    Q.push ( s );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( !Q.empty () ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = Q.front ();</span><br><span class="line">        Q.pop ();</span><br><span class="line">        vis[ u ] = <span class="literal">false</span>; <span class="comment">// 出队要取消标记</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*// u的所有出边,邻接表版本</span></span><br><span class="line"><span class="comment">        for ( int i = 0; i &lt; edg[ u ].size (); ++i ) &#123;</span></span><br><span class="line"><span class="comment">            int v = edg[ u ][ i ].v;</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = edg[ i ].v;</span><br><span class="line">            <span class="comment">// Relax, 入队</span></span><br><span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ i ].cost ) &#123;</span><br><span class="line">                dis[ v ] = dis[ u ] + edg[ i ].cost;</span><br><span class="line">                <span class="keyword">if</span> ( !vis[ v ] ) &#123;</span><br><span class="line">                    vis[ v ] = <span class="literal">true</span>;</span><br><span class="line">                    Q.push ( v );</span><br><span class="line">                    <span class="comment">// 判断负环</span></span><br><span class="line">                    <span class="keyword">if</span> ( ++cnt[ v ] &gt; n )</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span> ( <span class="string">"%d"</span>, &amp;T );</span><br><span class="line">    <span class="keyword">while</span> ( T-- ) &#123;</span><br><span class="line">        <span class="built_in">memset</span> ( head, <span class="number">-1</span>, <span class="keyword">sizeof</span> ( head ) );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n, m, w;</span><br><span class="line">        <span class="built_in">scanf</span> ( <span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;w );</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        for ( int i = 1; i &lt;= n + 1; ++i )</span></span><br><span class="line"><span class="comment">            edg[ i ].clear ();</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i ) &#123;</span><br><span class="line">            <span class="keyword">int</span> a, b, c;</span><br><span class="line">            <span class="built_in">scanf</span> ( <span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;c );</span><br><span class="line">            AddEdge ( i, a, b, c );</span><br><span class="line">            AddEdge ( i + m, b, a, c );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; w; ++i ) &#123;</span><br><span class="line">            <span class="keyword">int</span> a, b, c;</span><br><span class="line">            <span class="built_in">scanf</span> ( <span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;c );</span><br><span class="line">            AddEdge ( <span class="number">2</span> * m + i, a, b, -c );</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// emmmm一个头,解决了从任意一个点出发的问题（大概)</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">            AddEdge ( <span class="number">2</span> * m + w + i - <span class="number">1</span>, n + <span class="number">1</span>, i, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ( !SPFA ( n + <span class="number">1</span>, n + <span class="number">1</span> ) )</span><br><span class="line">            <span class="built_in">printf</span> ( <span class="string">"YES\n"</span> );</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span> ( <span class="string">"NO\n"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/1860/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/06/1860/" itemprop="url">[Bellman-Ford] POJ 1860</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T23:00:50+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>题意</strong></p>
+<blockquote>
+<p>有n种货币，你含有num面额的其中一种货币。 </p>
+<p>给定m种交易明细，即货币a和b之间的手续费与兑换率。双向兑换时，手续费与兑换率不一定相同。 </p>
+<p>求有没有可能，在多次兑换后你手中的货币大于num。</p>
+</blockquote>
+<p><strong>思路</strong></p>
+<blockquote>
+<p>本题是“求最大路径”，但是依然能够利用bellman-Ford的思想去解题。方法恰恰与bellman-Ford算法的松弛条件相反，求的是能无限松弛的最大正权路径。</p>
+<p>因此初始化dis(S)=V   而源点到其他点的距离（权值）初始化为无穷小（0），当s到其他某点的距离能不断变大时，说明存在最大路径；如果可以一直变大，说明存在正环。则金币可以增加</p>
+</blockquote>
+<p>Bellman-Ford算法：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 109</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> dis[ N ];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v;</span><br><span class="line">    <span class="keyword">double</span> r, c; <span class="comment">// rate commission</span></span><br><span class="line">&#125; edge[ N * <span class="number">2</span> ];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 点数，边数，源头，初始钱数</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bellman_Ford</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> e, <span class="keyword">int</span> s, <span class="keyword">double</span> num )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Initialize Single Sorce( G,s )</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = <span class="number">0</span>;</span><br><span class="line">    dis[ s ] = num;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for i = 1 to |G.V|-1</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i ) &#123;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// for each edge ( u,v ) in G.E</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; e; ++j ) &#123;</span><br><span class="line">            <span class="keyword">int</span> u = edge[ j ].u;</span><br><span class="line">            <span class="keyword">int</span> v = edge[ j ].v;</span><br><span class="line">            <span class="keyword">double</span> to = ( dis[ u ] - edge[ j ].c ) * edge[ j ].r;</span><br><span class="line">            <span class="comment">// Relax ( 取最大 )</span></span><br><span class="line">            <span class="keyword">if</span> ( dis[ v ] + <span class="number">1e-9</span> &lt; to ) &#123;</span><br><span class="line">                dis[ v ] = to;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//没有更新了就退出来？</span></span><br><span class="line">        <span class="keyword">if</span> ( !flag )</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 存在正环</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; ++i )</span><br><span class="line">        <span class="keyword">if</span> ( dis[ edge[ i ].v ] &lt; ( dis[ edge[ i ].u ] - edge[ i ].c ) * edge[ i ].r )</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, s;</span><br><span class="line">    <span class="keyword">double</span> num;</span><br><span class="line">    <span class="built_in">scanf</span> ( <span class="string">"%d%d%d%lf"</span>, &amp;n, &amp;m, &amp;s, &amp;num );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="keyword">double</span> Rab, Cab, Rba, Cba;</span><br><span class="line">        <span class="built_in">scanf</span> ( <span class="string">"%d%d%lf%lf%lf%lf"</span>, &amp;a, &amp;b, &amp;Rab, &amp;Cab, &amp;Rba, &amp;Cba );</span><br><span class="line">        edge[ i ].u = a;</span><br><span class="line">        edge[ i ].v = b;</span><br><span class="line">        edge[ i ].r = Rab;</span><br><span class="line">        edge[ i ].c = Cab;</span><br><span class="line">        edge[ i + m ].u = b;</span><br><span class="line">        edge[ i + m ].v = a;</span><br><span class="line">        edge[ i + m ].r = Rba;</span><br><span class="line">        edge[ i + m ].c = Cba;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> flg = Bellman_Ford ( n, <span class="number">2</span> * m, s, num );</span><br><span class="line">    <span class="keyword">if</span> ( flg )</span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"YES\n"</span> );</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"NO\n"</span> );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/3268/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/05/3268/" itemprop="url">[Dijkstra] POJ 3268</a></h1>
         
 
         <div class="post-meta">
@@ -636,7 +1041,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/Dijkstra-POJ-2387/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/2387/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -655,7 +1060,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/04/Dijkstra-POJ-2387/" itemprop="url">[Dijkstra] POJ 2387</a></h1>
+                <a class="post-title-link" href="/2017/12/04/2387/" itemprop="url">[Dijkstra] POJ 2387</a></h1>
         
 
         <div class="post-meta">
@@ -1049,7 +1454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
