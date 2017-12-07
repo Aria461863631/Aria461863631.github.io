@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="题意  n个处理器，第一个处理器要广播消息到其他所有的处理器，求需要时间最短是多少（从第一个点出发，求到其他点最短路的最大值）  思路  单源最短路，dijkstra 下三角的邻接矩阵输入  代码 1234567891011121314151617181920212223242526272829303132333435">
+<meta name="description" content="题目  n个牛进行比赛，现已知m个关系， 牛u可以胜过牛v。  问最后可以确定排名位数的有几个牛  思路  保证该牛和其他所有的牛之间存在通路，则可以确定排名了 多源最短路Floyd获得两两牛之间的关系，如果一个牛可以胜过a个牛，b个牛可以胜过它，那么如果a＋b＝n－1，他的排名就可以确定  代码 1234567891">
 <meta name="keywords" content="ACM,kuangbin专题四 最短路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Dijkstra] POJ 1502">
-<meta property="og:url" content="http://yoursite.com/2017/12/06/1502/index.html">
+<meta property="og:title" content="[Floyd] POJ 3660">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/3660/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="题意  n个处理器，第一个处理器要广播消息到其他所有的处理器，求需要时间最短是多少（从第一个点出发，求到其他点最短路的最大值）  思路  单源最短路，dijkstra 下三角的邻接矩阵输入  代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455">
+<meta property="og:description" content="题目  n个牛进行比赛，现已知m个关系， 牛u可以胜过牛v。  问最后可以确定排名位数的有几个牛  思路  保证该牛和其他所有的牛之间存在通路，则可以确定排名了 多源最短路Floyd获得两两牛之间的关系，如果一个牛可以胜过a个牛，b个牛可以胜过它，那么如果a＋b＝n－1，他的排名就可以确定  代码 12345678910111213141516171819202122232425262728293">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-06T15:01:23.054Z">
+<meta property="og:updated_time" content="2017-12-07T14:50:37.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Dijkstra] POJ 1502">
-<meta name="twitter:description" content="题意  n个处理器，第一个处理器要广播消息到其他所有的处理器，求需要时间最短是多少（从第一个点出发，求到其他点最短路的最大值）  思路  单源最短路，dijkstra 下三角的邻接矩阵输入  代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455">
+<meta name="twitter:title" content="[Floyd] POJ 3660">
+<meta name="twitter:description" content="题目  n个牛进行比赛，现已知m个关系， 牛u可以胜过牛v。  问最后可以确定排名位数的有几个牛  思路  保证该牛和其他所有的牛之间存在通路，则可以确定排名了 多源最短路Floyd获得两两牛之间的关系，如果一个牛可以胜过a个牛，b个牛可以胜过它，那么如果a＋b＝n－1，他的排名就可以确定  代码 12345678910111213141516171819202122232425262728293">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/06/1502/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/07/3660/"/>
 
 
 
 
 
-  <title>[Dijkstra] POJ 1502 | Aria</title>
+  <title>[Floyd] POJ 3660 | Aria</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/1502/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/3660/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Dijkstra] POJ 1502</h1>
+          <h1 class="post-title" itemprop="name headline">[Floyd] POJ 3660</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T23:02:50+08:00">
-                2017-12-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T22:45:08+08:00">
+                2017-12-07
               </time>
             
 
@@ -320,17 +320,18 @@
       
 
       
-        <p><strong>题意</strong></p>
+        <p><strong>题目</strong></p>
 <blockquote>
-<p>n个处理器，第一个处理器要广播消息到其他所有的处理器，求需要时间最短是多少（从第一个点出发，求到其他点最短路的最大值）</p>
+<p>n个牛进行比赛，现已知m个关系， 牛u可以胜过牛v。 </p>
+<p>问最后可以确定排名位数的有几个牛</p>
 </blockquote>
 <p><strong>思路</strong></p>
 <blockquote>
-<p>单源最短路，dijkstra</p>
-<p>下三角的邻接矩阵输入</p>
+<p>保证该牛和其他所有的牛之间存在通路，则可以确定排名了</p>
+<p>多源最短路Floyd获得两两牛之间的关系，如果一个牛可以胜过a个牛，b个牛可以胜过它，那么如果a＋b＝n－1，他的排名就可以确定</p>
 </blockquote>
 <p>代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 509</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dis[ N ];</span><br><span class="line"><span class="keyword">bool</span> vis[ N ];</span><br><span class="line"><span class="keyword">int</span> v[ N ][ N ];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// INIt</span></span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span><br><span class="line">    vis[ <span class="number">1</span> ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = v[ <span class="number">1</span> ][ i ];</span><br><span class="line">    dis[ <span class="number">1</span> ] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ExtractMin</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, mmin = INF;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mmin )</span><br><span class="line">                mmin = dis[ u = j ];</span><br><span class="line"></span><br><span class="line">        vis[ u ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Relax</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] )</span><br><span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + v[ u ][ j ] );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mmx = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        mmx = max ( mmx, dis[ i ] );</span><br><span class="line">    <span class="keyword">return</span> mmx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span> ( <span class="string">"%d"</span>, &amp;n );</span><br><span class="line">    <span class="built_in">memset</span> ( v, INF, <span class="keyword">sizeof</span> ( v ) );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i )</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; ++j ) &#123;</span><br><span class="line">            <span class="keyword">char</span> t[ <span class="number">10</span> ];</span><br><span class="line">            <span class="built_in">scanf</span> ( <span class="string">"%s"</span>, t );</span><br><span class="line">            <span class="keyword">if</span> ( t[ <span class="number">0</span> ] != <span class="string">'x'</span> ) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">0</span>; t[ k ] != <span class="string">'\0'</span>; ++k )</span><br><span class="line">                    x = x * <span class="number">10</span> + ( t[ k ] - <span class="string">'0'</span> );</span><br><span class="line">                v[ i ][ j ] = v[ j ][ i ] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sol = dijkstra ( n );</span><br><span class="line">    <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, sol );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 109</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> dis[ N ][ N ];</span><br><span class="line"></span><br><span class="line"><span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Dp</span></span><br><span class="line">    <span class="comment">// 表示所有点只经过集合&#123; 1..k &#125;内的点时的最短路径</span></span><br><span class="line">    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k ) &#123;</span><br><span class="line">        <span class="comment">//选取每一个起点</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">            <span class="comment">//选取每一个终点</span></span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">                <span class="comment">// d(ij)^k = min &#123; d(ik)^(k-1) + d(kj)^(k-1) &#125;</span></span><br><span class="line">                dis[ i ][ j ] = dis[ i ][ j ] || ( dis[ i ][ k ] &amp;&amp; dis[ k ][ j ] );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span> ( <span class="string">"%d%d"</span>, &amp;n, &amp;m );</span><br><span class="line">    <span class="built_in">memset</span> ( dis, <span class="number">0</span>, <span class="keyword">sizeof</span> ( dis ) );</span><br><span class="line">    <span class="comment">// D^0 = W</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">scanf</span> ( <span class="string">"%d%d"</span>, &amp;a, &amp;b );</span><br><span class="line">        dis[ a ][ b ] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Floyd ();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//一个点和其他所有点之间都有通路，则可以确定</span></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( dis[ i ][ j ] || dis[ j ][ i ] )</span><br><span class="line">                ++sum;</span><br><span class="line">        <span class="keyword">if</span> ( sum == n - <span class="number">1</span> )</span><br><span class="line">            ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, ans );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -363,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/3259/" rel="next" title="[SPFA] POJ 3259">
-                <i class="fa fa-chevron-left"></i> [SPFA] POJ 3259
+              <a href="/2017/12/07/zuiduanlu/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -373,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/07/zuiduanlu/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/07/2240/" rel="prev" title="[Floyd] POJ 2240">
+                [Floyd] POJ 2240 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
