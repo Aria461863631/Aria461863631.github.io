@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Eigenvalues and Eigenvectors 6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det(">
+<meta name="description" content="Eigenvalues and Eigenvectors  6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det">
 <meta name="keywords" content="Linear Algebra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[GSLA ch-6] Eigenvalues and Eigenvectors">
 <meta property="og:url" content="http://yoursite.com/2017/12/14/LA/Eigenvalues and Eigenvectors/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="Eigenvalues and Eigenvectors 6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det(A-\lambda x)= 0 $ ,find the roots  ==  f">
+<meta property="og:description" content="Eigenvalues and Eigenvectors  6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det(A-\lambda x)= 0 $ ,find the roots  ==">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-14T15:00:58.937Z">
+<meta property="og:updated_time" content="2017-12-14T15:12:54.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[GSLA ch-6] Eigenvalues and Eigenvectors">
-<meta name="twitter:description" content="Eigenvalues and Eigenvectors 6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det(A-\lambda x)= 0 $ ,find the roots  ==  f">
+<meta name="twitter:description" content="Eigenvalues and Eigenvectors  6.1 Introduction certain vectors x are in the same direction as Ax basic equation: ​	$ Ax = \lambda x $ how to compute:  let $ det(A-\lambda x)= 0 $ ,find the roots  ==">
 
 
 
@@ -320,8 +320,8 @@
       
 
       
-        <h2>Eigenvalues and Eigenvectors</h2>
-<h4>6.1 Introduction</h4>
+        <h2 id="eigenvalues-and-eigenvectors"><a class="markdownIt-Anchor" href="#eigenvalues-and-eigenvectors"></a> Eigenvalues and Eigenvectors</h2>
+<h4 id="61-introduction"><a class="markdownIt-Anchor" href="#61-introduction"></a> 6.1 Introduction</h4>
 <p>certain vectors x are in the same direction as Ax</p>
 <p>basic equation:</p>
 <p>​	$ Ax = \lambda x $</p>
@@ -334,41 +334,43 @@
 <p>Projection: $ \lambda = 1 $ or 0</p>
 <p>Reflection: $ \lambda = 1 $ or -1</p>
 <p>Rotation: complex eigenvalues only</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>product of eigenvalues  == determinant  == product of pivots</strong></p>
 <p><strong>sum of eigenvalues == sum of diagonal entries ( not pivots ) == trace</strong></p>
-<p>&lt;br/&gt;</p>
-<h4>6.2 Diagonalizing</h4>
+<br>
+<h4 id="62-diagonalizing"><a class="markdownIt-Anchor" href="#62-diagonalizing"></a> 6.2 Diagonalizing</h4>
 <p>eigenvectors in columns of S, eigenvalues in diagonal of Λ</p>
 <p>$ Λ = S^{-1}AS $</p>
 <p>$ A = SΛS^{-1} $</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Independent x from different λ:</p>
 <ul>
-<li>$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</li>
-</ul>
-<ul>
-<li>$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</li>
+<li>
+<p>$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</p>
+</li>
+<li>
+<p>$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</p>
+</li>
 </ul>
 <p>subtract</p>
 <ul>
 <li>$ (λ_1 - λ_2)c_1x_1 = 0 $</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>diagonalizability:</p>
 <ul>
 <li>enough eigenvectors (maybe same λ) so that S is invertible</li>
 </ul>
 <p>A,B  share same eigenvector matrix S if and only if AB = BA</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>?Heisenberg uncertainty principle</strong></p>
 <p>position matrix P, momentum matrix Q, $ QP-PQ = I $</p>
 <p>knew P still could not know Q</p>
 <p>$ |Px||Qx| \ge \frac{1}{2}|x|^2 $</p>
-<p>&lt;br/&gt;</p>
-<h4>6.3 Applications to Differential Equations</h4>
-<p>&lt;br/&gt;</p>
-<h4>6.4 Symmetric Matrices</h4>
+<br>
+<h4 id="63-applications-to-differential-equations"><a class="markdownIt-Anchor" href="#63-applications-to-differential-equations"></a> 6.3 Applications to Differential Equations</h4>
+<br>
+<h4 id="64-symmetric-matrices"><a class="markdownIt-Anchor" href="#64-symmetric-matrices"></a> 6.4 Symmetric Matrices</h4>
 <ol>
 <li>real eigenvalues</li>
 <li>orthonormal eigenvectors</li>
@@ -376,38 +378,42 @@
 <p><strong>Spectral Theorem</strong></p>
 <p>(principle of axis theorem)</p>
 <p>$ A = Q\Lambda Q^T $</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Real Eigenvalues</p>
 <p>proof:</p>
 <ul>
-<li>$ Ax = \lambda x $                      $ \bar x ^TA = \bar x ^T \bar\lambda $ (  $ A = A^T $ )( conjugate and transpose )</li>
-</ul>
-<ul>
-<li>$ \bar x^T  A x = \bar x^T \lambda x $             $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</li>
+<li>
+<p>$ Ax = \lambda x $                      $ \bar x ^TA = \bar x ^T \bar\lambda $ (  $ A = A^T $ )( conjugate and transpose )</p>
+</li>
+<li>
+<p>$ \bar x^T  A x = \bar x^T \lambda x $             $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</p>
+</li>
 </ul>
 <p>left side the same</p>
 <p>therefor $ \lambda == \bar \lambda $</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Orthonormal</p>
 <p>proof:</p>
 <ul>
-<li>no eigenvalues repeated</li>
+<li>
+<p>no eigenvalues repeated</p>
+</li>
+<li>
+<p>Allow repeated eigenvalues  ( ? Schur’s Theorem )</p>
+</li>
 </ul>
-<ul>
-<li>Allow repeated eigenvalues  ( ? Schur's Theorem )</li>
-</ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>sum of rank one projection matrices</p>
-<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+... $</p>
-<p>$  = \lambda_1P_1 +\lambda_2P2+.... $</p>
-<p>&lt;br/&gt;</p>
+<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+… $</p>
+<p>$  = \lambda_1P_1 +\lambda_2P2+… $</p>
+<br>
 <p>number of positive pivots == number of positive eigenvalues</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ A = LDL^T $</p>
-<p>&lt;br/&gt;</p>
-<h4>6.5 Positive Definite Matrices</h4>
+<br>
+<h4 id="65-positive-definite-matrices"><a class="markdownIt-Anchor" href="#65-positive-definite-matrices"></a> 6.5 Positive Definite Matrices</h4>
 <p>All λ &gt; 0</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>quick way to test</p>
 <ol>
 <li>
@@ -432,9 +438,9 @@
 </ul>
 <p>$x^TAx $</p>
 <ul>
-<li>(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse  $ z = x^2/a^2 + y^2/b^2 $  )</li>
+<li>(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse  $ z = x<sup>2/a</sup>2 + y<sup>2/b</sup>2 $  )</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Application</p>
 <ol>
 <li>tilted ellipse $ x^TAx $</li>
@@ -443,18 +449,18 @@
 </ol>
 <p>axes: eigenvectors</p>
 <p>half-length: $ 1/\sqrt\lambda $</p>
-<h4>6.6 Similar Matrices</h4>
+<h4 id="66-similar-matrices"><a class="markdownIt-Anchor" href="#66-similar-matrices"></a> 6.6 Similar Matrices</h4>
 <p>DEF: A similar to B (A family)</p>
 <ul>
 <li>$ B = M^{-1}AM $</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Property:</p>
 <ul>
 <li>A and B have same eigenvalues</li>
 <li>x a eigenvector of A and $ M^{-1}x $ eigenvector of B</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Jordan Form</p>
 <ul>
 <li>tripe eigenvalues while one eigenvector</li>
@@ -464,25 +470,25 @@
 <li>Jordan Block</li>
 <li>make A as simple as possible while preserving essential properties</li>
 </ul>
-<h4>6.7 Singular Value Decomposition</h4>
+<h4 id="67-singular-value-decomposition"><a class="markdownIt-Anchor" href="#67-singular-value-decomposition"></a> 6.7 Singular Value Decomposition</h4>
 <p>SUMMARY</p>
 <p>$ A = U \Sigma V^T $</p>
 <p>$ \Sigma^2 = \Lambda $ (of  $ A^TA $ and $ AA^T $ )</p>
 <p>$ U = Q $  (of $ AA^T $ in $ R^m $)</p>
 <p>$ V = Q $  (of $ A^TA $ in $ R^n $)</p>
-<p>&lt;br/&gt;</p>
-<p>orthonormal basis of row space {$ v_1, v_2, ... v_r $}</p>
-<p>orthonormal basis of null space{ $ v_{r+1}, v_{r+2},...v_n $}</p>
-<p>orthonormal basis of column space{ $ u_1, u_2,...u_r $}</p>
-<p>orthonormal basis of left null space { $ u_{r+1}, u_{r+2}, ... u_m $}</p>
-<p>&lt;br/&gt;</p>
-<p>$ Av_1 = \sigma_1u_1 $ ...</p>
+<br>
+<p>orthonormal basis of row space {$ v_1, v_2, … v_r $}</p>
+<p>orthonormal basis of null space{ $ v_{r+1}, v_{r+2},…v_n $}</p>
+<p>orthonormal basis of column space{ $ u_1, u_2,…u_r $}</p>
+<p>orthonormal basis of left null space { $ u_{r+1}, u_{r+2}, … u_m $}</p>
+<br>
+<p>$ Av_1 = \sigma_1u_1 $ …</p>
 <p>so $ AV = U\Sigma $</p>
 <p>(m * n) * (n * n) = (m * m)* (m * n)</p>
 <p>$ V $ and $ U $ are orthogonal matrices</p>
 <p>$ \Sigma $  = ( old r*r $ \Sigma $ ) + (m-r zero rows) + ( n-r zero columns )</p>
-<p>therefore ...</p>
-<p>&lt;br/&gt;</p>
+<p>therefore …</p>
+<br>
 <p>when A positive definite symmetric</p>
 <p>$ A = U \Sigma V^T = Q\Lambda Q^{T} $</p>
 
@@ -675,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Eigenvalues and Eigenvectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">6.1 Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">6.2 Diagonalizing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">6.3 Applications to Differential Equations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">6.4 Symmetric Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">6.5 Positive Definite Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.6 Similar Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.7.</span> <span class="nav-text">6.7 Singular Value Decomposition</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#eigenvalues-and-eigenvectors"><span class="nav-number">1.</span> <span class="nav-text"> Eigenvalues and Eigenvectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#61-introduction"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 6.1 Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#62-diagonalizing"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 6.2 Diagonalizing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#63-applications-to-differential-equations"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 6.3 Applications to Differential Equations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#64-symmetric-matrices"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 6.4 Symmetric Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#65-positive-definite-matrices"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 6.5 Positive Definite Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#66-similar-matrices"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 6.6 Similar Matrices</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#67-singular-value-decomposition"><span class="nav-number">1.0.7.</span> <span class="nav-text"> 6.7 Singular Value Decomposition</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
