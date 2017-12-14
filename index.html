@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/kuangbin专题四 最短路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/LA/Eigenvalues and Eigenvectors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -271,7 +271,209 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/10/kuangbin专题四 最短路/" itemprop="url">kuangbin专题四 最短路</a></h1>
+                <a class="post-title-link" href="/2017/12/14/LA/Eigenvalues and Eigenvectors/" itemprop="url">fil</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-14T10:51:52+08:00">
+                2017-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="eigenvalues-and-eigenvectors"><a class="markdownIt-Anchor" href="#eigenvalues-and-eigenvectors"></a> Eigenvalues and Eigenvectors</h2>
+<h4 id="61-introduction"><a class="markdownIt-Anchor" href="#61-introduction"></a> 6.1 Introduction</h4>
+<p>certain vectors x are in the same direction as Ax</p>
+<p>basic equation:</p>
+<p>​	$ Ax = \lambda x $</p>
+<p>how to compute:</p>
+<p>​	let $ det(A-\lambda x)= 0 $ ,find the roots  ==  find eigenvalues,  find eigenvectors in Null space</p>
+<p>$ A^nx = \lambda^n x $</p>
+<p>span eigenspace</p>
+<p>Projection: $ \lambda = 1 $ or 0</p>
+<p>Reflection: $ \lambda = 1 $ or -1</p>
+<p>Rotation: complex eigenvalues only</p>
+<p><strong>product of eigenvalues  == determinant  == product of pivots</strong></p>
+<p>**sum of eigenvalues == sum of diagonal entries ( not pivots ) == trace **</p>
+<p>####6.2 Diagonalizing</p>
+<p>eigenvectors in columns of S, eigenvalues in diagonal of Λ</p>
+<p>$ Λ = S^{-1}AS $</p>
+<p>$ A = SΛS^{-1} $</p>
+<p>Independent x from different λ:</p>
+<p>​	$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</p>
+<p>​	$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</p>
+<p>subtract</p>
+<p>​	$ (λ_1 - λ_2)c_1x_1 = 0 $</p>
+<p>diagonalizability:</p>
+<p>​	enough eigenvectors (maybe same λ) so that S is invertible</p>
+<p>A,B  share same eigenvector matrix S if and only if AB = BA</p>
+<p>**?Heisenberg uncertainty principle **</p>
+<p>position matrix P, momentum matrix Q, $ QP-PQ = I $</p>
+<p>knew P still could not know Q</p>
+<p>$ |Px||Qx| \ge \frac{1}{2}|x|^2 $</p>
+<h4 id="63-applications-to-differential-equations"><a class="markdownIt-Anchor" href="#63-applications-to-differential-equations"></a> 6.3 Applications to Differential Equations</h4>
+<h4 id="64-symmetric-matrices"><a class="markdownIt-Anchor" href="#64-symmetric-matrices"></a> 6.4 Symmetric Matrices</h4>
+<ol>
+<li>real eigenvalues</li>
+<li>orthonormal eigenvectors</li>
+</ol>
+<p><strong>Spectral Theorem</strong></p>
+<p>(principle of axis theorem)</p>
+<p>$ A = Q\Lambda Q^T $</p>
+<p>Real Eigenvalues</p>
+<p>​	$ Ax = \lambda x $                $ \bar x ^TA = \bar x ^T \bar\lambda $ ( <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>=</mo><msup><mi>A</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">A = A^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span><span class="mrel">=</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>)( conjugate and transpose )</p>
+<p>​	$ \bar x^T  A x = \bar x^T \lambda x $      $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</p>
+<p>left side the same</p>
+<p>therefor $ \lambda == \bar \lambda $</p>
+<p>Orthonormal</p>
+<p>​	no eigenvalues repeated</p>
+<p>​	Allow repeated eigenvalues  ( ? Schur’s Theorem )</p>
+<p>sum of rank one projection matrices</p>
+<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+… $</p>
+<p>$  = \lambda_1P_1 +\lambda_2P2+… $</p>
+<p>number of positive pivots == number of positive eigenvalues</p>
+<p>$ A = LDL^T $</p>
+<h4 id="65-positive-definite-matrices"><a class="markdownIt-Anchor" href="#65-positive-definite-matrices"></a> 6.5 Positive Definite Matrices</h4>
+<p>All λ &gt; 0</p>
+<p>quick way to test</p>
+<ol>
+<li>
+<p>All pivots positive</p>
+</li>
+<li>
+<p>n eigenvalues positive</p>
+</li>
+<li>
+<p>$ x^TAx  $ is positive except x = 0</p>
+</li>
+<li>
+<p>$ A == R^TR $  (symmetric) and R has independent columns</p>
+</li>
+<li>
+<p>n upper left determinants</p>
+</li>
+</ol>
+<p>R can be chosen:</p>
+<p>​	rectangular / $ (L\sqrt D)^T $ / $ Q \sqrt\Lambda Q^T $</p>
+<p>$x^TAx $</p>
+<p>​	(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse $  z = x<sup>2/a</sup>2 + y<sup>2/b</sup>2 $ )</p>
+<p>Application</p>
+<pre><code>1. tilted ellipse $ x^TAx $
+ 2.  lined - up ellipse $ X^T\Lambda X = 1 $
+  3.  rotation matrix Q
+</code></pre>
+<p>axes: eigenvectors</p>
+<p>half-length: $ 1/\sqrt\lambda $</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/ACM/kuangbin专题四 最短路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/10/ACM/kuangbin专题四 最短路/" itemprop="url">kuangbin专题四 最短路</a></h1>
         
 
         <div class="post-meta">
@@ -353,15 +555,15 @@
 <p>​	$ O(V^2 + E) $</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> edg[ N ][ N ]; <span class="comment">// weight of each edge</span></span><br><span class="line"><span class="keyword">int</span> dis[ N ];      <span class="comment">// distance of each node from source</span></span><br><span class="line"><span class="keyword">bool</span> vis[ N ];     <span class="comment">// SET S represent for nodes already visited</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// CLRS 24.3</span></span><br><span class="line"><span class="comment">// s:start point,  n: total number of nodes</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// INITIALIZE-SINGLE-SOURCE</span></span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span><br><span class="line">    vis[ s ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = edg[ s ][ i ];</span><br><span class="line">    dis[ s ] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Extract Min</span></span><br><span class="line">    <span class="comment">// u for the node, mi for dis[ u ]</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, mi = INF;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )</span><br><span class="line">                mi = dis[ u = j ];</span><br><span class="line"></span><br><span class="line">        vis[ u ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Relax edges adjacent to u</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ j ] )</span><br><span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="dijkstra-stl-priority_queue"><a class="markdownIt-Anchor" href="#dijkstra-stl-priority_queue"></a> Dijkstra + STL priority_queue</h4>
-<p>​	<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mo>(</mo><mi>V</mi><mo>+</mo><mi>E</mi><mo>)</mo><mi>l</mi><mi>g</mi><mi>V</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O((V+E)lgV)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mclose">)</span></span></span></span></p>
+<p>​	$ O((V+E)lgV) $</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星建图</span></span><br><span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span><br><span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, d; <span class="comment">// id, dis</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; ( <span class="keyword">const</span> Node &amp;rhs ) <span class="keyword">const</span> &#123; <span class="keyword">return</span> d &gt; rhs.d; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, w, nex;</span><br><span class="line">&#125; edg[ N ];</span><br><span class="line"></span><br><span class="line"><span class="comment">// CLRS 24.3</span></span><br><span class="line"><span class="comment">// s:start point</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s )</span> </span>&#123;</span><br><span class="line">    priority_queue&lt;Node&gt; Q;</span><br><span class="line">    dis[ s ] = <span class="number">0</span>;</span><br><span class="line">    Q.push ( ( Node )&#123;s, dis[ s ]&#125; );</span><br><span class="line">    <span class="keyword">while</span> ( !Q.empty () ) &#123;</span><br><span class="line">        <span class="comment">// u = Extract_Min( Q )</span></span><br><span class="line">        Node x = Q.top ();</span><br><span class="line">        Q.pop ();</span><br><span class="line">        <span class="keyword">int</span> u = x.u;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ( vis[ u ] )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        vis[ u ] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// for each vertex v in G.adj[ u ]</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = edg[ i ].v;</span><br><span class="line">            <span class="keyword">int</span> w = edg[ i ].w;</span><br><span class="line">            <span class="comment">// relax</span></span><br><span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + w ) &#123;</span><br><span class="line">                dis[ v ] = dis[ u ] + w;</span><br><span class="line">                Q.push ( ( Node )&#123;v, dis[ v ]&#125; );</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="spfa-shortest-path-faster-algorithm"><a class="markdownIt-Anchor" href="#spfa-shortest-path-faster-algorithm"></a> SPFA (Shortest Path Faster Algorithm)</h4>
-<p>​	<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>k</mi><mi>E</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(kE)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span> ( k &lt; 2 )</p>
+<p>​	$ O(kE) $ ( k &lt; 2 )</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span><br><span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span><br><span class="line"><span class="keyword">int</span> cnt[ N ];  <span class="comment">//入列次数超过n，有负环</span></span><br><span class="line"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edg</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, w, nex;</span><br><span class="line">&#125; edg[ N ];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// INIT</span></span><br><span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span><br><span class="line">    vis[ s ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = INF;</span><br><span class="line">    dis[ s ] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span> ( cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> ( cnt ) );</span><br><span class="line">    cnt[ s ] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// BFS方式的spfa</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">    Q.push ( s );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( !Q.empty () ) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = Q.front ();</span><br><span class="line">        Q.pop ();</span><br><span class="line">        vis[ u ] = <span class="literal">false</span>; <span class="comment">// 出队要取消标记</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = edg[ i ].v;</span><br><span class="line">            <span class="comment">// Relax所有出边</span></span><br><span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) &#123;</span><br><span class="line">                dis[ v ] = dis[ u ] + edg[ i ].w;</span><br><span class="line">                <span class="comment">//没入队的标记并入队</span></span><br><span class="line">                <span class="keyword">if</span> ( !vis[ v ] ) &#123;</span><br><span class="line">                    vis[ v ] = <span class="literal">true</span>;</span><br><span class="line">                    Q.push ( v );</span><br><span class="line">                    <span class="comment">// 判断负环</span></span><br><span class="line">                    <span class="keyword">if</span> ( ++cnt[ v ] &gt; n )</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">spfa_dfs</span> <span class="params">( <span class="keyword">int</span> u )</span> </span>&#123;</span><br><span class="line">    vis[ u ] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = edg[ i ].v, w = edg[ i ].w;</span><br><span class="line">        <span class="keyword">if</span> ( dis[ u ] + w &lt; dis[ v ] ) &#123;</span><br><span class="line">            dis[ v ] = dis[ u ] + w;</span><br><span class="line">            <span class="keyword">if</span> ( !vis[ v ] ) &#123;</span><br><span class="line">                <span class="keyword">if</span> ( spfa_dfs ( v ) )</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vis[ u ] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="bellman-ford"><a class="markdownIt-Anchor" href="#bellman-ford"></a> Bellman-Ford</h4>
-<p>​	<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>V</mi><mi>E</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(VE)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></p>
+<p>​	$ O(VE) $</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span><br><span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edg</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, w;</span><br><span class="line">&#125; edg[ N ];</span><br><span class="line"></span><br><span class="line"><span class="comment">//CLRS 24.1</span></span><br><span class="line"><span class="comment">//对每个点，relax所有的边</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bellman_Ford</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> e, <span class="keyword">int</span> s, <span class="keyword">double</span> num )</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Initialize Single Sorce( G,s )</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        dis[ i ] = <span class="number">0</span>;</span><br><span class="line">    dis[ s ] = num;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for i = 1 to |G.V|-1</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i ) &#123;</span><br><span class="line">        <span class="comment">// for each edg ( u,v ) in G.E</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; e; ++j ) &#123;</span><br><span class="line">            <span class="keyword">int</span> u = edg[ j ].u;</span><br><span class="line">            <span class="keyword">int</span> v = edg[ j ].v;</span><br><span class="line">            <span class="comment">// Relax</span></span><br><span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) &#123;</span><br><span class="line">                dis[ v ] = dis[ u ] + edg[ u ].w;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 存在负环</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; ++i )</span><br><span class="line">        <span class="keyword">if</span> ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
 <p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
@@ -691,7 +893,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -713,7 +915,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
