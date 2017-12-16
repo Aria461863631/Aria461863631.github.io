@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="en">
+<html class="theme-next muse use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -334,8 +334,8 @@
       
         
           
-            <h2>Eigenvalues and Eigenvectors</h2>
-<h3>6.1 Introduction</h3>
+            <h2 id="eigenvalues-and-eigenvectors"><a class="markdownIt-Anchor" href="#eigenvalues-and-eigenvectors"></a> Eigenvalues and Eigenvectors</h2>
+<h3 id="61-introduction"><a class="markdownIt-Anchor" href="#61-introduction"></a> 6.1 Introduction</h3>
 <p>certain vectors x are in the same direction as Ax</p>
 <p>basic equation:</p>
 <p>​	$ Ax = \lambda x $</p>
@@ -348,53 +348,55 @@
 <p>Projection: $ \lambda = 1 $ or 0</p>
 <p>Reflection: $ \lambda = 1 $ or -1</p>
 <p>Rotation: complex eigenvalues only</p>
-<p>&lt;br&gt;</p>
+<br>
 <p><strong>product of eigenvalues  == determinant  == product of pivots</strong></p>
 <p><strong>sum of eigenvalues == sum of diagonal entries ( not pivots ) == trace</strong></p>
-<p>&lt;br&gt;</p>
-<h3>6.2 Diagonalizing</h3>
+<br>
+<h3 id="62-diagonalizing"><a class="markdownIt-Anchor" href="#62-diagonalizing"></a> 6.2 Diagonalizing</h3>
 <p>eigenvectors in columns of S, eigenvalues in diagonal of Λ</p>
 <p>$ Λ = S^{-1}AS $</p>
 <p>$ A = SΛS^{-1} $</p>
-<p>&lt;br&gt;</p>
+<br>
 <p>Independent x from different λ:</p>
 <ul>
-<li>$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</li>
-</ul>
-<ul>
-<li>$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</li>
+<li>
+<p>$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</p>
+</li>
+<li>
+<p>$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</p>
+</li>
 </ul>
 <p>subtract</p>
 <ul>
 <li>$ (λ_1 - λ_2)c_1x_1 = 0 $</li>
 </ul>
-<p>&lt;br&gt;</p>
+<br>
 <p>diagonalizability:</p>
 <ul>
 <li>enough eigenvectors (maybe same λ) so that S is invertible</li>
 </ul>
-<p>$u_k = A^k u_0  = S \Lambda^k S^{-1}u_0$</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mi>k</mi></msub><mo>=</mo><msup><mi>A</mi><mi>k</mi></msup><msub><mi>u</mi><mn>0</mn></msub><mo>=</mo><mi>S</mi><msup><mi mathvariant="normal">Λ</mi><mi>k</mi></msup><msup><mi>S</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mi>u</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">u_k = A^k u_0  = S \Lambda^k S^{-1}u_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.999108em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">u</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">A</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">u</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord"><span class="mord mathrm">Λ</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord"><span class="mord mathit">u</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
 <ol>
 <li>
-<p>$ u_0  = c_1x_1 + c_2x_2 + ..  +c_nx_n $ eigenvector basis</p>
+<p>$ u_0  = c_1x_1 + c_2x_2 + …  +c_nx_n $ eigenvector basis</p>
 </li>
 <li>
-<p>multiply $\lambda_i ^ k$</p>
+<p>multiply <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>λ</mi><mi>i</mi><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">\lambda_i ^ k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.107772em;vertical-align:-0.258664em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">λ</span><span class="vlist"><span style="top:0.258664em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></p>
 </li>
 <li>
 <p>add up</p>
 </li>
 </ol>
 <p>A,B  share same eigenvector matrix S if and only if AB = BA</p>
-<p>&lt;br&gt;</p>
+<br>
 <p><strong>?Heisenberg uncertainty principle</strong></p>
 <p>position matrix P, momentum matrix Q, $ QP-PQ = I $</p>
 <p>knew P still could not know Q</p>
 <p>$ |Px||Qx| \ge \frac{1}{2}|x|^2 $</p>
-<p>&lt;br&gt;</p>
-<h3>6.3 Applications to Differential Equations</h3>
-<p>&lt;br&gt;</p>
-<h3>6.4 Symmetric Matrices</h3>
+<br>
+<h3 id="63-applications-to-differential-equations"><a class="markdownIt-Anchor" href="#63-applications-to-differential-equations"></a> 6.3 Applications to Differential Equations</h3>
+<br>
+<h3 id="64-symmetric-matrices"><a class="markdownIt-Anchor" href="#64-symmetric-matrices"></a> 6.4 Symmetric Matrices</h3>
 <ol>
 <li>real eigenvalues</li>
 <li>orthonormal eigenvectors</li>
@@ -402,41 +404,45 @@
 <p><strong>Spectral Theorem</strong></p>
 <p>(principle of axis theorem)</p>
 <p>$ A = Q\Lambda Q^T $</p>
-<p>&lt;br&gt;</p>
+<br>
 <p>Normal Matrices $ \bar A^TA = A \bar A^T $</p>
 <p>symmetric,  skewed-symmetric, orthogonal</p>
 <p><strong>A has n orthonormal vectors ($ A = Q\Lambda \bar Q ^T $) if and only if A is normal</strong></p>
 <p>Real Eigenvalues</p>
 <p>proof:</p>
 <ul>
-<li>$ Ax = \lambda x $                      $ \bar x ^TA = \bar x ^T \bar\lambda $ (  $ A = A^T $ )( conjugate and transpose )</li>
-</ul>
-<ul>
-<li>$ \bar x^T  A x = \bar x^T \lambda x $             $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</li>
+<li>
+<p>$ Ax = \lambda x $                      $ \bar x ^TA = \bar x ^T \bar\lambda $ (  $ A = A^T $ )( conjugate and transpose )</p>
+</li>
+<li>
+<p>$ \bar x^T  A x = \bar x^T \lambda x $             $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</p>
+</li>
 </ul>
 <p>left side the same</p>
 <p>therefor $ \lambda == \bar \lambda $</p>
-<p>&lt;br&gt;</p>
+<br>
 <p>Orthonormal</p>
 <p>proof:</p>
 <ul>
-<li>no eigenvalues repeated</li>
+<li>
+<p>no eigenvalues repeated</p>
+</li>
+<li>
+<p>Allow repeated eigenvalues  ( ? Schur’s Theorem )</p>
+</li>
 </ul>
-<ul>
-<li>Allow repeated eigenvalues  ( ? Schur's Theorem )</li>
-</ul>
-<p>&lt;br&gt;</p>
+<br>
 <p>sum of rank one projection matrices</p>
-<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+... $</p>
-<p>$  = \lambda_1P_1 +\lambda_2P2+.... $</p>
-<p>&lt;br&gt;</p>
+<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+… $</p>
+<p>$  = \lambda_1P_1 +\lambda_2P2+… $</p>
+<br>
 <p>number of positive pivots == number of positive eigenvalues</p>
-<p>&lt;br&gt;</p>
+<br>
 <p>$ A = LDL^T $</p>
-<p>&lt;br&gt;</p>
-<h3>6.5 Positive Definite Matrices</h3>
+<br>
+<h3 id="65-positive-definite-matrices"><a class="markdownIt-Anchor" href="#65-positive-definite-matrices"></a> 6.5 Positive Definite Matrices</h3>
 <p>All λ &gt; 0</p>
-<p>&lt;br&gt;</p>
+<br>
 <p>quick way to test</p>
 <ol>
 <li>
@@ -461,9 +467,9 @@
 </ul>
 <p>$x^TAx $</p>
 <ul>
-<li>(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse  $ z = x^2/a^2 + y^2/b^2 $  )</li>
+<li>(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse  $ z = x<sup>2/a</sup>2 + y<sup>2/b</sup>2 $  )</li>
 </ul>
-<p>&lt;br&gt;</p>
+<br>
 <p>Application</p>
 <ol>
 <li>tilted ellipse $ x^TAx $</li>
@@ -472,18 +478,18 @@
 </ol>
 <p>axes: eigenvectors</p>
 <p>half-length: $ 1/\sqrt\lambda $</p>
-<h3>6.6 Similar Matrices</h3>
+<h3 id="66-similar-matrices"><a class="markdownIt-Anchor" href="#66-similar-matrices"></a> 6.6 Similar Matrices</h3>
 <p>DEF: A similar to B (A family)</p>
 <ul>
 <li>$ B = M^{-1}AM $</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Property:</p>
 <ul>
 <li>A and B have same eigenvalues</li>
 <li>x a eigenvector of A and $ M^{-1}x $ eigenvector of B</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Jordan Form</p>
 <ul>
 <li>triple eigenvalues while one eigenvector</li>
@@ -493,40 +499,40 @@
 <li>Jordan Block</li>
 <li>make A as simple as possible while preserving essential properties</li>
 </ul>
-<h3>6.7 Singular Value Decomposition</h3>
+<h3 id="67-singular-value-decomposition"><a class="markdownIt-Anchor" href="#67-singular-value-decomposition"></a> 6.7 Singular Value Decomposition</h3>
 <p>SUMMARY</p>
 <p>$ A = U \Sigma V^T $</p>
 <p>$ \Sigma^2 = \Lambda $ (of  $ A^TA $ and $ AA^T $ )</p>
 <p>$ U = Q $  (of $ AA^T $ in $ R^m $)</p>
 <p>$ V = Q $  (of $ A^TA $ in $ R^n $)</p>
-<p>&lt;br/&gt;</p>
-<p>orthonormal basis of row space {$ v_1, v_2, ... v_r $}</p>
-<p>orthonormal basis of null space{ $ v_{r+1}, v_{r+2},...v_n $}</p>
-<p>orthonormal basis of column space{ $ u_1, u_2,...u_r $}</p>
-<p>orthonormal basis of left null space { $ u_{r+1}, u_{r+2}, ... u_m $}</p>
-<p>&lt;br/&gt;</p>
-<p>Rotation -- Stretch -- Rotation</p>
+<br>
+<p>orthonormal basis of row space {$ v_1, v_2, … v_r $}</p>
+<p>orthonormal basis of null space{ $ v_{r+1}, v_{r+2},…v_n $}</p>
+<p>orthonormal basis of column space{ $ u_1, u_2,…u_r $}</p>
+<p>orthonormal basis of left null space { $ u_{r+1}, u_{r+2}, … u_m $}</p>
+<br>
+<p>Rotation – Stretch – Rotation</p>
 <p><img src="https://cdn.goushi.me/wp-content/uploads/2017/02/The-Geometry-of-the-SVD.png" alt="em"></p>
-<p>$ Av_1 = \sigma_1u_1 $ ...</p>
+<p>$ Av_1 = \sigma_1u_1 $ …</p>
 <p>so $ AV = U\Sigma $</p>
 <p>(m * n) * (n * n) = (m * m)* (m * n)</p>
 <p>$ V $ and $ U $ are orthogonal matrices</p>
 <p>$ \Sigma $  = ( old r*r $ \Sigma $ ) + (m-r zero rows) + ( n-r zero columns )</p>
-<p>therefore ...</p>
-<p>&lt;br/&gt;</p>
+<p>therefore …</p>
+<br>
 <p>when A positive definite symmetric</p>
 <p>$ A = U \Sigma V^T = Q\Lambda Q^{T} $</p>
-<h3>7.3 Diagonalization and the Pseudoinverse</h3>
+<h3 id="73-diagonalization-and-the-pseudoinverse"><a class="markdownIt-Anchor" href="#73-diagonalization-and-the-pseudoinverse"></a> 7.3 Diagonalization and the Pseudoinverse</h3>
 <p>change bases</p>
-<p>$ \Lambda <em>{ w -- w } = S^{-1}</em>{std -- w} A_{std} S_{ w -- std } $</p>
-<p>$ \Sigma <em>{ v -- u } = U^{-1}</em>{std -- u} A{std}V{v -- std} $</p>
+<p>$ \Lambda <em>{ w – w } = S^{-1}</em>{std – w} A_{std} S_{ w – std } $</p>
+<p>$ \Sigma <em>{ v – u } = U^{-1}</em>{std – u} A{std}V{v – std} $</p>
 <p>Polar Decomposition</p>
 <p>orthogonal and semidefinite</p>
 <p>rotation and stretching</p>
 <p>$ A = U\Sigma V^T = ( UV^T ) (V \Sigma V^T) = QH $</p>
 <p>Pseudoinverse</p>
 <p>$ A^+ = V\Sigma^+ U^T $</p>
-<p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-12-16%2020-13-46.png" alt="r-&amp;gt;c"></p>
+<p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-12-16%2020-13-46.png" alt="r-&gt;c"></p>
 <p><img src="https://cdn.goushi.me/wp-content/uploads/2017/02/The-Big-Picture-of-Pseudoinverse.png" alt="c--r"></p>
 
           
@@ -680,13 +686,13 @@
       
         
           
-            <h3>kuangbin专题四 最短路</h3>
+            <h3 id="kuangbin专题四-最短路"><a class="markdownIt-Anchor" href="#kuangbin专题四-最短路"></a> kuangbin专题四 最短路</h3>
 <p>ACM图论存图方式</p>
-<p>http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/</p>
-<h3>单源最短路</h3>
-<h4>Dijkstra</h4>
+<p><a href="http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">http://jzqt.github.io/2015/07/21/ACM图论之存图方式/</a></p>
+<h3 id="单源最短路"><a class="markdownIt-Anchor" href="#单源最短路"></a> 单源最短路</h3>
+<h4 id="dijkstra"><a class="markdownIt-Anchor" href="#dijkstra"></a> Dijkstra</h4>
 <p>​	$ O(V^2 + E) $</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -746,10 +752,10 @@
 <span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h4>Dijkstra + STL priority_queue</h4>
+</pre></td></tr></table></figure>
+<h4 id="dijkstra-stl-priority_queue"><a class="markdownIt-Anchor" href="#dijkstra-stl-priority_queue"></a> Dijkstra + STL priority_queue</h4>
 <p>​	$ O((V+E)lgV) $</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -831,10 +837,10 @@
 <span class="line">        &#125;</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h4>SPFA (Shortest Path Faster Algorithm)</h4>
+</pre></td></tr></table></figure>
+<h4 id="spfa-shortest-path-faster-algorithm"><a class="markdownIt-Anchor" href="#spfa-shortest-path-faster-algorithm"></a> SPFA (Shortest Path Faster Algorithm)</h4>
 <p>​	$ O(kE) $ ( k &lt; 2 )</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -930,9 +936,9 @@
 <span class="line"></span>
 <span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -964,10 +970,10 @@
 <span class="line">    vis[ u ] = <span class="literal">false</span>;</span>
 <span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h4>Bellman-Ford</h4>
+</pre></td></tr></table></figure>
+<h4 id="bellman-ford"><a class="markdownIt-Anchor" href="#bellman-ford"></a> Bellman-Ford</h4>
 <p>​	$ O(VE) $</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1033,15 +1039,15 @@
 <span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span>
 <span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h4>适用场景</h4>
+</pre></td></tr></table></figure>
+<h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
 <p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
 <p>对于极端的链状图，SPFA无疑是最合适的了。每个结只进队一次，标准的O(E)。</p>
 <p>朴素的dijkstra对于这样的图就力不从心了：每次循环都过一遍结点，在松弛，然后发现每次O(V)的时间只松弛了一个点。</p>
 <p>​</p>
-<h4>多源最短路</h4>
-<h4>Floyd</h4>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h4 id="多源最短路"><a class="markdownIt-Anchor" href="#多源最短路"></a> 多源最短路</h4>
+<h4 id="floyd"><a class="markdownIt-Anchor" href="#floyd"></a> Floyd</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1069,8 +1075,8 @@
 <span class="line">                dis[ i ][ j ] = dis[ i ][ j ] || ( dis[ i ][ k ] &amp;&amp; dis[ k ][ j ] );</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h4>题目列表</h4>
+</pre></td></tr></table></figure>
+<h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
 <p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
 <blockquote>
 <p>一个农场有n (1000)个点，有t (2000)条道路连接,  从n到1最短</p>
@@ -1162,14 +1168,14 @@
 <p>网络流，不会qwq</p>
 <p><strong>R - 0 or 1 HDU - 4370</strong></p>
 <blockquote>
-<p>X12+X13+...X1n=1,X1n+X2n+...Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
+<p>X12+X13+…X1n=1,X1n+X2n+…Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
 </blockquote>
 <p>神一样的建图！！节点1的出度为1.节点n的入度为1.节点2-n-1的入度和出度相等.</p>
 <p>问题就相当于求一条最短路，从节点1出发，到节点N.</p>
 <p>同时节点1的一个最小环+节点n的一个最小环也是可行解，两者取最小</p>
 <p><strong>S - Layout POJ - 3169</strong></p>
 <blockquote>
-<p>两点间可能&lt;= x 或者&gt;=x，求1--&gt;n最大</p>
+<p>两点间可能&lt;= x 或者&gt;=x，求1–&gt;n最大</p>
 </blockquote>
 <p>差分约束，和最短路一样，SPFA判断负环则代表不存在可行解</p>
 
@@ -1303,26 +1309,26 @@
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2>Quick Start</h2>
-<h3>Create a new post</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
+<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3>Run server</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">$ hexo server</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3>Generate static files</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">$ hexo generate</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3>Deploy to remote sites</h3>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">$ hexo deploy</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
@@ -1502,7 +1508,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
 
 
 
@@ -1601,13 +1607,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
 
   
 
