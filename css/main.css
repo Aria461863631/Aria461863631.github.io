@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #66f47d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2658,4 +2658,11 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.header {
+  background-image: url("/images/hahah.jpg");
+  background-size: 100% 100%;
+}
+.header-inner {
+  position: relative;
 }
