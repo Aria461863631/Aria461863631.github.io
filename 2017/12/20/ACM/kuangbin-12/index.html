@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int dp[ N ], val[ N ];  int LIS ( int n ) &amp;#123">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-20T05:37:31.684Z">
+<meta property="og:updated_time" content="2017-12-20T05:41:30.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题十二 基础DP">
 <meta name="twitter:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int dp[ N ], val[ N ];  int LIS ( int n ) &amp;#123">
@@ -599,13 +599,13 @@
 </blockquote>
 <p>15个作业状态压缩来做</p>
 <p>枚举每一个状态，枚举每个状态新增的那个节点，再计算最小并记录前一个状态</p>
-<p>**E - Super Jumping! Jumping! Jumping! HDU - 1087 **</p>
+<p><strong>E - Super Jumping! Jumping! Jumping! HDU - 1087</strong></p>
 <blockquote>
 <p>从起点到达终点，只能前行不能后退，且下一步必须比前面的点的值大，求所有走的点的值总和最大是多少。</p>
 </blockquote>
 <p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;<br>
 最大递增子串和。</p>
-<p>**F - Piggy-Bank HDU - 1114 **</p>
+<p><strong>F - Piggy-Bank HDU - 1114</strong></p>
 <blockquote>
 <p>给出存钱罐本身的重量和装钱后的重量，以及存钱罐中钱的面值和重量，求存钱罐装满时，钱的总和最小是多少</p>
 </blockquote>
@@ -621,7 +621,7 @@
 <p>单张或两张一起买，给出一个一个买票和两个两个买票的时间，求最少</p>
 </blockquote>
 <p>dp[ i ] = min ( dp[ i - 1 ] + s[ i ], dp[ i - 2 ] + d[ i - 1 ] );</p>
-<p>**I - 最少拦截系统 HDU - 1257 **</p>
+<p><strong>I - 最少拦截系统 HDU - 1257</strong></p>
 <blockquote>
 <p>求有多少个递减序列</p>
 </blockquote>
@@ -644,41 +644,41 @@
 <p>LCS</p>
 </blockquote>
 <p>LCS模板</p>
-<p>**M - Help Jimmy POJ - 1661 **</p>
+<p><strong>M - Help Jimmy POJ - 1661</strong></p>
 <blockquote>
 <p>老鼠在时刻0从高于所有平台的某处开始下落.当Jimmy落到某个平台上时，游戏者选择让它向左还是向右跑.当Jimmy跑到平台的边缘时，开始继续下落。Jimmy每次下落的高度不能超过MAX</p>
 </blockquote>
 <p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)<br>
 dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右右取最小)</p>
-<p>**N - Longest Ordered Subsequence POJ - 2533 **</p>
+<p><strong>N - Longest Ordered Subsequence POJ - 2533</strong></p>
 <blockquote>
 <p>LIS</p>
 </blockquote>
 <p>LIS模板</p>
-<p>**O - Treats for the Cows POJ - 3186 **</p>
+<p><strong>O - Treats for the Cows POJ - 3186</strong></p>
 <blockquote>
 <p>n个数在一个双端队列中，每次从队首或队尾出。出的第n个数乘以n，最后加起来，求最大和。</p>
 </blockquote>
 <p>dp[i][j] 代表从i取到j的最大总数<br>
 dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
-<p>**P - FatMouse and Cheese HDU - 1078 **</p>
+<p><strong>P - FatMouse and Cheese HDU - 1078</strong></p>
 <blockquote>
 <p>给定一幅图，每个点有一定权值，现在有一只老鼠在起始点（0,0），他能水平或者垂直移动1~k格之后，停在某点并获得权值，而且每次移动后所在的点，都要比刚离开的那个点的权值更大，求最多能获得多少权值。</p>
 </blockquote>
 <p>DP / Memoized</p>
 <p>dp[ x ][ y ] = dp[ xx ][ yy ] + val[ x ][ y ]</p>
-<p>**Q - Phalanx HDU - 2859 **</p>
+<p><strong>Q - Phalanx HDU - 2859</strong></p>
 <blockquote>
 <p>给了一个字符串矩阵，求以次对角线方向对称的最大对称矩阵。</p>
 </blockquote>
 <p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。<br>
 dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
-<p>**R - Milking Time POJ - 3616 **</p>
+<p><strong>R - Milking Time POJ - 3616</strong></p>
 <blockquote>
 <p>奶牛Bessie在0~N时间段产奶。农夫约翰有M个时间段可以挤奶，时间段f,t内Bessie能挤到的牛奶量e。奶牛产奶后需要休息R小时才能继续下一次产奶，求Bessie最大的挤奶量。</p>
 </blockquote>
 <p>dp[ i ] = max ( dp[ j ] + node[ i ].val, dp[ i ] ) ( node[ j ].ed &lt;= node[ i ].st  )</p>
-<p>**S - Making the Grade POJ - 3666 **</p>
+<p><strong>S - Making the Grade POJ - 3666</strong></p>
 <blockquote>
 <p>农夫约翰想修一条尽量平缓的路，路的每一段海拔是A_i，修理后是B_i，花费|A_i – B_i|，求最小花费。</p>
 </blockquote>
