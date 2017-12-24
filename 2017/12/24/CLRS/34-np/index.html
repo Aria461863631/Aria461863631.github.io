@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CLRS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as ha">
+<meta name="keywords" content="CLRS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CLRS-ch34] NP-Completeness">
+<meta property="og:url" content="http://yoursite.com/2017/12/24/CLRS/34-np/index.html">
+<meta property="og:site_name" content="Aria">
+<meta property="og:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
+<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif">
+<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif">
+<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif">
+<meta property="og:updated_time" content="2017-12-24T02:00:31.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
+<meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta name="twitter:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/24/CLRS/34-np/"/>
+
+
+
+
+
+  <title>[CLRS-ch34] NP-Completeness | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aria</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">あなたには僕が見えるが?</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/CLRS/34-np/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[CLRS-ch34] NP-Completeness</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-24T09:58:47+08:00">
+                2017-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CLRS/" itemprop="url" rel="index">
+                    <span itemprop="name">CLRS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/24/CLRS/34-np/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/24/CLRS/34-np/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="clrs-ch34-np-completeness"><a class="markdownIt-Anchor" href="#clrs-ch34-np-completeness"></a> CLRS-ch34 NP-Completeness</h2>
+<h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
+<p>class P</p>
+<ul>
+<li>solvable in polynomial time</li>
+</ul>
+<p>class NP</p>
+<ul>
+<li>problems are verifiable in polynomial time</li>
+</ul>
+<p>class NPC</p>
+<ul>
+<li>it is in NP and is as hard as any problem in NP</li>
+<li>decision problems</li>
+<li>reductions</li>
+<li>the first NP-complete problem</li>
+</ul>
+<h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
+<p>Abstract Problems</p>
+<ul>
+<li>a binary relation on a set I of instances and a set S of solutions</li>
+</ul>
+<p>Encodings</p>
+<ul>
+<li>In order to solve abstract problems, represent problem instances in a way program understands</li>
+<li>a mapping e from S to the set of binary strings</li>
+<li>Abstract Pro–&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</li>
+<li>polynomial related</li>
+</ul>
+<p>Polynomial time solvable</p>
+<ul>
+<li>exist an algorithm to solve a concrete problem in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>extend the definition from concrete to abstract by using encoding as bridge</li>
+</ul>
+<p>A formal language framework</p>
+<ul>
+<li>alphabet $\Sigma $ a finite set of symbols { 0,1 }</li>
+<li>language L over Σ is any set of strings made up of symbols from Σ { 10, 11, 101 … }</li>
+<li>$ \Sigma ^* $ the language of all strings over Σ</li>
+</ul>
+<p>view instances for any decision problems Q as a language L over Σ = { 0 ,1 }</p>
+<p>Accepted</p>
+<ul>
+<li>
+<p>The language L accepted by an algorithm A $ L = { x \in {0,1}^* : A(x) = 1 }$</p>
+</li>
+<li>
+<p>Reject : A(x) = 0</p>
+</li>
+<li>
+<p>may runs forever if doesn’t accept</p>
+</li>
+</ul>
+<p>Decided</p>
+<ul>
+<li>The language L decided by an algorithm A</li>
+<li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
+<li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
+</ul>
+<p><strong>Complexity class P</strong></p>
+<p>$ P = { L \subseteq { 0, 1}^* $: exists an algorithm A that decides L in polynomial time <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></p>
+<h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
+<p>algorithms verify membership from a certificate in languages</p>
+<p>Verified</p>
+<ul>
+<li>The language L verified by an algorithm A $ L = { x \in { 0, 1 }^* : $ there exist $ y \in { 0,1 }^* $ such that A( x,y ) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></li>
+</ul>
+<p><strong>Complexity class NP</strong></p>
+<p>$ NP = { L \subseteq { 0, 1 }^* : $  $L = { x \in { 0,1}^* : $ there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo><mo>}</mo></mrow><annotation encoding="application/x-tex">\}\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span><span class="mclose">}</span></span></span></span></p>
+<p>$P \subseteq NP $</p>
+<p><strong>Complexity class co-NP</strong></p>
+<ul>
+<li>set of languages L such that $\bar L \in NP $</li>
+</ul>
+<p>Four possibilities for relationship among complexity class</p>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
+<h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
+<p><strong>Reducibility</strong></p>
+<ul>
+<li>if Q – &gt; reduce --&gt; Q’ , Q is “no harder to solve” than Q’</li>
+<li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
+</ul>
+<p><strong>NP-completeness</strong></p>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L  \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><msub><mo>≤</mo><mi>p</mi></msub><mi>L</mi></mrow><annotation encoding="application/x-tex">L&#x27; \le_p L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.038em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel"><span class="mrel">≤</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">p</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">L</span></span></span></span> for every <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L&#x27; \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:0.790992em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>. (hardest)</li>
+</ol>
+<p><strong>Theorem 34.4</strong></p>
+<ul>
+<li>If any NP-complete problem is polynomial time solvable, then <strong>P = NP</strong></li>
+<li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
+</ul>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
+<p><strong>Circuit satisfiability</strong></p>
+<p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
+<p>34.5 belongs to NP</p>
+<p>34.6 NP-hard</p>
+<ul>
+<li>basic idea : represent the computation of A(algorithm verify L) as a sequence of configurations.</li>
+<li>Each configuration is mapped to the next configuration by a boolean combinational circuit M. The output is a distinguished bit in the working storage.</li>
+<li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
+<li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
+</ul>
+<h4 id="345-np-complete-problems"><a class="markdownIt-Anchor" href="#345-np-complete-problems"></a> 34.5 NP-complete problems</h4>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CLRS/" rel="tag"><i class="fa fa-tag"></i> CLRS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/20/ACM/kuangbin-12/" rel="next" title="kuangbin专题十二 基础DP">
+                <i class="fa fa-chevron-left"></i> kuangbin专题十二 基础DP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/Break.png"
+                alt="Aria" />
+            
+              <p class="site-author-name" itemprop="name">Aria</p>
+              <p class="site-description motion-element" itemprop="description">This guy is so lazy that he left nothing</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="xukundalian@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clrs-ch34-np-completeness"><span class="nav-number">1.</span> <span class="nav-text"> CLRS-ch34 NP-Completeness</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#intro"><span class="nav-number">1.0.1.</span> <span class="nav-text"> Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#341-polynomial-time"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 34.1 Polynomial time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#342-polynomial-time-verification"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 34.2 Polynomial-time verification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#343-np-completeness-and-reducibility"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 34.3 NP-completeness and reducibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#345-np-complete-problems"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 34.5 NP-complete problems</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aria</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Aria.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/12/24/CLRS/34-np/';
+          this.page.identifier = '2017/12/24/CLRS/34-np/';
+          this.page.title = '[CLRS-ch34] NP-Completeness';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Aria.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+

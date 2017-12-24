@@ -252,6 +252,263 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/CLRS/34-np/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/24/CLRS/34-np/" itemprop="url">[CLRS-ch34] NP-Completeness</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-24T09:58:47+08:00">
+                2017-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CLRS/" itemprop="url" rel="index">
+                    <span itemprop="name">CLRS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/24/CLRS/34-np/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/24/CLRS/34-np/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="clrs-ch34-np-completeness"><a class="markdownIt-Anchor" href="#clrs-ch34-np-completeness"></a> CLRS-ch34 NP-Completeness</h2>
+<h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
+<p>class P</p>
+<ul>
+<li>solvable in polynomial time</li>
+</ul>
+<p>class NP</p>
+<ul>
+<li>problems are verifiable in polynomial time</li>
+</ul>
+<p>class NPC</p>
+<ul>
+<li>it is in NP and is as hard as any problem in NP</li>
+<li>decision problems</li>
+<li>reductions</li>
+<li>the first NP-complete problem</li>
+</ul>
+<h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
+<p>Abstract Problems</p>
+<ul>
+<li>a binary relation on a set I of instances and a set S of solutions</li>
+</ul>
+<p>Encodings</p>
+<ul>
+<li>In order to solve abstract problems, represent problem instances in a way program understands</li>
+<li>a mapping e from S to the set of binary strings</li>
+<li>Abstract Pro–&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</li>
+<li>polynomial related</li>
+</ul>
+<p>Polynomial time solvable</p>
+<ul>
+<li>exist an algorithm to solve a concrete problem in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>extend the definition from concrete to abstract by using encoding as bridge</li>
+</ul>
+<p>A formal language framework</p>
+<ul>
+<li>alphabet $\Sigma $ a finite set of symbols { 0,1 }</li>
+<li>language L over Σ is any set of strings made up of symbols from Σ { 10, 11, 101 … }</li>
+<li>$ \Sigma ^* $ the language of all strings over Σ</li>
+</ul>
+<p>view instances for any decision problems Q as a language L over Σ = { 0 ,1 }</p>
+<p>Accepted</p>
+<ul>
+<li>
+<p>The language L accepted by an algorithm A $ L = { x \in {0,1}^* : A(x) = 1 }$</p>
+</li>
+<li>
+<p>Reject : A(x) = 0</p>
+</li>
+<li>
+<p>may runs forever if doesn’t accept</p>
+</li>
+</ul>
+<p>Decided</p>
+<ul>
+<li>The language L decided by an algorithm A</li>
+<li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
+<li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
+</ul>
+<p><strong>Complexity class P</strong></p>
+<p>$ P = { L \subseteq { 0, 1}^* $: exists an algorithm A that decides L in polynomial time <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></p>
+<h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
+<p>algorithms verify membership from a certificate in languages</p>
+<p>Verified</p>
+<ul>
+<li>The language L verified by an algorithm A $ L = { x \in { 0, 1 }^* : $ there exist $ y \in { 0,1 }^* $ such that A( x,y ) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></li>
+</ul>
+<p><strong>Complexity class NP</strong></p>
+<p>$ NP = { L \subseteq { 0, 1 }^* : $  $L = { x \in { 0,1}^* : $ there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo><mo>}</mo></mrow><annotation encoding="application/x-tex">\}\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span><span class="mclose">}</span></span></span></span></p>
+<p>$P \subseteq NP $</p>
+<p><strong>Complexity class co-NP</strong></p>
+<ul>
+<li>set of languages L such that $\bar L \in NP $</li>
+</ul>
+<p>Four possibilities for relationship among complexity class</p>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
+<h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
+<p><strong>Reducibility</strong></p>
+<ul>
+<li>if Q – &gt; reduce --&gt; Q’ , Q is “no harder to solve” than Q’</li>
+<li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
+</ul>
+<p><strong>NP-completeness</strong></p>
+<ol>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L  \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><msub><mo>≤</mo><mi>p</mi></msub><mi>L</mi></mrow><annotation encoding="application/x-tex">L&#x27; \le_p L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.038em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel"><span class="mrel">≤</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">p</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">L</span></span></span></span> for every <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L&#x27; \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:0.790992em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>. (hardest)</li>
+</ol>
+<p><strong>Theorem 34.4</strong></p>
+<ul>
+<li>If any NP-complete problem is polynomial time solvable, then <strong>P = NP</strong></li>
+<li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
+</ul>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
+<p><strong>Circuit satisfiability</strong></p>
+<p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
+<p>34.5 belongs to NP</p>
+<p>34.6 NP-hard</p>
+<ul>
+<li>basic idea : represent the computation of A(algorithm verify L) as a sequence of configurations.</li>
+<li>Each configuration is mapped to the next configuration by a boolean combinational circuit M. The output is a distinguished bit in the working storage.</li>
+<li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
+<li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
+</ul>
+<h4 id="345-np-complete-problems"><a class="markdownIt-Anchor" href="#345-np-complete-problems"></a> 34.5 NP-complete problems</h4>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/ACM/kuangbin-12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1897,7 +2154,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1908,7 +2165,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -1919,7 +2176,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
