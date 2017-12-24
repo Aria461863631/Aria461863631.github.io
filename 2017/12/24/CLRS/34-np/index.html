@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif">
-<meta property="og:updated_time" content="2017-12-24T02:09:48.111Z">
+<meta property="og:updated_time" content="2017-12-24T02:16:30.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
 <meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
@@ -407,7 +407,7 @@
 <p>Accepted</p>
 <ul>
 <li>
-<p>The language L accepted by an algorithm A $ L = { x \in {0,1}^* : A(x) = 1 }$</p>
+<p>The language L accepted by an algorithm A $ L = { x \in {0,1}^* : A(x) = 1 } $</p>
 </li>
 <li>
 <p>Reject : A(x) = 0</p>
@@ -423,19 +423,19 @@
 <li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
 </ul>
 <p><strong>Complexity class P</strong></p>
-<p>$ P = { L \subseteq { 0, 1}^*$: exists an algorithm A that decides L in polynomial time <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></p>
+<p>$ P = { L \subseteq { 0, 1}^* $ : exists an algorithm A that decides L in polynomial time <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></p>
 <h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
 <p>algorithms verify membership from a certificate in languages</p>
 <p>Verified</p>
 <ul>
-<li>The language L verified by an algorithm A $ L = { x \in { 0, 1 }^* 😒 there exist $ y \in { 0,1 }^* $ such that A( x,y ) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo></mrow><annotation encoding="application/x-tex">\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span></span></span></span></li>
+<li>The language L verified by an algorithm A $ L = { x \in { 0, 1 }^* $ : there exist $ y \in { 0,1 }^* $ such that A( x,y ) = 1 $ } $</li>
 </ul>
 <p><strong>Complexity class NP</strong></p>
-<p>$ NP = { L \subseteq { 0, 1 }^* 😒  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>∈</mo><mo>{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><msup><mo>}</mo><mo>∗</mo></msup><mo>:</mo></mrow><annotation encoding="application/x-tex">L = \{ x \in \{ 0,1\}^* :</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mrel">=</span><span class="mopen">{</span><span class="mord mathit">x</span><span class="mrel">∈</span><span class="mopen">{</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mclose"><span class="mclose">}</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord">∗</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">:</span></span></span></span> there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>}</mo><mo>}</mo></mrow><annotation encoding="application/x-tex">\}\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mclose">}</span><span class="mclose">}</span></span></span></span></p>
+<p>$ NP = { L \subseteq { 0, 1 }^* $ :  $ L = { x \in { 0,1}^* $ : there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 $ }} $</p>
 <p>$P \subseteq NP $</p>
 <p><strong>Complexity class co-NP</strong></p>
 <ul>
-<li>set of languages L such that $\bar L \in NP $</li>
+<li>set of languages L such that $ \bar L \in NP $</li>
 </ul>
 <p>Four possibilities for relationship among complexity class</p>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
@@ -447,8 +447,8 @@
 </ul>
 <p><strong>NP-completeness</strong></p>
 <ol>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L  \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span></li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><msub><mo>≤</mo><mi>p</mi></msub><mi>L</mi></mrow><annotation encoding="application/x-tex">L&#x27; \le_p L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.038em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel"><span class="mrel">≤</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">p</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit">L</span></span></span></span> for every <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>L</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><mo>∈</mo><mi>N</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">L&#x27; \in NP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:0.790992em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">L</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">∈</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>. (hardest)</li>
+<li>$ L  \in NP $</li>
+<li>$ L’ \le_p L $ for every $ L’ \in NP $. (hardest)</li>
 </ol>
 <p><strong>Theorem 34.4</strong></p>
 <ul>
