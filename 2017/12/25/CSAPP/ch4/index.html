@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSAPP," />
 
 
 
@@ -79,17 +79,24 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+<meta name="description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program regist">
+<meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/12/03/hello-world/index.html">
+<meta property="og:title" content="[CS:APP-ch4] Processor Architecture">
+<meta property="og:url" content="http://yoursite.com/2017/12/25/CSAPP/ch4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic">
+<meta property="og:description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-07T15:18:53.053Z">
+<meta property="og:image" content="http://p.blog.csdn.net/images/p_blog_csdn_net/RichardYSteven/EntryImages/20100104/y86%20visible.JPG">
+<meta property="og:image" content="https://y86tutoring.files.wordpress.com/2012/10/y86-instructions-linked1.png">
+<meta property="og:image" content="http://slideplayer.com/slide/8881654/26/images/52/SEQ+Hardware+Key+Blue+boxes:+predesigned+hardware+blocks.jpg">
+<meta property="og:image" content="http://oohcode.com/assets/img/csapp/fig4.25.png">
+<meta property="og:image" content="http://oohcode.com/assets/img/csapp/fig4.33.png">
+<meta property="og:updated_time" content="2017-12-25T05:35:11.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic">
+<meta name="twitter:title" content="[CS:APP-ch4] Processor Architecture">
+<meta name="twitter:description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory">
+<meta name="twitter:image" content="http://p.blog.csdn.net/images/p_blog_csdn_net/RichardYSteven/EntryImages/20100104/y86%20visible.JPG">
 
 
 
@@ -119,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/03/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/25/CSAPP/ch4/"/>
 
 
 
 
 
-  <title>Hello World | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[CS:APP-ch4] Processor Architecture | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -252,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/CSAPP/ch4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -269,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">[CS:APP-ch4] Processor Architecture</h1>
         
 
         <div class="post-meta">
@@ -281,8 +288,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-03T14:30:45+08:00">
-                2017-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T13:33:51+08:00">
+                2017-12-25
               </time>
             
 
@@ -292,6 +299,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -300,9 +329,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/03/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/25/CSAPP/ch4/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/03/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/25/CSAPP/ch4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -335,28 +364,103 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span>
-</pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">$ hexo server</span>
-</pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">$ hexo generate</span>
-</pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">$ hexo deploy</span>
-</pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="csapp-ch4-processor-architecture"><a class="markdownIt-Anchor" href="#csapp-ch4-processor-architecture"></a> CS:APP-ch4 Processor Architecture</h2>
+<p>ISA --&gt; SEQ --&gt; PIPE</p>
+<h4 id="41-the-y86-64-instruction-set-architecture-isa"><a class="markdownIt-Anchor" href="#41-the-y86-64-instruction-set-architecture-isa"></a> 4.1 The Y86-64 Instruction Set Architecture (ISA)</h4>
+<p>Programmer-Visible State</p>
+<ul>
+<li>Program registers</li>
+<li>Condition codes</li>
+<li>Program Counter(PC)</li>
+<li>Memory</li>
+<li>Status code</li>
+</ul>
+<p><img src="http://p.blog.csdn.net/images/p_blog_csdn_net/RichardYSteven/EntryImages/20100104/y86%20visible.JPG" alt=""></p>
+<p>Y86-64 Instructions</p>
+<ol>
+<li>type: code function</li>
+<li>register specifier bytes: rA rB</li>
+<li>additional 8-byte constant word: immediate data, displacement, destination</li>
+</ol>
+<p><img src="https://y86tutoring.files.wordpress.com/2012/10/y86-instructions-linked1.png" alt=""></p>
+<p>Aside RISC &amp; CISC</p>
+<ul>
+<li>
+<p>Y86-64 include both</p>
+</li>
+<li>
+<p>CISC: condition codes, variable length instructions, stack to store return address</p>
+</li>
+<li>
+<p>RISC: use load/store architecture and regular instruction encoding, pass argument through registers</p>
+</li>
+</ul>
+<h4 id="42-logical-design-and-the-hardware-control-language-hcl"><a class="markdownIt-Anchor" href="#42-logical-design-and-the-hardware-control-language-hcl"></a> 4.2 Logical Design and the Hardware Control Language HCL</h4>
+<h4 id="43-sequential-y86-64-implementations"><a class="markdownIt-Anchor" href="#43-sequential-y86-64-implementations"></a> 4.3 Sequential Y86-64 Implementations</h4>
+<p><strong>Organizing processing into stages</strong></p>
+<ul>
+<li>Fetch: icode, ifun, valC = 8-byte constant, valP = next PC</li>
+<li>Decode: register valA = rA valB = rB</li>
+<li>Execute: valE = valA OP valB, CC</li>
+<li>Memory: valM = read/write from memory</li>
+<li>Write back: two result to register file</li>
+<li>PC Update: PC = valP</li>
+</ul>
+<p><strong>SEQ Hardware Structure</strong></p>
+<p><img src="http://slideplayer.com/slide/8881654/26/images/52/SEQ+Hardware+Key+Blue+boxes:+predesigned+hardware+blocks.jpg" alt=""></p>
+<p><strong>SEQ Timing</strong></p>
+<p>SEQ:</p>
+<ul>
+<li>combinational logic</li>
+<li>two memory devices
+<ol>
+<li>clocked register ( PC, CC reg )</li>
+<li>random access memory ( register file, instruction memory, data memory )</li>
+</ol>
+</li>
+</ul>
+<p>Combinational logic does not require sequencing or control</p>
+<p>Instruction memory read only therefore also not required</p>
+<p>Required explicit control over sequencing</p>
+<ul>
+<li>Program Counter: loaded with new instruction address every clock cycle</li>
+<li>Condition Code register: loaded when integer operation</li>
+<li>register file: two ports, allow two program registers be updated on every cycle</li>
+<li>data memory: written only when rmmovq, pushq, call is executed</li>
+</ul>
+<p>PRINCIPLE</p>
+<p>never need to read back the state updated by an instruction in order to complete this instruction</p>
+<p>states are loaded during the start of next cycle</p>
+<p><img src="http://oohcode.com/assets/img/csapp/fig4.25.png" alt=""></p>
+<h4 id="44-general-principle-of-pipelining"><a class="markdownIt-Anchor" href="#44-general-principle-of-pipelining"></a> 4.4 General Principle of Pipelining</h4>
+<p>Throughput: number of instructions served per unit time</p>
+<p>Latency: Total time required to perform a single instruction from beginning to end</p>
+<p><img src="http://oohcode.com/assets/img/csapp/fig4.33.png" alt=""></p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Nonuniform partitioning ( 每个part的执行时间不同造成delay )</li>
+<li>Diminishing Returns of Deep Pipelining (分太多了)</li>
+<li>Feedback (下一条指令要等上一条执行完)</li>
+</ul>
+<h4 id="45-pipelined-y86-64-implementations"><a class="markdownIt-Anchor" href="#45-pipelined-y86-64-implementations"></a> 4.5 Pipelined Y86-64 Implementations</h4>
+<p>SEQ+</p>
+<ul>
+<li>PC update stage comes at the beginning</li>
+</ul>
+<p>PIPE-</p>
+<ul>
+<li>insert registers</li>
+</ul>
+<p>Rearranging and Relabeling Signals</p>
+<p>Next PC Prediction</p>
+<p><strong>Pipeline Hazard</strong></p>
+<ul>
+<li>stalling</li>
+<li>forwarding</li>
+<li>load/use data hazard</li>
+<li>control hazard</li>
+<li>exception</li>
+</ul>
 
       
     </div>
@@ -372,6 +476,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CSAPP/" rel="tag"><i class="fa fa-tag"></i> CSAPP</a>
+          
+        </div>
+      
 
       
       
@@ -381,14 +491,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/24/CLRS/34-np/" rel="next" title="[CLRS-ch34] NP-Completeness">
+                <i class="fa fa-chevron-left"></i> [CLRS-ch34] NP-Completeness
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/10/ACM/kuangbin-4/" rel="prev" title="kuangbin专题四 最短路">
-                kuangbin专题四 最短路 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/27/CSAPP/ch-6/" rel="prev" title="[CS:APP-ch6] The Memory Hierarchy">
+                [CS:APP-ch6] The Memory Hierarchy <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -551,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#quick-start"><span class="nav-number">1.</span> <span class="nav-text"> Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text"> Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run-server"><span class="nav-number">1.2.</span> <span class="nav-text"> Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text"> Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text"> Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch4-processor-architecture"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP-ch4 Processor Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#41-the-y86-64-instruction-set-architecture-isa"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 4.1 The Y86-64 Instruction Set Architecture (ISA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#42-logical-design-and-the-hardware-control-language-hcl"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 4.2 Logical Design and the Hardware Control Language HCL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43-sequential-y86-64-implementations"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 4.3 Sequential Y86-64 Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#44-general-principle-of-pipelining"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 4.4 General Principle of Pipelining</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#45-pipelined-y86-64-implementations"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 4.5 Pipelined Y86-64 Implementations</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -743,9 +857,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/03/hello-world/';
-          this.page.identifier = '2017/12/03/hello-world/';
-          this.page.title = 'Hello World';
+          this.page.url = 'http://yoursite.com/2017/12/25/CSAPP/ch4/';
+          this.page.identifier = '2017/12/25/CSAPP/ch4/';
+          this.page.title = '[CS:APP-ch4] Processor Architecture';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Aria.disqus.com/embed.js';

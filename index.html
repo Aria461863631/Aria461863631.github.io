@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/CSAPP/CS:APP-ch4 Processor Architecture/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/CSAPP/ch-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -271,7 +271,327 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/25/CSAPP/CS:APP-ch4 Processor Architecture/" itemprop="url">[CS:APP-ch4] Processor Architecture</a></h1>
+                <a class="post-title-link" href="/2017/12/27/CSAPP/ch-6/" itemprop="url">[CS:APP-ch6] The Memory Hierarchy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-27T20:29:51+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/27/CSAPP/ch-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/27/CSAPP/ch-6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="csapp-ch-6-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#csapp-ch-6-the-memory-hierarchy"></a> CS:APP ch-6 The Memory Hierarchy</h2>
+<h4 id="61-storage-technologies"><a class="markdownIt-Anchor" href="#61-storage-technologies"></a> 6.1 Storage Technologies</h4>
+<p>SRAM</p>
+<ul>
+<li><strong>cache</strong>, transistor, stable, fast, expensive</li>
+</ul>
+ <br>
+<p>DRAM</p>
+<ul>
+<li><strong>main memory</strong>,  capacitor, sensitive( periodically refresh every bit )</li>
+<li>d * w cells --&gt; d supercells  == r rows * c columns ( two dimension array )</li>
+<li>data pins ( w bits ) &amp; addr pins ( row addr i, column addr j )</li>
+<li>Memory modules: Each supercell stores 11 byte. Each address represent by 8 supercells</li>
+<li>Enhanced DRAM</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140704131022875" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140704131344546" alt=""></p>
+<br>
+<p>Nonvolatile Memory ( ROM )</p>
+<ul>
+<li>
+<p>retain information even when they’re powered off</p>
+</li>
+<li>
+<p>Flash memory ( erasable programmable ROM )</p>
+</li>
+<li>
+<p>firmware: programs stored in ROM</p>
+ <br>
+</li>
+</ul>
+<p>Accessing Main Memory</p>
+<ul>
+<li>I/O bridge: translate signals</li>
+</ul>
+<br>
+<p>Disk</p>
+<ul>
+<li>
+<p>platter --&gt; surface --&gt; track --&gt; sectors</p>
+<p><img src="http://img.blog.csdn.net/20140704134951375" alt=""></p>
+</li>
+<li>
+<p>Logical Disk Blocks: hide complexity from OS</p>
+</li>
+<li>
+<p>disk controller: maintains mapping between logical block number and physical disk sectors</p>
+</li>
+<li>
+<p>I/O devices: USB, graphics card, host bus adapter</p>
+</li>
+<li>
+<p>I/O bus: connect disks to CPU and main memory, independent under CPU</p>
+</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140704150817828" alt=""></p>
+<p>Accessing Disk</p>
+<ul>
+<li>Memory mapped I/O: a block of addresses in the address space is reserved for communicating with I/O devices. Each of these address is known as an I/O <strong>port</strong>. Each device associated with one or more ports.</li>
+<li>CPU read disk
+<ol>
+<li>initiate a read</li>
+<li>indicate logical block number that should be read</li>
+<li>indicate main memory address to store disk sector</li>
+<li>do other work</li>
+</ol>
+</li>
+<li>Disk controller receives the read command
+<ol>
+<li>translates logical block number to sector address</li>
+<li>read content</li>
+<li>transfer content directly to main memory ( DMA )</li>
+<li>send a interrupt signal to CPU</li>
+</ol>
+</li>
+<li>CPU returns control to the point where interrupted</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140704152101593" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140704152111687" alt=""></p>
+<p>Solid State Disk</p>
+<ul>
+<li>A page can be written only after the entire block it belongs to has erased</li>
+<li>A block wears out after roughly 100, 000 repeated writes</li>
+<li>Advantage: semiconductor, faster, use less power, more rugged</li>
+<li>Disadvantage: potential to wear out, expensive</li>
+</ul>
+<br>
+<h4 id="62-locality"><a class="markdownIt-Anchor" href="#62-locality"></a> 6.2 Locality</h4>
+<p>Temporal Locality: reference again multiple times</p>
+<p>Spatial Locality: reference nearby locations</p>
+<p>stride-k reference pattern: visiting every kth element of a contiguous vector</p>
+<p>k increase, spatial decrease</p>
+<br>
+<h4 id="63-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#63-the-memory-hierarchy"></a> 6.3 The Memory Hierarchy</h4>
+<p><img src="http://img.blog.csdn.net/20140715185732354" alt=""></p>
+<p>Caching in memory hierarchy</p>
+<p><img src="http://img.blog.csdn.net/20140715191154022" alt=""></p>
+<p>Cache hits</p>
+<p>Cache misses</p>
+<ul>
+<li>replacing / evicting the block, victim block, replacement policy</li>
+</ul>
+<p>Kind of Cache misses</p>
+<ul>
+<li>cold miss: cache is empty</li>
+<li>conflict miss: map to the same block</li>
+<li>capacity miss: size of working set exceed</li>
+</ul>
+<p>Cache management</p>
+<ul>
+<li>partition storage into blocks, transfer blocks between levels, deal with hits and misses</li>
+<li>compiler – register file</li>
+<li>hardware logic – L1, L2, L3 caches</li>
+<li>OS + Address Translation hardware – main memory</li>
+<li>AFS client process – disk</li>
+</ul>
+<br>
+<h4 id="64-cache-memories"><a class="markdownIt-Anchor" href="#64-cache-memories"></a> 6.4 Cache Memories</h4>
+<p>Main memory: $ M = 2^m $</p>
+<p>cache: $ C = S * E * B $</p>
+<ul>
+<li>$ S = 2^s $ cache sets, $ E $  = cache lines, $ B = 2^b $  = bytes per block</li>
+</ul>
+<p>Address:</p>
+<ul>
+<li>set index = $ log_2S $  – Sets</li>
+<li>tag = $ m - ( s + b ) $ – Lines</li>
+<li>block offset = $ log_2B $  – blocks</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140715231707062" alt=""></p>
+<p><strong>Process that cache determine hit or miss</strong></p>
+<ol>
+<li>Set Selection</li>
+<li>Line matching: search each line, find tag bits in cache match tag bits in address</li>
+<li>Word Extraction: block offset provide first byte of desired word</li>
+<li>Line Replacement: random / least frequently used / least recently used</li>
+</ol>
+<br>
+<p><strong>Direct-Mapped Caches</strong></p>
+<p>one line per set ( E = 1 )</p>
+<p><strong>Set Associative Caches</strong></p>
+<p>a E-way set</p>
+<p>$ 1 &lt; E &lt; C/B $</p>
+<p><strong>Fully Associative Caches</strong></p>
+<p>S = 1</p>
+<p>$ E = C/B $</p>
+<br>
+<p>Issues with writes</p>
+<ul>
+<li>write-through ( immediately write to next lower level when hit )</li>
+<li>no-write-allocate ( write directly to next lower level when miss )</li>
+<li>write-back ( defers the update until it is evicted when hit )</li>
+<li>write-allocate ( load the block into cache and update it when miss )</li>
+</ul>
+<br>
+<p>Anatomy of real cache hierarchy</p>
+<ul>
+<li>Instruction cache ( i-cache )</li>
+<li>Data cache ( d-cache )</li>
+<li>both ( unified cache )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140716145031067" alt=""></p>
+<h4 id="65-writing-cache-friendly-code"><a class="markdownIt-Anchor" href="#65-writing-cache-friendly-code"></a> 6.5 Writing Cache-Friendly Code</h4>
+<h4 id="66-putting-it-together-the-impact-of-caches-on-program-performance"><a class="markdownIt-Anchor" href="#66-putting-it-together-the-impact-of-caches-on-program-performance"></a> 6.6 Putting It Together: The Impact of Caches on Program Performance</h4>
+<p>smaller size – better temporal locality</p>
+<p>smaller stride – better spatial locality</p>
+<p>The memory mountain</p>
+<p><img src="http://yubinbai.com/images/csapp.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/CSAPP/ch4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/25/CSAPP/ch4/" itemprop="url">[CS:APP-ch4] Processor Architecture</a></h1>
         
 
         <div class="post-meta">
@@ -324,9 +644,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/25/CSAPP/CS:APP-ch4 Processor Architecture/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/25/CSAPP/ch4/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/25/CSAPP/CS:APP-ch4 Processor Architecture/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/25/CSAPP/ch4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2403,7 +2723,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
