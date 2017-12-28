@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CLRS," />
+  <meta name="keywords" content="CSAPP," />
 
 
 
@@ -79,23 +79,25 @@
 
 
 
-<meta name="description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as ha">
-<meta name="keywords" content="CLRS">
+<meta name="description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF">
+<meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[CLRS-ch34] NP-Completeness">
-<meta property="og:url" content="http://yoursite.com/2017/12/24/CLRS/34-np/index.html">
+<meta property="og:title" content="[CS:APP-ch8] Exceptional Control Flow">
+<meta property="og:url" content="http://yoursite.com/2017/12/28/CSAPP/ch8/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta property="og:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
-<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif">
-<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif">
-<meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif">
-<meta property="og:updated_time" content="2017-12-24T02:40:52.748Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20140725235855886">
+<meta property="og:image" content="http://img.blog.csdn.net/20140726000658286">
+<meta property="og:image" content="http://img.blog.csdn.net/20140726001053046">
+<meta property="og:image" content="http://img.blog.csdn.net/20140726011912515">
+<meta property="og:image" content="http://img.blog.csdn.net/20140726012538578">
+<meta property="og:image" content="http://blog.wuxu92.com/images/post/fork-graph.png">
+<meta property="og:updated_time" content="2017-12-28T09:28:54.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
-<meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
-<meta name="twitter:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
+<meta name="twitter:title" content="[CS:APP-ch8] Exceptional Control Flow">
+<meta name="twitter:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20140725235855886">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/24/CLRS/34-np/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/28/CSAPP/ch8/"/>
 
 
 
 
 
-  <title>[CLRS-ch34] NP-Completeness | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[CS:APP-ch8] Exceptional Control Flow | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -258,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/24/CLRS/34-np/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/CSAPP/ch8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -275,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[CLRS-ch34] NP-Completeness</h1>
+          <h1 class="post-title" itemprop="name headline">[CS:APP-ch8] Exceptional Control Flow</h1>
         
 
         <div class="post-meta">
@@ -287,8 +289,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-24T09:58:47+08:00">
-                2017-12-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T17:28:51+08:00">
+                2017-12-28
               </time>
             
 
@@ -310,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CLRS/" itemprop="url" rel="index">
-                    <span itemprop="name">CLRS</span>
+                  <a href="/categories/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
                   </a>
                 </span>
 
@@ -328,9 +330,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/24/CLRS/34-np/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/28/CSAPP/ch8/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/24/CLRS/34-np/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/28/CSAPP/ch8/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,111 +365,189 @@
       
 
       
-        <h2 id="clrs-ch34-np-completeness"><a class="markdownIt-Anchor" href="#clrs-ch34-np-completeness"></a> CLRS-ch34 NP-Completeness</h2>
-<h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
-<p>class P</p>
+        <h2 id="csapp-ch-8-exceptional-control-flow"><a class="markdownIt-Anchor" href="#csapp-ch-8-exceptional-control-flow"></a> CS:APP ch-8 Exceptional Control Flow</h2>
+<p>control flow</p>
 <ul>
-<li>solvable in polynomial time</li>
+<li>sequence of control transfers ( from the address of instruction to the next )</li>
 </ul>
-<p>class NP</p>
+<p><strong>Exceptional Control Flow ( ECF )</strong></p>
 <ul>
-<li>problems are verifiable in polynomial time</li>
-</ul>
-<p>class NPC</p>
-<ul>
-<li>it is in NP and is as hard as any problem in NP</li>
-<li>decision problems</li>
-<li>reductions</li>
-<li>the first NP-complete problem</li>
-</ul>
-<h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
-<p>Abstract Problems</p>
-<ul>
-<li>a binary relation on a set I of instances and a set S of solutions</li>
-</ul>
-<p>Encodings</p>
-<ul>
-<li>In order to solve abstract problems, represent problem instances in a way program understands</li>
-<li>a mapping e from S to the set of binary strings</li>
-<li>Abstract Pro–&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</li>
-<li>polynomial related</li>
-</ul>
-<p>Polynomial time solvable</p>
-<ul>
-<li>exist an algorithm to solve a concrete problem in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></li>
-<li>extend the definition from concrete to abstract by using encoding as bridge</li>
-</ul>
-<p>A formal language framework</p>
-<ul>
-<li>alphabet $\Sigma $ a finite set of symbols { 0,1 }</li>
-<li>language L over Σ is any set of strings made up of symbols from Σ { 10, 11, 101 … }</li>
-<li>$ \Sigma ^* $ the language of all strings over Σ</li>
-</ul>
-<p>view instances for any decision problems Q as a language L over Σ = { 0 ,1 }</p>
-<p>Accepted</p>
-<ul>
-<li>
-<p>The language L accepted by an algorithm A $ L = \{ x \in \{0,1\}^* : A(x) = 1 \} $</p>
-</li>
-<li>
-<p>Reject : A(x) = 0</p>
-</li>
-<li>
-<p>may runs forever if doesn’t accept</p>
-</li>
-</ul>
-<p>Decided</p>
-<ul>
-<li>The language L decided by an algorithm A</li>
-<li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
-<li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
-</ul>
-<p><strong>Complexity class P</strong></p>
-<p>$ P = \{ L \subseteq \{ 0,1 \}^{*} $ : exists an algorithm A that decides L in polynomial time $ \}$</p>
-<h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
-<p>algorithms verify membership from a certificate in languages</p>
-<p>Verified</p>
-<ul>
-<li>The language L verified by an algorithm A $ L = \{ x \in \{ 0, 1 \}^* : $ there exist $ y \in \{ 0,1 \}^* $ such that A( x,y ) = 1 $ \} $</li>
-</ul>
-<p><strong>Complexity class NP</strong></p>
-<p>$ NP = \{ L \subseteq \{ 0, 1 \}^*  : L = \{ x \in \{ 0,1\}^* $ : there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 $ \} \} $</p>
-<p>$P \subseteq NP $</p>
-<p><strong>Complexity class co-NP</strong></p>
-<ul>
-<li>set of languages L such that $ \bar L \in NP $</li>
-</ul>
-<p>Four possibilities for relationship among complexity class</p>
-<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
-<h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
-<p><strong>Reducibility</strong></p>
-<ul>
-<li>if Q – &gt; reduce --&gt; Q’ , Q is “no harder to solve” than Q’</li>
-<li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
-</ul>
-<p><strong>NP-completeness</strong></p>
+<li>Abrupt changes in control flow</li>
+<li>Occurs all levels
 <ol>
-<li>$ L  \in NP $</li>
-<li>$ L’ \le_p L $ for every $ L’ \in NP $. (hardest)</li>
+<li>Hardware:  Transfers to exceptional handlers</li>
+<li>Operating System: Context switch</li>
+<li>Application: Signal</li>
+<li>Individual Program: Nonlocal jump</li>
 </ol>
-<p><strong>Theorem 34.4</strong></p>
-<ul>
-<li>If any NP-complete problem is polynomial time solvable, then <strong>P = NP</strong></li>
-<li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
+</li>
 </ul>
-<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
-<p><strong>Circuit satisfiability</strong></p>
-<p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
-<p>34.5 belongs to NP</p>
-<p>34.6 NP-hard</p>
+<br>
+<h4 id="81-exceptions"><a class="markdownIt-Anchor" href="#81-exceptions"></a> 8.1 Exceptions</h4>
+<p>DEF</p>
 <ul>
-<li>basic idea : represent the computation of A(algorithm verify L) as a sequence of configurations.</li>
-<li>Each configuration is mapped to the next configuration by a boolean combinational circuit M. The output is a distinguished bit in the working storage.</li>
-<li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
-<li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
+<li>Abrupt change in control flow in response to some change in the processor’s state</li>
 </ul>
-<h4 id="345-np-complete-problems"><a class="markdownIt-Anchor" href="#345-np-complete-problems"></a> 34.5 NP-complete problems</h4>
-<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
+<p>event</p>
+<ul>
+<li>change in state</li>
+</ul>
+<p><strong>Exception Handling</strong></p>
+<ul>
+<li>Hardware
+<ol>
+<li>processor detect an event</li>
+<li>determine corresponding exception number k</li>
+<li>trigger exception by calling the handler through entry k of the exception table</li>
+</ol>
+</li>
+<li>Software ( handler )
+<ol>
+<li>do some processing</li>
+<li>return control to the interrupted control flow</li>
+</ol>
+</li>
+<li>Difference with procedure call
+<ol>
+<li>return either current or next instruction</li>
+<li>push additional processor state to restart ( on kernel stack )</li>
+<li>handlers run in kernel mode</li>
+</ol>
+</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140725235855886" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140726000658286" alt=""></p>
+<p>Classes of Exceptions</p>
+<ul>
+<li>Interrupt: I/O devices</li>
+<li>Trap: System call ( fork, read, execve, exit )</li>
+<li>Fault: error conditions that might be able to correct or just abort ( page fault, segmentation fault, divide zero )</li>
+<li>Abort: unrecoverable ( machine check )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140726001053046" alt=""></p>
+<h4 id="82-processes"><a class="markdownIt-Anchor" href="#82-processes"></a> 8.2 Processes</h4>
+<p>DEF: An instance of program in execution</p>
+<p>program run in context of process</p>
+<p><strong>Logical Control Flow</strong></p>
+<ul>
+<li>provide an illusion that program has exclusive use of the processor</li>
+<li>The sequence of PC values is know as logical control flow</li>
+<li>Each process executes a portion of its flow and then is preempted (temporarily suspended) while other processes take their turns.</li>
+</ul>
+<p>Concurrent Flow</p>
+<ul>
+<li>A logic flow whose execution overlaps in time with another flow</li>
+</ul>
+<p><strong>Concurrency</strong></p>
+<ul>
+<li>The general phenomenon of multiple flows executing concurrently</li>
+</ul>
+<p>Parallel Flow</p>
+<ul>
+<li>subset of concurrent flow that run on different cores</li>
+</ul>
+<br>
+<p><strong>Private Address Space</strong></p>
+<ul>
+<li>
+<p>provide an illusion that program has exclusive use of the system address’s space</p>
+<p><img src="http://img.blog.csdn.net/20140726011912515" alt=""></p>
+</li>
+</ul>
+<p>User and kernel mode: mode bit</p>
+<br>
+<p>context</p>
+<ul>
+<li>
+<p>the state that kernel needs to restart the preempted process</p>
+</li>
+<li>
+<p>( general-purpose registers, floating point registers, program counter, user’s stack, status register, kernel’s stack, page table, process table, file table )</p>
+</li>
+</ul>
+<p>scheduling</p>
+<ul>
+<li>the kernel decide to preempt the current process and restart a previously preempted process</li>
+</ul>
+<p><strong>Context Switch</strong></p>
+<ol>
+<li>Saves context of the current process</li>
+<li>Restores the saved context of previous process</li>
+<li>Passes control to newly restored process</li>
+</ol>
+<br>
+<p>Example when execute read system call ( disk )</p>
+<p>Kernel switch process until disk sends an interrupt signal</p>
+<p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
+<h4 id="84-process-control"><a class="markdownIt-Anchor" href="#84-process-control"></a> 8.4 Process Control</h4>
+<p><strong>Obtaining Process ID</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );</span>
+</pre></td></tr></table></figure>
+<br>
+<p><strong>Create and Terminating process</strong></p>
+<p>Three states</p>
+<ol>
+<li>Running</li>
+<li>Stopped</li>
+<li>Terminated</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;</span>
+</pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//return 0 to child, PID of chile to parent</span></span>
+<span class="line"><span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );</span>
+</pre></td></tr></table></figure>
+<ul>
+<li>Call Once Return Twice</li>
+<li>Concurrent execution</li>
+<li>Duplicate but separate address space</li>
+<li>Shared files</li>
+</ul>
+<p><img src="http://blog.wuxu92.com/images/post/fork-graph.png" alt=""></p>
+<p><strong>Reaping Child Process</strong></p>
+<p>The process kept around in a terminated state until it is reaped by its parent</p>
+<blockquote>
+<p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">// return PID of terminated child and reap it</span></span>
+<span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)</span>
+</pre></td></tr></table></figure>
+<br>
+<p><strong>Putting Process to Sleep</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;</span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span></span>
+</pre></td></tr></table></figure>
+<p><strong>Loading and Running Programs</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;</span>
+</pre></td></tr></table></figure>
+<br>
+<h4 id="85-signals"><a class="markdownIt-Anchor" href="#85-signals"></a> 8.5 Signals</h4>
+<p>The transfer of a signal to a destination process occurs in two distinct steps</p>
+<p>Sending a signal</p>
+<ul>
+<li>The kernel has detected a system event such as a divide-by-zero error or the termination of a child process.</li>
+<li>A process has invoked the kill function to explicitly request the kernel to send a signal to the destination process. A process can send a signal to itself.</li>
+</ul>
+<p>Receiving a signal</p>
+<ul>
+<li>The process can either ignore the signal, terminate, or catch the signal by executing a user-level function called a signal handler.</li>
+</ul>
+<p>Pending signal</p>
+<ul>
+<li>A signal that has been sent but not yet received</li>
+<li>At any point in time, there can be at most one pending signal of a particular type.</li>
+<li>Received at most once: The kernel sets bit k in pending whenever a signal of type k is delivered and clears bit k in pending whenever a signal of type k is received.</li>
+</ul>
+<br>
+<h4 id="86-nonlocal-jumps"><a class="markdownIt-Anchor" href="#86-nonlocal-jumps"></a> 8.6 Nonlocal Jumps</h4>
 
       
     </div>
@@ -485,7 +565,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CLRS/" rel="tag"><i class="fa fa-tag"></i> CLRS</a>
+            <a href="/tags/CSAPP/" rel="tag"><i class="fa fa-tag"></i> CSAPP</a>
           
         </div>
       
@@ -498,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/20/ACM/kuangbin-12/" rel="next" title="kuangbin专题十二 基础DP">
-                <i class="fa fa-chevron-left"></i> kuangbin专题十二 基础DP
+              <a href="/2017/12/27/CSAPP/ch-6/" rel="next" title="[CS:APP-ch6] The Memory Hierarchy">
+                <i class="fa fa-chevron-left"></i> [CS:APP-ch6] The Memory Hierarchy
               </a>
             
           </div>
@@ -507,10 +587,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/25/CSAPP/ch4/" rel="prev" title="[CS:APP-ch4] Processor Architecture">
-                [CS:APP-ch4] Processor Architecture <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -672,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clrs-ch34-np-completeness"><span class="nav-number">1.</span> <span class="nav-text"> CLRS-ch34 NP-Completeness</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#intro"><span class="nav-number">1.0.1.</span> <span class="nav-text"> Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#341-polynomial-time"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 34.1 Polynomial time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#342-polynomial-time-verification"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 34.2 Polynomial-time verification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#343-np-completeness-and-reducibility"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 34.3 NP-completeness and reducibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#345-np-complete-problems"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 34.5 NP-complete problems</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-8-exceptional-control-flow"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-8 Exceptional Control Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#81-exceptions"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 8.1 Exceptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#82-processes"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 8.2 Processes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#84-process-control"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 8.4 Process Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#85-signals"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 8.5 Signals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#86-nonlocal-jumps"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 8.6 Nonlocal Jumps</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -864,9 +940,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/24/CLRS/34-np/';
-          this.page.identifier = '2017/12/24/CLRS/34-np/';
-          this.page.title = '[CLRS-ch34] NP-Completeness';
+          this.page.url = 'http://yoursite.com/2017/12/28/CSAPP/ch8/';
+          this.page.identifier = '2017/12/28/CSAPP/ch8/';
+          this.page.title = '[CS:APP-ch8] Exceptional Control Flow';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Aria.disqus.com/embed.js';
