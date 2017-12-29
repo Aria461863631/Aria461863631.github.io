@@ -252,6 +252,254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/CSAPP/ch-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/29/CSAPP/ch-9/" itemprop="url">[CS:APP-ch9] Virtual Memory</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-29T17:43:51+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSAPP/" itemprop="url" rel="index">
+                    <span itemprop="name">CSAPP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/29/CSAPP/ch-9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/29/CSAPP/ch-9/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="csapp-ch-9-virtual-memory"><a class="markdownIt-Anchor" href="#csapp-ch-9-virtual-memory"></a> CS:APP ch-9 Virtual Memory</h2>
+<p>Virtual Memory</p>
+<ul>
+<li>modern systems provide an abstraction of main memory</li>
+</ul>
+<p>three important capabilities</p>
+<ol>
+<li>It uses main memory efficiently by treating it as a <strong>cache</strong> for an address space stored on disk, keeping only the active areas in main memory, and transferring data back and forth between disk and memory as needed.</li>
+<li>It simplifies memory <strong>management</strong> by providing each process with a uniform address space.</li>
+<li>It <strong>protects</strong> the address space of each process from corruption by other processes.</li>
+</ol>
+<br>
+<h4 id="91-physical-and-virtual-addressing"><a class="markdownIt-Anchor" href="#91-physical-and-virtual-addressing"></a> 9.1 Physical and Virtual Addressing</h4>
+<p>Main memory organized as an array of M contiguous byte-size cells, each byte has a unique <strong>physical address</strong>.</p>
+<p>Physical Addressing: use physical address ( PA ) to access memory</p>
+<p>Virtual Addressing: use virtual address ( VA ) and translate to physical address</p>
+<p>Addressing Translation: converting a virtual address to a physical one</p>
+<p><img src="http://img.blog.csdn.net/20140726024101287" alt=""></p>
+<h4 id="92-address-spaces"><a class="markdownIt-Anchor" href="#92-address-spaces"></a> 9.2 Address Spaces</h4>
+<p>Virtual Address Space</p>
+<ul>
+<li>CPU generates virtual addresses from an address space of $ N = 2^n $ addresses called the virtual address space  {0 , 1, 2 ,…,N − 1}</li>
+</ul>
+<p>Physical Address Space</p>
+<ul>
+<li>A system also has a physical address space that corresponds to the M bytes of physical memory in the system {0 , 1, 2 ,…,M − 1}</li>
+</ul>
+<br>
+<h4 id="93-vm-as-a-tool-for-caching"><a class="markdownIt-Anchor" href="#93-vm-as-a-tool-for-caching"></a> 9.3 VM as a Tool for Caching</h4>
+<p>A virtual memory is organized as an array of N contiguous byte-sized cells stored on <strong>disk</strong>. Each byte has a unique virtual address that serves as an index into the array.</p>
+<p>VM systems partition the virtual memory into fixed-size blocks call <strong>Virtual Pages ( VP )</strong> as transfer units between <strong>disk</strong> and <strong>main memory</strong>.</p>
+<p>Three sets of VP: Unallocated, Cached, Uncached</p>
+<p><img src="http://img.blog.csdn.net/20140726024435296" alt=""></p>
+<p>DRAM cache organization</p>
+<ol>
+<li>large virtual pages ( cache block )( 4 KB to 2 MB )</li>
+<li>fully associative</li>
+<li>sophisticated replacement algorithms</li>
+<li>use write-back</li>
+</ol>
+<p><strong>Page Tables</strong></p>
+<p>A data structure stored in physical memory that maps virtual pages to physical pages.</p>
+<p><img src="http://img.blog.csdn.net/20140727083649381" alt=""></p>
+<p>Page Hit</p>
+<p>Check valid bit, uses the physical memory address in the PTE (which points to the start of the cached page in PP 1) to construct the physical address of the word.</p>
+<p><img src="http://img.blog.csdn.net/20140727084524775" alt=""></p>
+<p>Page Faults</p>
+<p>The page fault exception invokes a <strong>page fault exception handler</strong> in the kernel</p>
+<ol>
+<li>selects a victim page, in this case VP 4 stored in PP 3.</li>
+<li>modifies the page table entry for VP 4 to reflect the fact that VP 4 is no longer cached in main memory.</li>
+<li>copies VP 3 from disk to PP 3 in memory, updates PTE 3, and then returns.</li>
+<li>restarts the faulting instruction and page hit</li>
+<li>The strategy of waiting until the last moment to swap in a page, when a miss occurs, is known as <strong>demand paging</strong></li>
+</ol>
+<p><img src="http://img.blog.csdn.net/20140727085405051" alt=""></p>
+<h4 id="94-vm-as-a-tool-for-memory-management"><a class="markdownIt-Anchor" href="#94-vm-as-a-tool-for-memory-management"></a> 9.4 VM as a Tool for Memory Management</h4>
+<p>Operating systems provide a <strong>separate page table</strong>, and thus a separate virtual address space, for each <strong>process</strong>.</p>
+<ol>
+<li>
+<p>Linking: Allow each <strong>process</strong> to use the same basic format for its memory image ( code segment always start at 0x400000 )</p>
+</li>
+<li>
+<p>Loading: (1) Allocate Virtual Pages (2) Mark as invalid ( not cached ) (3) Point table entries to the location of in object file (4) Data are paged in th first time referenced</p>
+</li>
+<li>
+<p>Sharing: Multiple processes share a single copy of some code</p>
+</li>
+<li>
+<p>Memory Allocation</p>
+<p><img src="http://img.blog.csdn.net/20140727090642531" alt=""></p>
+<p>​</p>
+<h4 id=""><a class="markdownIt-Anchor" href="#"></a> </h4>
+<p>​</p>
+</li>
+</ol>
+<p>####9.5 VM as a Tool for Memory Protection</p>
+<p>three permission bits to each PTE</p>
+<ul>
+<li>SUP must run in kernel mode</li>
+<li>READ / WRITE</li>
+</ul>
+<br>
+<h4 id="96-address-translation"><a class="markdownIt-Anchor" href="#96-address-translation"></a> 9.6 Address Translation</h4>
+<p>a mapping between an N-element virtual address space and M-element physical address space</p>
+<p><img src="http://img.blog.csdn.net/20140727120229642" alt=""></p>
+<p>Steps that the CPU hardware performs when there is a page hit / fault</p>
+<p><img src="http://img.blog.csdn.net/20140727120529090" alt=""></p>
+<p>Speeding up Address Translation with a TLB</p>
+<ul>
+<li>a small cache of PTEs in the MMU called a translation look aside buffer (TLB)</li>
+</ul>
+<p>Multi-Level Page Tables</p>
+<p><img src="http://img.blog.csdn.net/20140727132255390" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140727133211948" alt=""></p>
+<p>つ…つづく！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/CSAPP/ch8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3058,7 +3306,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
