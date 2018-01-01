@@ -252,6 +252,273 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/CSAPP/ch-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Break.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/CSAPP/ch-1/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-01T20:50:04+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/01/CSAPP/ch-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/01/CSAPP/ch-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="csapp-ch-1-a-tour-of-computer-sytems"><a class="markdownIt-Anchor" href="#csapp-ch-1-a-tour-of-computer-sytems"></a> CS:APP ch-1 A Tour of Computer Sytems</h2>
+<p>A computer system consists of hardware and systems software that work together to run application programs.</p>
+<p>Tracing the life time of hello program.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span>
+<span class="line">  </span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span>
+<span class="line"><span class="function"></span>&#123;  </span>
+<span class="line">        <span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);  </span>
+<span class="line">  </span>
+<span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<br>
+<h4 id="11-information-is-bits-context"><a class="markdownIt-Anchor" href="#11-information-is-bits-context"></a> 1.1 Information Is Bits + Context</h4>
+<p>The hello program begins life as a source program ( a sequence of bits, organized in bytes )</p>
+<p>Text files</p>
+<ul>
+<li>files consist exclusively ASCII characters.</li>
+</ul>
+<p>Binary files</p>
+<ul>
+<li>all other files</li>
+</ul>
+<p>All information in a system is represented as a bunch of <strong>bits</strong>.</p>
+<p>The only thing that distinguishes different data objects is the <strong>context</strong> in which we view them.</p>
+<br>
+<h4 id="12-programs-are-translated-by-other-programs-into-different-forms"><a class="markdownIt-Anchor" href="#12-programs-are-translated-by-other-programs-into-different-forms"></a> 1.2 Programs Are Translated by Other Programs into Different Forms</h4>
+<p>In order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
+<p>These instructions are then packaged in a form called an executable object program and stored as a binary disk file.</p>
+<p><img src="http://img.blog.csdn.net/20140423174324171" alt=""></p>
+<h4 id="13-it-pays-to-understand-how-compilation-systems-work"><a class="markdownIt-Anchor" href="#13-it-pays-to-understand-how-compilation-systems-work"></a> 1.3 It Pays to Understand How Compilation Systems Work</h4>
+<p>Reasons why need to understand compilation systems</p>
+<ul>
+<li>
+<p>Optimizing program performance</p>
+</li>
+<li>
+<p>Understanding link-time error</p>
+</li>
+<li>
+<p>Avoiding security holes</p>
+</li>
+</ul>
+<br>
+<h4 id="14-processors-read-and-interpret-instructions-stored-in-memory"><a class="markdownIt-Anchor" href="#14-processors-read-and-interpret-instructions-stored-in-memory"></a> 1.4 Processors Read and Interpret Instructions Stored in Memory</h4>
+<p>To run the executable object file, type <code>./hello</code>  to an applcation program known as a shell</p>
+<p><strong>Hardware Organization of a System</strong></p>
+<ul>
+<li>Buses: transfer words</li>
+<li>I/O Devices: system’s connection to the external world, connected to I/O bus by either a controller or an adapter</li>
+<li>Main Memory:  temporary storage device that holds both a program and the data it manipulates while the processor is executing the program</li>
+<li>Processor: the engine that inter-prets (or executes ) instructions stored in main memory</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423180155531" alt=""></p>
+<p>Running hello</p>
+<ul>
+<li>Reading command from keyboard</li>
+<li>Load file from disk to memory</li>
+<li>Write output string from memory to display</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423180827984" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140423180854531" alt=""></p>
+<h4 id="15-caches-matter"><a class="markdownIt-Anchor" href="#15-caches-matter"></a> 1.5 Caches Matter</h4>
+<p>The machine instruction in the hello program are originally stored on disk</p>
+<p>When loaded, opied to main memory</p>
+<p>When processor runs, copied into the processor ( register + caches )</p>
+<p>deal with processor-memory gap</p>
+<br>
+<h4 id="16-storage-devices-form-a-hierarchy"><a class="markdownIt-Anchor" href="#16-storage-devices-form-a-hierarchy"></a> 1.6 Storage Devices Form a Hierarchy</h4>
+<p>storage at one level serves as a cache for the next lower level</p>
+<p><img src="http://img.blog.csdn.net/20140423181308515" alt=""></p>
+<h4 id="17-the-operating-system-manages-the-hardware"><a class="markdownIt-Anchor" href="#17-the-operating-system-manages-the-hardware"></a> 1.7 The Operating System Manages the Hardware</h4>
+<p>OS</p>
+<ul>
+<li>a layer of software interposed between the application program and the hardware</li>
+<li>two primitive purpose: (1)protect hardware (2)provide applications with simple and uniform mechanisms for manipulating hardwares</li>
+<li>achieve both goals via <strong>abstractions</strong></li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423181431437" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140423181504203" alt=""></p>
+<p>Process</p>
+<ul>
+<li>The operating system’s abstraction for a running program</li>
+<li>context switching</li>
+</ul>
+<p>Thread</p>
+<p>VIrtual Memory</p>
+<ul>
+<li>Each process has the same uniform view of memory ( virtual address space )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423181937906" alt=""></p>
+<p>Files</p>
+<ul>
+<li>A sequence of bytes, nothing more and nothing less</li>
+<li>Every I/O devices is modeled as a file</li>
+</ul>
+<br>
+<h4 id="18-systems-communicate-with-other-systems-using-networks"><a class="markdownIt-Anchor" href="#18-systems-communicate-with-other-systems-using-networks"></a> 1.8 Systems Communicate with Other Systems Using Networks</h4>
+<p><img src="http://img.blog.csdn.net/20140423182125734" alt=""></p>
+<h4 id="19-important-themes"><a class="markdownIt-Anchor" href="#19-important-themes"></a> 1.9 Important Themes</h4>
+<p>Amdahl’s law: observation of the effectiveness</p>
+<p><strong>Concurrency and Parallelism</strong></p>
+<p>concurrency</p>
+<ul>
+<li>a system with multiple, simultaneous activities</li>
+</ul>
+<p>parallelism</p>
+<ul>
+<li>use of concurrency to make a system run faster</li>
+</ul>
+<p>Parrallelism can be exploited at multiple( three ) levels of abstraction in a computer system. ( hight --&gt; low )</p>
+<ol>
+<li>Thread-level Concurrency: multicore &amp; hyperthreading</li>
+<li>Instruction-level Parallelism: pipeling</li>
+<li>Single-Instruction, Multiple-Data ( SIMD ) Parallelism</li>
+</ol>
+<p><strong>The Importance of Abstractions in Computer Systems</strong></p>
+<p>Processor side</p>
+<ul>
+<li>instruction set architecture provides an abstraction of actual processor</li>
+</ul>
+<p>Operating System side</p>
+<ul>
+<li>Files as an abstraction of I/O</li>
+<li>Virtual Memory as an abstraction of Program Memory</li>
+<li>Processes as an abstraction of a Running Program</li>
+<li>Virtual Machine as an abstraction of the Entire Computer</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423182814015" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/CSAPP/ch-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3306,7 +3573,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
