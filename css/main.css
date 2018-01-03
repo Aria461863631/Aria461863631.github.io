@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f152cd;
+  background: #18128e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2789,4 +2789,18 @@ a {
 }
 .post-button a:hover {
   color: #7784ba;
+}
+.bg_content {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  background: transparent;
 }
