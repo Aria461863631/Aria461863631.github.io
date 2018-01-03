@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff04ff;
+  background: #7e03e9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2730,8 +2730,26 @@ embed {
 .sidebar-inner {
   color: #649ab6;
 }
+element.style {
+  display: block;
+  width: 320px;
+}
 .sidebar {
+  background-size: 320px 659px;
+  background-position-y: 1vh;
+  background-repeat: no-repeat;
   box-shadow: inset 2px 2px 40px #bdb2b2;
+}
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  z-index: 1040;
+  box-shadow: inset 0 2px 6px #000;
+  background: url("/images/bk.jpg");
+  -webkit-transform: translateZ(0);
 }
 .sidebar a {
   color: #649ab6;
@@ -2789,18 +2807,4 @@ a {
 }
 .post-button a:hover {
   color: #7784ba;
-}
-.bg_content {
-  position: fixed;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-#canvas {
-  width: 100%;
-  height: 100%;
-}
-.header {
-  background: transparent;
 }
