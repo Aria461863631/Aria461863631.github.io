@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CS:APP ch-6 The Memory Hierarchy  6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive    DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w cells -">
+<meta name="description" content="CS:APP ch-6 The Memory Hierarchy 6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive  &amp;lt;br/&amp;gt; DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch6] The Memory Hierarchy">
 <meta property="og:url" content="http://yoursite.com/2017/12/27/CSAPP/ch-6/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CS:APP ch-6 The Memory Hierarchy  6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive    DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w cells -">
+<meta property="og:description" content="CS:APP ch-6 The Memory Hierarchy 6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive  &amp;lt;br/&amp;gt; DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.blog.csdn.net/20140704131022875">
 <meta property="og:image" content="http://img.blog.csdn.net/20140704131344546">
@@ -101,7 +101,7 @@
 <meta property="og:updated_time" content="2018-01-04T05:29:30.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch6] The Memory Hierarchy">
-<meta name="twitter:description" content="CS:APP ch-6 The Memory Hierarchy  6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive    DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w cells -">
+<meta name="twitter:description" content="CS:APP ch-6 The Memory Hierarchy 6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive  &amp;lt;br/&amp;gt; DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20140704131022875">
 
 
@@ -370,43 +370,43 @@
       
 
       
-        <h2 id="csapp-ch-6-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#csapp-ch-6-the-memory-hierarchy"></a> CS:APP ch-6 The Memory Hierarchy</h2>
-<h4 id="61-storage-technologies"><a class="markdownIt-Anchor" href="#61-storage-technologies"></a> 6.1 Storage Technologies</h4>
+        <h2>CS:APP ch-6 The Memory Hierarchy</h2>
+<h4>6.1 Storage Technologies</h4>
 <p>SRAM</p>
 <ul>
 <li><strong>cache</strong>, transistor, stable, fast, expensive</li>
 </ul>
- <br>
+<p>&lt;br/&gt;</p>
 <p>DRAM</p>
 <ul>
 <li><strong>main memory</strong>,  capacitor, sensitive( periodically refresh every bit )</li>
 <li>d * w cells --&gt; d supercells  == r rows * c columns ( two dimension array )</li>
 <li>data pins ( w bits ) &amp; addr pins ( row addr i, column addr j )</li>
 <li>Memory modules: Each supercell stores 11 byte. Each address represent by 8 supercells</li>
-<li>Enhanced DRAM</li>
+<li>Enhanced DRAM
+&lt;!-- more --&gt;
+<img src="http://img.blog.csdn.net/20140704131022875" alt=""></li>
 </ul>
-<a id="more"></a>
-<p><img src="http://img.blog.csdn.net/20140704131022875" alt=""></p>
 <p><img src="http://img.blog.csdn.net/20140704131344546" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Nonvolatile Memory ( ROM )</p>
 <ul>
 <li>
-<p>retain information even when they’re powered off</p>
+<p>retain information even when they're powered off</p>
 </li>
 <li>
 <p>Flash memory ( erasable programmable ROM )</p>
 </li>
 <li>
 <p>firmware: programs stored in ROM</p>
- <br>
+<p>&lt;br/&gt;</p>
 </li>
 </ul>
 <p>Accessing Main Memory</p>
 <ul>
 <li>I/O bridge: translate signals</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Disk</p>
 <ul>
 <li>
@@ -457,14 +457,14 @@
 <li>Advantage: semiconductor, faster, use less power, more rugged</li>
 <li>Disadvantage: potential to wear out, expensive</li>
 </ul>
-<br>
-<h4 id="62-locality"><a class="markdownIt-Anchor" href="#62-locality"></a> 6.2 Locality</h4>
+<p>&lt;br/&gt;</p>
+<h4>6.2 Locality</h4>
 <p>Temporal Locality: reference again multiple times</p>
 <p>Spatial Locality: reference nearby locations</p>
 <p>stride-k reference pattern: visiting every kth element of a contiguous vector</p>
 <p>k increase, spatial decrease</p>
-<br>
-<h4 id="63-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#63-the-memory-hierarchy"></a> 6.3 The Memory Hierarchy</h4>
+<p>&lt;br/&gt;</p>
+<h4>6.3 The Memory Hierarchy</h4>
 <p><img src="http://img.blog.csdn.net/20140715185732354" alt=""></p>
 <p>Caching in memory hierarchy</p>
 <p><img src="http://img.blog.csdn.net/20140715191154022" alt=""></p>
@@ -482,13 +482,13 @@
 <p>Cache management</p>
 <ul>
 <li>partition storage into blocks, transfer blocks between levels, deal with hits and misses</li>
-<li>compiler – register file</li>
-<li>hardware logic – L1, L2, L3 caches</li>
-<li>OS + Address Translation hardware – main memory</li>
-<li>AFS client process – disk</li>
+<li>compiler -- register file</li>
+<li>hardware logic -- L1, L2, L3 caches</li>
+<li>OS + Address Translation hardware -- main memory</li>
+<li>AFS client process -- disk</li>
 </ul>
-<br>
-<h4 id="64-cache-memories"><a class="markdownIt-Anchor" href="#64-cache-memories"></a> 6.4 Cache Memories</h4>
+<p>&lt;br/&gt;</p>
+<h4>6.4 Cache Memories</h4>
 <p>Main memory: $ M = 2^m $</p>
 <p>cache: $ C = S * E * B $</p>
 <ul>
@@ -496,9 +496,9 @@
 </ul>
 <p>Address:</p>
 <ul>
-<li>set index = $ log_2S $  – Sets</li>
-<li>tag = $ m - ( s + b ) $ – Lines</li>
-<li>block offset = $ log_2B $  – blocks</li>
+<li>set index = $ log_2S $  -- Sets</li>
+<li>tag = $ m - ( s + b ) $ -- Lines</li>
+<li>block offset = $ log_2B $  -- blocks</li>
 </ul>
 <p><img src="http://img.blog.csdn.net/20140715231707062" alt=""></p>
 <p><strong>Process that cache determine hit or miss</strong></p>
@@ -508,7 +508,7 @@
 <li>Word Extraction: block offset provide first byte of desired word</li>
 <li>Line Replacement: random / least frequently used / least recently used</li>
 </ol>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Direct-Mapped Caches</strong></p>
 <p>one line per set ( E = 1 )</p>
 <p><strong>Set Associative Caches</strong></p>
@@ -517,7 +517,7 @@
 <p><strong>Fully Associative Caches</strong></p>
 <p>S = 1</p>
 <p>$ E = C/B $</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Issues with writes</p>
 <ul>
 <li>write-through ( immediately write to next lower level when hit )</li>
@@ -525,7 +525,7 @@
 <li>write-back ( defers the update until it is evicted when hit )</li>
 <li>write-allocate ( load the block into cache and update it when miss )</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Anatomy of real cache hierarchy</p>
 <ul>
 <li>Instruction cache ( i-cache )</li>
@@ -533,10 +533,10 @@
 <li>both ( unified cache )</li>
 </ul>
 <p><img src="http://img.blog.csdn.net/20140716145031067" alt=""></p>
-<h4 id="65-writing-cache-friendly-code"><a class="markdownIt-Anchor" href="#65-writing-cache-friendly-code"></a> 6.5 Writing Cache-Friendly Code</h4>
-<h4 id="66-putting-it-together-the-impact-of-caches-on-program-performance"><a class="markdownIt-Anchor" href="#66-putting-it-together-the-impact-of-caches-on-program-performance"></a> 6.6 Putting It Together: The Impact of Caches on Program Performance</h4>
-<p>smaller size – better temporal locality</p>
-<p>smaller stride – better spatial locality</p>
+<h4>6.5 Writing Cache-Friendly Code</h4>
+<h4>6.6 Putting It Together: The Impact of Caches on Program Performance</h4>
+<p>smaller size -- better temporal locality</p>
+<p>smaller stride -- better spatial locality</p>
 <p>The memory mountain</p>
 <p><img src="http://yubinbai.com/images/csapp.png" alt=""></p>
 
@@ -743,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-6-the-memory-hierarchy"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-6 The Memory Hierarchy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#61-storage-technologies"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 6.1 Storage Technologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#62-locality"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 6.2 Locality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#63-the-memory-hierarchy"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 6.3 The Memory Hierarchy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#64-cache-memories"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 6.4 Cache Memories</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#65-writing-cache-friendly-code"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 6.5 Writing Cache-Friendly Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#66-putting-it-together-the-impact-of-caches-on-program-performance"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 6.6 Putting It Together: The Impact of Caches on Program Performance</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CS:APP ch-6 The Memory Hierarchy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">6.1 Storage Technologies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">6.2 Locality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">6.3 The Memory Hierarchy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">6.4 Cache Memories</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">6.5 Writing Cache-Friendly Code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.6 Putting It Together: The Impact of Caches on Program Performance</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
