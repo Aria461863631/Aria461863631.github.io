@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CSAPP," />
+  <meta name="keywords" content="SICP," />
 
 
 
@@ -79,25 +79,18 @@
 
 
 
-<meta name="description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
-<meta name="keywords" content="CSAPP">
+<meta name="description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
+<meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[CS:APP-ch8] Exceptional Control Flow">
-<meta property="og:url" content="http://yoursite.com/2017/12/28/CSAPP/ch8/index.html">
+<meta property="og:title" content="[SICP ch-1] Building Abstractions with Procedures">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/SICP/sicp1/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
+<meta property="og:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.blog.csdn.net/20140725235855886">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726000658286">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726001053046">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726011912515">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726012538578">
-<meta property="og:image" content="http://blog.wuxu92.com/images/post/fork-graph.png">
-<meta property="og:updated_time" content="2018-01-04T05:29:46.077Z">
+<meta property="og:updated_time" content="2018-02-28T13:52:05.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[CS:APP-ch8] Exceptional Control Flow">
-<meta name="twitter:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20140725235855886">
+<meta name="twitter:title" content="[SICP ch-1] Building Abstractions with Procedures">
+<meta name="twitter:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
 
 
 
@@ -127,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/28/CSAPP/ch8/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/28/SICP/sicp1/"/>
 
 
 
 
 
-  <title>[CS:APP-ch8] Exceptional Control Flow | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[SICP ch-1] Building Abstractions with Procedures | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -260,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/CSAPP/ch8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/SICP/sicp1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -277,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[CS:APP-ch8] Exceptional Control Flow</h1>
+          <h1 class="post-title" itemprop="name headline">[SICP ch-1] Building Abstractions with Procedures</h1>
         
 
         <div class="post-meta">
@@ -289,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-28T17:28:51+08:00">
-                2017-12-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T21:52:51+08:00">
+                2018-02-28
               </time>
             
 
@@ -312,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSAPP/" itemprop="url" rel="index">
-                    <span itemprop="name">CSAPP</span>
+                  <a href="/categories/SICP/" itemprop="url" rel="index">
+                    <span itemprop="name">SICP</span>
                   </a>
                 </span>
 
@@ -330,9 +323,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/28/CSAPP/ch8/#comments" itemprop="discussionUrl">
+                <a href="/2018/02/28/SICP/sicp1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/28/CSAPP/ch8/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/02/28/SICP/sicp1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,190 +358,189 @@
       
 
       
-        <h2 id="csapp-ch-8-exceptional-control-flow"><a class="markdownIt-Anchor" href="#csapp-ch-8-exceptional-control-flow"></a> CS:APP ch-8 Exceptional Control Flow</h2>
-<p>control flow</p>
-<ul>
-<li>sequence of control transfers ( from the address of instruction to the next )</li>
-</ul>
-<p><strong>Exceptional Control Flow ( ECF )</strong></p>
-<ul>
-<li>Abrupt changes in control flow</li>
-<li>Occurs all levels
+        <h2 id="sicp-ch-1-building-abstractions-with-procedures"><a class="markdownIt-Anchor" href="#sicp-ch-1-building-abstractions-with-procedures"></a> SICP ch-1 Building Abstractions with Procedures</h2>
+<p>We are about to study the idea of computational process</p>
+<br>
+<h3 id="11-the-elements-of-programming"><a class="markdownIt-Anchor" href="#11-the-elements-of-programming"></a> 1.1 The Elements of Programming</h3>
+<p>Language combine simple ideas to form complex ideas by three mechanisms</p>
 <ol>
-<li>Hardware:  Transfers to exceptional handlers</li>
-<li>Operating System: Context switch</li>
-<li>Application: Signal</li>
-<li>Individual Program: Nonlocal jump</li>
+<li>primitive expression</li>
+<li>means of combination</li>
+<li>means of abstraction</li>
 </ol>
-</li>
-</ul>
+<br>
 <a id="more"></a>
-<br>
-<h4 id="81-exceptions"><a class="markdownIt-Anchor" href="#81-exceptions"></a> 8.1 Exceptions</h4>
-<p>DEF</p>
+<p><strong>1.1.1 Expressions</strong></p>
 <ul>
-<li>Abrupt change in control flow in response to some change in the processor’s state</li>
+<li>you type an expression, the <strong>interpreter</strong> responds by displaying the result of its <strong>evaluating</strong> that expression ( 486 )</li>
 </ul>
-<p>event</p>
+<p>Combinations</p>
 <ul>
-<li>change in state</li>
-</ul>
-<p><strong>Exception Handling</strong></p>
-<ul>
-<li>Hardware
-<ol>
-<li>processor detect an event</li>
-<li>determine corresponding exception number k</li>
-<li>trigger exception by calling the handler through entry k of the exception table</li>
-</ol>
-</li>
-<li>Software ( handler )
-<ol>
-<li>do some processing</li>
-<li>return control to the interrupted control flow</li>
-</ol>
-</li>
-<li>Difference with procedure call
-<ol>
-<li>return either current or next instruction</li>
-<li>push additional processor state to restart ( on kernel stack )</li>
-<li>handlers run in kernel mode</li>
-</ol>
-</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20140725235855886" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20140726000658286" alt=""></p>
-<p>Classes of Exceptions</p>
-<ul>
-<li>Interrupt: I/O devices</li>
-<li>Trap: System call ( fork, read, execve, exit )</li>
-<li>Fault: error conditions that might be able to correct or just abort ( page fault, segmentation fault, divide zero )</li>
-<li>Abort: unrecoverable ( machine check )</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20140726001053046" alt=""></p>
-<h4 id="82-processes"><a class="markdownIt-Anchor" href="#82-processes"></a> 8.2 Processes</h4>
-<p>DEF: An instance of program in execution</p>
-<p>program run in context of process</p>
-<p><strong>Logical Control Flow</strong></p>
-<ul>
-<li>provide an illusion that program has exclusive use of the processor</li>
-<li>The sequence of PC values is know as logical control flow</li>
-<li>Each process executes a portion of its flow and then is preempted (temporarily suspended) while other processes take their turns.</li>
-</ul>
-<p>Concurrent Flow</p>
-<ul>
-<li>A logic flow whose execution overlaps in time with another flow</li>
-</ul>
-<p><strong>Concurrency</strong></p>
-<ul>
-<li>The general phenomenon of multiple flows executing concurrently</li>
-</ul>
-<p>Parallel Flow</p>
-<ul>
-<li>subset of concurrent flow that run on different cores</li>
+<li>Expressions formed by delimiting a list of expressions within parentheses ( + 137 349 )</li>
+<li>operator, operands</li>
 </ul>
 <br>
-<p><strong>Private Address Space</strong></p>
+<p><strong>1.1.2 Naming and the Environment</strong></p>
+<p>Naming</p>
 <ul>
-<li>
-<p>provide an illusion that program has exclusive use of the system address’s space</p>
-<p><img src="http://img.blog.csdn.net/20140726011912515" alt=""></p>
-</li>
+<li>language provides the means of using names ( variable ) to refer to computational objects ( value )</li>
+<li>Associating values with symbols</li>
 </ul>
-<p>User and kernel mode: mode bit</p>
+<p><strong>Environment</strong></p>
+<ul>
+<li>The <strong>memory</strong> that interpreter must maintain to <strong>keeps track</strong> of the name-object pairs.  ( ch-3 )</li>
+<li>Determine the meaning of the symbols in expressions.</li>
+</ul>
 <br>
-<p>context</p>
-<ul>
-<li>
-<p>the state that kernel needs to restart the preempted process</p>
-</li>
-<li>
-<p>( general-purpose registers, floating point registers, program counter, user’s stack, status register, kernel’s stack, page table, process table, file table )</p>
-</li>
-</ul>
-<p>scheduling</p>
-<ul>
-<li>the kernel decide to preempt the current process and restart a previously preempted process</li>
-</ul>
-<p><strong>Context Switch</strong></p>
+<p><strong>1.1.3 Evaluating Combinations</strong></p>
+<p>Interpreter is itself following a procedure</p>
 <ol>
-<li>Saves context of the current process</li>
-<li>Restores the saved context of previous process</li>
-<li>Passes control to newly restored process</li>
+<li><strong>Evaluate</strong> the <strong>subexpressions</strong> of the combination</li>
+<li><strong>Apply</strong> the procedure that is the value of the leftmost <strong>subexpression</strong> (the operator) to the arguments that are the values of the other <strong>subexpressions</strong> (the operands).</li>
 </ol>
+<p>Thus, the evaluation rule is <strong>recursive</strong> in nature.</p>
 <br>
-<p>Example when execute read system call ( disk )</p>
-<p>Kernel switch process until disk sends an interrupt signal</p>
-<p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
-<h4 id="84-process-control"><a class="markdownIt-Anchor" href="#84-process-control"></a> 8.4 Process Control</h4>
-<p><strong>Obtaining Process ID</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );</span>
-</pre></td></tr></table></figure>
+<p><strong>Special Forms</strong></p>
+<ul>
+<li>Exceptions to the general evaluation rule. ( apply operator to operands )</li>
+<li>Each special form has its own evaluation rule.</li>
+<li>define, cond, if, and, or,</li>
+</ul>
 <br>
-<p><strong>Create and Terminating process</strong></p>
-<p>Three states</p>
-<ol>
-<li>Running</li>
-<li>Stopped</li>
-<li>Terminated</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;</span>
-</pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><strong>1.1.4 Compound Procedures</strong></p>
+<p>Procedure definitions</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">//return 0 to child, PID of chile to parent</span></span>
-<span class="line"><span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">&lt;name&gt;</span> &lt;formal parameters&gt;)</span>
+<span class="line">  &lt;body&gt;)</span>
 </pre></td></tr></table></figure>
+<br>
+<p><strong>1.1.5 The Substitution Model for Procedure Application</strong></p>
+<p>Evaluate a combination</p>
 <ul>
-<li>Call Once Return Twice</li>
-<li>Concurrent execution</li>
-<li>Duplicate but separate address space</li>
-<li>Shared files</li>
+<li>evaluates the elements of the combination</li>
+<li>applies the procedure to the arguments</li>
 </ul>
-<p><img src="http://blog.wuxu92.com/images/post/fork-graph.png" alt=""></p>
-<p><strong>Reaping Child Process</strong></p>
-<p>The process kept around in a terminated state until it is reaped by its parent</p>
-<blockquote>
-<p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<br>
+<p><strong>Substitution Model</strong></p>
+<ul>
+<li>To <strong>apply</strong> a compound procedure to arguments, <strong>evaluate</strong> the body of he procedure with each formal parameter <strong>replaced</strong> by the corresponding argument.</li>
+<li>Typical interpreters <strong>do not</strong> evaluate procedure by substitute values, but using a <strong>local environment</strong> for the formal parameters ( ch-3 )</li>
+<li>This model breaks down when we address procedures with “mutable data” ( ch-3 set! )</li>
+</ul>
+<br>
+<p>Normal Order</p>
+<p>fully expand and then reduce (x)</p>
+<p><strong>Applicative Order</strong></p>
+<p>evaluate the arguments and then apply</p>
+<br>
+<p><strong>1.1.6 Conditional Expressions and Predicates</strong></p>
+<p><strong>Predicate</strong></p>
+<ul>
+<li>an expression whose value is interpreted as either true or false.</li>
+</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">// return PID of terminated child and reap it</span></span>
-<span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">cond</span> (<span class="name">&lt;p1&gt;</span> &lt;e1&gt;)</span>
+<span class="line">      (<span class="name">&lt;p2&gt;</span> &lt;e2&gt;)</span>
+<span class="line">      ...</span>
+<span class="line">      (<span class="name">&lt;pn&gt;</span> &lt;en&gt;))</span>
+<span class="line"></span>
+<span class="line">(<span class="name">if</span> &lt;predicate&gt;</span>
+<span class="line">    &lt;consequent&gt;</span>
+<span class="line">    &lt;alternative&gt;)</span>
+<span class="line"></span>
+<span class="line">(<span class="name">and</span> &lt;e1&gt; ... &lt;en&gt;)</span>
+<span class="line">(<span class="name">or</span> &lt;e1&gt; ... &lt;en&gt;)</span>
+<span class="line">(<span class="name">not</span> &lt;e&gt;)</span>
 </pre></td></tr></table></figure>
 <br>
-<p><strong>Putting Process to Sleep</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><strong>1.1.7 Example: Square Roots by Newton’s Method</strong></p>
+<p><strong>1.1.8 Procedures are Black-Box Abstractions</strong></p>
+<p>local names</p>
+<p>internal definition</p>
+<p>scope</p>
+<br>
+<h3 id="12-procedures-and-the-processes-they-generate"><a class="markdownIt-Anchor" href="#12-procedures-and-the-processes-they-generate"></a> 1.2 Procedures and the Processes They Generate</h3>
+<p><strong>Procedure</strong></p>
+<ul>
+<li>A <strong>procedure</strong> is a pattern for the local evolution of a computational <strong>process</strong>.</li>
+<li>It specifies how each stage of the process is built upon the previous stage.</li>
+</ul>
+<br>
+<p><strong>1.2.1 Linear Recursion and Iteration</strong></p>
+<p>Recursive procedure</p>
+<ul>
+<li>syntactic fact that the procedure definition refers to the procedure itself</li>
+</ul>
+<p>Recursive <strong>process</strong></p>
+<ul>
+<li>The process that characterized by a chain of <strong>deferred</strong> operations</li>
+<li>Requires <strong>interpreter</strong> keep track of operations to be performed later on.</li>
+</ul>
+<p>Iterative process</p>
+<ul>
+<li>one whose state can be summarized by a fixed number of <strong>state variables</strong>, together with a fixed rule that describes how the state variables should be <strong>updated</strong> as the process moves from state to state and an (optional) end test.</li>
+</ul>
+<p><strong>Tail Recursive</strong></p>
+<ul>
+<li>An implementation with the property of:  “An iterative process will be executed in <strong>constant space</strong>, even if it is described by a recursive procedure.”</li>
+</ul>
+<br>
+<h3 id="13-formulating-abstractions-with-higher-order-procedures"><a class="markdownIt-Anchor" href="#13-formulating-abstractions-with-higher-order-procedures"></a> 1.3 Formulating Abstractions with Higher-Order Procedures</h3>
+<p>Procedures are <strong>abstractions</strong> that describe compound operations</p>
+<p>Higher-order procedures</p>
+<ul>
+<li>procedures that manipulate procedures</li>
+</ul>
+<br>
+<p><strong>1.3.1 Procedures as Arguments</strong></p>
+<p><strong>1.3.2 Constructing Procedures Using lambda</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;</span>
-<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span></span>
-</pre></td></tr></table></figure>
-<p><strong>Loading and Running Programs</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line">(lambda (&lt;formal parameters&gt;)</span>
+<span class="line">  &lt;body&gt;)</span>
+<span class="line"></span>
+<span class="line">(let ((&lt;var1&gt; &lt;exp1&gt;)</span>
+<span class="line">      (&lt;var2&gt; &lt;exp2&gt;)</span>
+<span class="line">      ...</span>
+<span class="line">      (&lt;varn&gt; &lt;expn&gt;))</span>
+<span class="line">  &lt;body&gt;)</span>
 </pre></td></tr></table></figure>
 <br>
-<h4 id="85-signals"><a class="markdownIt-Anchor" href="#85-signals"></a> 8.5 Signals</h4>
-<p>The transfer of a signal to a destination process occurs in two distinct steps</p>
-<p>Sending a signal</p>
-<ul>
-<li>The kernel has detected a system event such as a divide-by-zero error or the termination of a child process.</li>
-<li>A process has invoked the kill function to explicitly request the kernel to send a signal to the destination process. A process can send a signal to itself.</li>
-</ul>
-<p>Receiving a signal</p>
-<ul>
-<li>The process can either ignore the signal, terminate, or catch the signal by executing a user-level function called a signal handler.</li>
-</ul>
-<p>Pending signal</p>
-<ul>
-<li>A signal that has been sent but not yet received</li>
-<li>At any point in time, there can be at most one pending signal of a particular type.</li>
-<li>Received at most once: The kernel sets bit k in pending whenever a signal of type k is delivered and clears bit k in pending whenever a signal of type k is received.</li>
-</ul>
+**1.3.3 Procedures as General Methods**
+<p>finding roots</p>
+<p>finding fixed point</p>
+<p><strong>1.3.4 Procedures as Returned Values</strong></p>
+<p>return values are themselves procedures</p>
 <br>
-<h4 id="86-nonlocal-jumps"><a class="markdownIt-Anchor" href="#86-nonlocal-jumps"></a> 8.6 Nonlocal Jumps</h4>
+<p><strong>Abstractions and first-class procedures</strong></p>
+<p>programming languages impose restrictions on the ways in which computational elements can be manipulated</p>
+<p>First-class status</p>
+<ul>
+<li>elements with fewest restrictions</li>
+<li>They may be named by variables.</li>
+<li>They may be passed as arguments to procedures.</li>
+<li>They may be returned as the results of procedures.</li>
+<li>They may be included in data structures.</li>
+</ul>
+<p>Lisp awards <strong>procedures</strong> full first-class status, which poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.</p>
 
       
     </div>
@@ -566,7 +558,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSAPP/" rel="tag"><i class="fa fa-tag"></i> CSAPP</a>
+            <a href="/tags/SICP/" rel="tag"><i class="fa fa-tag"></i> SICP</a>
           
         </div>
       
@@ -579,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/27/CSAPP/ch-6/" rel="next" title="[CS:APP-ch6] The Memory Hierarchy">
-                <i class="fa fa-chevron-left"></i> [CS:APP-ch6] The Memory Hierarchy
+              <a href="/2018/01/01/CSAPP/ch-1/" rel="next" title="[CS:APP-ch1] A Tour of Computer Systems">
+                <i class="fa fa-chevron-left"></i> [CS:APP-ch1] A Tour of Computer Systems
               </a>
             
           </div>
@@ -588,10 +580,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/29/CSAPP/ch-9/" rel="prev" title="[CS:APP-ch9] Virtual Memory">
-                [CS:APP-ch9] Virtual Memory <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -753,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-8-exceptional-control-flow"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-8 Exceptional Control Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#81-exceptions"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 8.1 Exceptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#82-processes"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 8.2 Processes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#84-process-control"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 8.4 Process Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#85-signals"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 8.5 Signals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#86-nonlocal-jumps"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 8.6 Nonlocal Jumps</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sicp-ch-1-building-abstractions-with-procedures"><span class="nav-number">1.</span> <span class="nav-text"> SICP ch-1 Building Abstractions with Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-the-elements-of-programming"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 The Elements of Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-procedures-and-the-processes-they-generate"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 Procedures and the Processes They Generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-formulating-abstractions-with-higher-order-procedures"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 Formulating Abstractions with Higher-Order Procedures</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -946,9 +934,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/28/CSAPP/ch8/';
-          this.page.identifier = '2017/12/28/CSAPP/ch8/';
-          this.page.title = '[CS:APP-ch8] Exceptional Control Flow';
+          this.page.url = 'http://yoursite.com/2018/02/28/SICP/sicp1/';
+          this.page.identifier = '2018/02/28/SICP/sicp1/';
+          this.page.title = '[SICP ch-1] Building Abstractions with Procedures';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://aria-3.disqus.com/embed.js';
