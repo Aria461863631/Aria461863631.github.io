@@ -611,8 +611,8 @@
 <span class="line">(<span class="name">a</span> b)</span>
 </pre></td></tr></table></figure>
 <p>manipulating symbols</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">eq?, memq</span>
+ <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">eq</span>?, memq</span>
 </pre></td></tr></table></figure>
 <br>
 <h3 id="24-multiple-representations-for-abstract-data"><a class="markdownIt-Anchor" href="#24-multiple-representations-for-abstract-data"></a> 2.4 Multiple Representations for Abstract Data</h3>
@@ -638,16 +638,16 @@
 </pre></td></tr></table></figure>
 <p>selectors</p>
 <p>rectangular representation &amp; polar representation</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">real-part,imag-part,magnitude,angle</span>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="built_in">real</span>-part,<span class="built_in">imag</span>-part,magnitude,<span class="built_in">angle</span></span>
 </pre></td></tr></table></figure>
 <p>implement arithmetic on complex numbers</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">add-complex, sub-complex, mul-complex, div-complex</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">add-<span class="keyword">complex</span>, sub-<span class="keyword">complex</span>, mul-<span class="keyword">complex</span>, div-<span class="keyword">complex</span></span>
 </pre></td></tr></table></figure>
 <p>implement 2 representations of complex number</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">分别用直角和极坐标来实现4个selector和2个constructor</span>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">分别用直角和极坐标来实现<span class="number">4</span>个<span class="keyword">selector</span>和<span class="number">2</span>个<span class="function"><span class="keyword">constructor</span></span></span>
 </pre></td></tr></table></figure>
 <br>
 <p><strong>2.4.2 Tagged data</strong></p>
@@ -936,11 +936,11 @@
 <span class="line">	(<span class="name">make-complex-from-real-imag</span> (<span class="name">contents</span> n) <span class="number">0</span>))</span>
 </pre></td></tr></table></figure>
 <p>install in coercion table</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line">(put-coercion &apos;scheme-number</span>
-<span class="line">			 &apos;complex</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">put-coercion</span> 'scheme-number</span>
+<span class="line">			 'complex</span>
 <span class="line">			  scheme-number-&gt;complex)</span>
 </pre></td></tr></table></figure>
 <p>apply-generic</p>
