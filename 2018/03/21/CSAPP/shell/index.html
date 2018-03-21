@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c  ###Target im">
+<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch8] Shell Lab">
 <meta property="og:url" content="http://yoursite.com/2018/03/21/CSAPP/shell/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c  ###Target im">
+<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-21T05:28:29.000Z">
+<meta property="og:updated_time" content="2018-03-21T05:35:58.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch8] Shell Lab">
-<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c  ###Target im">
+<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 
 
 
@@ -363,7 +363,7 @@
 <p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
 <p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
 <br>
-<p>###Target</p>
+<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
 <p>implement</p>
 <ul>
 <li>eval, builtin_cmd, do_bgfg, waitfg</li>
@@ -371,8 +371,25 @@
 </ul>
 <br>
 <a id="more"></a>
-<p>###0. Preparation</p>
-<figure class="highlight plain"><figcaption><span>正确的参考shell，要求自己实现后的shell和它的结果一样</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="0-preparation"><a class="markdownIt-Anchor" href="#0-preparation"></a> 0. Preparation</h3>
+<p><code>tshref</code>: 正确的参考shell，要求自己实现后的shell和它的结果一样</p>
+<p><code>make test01</code>用trace01.txt来验证结果，可以参考<code>make rtest01</code>的结果</p>
+<p><code>gdb</code> makefile去掉参数O2,加上-g</p>
+<br>
+<h3 id="1-void-eval-charcmdline"><a class="markdownIt-Anchor" href="#1-void-eval-charcmdline"></a> 1. void eval ( char*cmdline )</h3>
+<p>原型：p755</p>
+<ul>
+<li>If command is a built-in command, the shell program handles it immediately.</li>
+<li>Otherwise, the shell creates a child process to load and execute the program for command.</li>
+</ul>
+<p>Hint</p>
+<ul>
+<li>In <code>eval</code>, the <strong>parent</strong> must use <code>sigprocmask</code>to <strong>block</strong> <code>SIGCHLD</code> signals before it forks the child, then <strong>unblock</strong> these signals, again using <code>sigprocmask</code> after it adds the child to the job list by calling <code>addjob</code>.</li>
+<li>Since children inherit the blocked vectors of their parents, the <strong>child</strong> must be sure to then <strong>unblock</strong> <code>SIGCHLD</code> signals before it <code>execs</code> the new program.</li>
+<li>The <strong>parent</strong> needs to <strong>block</strong> the <code>SIGCHLD</code> signals in this way in order to avoid the <strong>race</strong> condition where the child is reaped by <code>sigchld_handler</code> (and thus removed from the job list) before the parent calls addjob.</li>
+<li>After the <code>fork</code>, but before the <code>execve</code>, the child process should call <code>setpgid(0, 0)</code>, which puts the child in a <strong>new</strong> process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the <strong>foreground process group</strong>. When you type <code>ctrl-c</code>, the shell should catch the resulting <code>SIGINT</code> and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -432,111 +449,65 @@
 <span class="line">58</span>
 <span class="line">59</span>
 <span class="line">60</span>
-<span class="line">61</span>
-<span class="line">62</span>
-<span class="line">63</span>
-<span class="line">64</span>
-<span class="line">65</span>
-<span class="line">66</span>
-<span class="line">67</span>
-<span class="line">68</span>
-<span class="line">69</span>
-<span class="line">70</span>
-<span class="line">71</span>
-<span class="line">72</span>
-<span class="line">73</span>
-<span class="line">74</span>
-<span class="line">75</span>
-<span class="line">76</span>
-<span class="line">77</span>
-<span class="line">78</span>
-<span class="line">79</span>
-<span class="line">80</span>
-<span class="line">81</span>
-<span class="line">82</span>
-<span class="line">83</span>
-</pre></td><td class="code"><pre><span class="line"></span>
-<span class="line">```make test01```用trace01.txt来验证结果，可以参考```make rtest01```的结果</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * eval - Evaluate the command line that the user has just typed in</span></span>
+<span class="line"><span class="comment"> *</span></span>
+<span class="line"><span class="comment"> * If the user has requested a built-in command (quit, jobs, bg or fg)</span></span>
+<span class="line"><span class="comment"> * then execute it immediately. Otherwise, fork a child process and</span></span>
+<span class="line"><span class="comment"> * run the job in the context of the child. If the job is running in</span></span>
+<span class="line"><span class="comment"> * the foreground, wait for it to terminate and then return.  Note:</span></span>
+<span class="line"><span class="comment"> * each child process must have a unique process group ID so that our</span></span>
+<span class="line"><span class="comment"> * background children don't receive SIGINT (SIGTSTP) from the kernel</span></span>
+<span class="line"><span class="comment"> * when we type ctrl-c (ctrl-z) at the keyboard.</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">eval</span> <span class="params">( <span class="keyword">char</span> *cmdline )</span> </span>&#123;</span>
 <span class="line"></span>
-<span class="line">```gdb``` makefile去掉参数O2,加上-g</span>
+<span class="line">    <span class="keyword">pid_t</span> pid;</span>
+<span class="line">    <span class="keyword">sigset_t</span> mask;</span>
+<span class="line">    <span class="keyword">char</span> *argv[ MAXARGS ];</span>
+<span class="line">    <span class="comment">//Parse the command line and build the argv array</span></span>
+<span class="line">    <span class="keyword">int</span> bg = parseline ( cmdline, argv );</span>
 <span class="line"></span>
-<span class="line">&lt;br/&gt;</span>
+<span class="line">    <span class="keyword">if</span> ( !builtin_cmd ( argv ) ) &#123;</span>
 <span class="line"></span>
-<span class="line">### 1. void eval ( char*cmdline )</span>
-<span class="line"></span>
-<span class="line">原型：p755</span>
-<span class="line"></span>
-<span class="line">- If command is a built-in command, the shell program handles it immediately.</span>
-<span class="line">- Otherwise, the shell creates a child process to load and execute the program for command. </span>
-<span class="line"></span>
-<span class="line">Hint</span>
-<span class="line"></span>
-<span class="line">- In ```eval```, the **parent** must use ```sigprocmask```to **block** ```SIGCHLD``` signals before it forks the child, then **unblock** these signals, again using ```sigprocmask``` after it adds the child to the job list by calling ```addjob```. </span>
-<span class="line">- Since children inherit the blocked vectors of their parents, the **child** must be sure to then **unblock** ```SIGCHLD``` signals before it ```execs``` the new program.</span>
-<span class="line">- The **parent** needs to **block** the ```SIGCHLD``` signals in this way in order to avoid the **race** condition where the child is reaped by ```sigchld_handler``` (and thus removed from the job list) before the parent calls addjob.</span>
-<span class="line">- After the ```fork```, but before the ```execve```, the child process should call `setpgid(0, 0)`, which puts the child in a **new** process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the **foreground process group**. When you type `ctrl-c`, the shell should catch the resulting ```SIGINT``` and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line">```c++</span>
-<span class="line">/*</span>
-<span class="line"> * eval - Evaluate the command line that the user has just typed in</span>
-<span class="line"> *</span>
-<span class="line"> * If the user has requested a built-in command (quit, jobs, bg or fg)</span>
-<span class="line"> * then execute it immediately. Otherwise, fork a child process and</span>
-<span class="line"> * run the job in the context of the child. If the job is running in</span>
-<span class="line"> * the foreground, wait for it to terminate and then return.  Note:</span>
-<span class="line"> * each child process must have a unique process group ID so that our</span>
-<span class="line"> * background children don&apos;t receive SIGINT (SIGTSTP) from the kernel</span>
-<span class="line"> * when we type ctrl-c (ctrl-z) at the keyboard.</span>
-<span class="line"> */</span>
-<span class="line">void eval ( char *cmdline ) &#123;</span>
-<span class="line"></span>
-<span class="line">    pid_t pid;</span>
-<span class="line">    sigset_t mask;</span>
-<span class="line">    char *argv[ MAXARGS ];</span>
-<span class="line">    //Parse the command line and build the argv array</span>
-<span class="line">    int bg = parseline ( cmdline, argv );</span>
-<span class="line"></span>
-<span class="line">    if ( !builtin_cmd ( argv ) ) &#123;</span>
-<span class="line"></span>
-<span class="line">        // blocking SIGCHLD, race</span>
+<span class="line">        <span class="comment">// blocking SIGCHLD, race</span></span>
 <span class="line">        sigemptyset ( &amp;mask );</span>
 <span class="line">        sigaddset ( &amp;mask, SIGCHLD );</span>
-<span class="line">        sigprocmask ( SIG_BLOCK, &amp;mask, NULL );</span>
+<span class="line">        sigprocmask ( SIG_BLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
 <span class="line"></span>
-<span class="line">        // fork new process</span>
-<span class="line">        if ( ( pid = fork () ) &lt; 0 )</span>
-<span class="line">            unix_error ( &quot;fork error&quot; );</span>
+<span class="line">        <span class="comment">// fork new process</span></span>
+<span class="line">        <span class="keyword">if</span> ( ( pid = fork () ) &lt; <span class="number">0</span> )</span>
+<span class="line">            unix_error ( <span class="string">"fork error"</span> );</span>
 <span class="line"></span>
-<span class="line">        // child process</span>
-<span class="line">        else if ( pid == 0 ) &#123;</span>
-<span class="line">            // unblock SIGCHLD in child process</span>
-<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );</span>
-<span class="line">            // ensures that there will be only one process</span>
-<span class="line">            setpgid ( 0, 0 );</span>
-<span class="line">            // execute command</span>
-<span class="line">            if ( execvp ( argv[ 0 ], argv ) &lt; 0 ) &#123;</span>
-<span class="line">                printf ( &quot;%s: Command not found\n&quot;, argv[ 0 ] );</span>
-<span class="line">                exit ( 1 );</span>
+<span class="line">        <span class="comment">// child process</span></span>
+<span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( pid == <span class="number">0</span> ) &#123;</span>
+<span class="line">            <span class="comment">// unblock SIGCHLD in child process</span></span>
+<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
+<span class="line">            <span class="comment">// ensures that there will be only one process</span></span>
+<span class="line">            setpgid ( <span class="number">0</span>, <span class="number">0</span> );</span>
+<span class="line">            <span class="comment">// execute command</span></span>
+<span class="line">            <span class="keyword">if</span> ( execvp ( argv[ <span class="number">0</span> ], argv ) &lt; <span class="number">0</span> ) &#123;</span>
+<span class="line">                <span class="built_in">printf</span> ( <span class="string">"%s: Command not found\n"</span>, argv[ <span class="number">0</span> ] );</span>
+<span class="line">                <span class="built_in">exit</span> ( <span class="number">1</span> );</span>
 <span class="line">            &#125;</span>
 <span class="line"></span>
-<span class="line">        // parent</span>
-<span class="line">        &#125; else &#123;</span>
+<span class="line">        <span class="comment">// parent</span></span>
+<span class="line">        &#125; <span class="keyword">else</span> &#123;</span>
 <span class="line"></span>
 <span class="line">            addjob ( jobs, pid, bg ? BG : FG, cmdline );</span>
-<span class="line">            // get SIGCHLD back after add job</span>
-<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );</span>
+<span class="line">            <span class="comment">// get SIGCHLD back after add job</span></span>
+<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
 <span class="line"></span>
-<span class="line">            if ( !bg ) &#123;</span>
-<span class="line">                // reap when job terminated ( send signal SIGCHILD )</span>
+<span class="line">            <span class="keyword">if</span> ( !bg ) &#123;</span>
+<span class="line">                <span class="comment">// reap when job terminated ( send signal SIGCHILD )</span></span>
 <span class="line">                waitfg ( pid );</span>
-<span class="line">            &#125; else &#123;</span>
-<span class="line">                //[1] (6325) ./myspin 1 &amp;</span>
-<span class="line">                printf ( &quot;[%d] (%d) %s&quot;, pid2jid ( pid ), pid, cmdline );</span>
+<span class="line">            &#125; <span class="keyword">else</span> &#123;</span>
+<span class="line">                <span class="comment">//[1] (6325) ./myspin 1 &amp;</span></span>
+<span class="line">                <span class="built_in">printf</span> ( <span class="string">"[%d] (%d) %s"</span>, pid2jid ( pid ), pid, cmdline );</span>
 <span class="line">            &#125;</span>
 <span class="line">        &#125;</span>
 <span class="line">    &#125;</span>
-<span class="line">    return;</span>
+<span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
 </pre></td></tr></table></figure>
 <br>
@@ -764,7 +735,7 @@
 <span class="line">&#125;</span>
 </pre></td></tr></table></figure>
 <br>
-<p>###5.void sigchld_handler( int sig )</p>
+<h3 id="5void-sigchld_handler-int-sig"><a class="markdownIt-Anchor" href="#5void-sigchld_handler-int-sig"></a> 5.void sigchld_handler( int sig )</h3>
 <p>This is the shell’s handler for the<code>SIGCHLD</code> signal.</p>
 <p>Hints</p>
 <ul>
@@ -852,7 +823,7 @@
 <span class="line">&#125;</span>
 </pre></td></tr></table></figure>
 <br>
-<p>###6. void sigint_handler ( int sig )</p>
+<h3 id="6-void-sigint_handler-int-sig"><a class="markdownIt-Anchor" href="#6-void-sigint_handler-int-sig"></a> 6. void sigint_handler ( int sig )</h3>
 <p>Hints</p>
 <ul>
 <li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.<br>
@@ -1114,7 +1085,7 @@ The <code>sdriver.pl</code> program tests for this error.</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch8-shell-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2int-builtin_cmd-char-argv"><span class="nav-number">1.1.</span> <span class="nav-text"> 2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-void-waitfg-pid_t-pid"><span class="nav-number">1.2.</span> <span class="nav-text"> 3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-void-do_bgfg-char-argv"><span class="nav-number">1.3.</span> <span class="nav-text"> 4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7void-sigtstp_handler-int-sig"><span class="nav-number">1.4.</span> <span class="nav-text"> 7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch8-shell-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">1.1.</span> <span class="nav-text"> Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-preparation"><span class="nav-number">1.2.</span> <span class="nav-text"> 0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-void-eval-charcmdline"><span class="nav-number">1.3.</span> <span class="nav-text"> 1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2int-builtin_cmd-char-argv"><span class="nav-number">1.4.</span> <span class="nav-text"> 2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-void-waitfg-pid_t-pid"><span class="nav-number">1.5.</span> <span class="nav-text"> 3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-void-do_bgfg-char-argv"><span class="nav-number">1.6.</span> <span class="nav-text"> 4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5void-sigchld_handler-int-sig"><span class="nav-number">1.7.</span> <span class="nav-text"> 5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-void-sigint_handler-int-sig"><span class="nav-number">1.8.</span> <span class="nav-text"> 6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7void-sigtstp_handler-int-sig"><span class="nav-number">1.9.</span> <span class="nav-text"> 7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
             
 
           </div>
