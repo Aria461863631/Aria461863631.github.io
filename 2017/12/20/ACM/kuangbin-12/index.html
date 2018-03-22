@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int dp[ N ], val[ N ];  int L">
+<meta name="description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kuangbin专题十二 基础DP">
 <meta property="og:url" content="http://yoursite.com/2017/12/20/ACM/kuangbin-12/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int dp[ N ], val[ N ];  int L">
+<meta property="og:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-01-04T05:26:56.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题十二 基础DP">
-<meta name="twitter:description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int dp[ N ], val[ N ];  int L">
+<meta name="twitter:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
 
 
 
@@ -358,12 +358,12 @@
       
 
       
-        <h2>kuangbin 专题十二 基础DP</h2>
-<h3>LIS</h3>
+        <h2 id="kuangbin-专题十二-基础dp"><a class="markdownIt-Anchor" href="#kuangbin-专题十二-基础dp"></a> kuangbin 专题十二 基础DP</h2>
+<h3 id="lis"><a class="markdownIt-Anchor" href="#lis"></a> LIS</h3>
 <p>dp[ i ]代表前i个数的最长子序列大小</p>
 <p>dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &lt; val[ i ] )</p>
-<p>$ O ( n^2 ) $
-&lt;!-- more --&gt;
+<p>$ O ( n^2 ) $</p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -394,11 +394,11 @@
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span> mx;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>$ O ( nlgn ) $</p>
-<p>http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</p>
-<p>http://blog.csdn.net/shuangde800/article/details/7474903</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><a href="http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
+<p><a href="http://blog.csdn.net/shuangde800/article/details/7474903" target="_blank" rel="noopener">http://blog.csdn.net/shuangde800/article/details/7474903</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -466,12 +466,12 @@
 <span class="line">        <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, len );</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h3>LCS</h3>
+</pre></td></tr></table></figure>
+<h3 id="lcs"><a class="markdownIt-Anchor" href="#lcs"></a> LCS</h3>
 <p>dp[ i ][ j ] 代表两个字符串前i / j 个下的最长大小</p>
 <p>dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1 ( val[ i ] == val[ j ] )</p>
 <p>dp[ i ][ j ] = max ( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] ) ( != )</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -543,11 +543,11 @@
 <span class="line">        Print ( i, j - <span class="number">1</span> );</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h3>完全背包</h3>
+</pre></td></tr></table></figure>
+<h3 id="完全背包"><a class="markdownIt-Anchor" href="#完全背包"></a> 完全背包</h3>
 <p>dp[ i ]代表背包重i的时候最大的价值</p>
 <p>dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] )</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -581,8 +581,8 @@
 <span class="line"></span>
 <span class="line">    <span class="keyword">return</span> dp[ wei ];</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<h3>题目列表</h3>
+</pre></td></tr></table></figure>
+<h3 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h3>
 <p><strong>A - Max Sum Plus Plus HDU - 1024</strong></p>
 <blockquote>
 <p>n个数，要求分成m组，使m组的和加起来得到最大值。</p>
@@ -609,7 +609,7 @@
 <blockquote>
 <p>从起点到达终点，只能前行不能后退，且下一步必须比前面的点的值大，求所有走的点的值总和最大是多少。</p>
 </blockquote>
-<p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;
+<p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;<br>
 最大递增子串和。</p>
 <p><strong>F - Piggy-Bank HDU - 1114</strong></p>
 <blockquote>
@@ -632,7 +632,7 @@
 <p>求有多少个递减序列</p>
 </blockquote>
 <p>反过来，转换成求整个系列有多少个LIS，则是所求的组数</p>
-<p><strong>J - FatMouse's Speed HDU - 1160</strong></p>
+<p><strong>J - FatMouse’s Speed HDU - 1160</strong></p>
 <blockquote>
 <p>给n个老鼠的体重和速度，求找出一个最长的序列，此序列体重递增速度递减</p>
 </blockquote>
@@ -654,7 +654,7 @@
 <blockquote>
 <p>老鼠在时刻0从高于所有平台的某处开始下落.当Jimmy落到某个平台上时，游戏者选择让它向左还是向右跑.当Jimmy跑到平台的边缘时，开始继续下落。Jimmy每次下落的高度不能超过MAX</p>
 </blockquote>
-<p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)
+<p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)<br>
 dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右右取最小)</p>
 <p><strong>N - Longest Ordered Subsequence POJ - 2533</strong></p>
 <blockquote>
@@ -665,7 +665,7 @@ dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右
 <blockquote>
 <p>n个数在一个双端队列中，每次从队首或队尾出。出的第n个数乘以n，最后加起来，求最大和。</p>
 </blockquote>
-<p>dp[i][j] 代表从i取到j的最大总数
+<p>dp[i][j] 代表从i取到j的最大总数<br>
 dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
 <p><strong>P - FatMouse and Cheese HDU - 1078</strong></p>
 <blockquote>
@@ -677,7 +677,7 @@ dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
 <blockquote>
 <p>给了一个字符串矩阵，求以次对角线方向对称的最大对称矩阵。</p>
 </blockquote>
-<p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。
+<p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。<br>
 dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
 <p><strong>R - Milking Time POJ - 3616</strong></p>
 <blockquote>
@@ -863,20 +863,6 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
 
           
           
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
 
           
 
@@ -893,7 +879,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">kuangbin 专题十二 基础DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">LIS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">LCS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">完全背包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">题目列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kuangbin-专题十二-基础dp"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin 专题十二 基础DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lis"><span class="nav-number">1.1.</span> <span class="nav-text"> LIS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lcs"><span class="nav-number">1.2.</span> <span class="nav-text"> LCS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全背包"><span class="nav-number">1.3.</span> <span class="nav-text"> 完全背包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目列表"><span class="nav-number">1.4.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data &amp;lt;br/&amp;gt; Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, c">
+<meta name="description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data  Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, conventiona">
 <meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SICP-ch2] Building Abstractions with Data">
 <meta property="og:url" content="http://yoursite.com/2018/03/10/SICP/sicp2/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data &amp;lt;br/&amp;gt; Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, c">
+<meta property="og:description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data  Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, conventiona">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-22.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647409/Screenshot_from_2018-03-10_10-03-03.png">
@@ -94,7 +94,7 @@
 <meta property="og:updated_time" content="2018-03-10T09:16:09.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SICP-ch2] Building Abstractions with Data">
-<meta name="twitter:description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data &amp;lt;br/&amp;gt; Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, c">
+<meta name="twitter:description" content="SICP-ch2 Building Abstractions with Data building abstractions by forming compound data  Intro  2.1 data abstraction erect abstraction barriers 2.2 data == procedures, sequences, closure, conventiona">
 <meta name="twitter:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-22.png">
 
 
@@ -363,9 +363,9 @@
       
 
       
-        <h2>SICP-ch2 Building Abstractions with Data</h2>
+        <h2 id="sicp-ch2-building-abstractions-with-data"><a class="markdownIt-Anchor" href="#sicp-ch2-building-abstractions-with-data"></a> SICP-ch2 Building Abstractions with Data</h2>
 <p>building abstractions by forming compound data</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Intro</p>
 <ul>
 <li>2.1 data abstraction erect abstraction barriers</li>
@@ -374,9 +374,9 @@
 <li>2.4  generic operations, data directed programming, additivity</li>
 <li>2.5 implement a package</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<p>&lt;!-- more --&gt;</p>
-<h3>2.1 Introduction to Data Abstraction</h3>
+<br>
+<a id="more"></a>
+<h3 id="21-introduction-to-data-abstraction"><a class="markdownIt-Anchor" href="#21-introduction-to-data-abstraction"></a> 2.1 Introduction to Data Abstraction</h3>
 <p><strong>Data abstraction</strong></p>
 <ul>
 <li>isolating</li>
@@ -384,23 +384,23 @@
 <li>from</li>
 <li>( the parts of a program that deal with how data objects are <strong>used</strong> )</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Construct abstract data</p>
 <ul>
 <li>use constructors, selectors as interface</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.1.1 Example: Arithmetic Operations for Rational Numbers</strong></p>
 <ol>
 <li>assume the constructor and selectors are available</li>
 </ol>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">numer , denom , make-rat</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <ol start="2">
 <li>use them to express rational operation</li>
 </ol>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -408,38 +408,44 @@
 <span class="line">	(<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</span>
 <span class="line">		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x)))</span>
 <span class="line">		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <ol start="3">
 <li>implement representation</li>
 </ol>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-rat</span> n d) (<span class="name"><span class="builtin-name">cons</span></span> n d))</span>
 <span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">numer</span> x) (<span class="name"><span class="builtin-name">car</span></span> x))</span>
 <span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">denom</span> x) (<span class="name"><span class="builtin-name">cdr</span></span> x))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>2.1.2 Abstraction Barriers</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-22.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.1.3 What Is Meant by Data?</strong></p>
 <p>DEF:</p>
 <ol>
 <li>some collection of selectors and constructors</li>
 <li>together with specified conditions for the representation</li>
 </ol>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Example</p>
 <ul>
-<li>Pairs z = ( x, y )</li>
+<li>
+<p>Pairs z = ( x, y )</p>
+</li>
+<li>
+<p>selector: car, cdr</p>
+</li>
+<li>
+<p>constructor: cons</p>
+</li>
+<li>
+<p>condition: if z = ( x, y ) =&gt; ( car z ) = x &amp;&amp; ( cdr z ) = y</p>
+</li>
 </ul>
-<ul>
-<li>selector: car, cdr</li>
-<li>constructor: cons</li>
-<li>condition: if z = ( x, y ) =&gt; ( car z ) = x &amp;&amp; ( cdr z ) = y</li>
-</ul>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -457,10 +463,10 @@
 <span class="line">    dispatch)</span>
 <span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">car</span></span> z) (<span class="name">z</span> <span class="number">0</span>))</span>
 <span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> z) (<span class="name">z</span> <span class="number">1</span>))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Exercise 2.6</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -516,18 +522,18 @@
 <span class="line"></span>
 <span class="line"><span class="comment">; f = square x = 2 </span></span>
 <span class="line">( ( two square ) <span class="number">2</span> )</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>2.2 Hierarchical Data and the Closure Property</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="22-hierarchical-data-and-the-closure-property"><a class="markdownIt-Anchor" href="#22-hierarchical-data-and-the-closure-property"></a> 2.2 Hierarchical Data and the Closure Property</h3>
 <p><strong>closure property</strong> of cons ( an operation )</p>
 <ul>
 <li>The ability to create pairs whose elements are pairs</li>
 <li>Closure is the key to create hierarchical structures</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.2.1 Representing Sequences</strong></p>
 <p>The entire sequence is constructed by nested cons operations</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -535,16 +541,16 @@
 <span class="line">	(cons 2</span>
 <span class="line">		(cons 3</span>
 <span class="line">			(cons 4 nil))))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>Provides a primitive</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">list</span></span> ⟨ a <span class="number">1</span> ⟩ ⟨ a <span class="number">2</span> ⟩ . . . ⟨ a n ⟩ )</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>Operations</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">ref, length, append, last-pair, reverse</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>Mapping over list</strong></p>
 <ul>
 <li>Establish an abstraction barrier that</li>
@@ -553,7 +559,7 @@
 <li>from</li>
 <li>the details of how the elements of the list are extracted and combined.</li>
 </ul>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -563,27 +569,27 @@
 <span class="line">	nil</span>
 <span class="line">	(<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">proc</span> (<span class="name"><span class="builtin-name">car</span></span> items))</span>
 <span class="line">		  (<span class="name"><span class="builtin-name">map</span></span> proc (<span class="name"><span class="builtin-name">cdr</span></span> items)))))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>2.2.2 Hierarchical Structures</strong></p>
 <p>Tree</p>
 <ul>
 <li>sequences whose elements are sequences</li>
 <li>Recursion is a natural tool for dealing with tree structures</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.2.3 Sequences as Conventional Interfaces</strong></p>
 <p>Conventional Interface</p>
 <ul>
 <li>permits us to combine processing modules</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Signal Processing</strong></p>
 <blockquote>
 <p>A signal-processing engineer would find it natural to conceptualize these processes in terms of signals flowing through a cascade of stages, each of which implements part of the program plan.</p>
 </blockquote>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647409/Screenshot_from_2018-03-10_10-03-03.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Organizing programs so as to reflect the signal-flow structure</strong></p>
 <ul>
 <li>concentrate on the “signals”</li>
@@ -592,36 +598,36 @@
 <li>helps us make program designs that are modular</li>
 <li>connecting the components in flexible ways</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Nested Mappings</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">flatmap</span> proc seq)</span>
 <span class="line">	(<span class="name">accumulate</span> append nil (<span class="name"><span class="builtin-name">map</span></span> proc seq)))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>2.3 Symbolic Data</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="23-symbolic-data"><a class="markdownIt-Anchor" href="#23-symbolic-data"></a> 2.3 Symbolic Data</h3>
 <p>Issue arise</p>
 <ul>
 <li>words and sentences may be regarded either as <strong>semantic</strong> entities ( meaning ) or as <strong>syntactic</strong> entities ( characters )</li>
 </ul>
 <p>Using quotation mark</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">list</span></span> <span class="symbol">'a</span> <span class="symbol">'b</span>)</span>
 <span class="line">(<span class="name">a</span> b)</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>manipulating symbols</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">eq?, memq</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>2.4 Multiple Representations for Abstract Data</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="24-multiple-representations-for-abstract-data"><a class="markdownIt-Anchor" href="#24-multiple-representations-for-abstract-data"></a> 2.4 Multiple Representations for Abstract Data</h3>
 <p>cope with data that may be represented in different ways by different parts of a program</p>
 <p><strong>Data Abstraction</strong></p>
 <ul>
 <li><strong>separate</strong> the task of designing a program that <strong>uses</strong> rational numbers from the task of <strong>implementing</strong> rational numbers</li>
-<li>an application of the &quot;principle of least commitment&quot;</li>
+<li>an application of the “principle of least commitment”</li>
 </ul>
 <p><strong>Abstraction Barrier</strong></p>
 <ul>
@@ -629,48 +635,48 @@
 <li>permits us to defer to the last possible moment the choice of a concrete representation</li>
 <li>thus retain maximum flexibility</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.4.1 Representations for Complex Numbers</strong></p>
 <p>constructors</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name"><span class="builtin-name">imag-part</span></span> z))</span>
 <span class="line">(<span class="name">make-from-mag-ang</span> (<span class="name"><span class="builtin-name">magnitude</span></span> z) (<span class="name"><span class="builtin-name">angle</span></span> z))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>selectors</p>
 <p>rectangular representation &amp; polar representation</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">real-part,imag-part,magnitude,angle</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>implement arithmetic on complex numbers</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">add-complex, sub-complex, mul-complex, div-complex</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>implement 2 representations of complex number</p>
-<p><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">分别用直角和极坐标来实现<span class="number">4</span>个<span class="keyword">selector</span>和<span class="number">2</span>个<span class="function"><span class="keyword">constructor</span></span></span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>2.4.2 Tagged data</strong></p>
 <p>If <strong>both</strong> representations are included in a single system, we will need some way to <strong>distinguish</strong> data in polar form from data in rectangular form.</p>
 <p>A straightforward way to accomplish this distinction is to include a <strong>type tag</strong> —the symbol rectangular or polar —as part of each complex number.</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag-rectangular</span> x y)</span>
 <span class="line">	(<span class="name">attach-tag</span> <span class="symbol">'rectangular</span> (<span class="name"><span class="builtin-name">cons</span></span> x y)))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Make sure <strong>names</strong> do not conflict: Append the suffix -rectangular</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">real-part-rectangular</span> z) (<span class="name"><span class="builtin-name">car</span></span> z))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Generic selector</p>
 <ul>
 <li>Dispatch: checks the tag and calls the appropriate procedure of that type.</li>
 <li>because the selectors are generic, operation ( add, mul ) are unchanged</li>
 </ul>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -682,50 +688,50 @@
 <span class="line">		 ((<span class="name">polar?</span> z)</span>
 <span class="line">		  (<span class="name">real-part-polar</span> (<span class="name">contents</span> z)))</span>
 <span class="line">		 (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown type: REAL-PART"</span> z))))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Generic Constructor</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
 <span class="line">	(<span class="name">make-from-real-imag-rectangular</span> x y))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>General mechanism</strong> for interfacing the separate representations</p>
 <ul>
 <li>stripping off and attaching tags as data objects are passed from level to level</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.4.3 Data-Directed Programming and Additivity</strong></p>
 <p>Two weaknesses of dispatching above</p>
 <ul>
 <li>generic interface procedures must know about <strong>all</strong> the different representations</li>
 <li>must guarantee that no two procedures in the entire system have the same <strong>name</strong></li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Additive</p>
 <ul>
 <li>design the individual packages separately and</li>
 <li>combine them to produce a generic system</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Data-directed programming</strong></p>
 <ul>
 <li>dealing with a two-dimensional table</li>
 <li>the possible operations on one axis and the possible types on the other axisss</li>
 </ul>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647610/Screenshot_from_2018-03-10_10-06-28.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Manipulate table</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">put</span> ⟨ op ⟩ ⟨ type ⟩ ⟨ item ⟩ )</span>
 <span class="line">(<span class="name">get</span> ⟨ op ⟩ ⟨ type ⟩ )</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Defines a package</p>
 <p>Interfaces these by adding entries to the table</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -749,10 +755,10 @@
 <span class="line">		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))</span>
 <span class="line"></span>
 <span class="line">	<span class="symbol">'done</span>)</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Generic Selectors</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -770,18 +776,18 @@
 <span class="line">				(<span class="name">error</span></span>
 <span class="line">					<span class="string">"No method for these types: APPLY-GENERIC"</span></span>
 <span class="line">					(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))</span>
-</pre></td></tr></table></figure></p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name">apply-generic</span> <span class="symbol">'real-part</span> z))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Generic Constructors</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
 <span class="line">	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>) x y))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Interface ( generic selectors )</p>
 <table>
 <thead>
@@ -805,7 +811,7 @@
 </tr>
 <tr>
 <td style="text-align:center">change if a new representation is added</td>
-<td style="text-align:center">doesn't change</td>
+<td style="text-align:center">doesn’t change</td>
 </tr>
 <tr>
 <td style="text-align:center">Centralized selectors</td>
@@ -813,21 +819,21 @@
 </tr>
 </tbody>
 </table>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Message passing</strong></p>
 <p>Data object receives the requested operation name as a “message.”</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Instead of using “intelligent operations” that dispatch on data types</p>
 <p>work with “intelligent data objects” that dispatch on <strong>operation names</strong>.</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Represent <strong>data object</strong> as a <strong>procedure</strong></p>
 <ul>
 <li>takes as input the required operation name</li>
 <li>performs the operation indicated</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Constructor</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -839,23 +845,23 @@
 <span class="line">			  (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown op: MAKE-FROM-REAL-IMAG"</span> op))))</span>
 <span class="line">	<span class="comment">;return procedure</span></span>
 <span class="line">	dispatch)</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Selector</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op arg) (<span class="name">arg</span> op))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>2.5 Systems with Generic Operations</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="25-systems-with-generic-operations"><a class="markdownIt-Anchor" href="#25-systems-with-generic-operations"></a> 2.5 Systems with Generic Operations</h3>
 <p>use data-directed techniques to construct a package of arithmetic operations</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-59.png" alt=""></p>
 <p><strong>2.5.1 Generic Arithmetic Operations</strong></p>
 <p>generic arithmetic procedures</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add</span> x y) (<span class="name">apply-generic</span> <span class="symbol">'add</span> x y))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>install packages</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -881,15 +887,15 @@
 <span class="line">  	(<span class="name">put</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span></span>
 <span class="line">		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))</span>
 <span class="line">    <span class="symbol">'done</span>)</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>constructor</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-complex-from-real-imag</span> x y)</span>
 <span class="line">	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span>) x y))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>two-level tag system</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.5.3 Example: Symbolic Algebra</strong></p>
 <p>implement polynomial package</p>
 <ol>
@@ -908,12 +914,12 @@
 <li>neither of these types is above the other naturally</li>
 <li>difficult to control coercion</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>2.5.2 Combining Data of Different Types</strong></p>
 <p>Define cross-type operations</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>One way: design a different procedure for each possible combination of types</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -923,38 +929,38 @@
 <span class="line">	(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) x) (<span class="name"><span class="builtin-name">imag-part</span></span> z)))</span>
 <span class="line">(<span class="name">put</span> <span class="symbol">'add</span> '(complex scheme-number)</span>
 <span class="line">	(<span class="name"><span class="builtin-name">lambda</span></span> (z x) (<span class="name">tag</span> (<span class="name">add-complex-to-schemenum</span> z x))))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>Cumbersome</p>
 <ul>
 <li>more code is needed</li>
 <li>individual packages need to take account of other packages ( not additive )</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Coercion</strong></p>
 <ul>
 <li>objects of one type may be viewed as being of another type</li>
 </ul>
 <p>coercion procedure</p>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">scheme-number-&gt;complex</span> n)</span>
 <span class="line">	(<span class="name">make-complex-from-real-imag</span> (<span class="name">contents</span> n) <span class="number">0</span>))</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>install in coercion table</p>
-<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">put-coercion</span> 'scheme-number</span>
 <span class="line">			 'complex</span>
 <span class="line">			  scheme-number-&gt;complex)</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>apply-generic</p>
 <ul>
 <li>check the coercion table to see</li>
 <li>if objects of the first type can be coerced to the second type or</li>
 <li>if there is a way to coerce the second argument to the type of the first argument</li>
 </ul>
-<p><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -998,17 +1004,17 @@
 <span class="line">										(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))</span>
 <span class="line">						(<span class="name">error</span> <span class="string">"No method for these types"</span></span>
 <span class="line">								(<span class="name"><span class="builtin-name">list</span></span> op type-tags)))))))</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>Advantage</p>
 <ul>
 <li>need to write only one procedure for each pair of types rather than a different procedure for each collection of types and each generic operation.</li>
 </ul>
 <p>Not General Enough</p>
 <ul>
-<li>can't converting both objects to a third type.</li>
+<li>can’t converting both objects to a third type.</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Hierarchies of types</strong></p>
 <p>apply-generic</p>
 <ul>
@@ -1195,20 +1201,6 @@
 
           
           
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
 
           
 
@@ -1225,7 +1217,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SICP-ch2 Building Abstractions with Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 Introduction to Data Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 Hierarchical Data and the Closure Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">2.3 Symbolic Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">2.4 Multiple Representations for Abstract Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">2.5 Systems with Generic Operations</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sicp-ch2-building-abstractions-with-data"><span class="nav-number">1.</span> <span class="nav-text"> SICP-ch2 Building Abstractions with Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-introduction-to-data-abstraction"><span class="nav-number">1.1.</span> <span class="nav-text"> 2.1 Introduction to Data Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-hierarchical-data-and-the-closure-property"><span class="nav-number">1.2.</span> <span class="nav-text"> 2.2 Hierarchical Data and the Closure Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-symbolic-data"><span class="nav-number">1.3.</span> <span class="nav-text"> 2.3 Symbolic Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-multiple-representations-for-abstract-data"><span class="nav-number">1.4.</span> <span class="nav-text"> 2.4 Multiple Representations for Abstract Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-systems-with-generic-operations"><span class="nav-number">1.5.</span> <span class="nav-text"> 2.5 Systems with Generic Operations</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process &amp;lt;br/&amp;gt; 1.1 The Elements of Programming Language combine simple ideas to form complex ideas">
+<meta name="description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
 <meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SICP-ch1] Building Abstractions with Procedures">
 <meta property="og:url" content="http://yoursite.com/2018/02/28/SICP/sicp1/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process &amp;lt;br/&amp;gt; 1.1 The Elements of Programming Language combine simple ideas to form complex ideas">
+<meta property="og:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-03-10T02:21:55.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SICP-ch1] Building Abstractions with Procedures">
-<meta name="twitter:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process &amp;lt;br/&amp;gt; 1.1 The Elements of Programming Language combine simple ideas to form complex ideas">
+<meta name="twitter:description" content="SICP ch-1 Building Abstractions with Procedures We are about to study the idea of computational process   1.1 The Elements of Programming Language combine simple ideas to form complex ideas by three">
 
 
 
@@ -358,18 +358,18 @@
       
 
       
-        <h2>SICP ch-1 Building Abstractions with Procedures</h2>
+        <h2 id="sicp-ch-1-building-abstractions-with-procedures"><a class="markdownIt-Anchor" href="#sicp-ch-1-building-abstractions-with-procedures"></a> SICP ch-1 Building Abstractions with Procedures</h2>
 <p>We are about to study the idea of computational process</p>
-<p>&lt;br/&gt;</p>
-<h3>1.1 The Elements of Programming</h3>
+<br>
+<h3 id="11-the-elements-of-programming"><a class="markdownIt-Anchor" href="#11-the-elements-of-programming"></a> 1.1 The Elements of Programming</h3>
 <p>Language combine simple ideas to form complex ideas by three mechanisms</p>
 <ol>
 <li>primitive expression</li>
 <li>means of combination</li>
 <li>means of abstraction</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<p>&lt;!-- more --&gt;</p>
+<br>
+<a id="more"></a>
 <p><strong>1.1.1 Expressions</strong></p>
 <ul>
 <li>you type an expression, the <strong>interpreter</strong> responds by displaying the result of its <strong>evaluating</strong> that expression ( 486 )</li>
@@ -379,7 +379,7 @@
 <li>Expressions formed by delimiting a list of expressions within parentheses ( + 137 349 )</li>
 <li>operator, operands</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.1.2 Naming and the Environment</strong></p>
 <p>Naming</p>
 <ul>
@@ -391,7 +391,7 @@
 <li>The <strong>memory</strong> that interpreter must maintain to <strong>keeps track</strong> of the name-object pairs.  ( ch-3 )</li>
 <li>Determine the meaning of the symbols in expressions.</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.1.3 Evaluating Combinations</strong></p>
 <p>Interpreter is itself following a procedure</p>
 <ol>
@@ -399,47 +399,47 @@
 <li><strong>Apply</strong> the procedure that is the value of the leftmost <strong>subexpression</strong> (the operator) to the arguments that are the values of the other <strong>subexpressions</strong> (the operands).</li>
 </ol>
 <p>Thus, the evaluation rule is <strong>recursive</strong> in nature.</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Special Forms</strong></p>
 <ul>
 <li>Exceptions to the general evaluation rule. ( apply operator to operands )</li>
 <li>Each special form has its own evaluation rule.</li>
 <li>define, cond, if, and, or,</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.1.4 Compound Procedures</strong></p>
 <p>Procedure definitions</p>
-<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">&lt;name&gt;</span> &lt;formal parameters&gt;)</span>
 <span class="line">  &lt;body&gt;)</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>1.1.5 The Substitution Model for Procedure Application</strong></p>
 <p>Evaluate a combination</p>
 <ul>
 <li>evaluates the elements of the combination</li>
 <li>applies the procedure to the arguments</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Substitution Model</strong></p>
 <ul>
 <li>To <strong>apply</strong> a compound procedure to arguments, <strong>evaluate</strong> the body of he procedure with each formal parameter <strong>replaced</strong> by the corresponding argument.</li>
 <li>Typical interpreters <strong>do not</strong> evaluate procedure by substitute values, but using a <strong>local environment</strong> for the formal parameters ( ch-3 )</li>
-<li>This model breaks down when we address procedures with &quot;mutable data&quot; ( ch-3 set! )</li>
+<li>This model breaks down when we address procedures with “mutable data” ( ch-3 set! )</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Normal Order</p>
 <p>fully expand and then reduce (x)</p>
 <p><strong>Applicative Order</strong></p>
 <p>evaluate the arguments and then apply</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.1.6 Conditional Expressions and Predicates</strong></p>
 <p><strong>Predicate</strong></p>
 <ul>
 <li>an expression whose value is interpreted as either true or false.</li>
 </ul>
-<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -463,24 +463,24 @@
 <span class="line">(<span class="name">and</span> &lt;e1&gt; ... &lt;en&gt;)</span>
 <span class="line">(<span class="name">or</span> &lt;e1&gt; ... &lt;en&gt;)</span>
 <span class="line">(<span class="name">not</span> &lt;e&gt;)</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>1.1.7 Example: Square Roots by Newton’s Method</strong></p>
 <p><strong>1.1.8 Procedures are Black-Box Abstractions</strong></p>
 <p>bound variables</p>
 <ul>
-<li>In procedure definition, it doesn't matter what name the formal parameter has.</li>
+<li>In procedure definition, it doesn’t matter what name the formal parameter has.</li>
 </ul>
 <p>free variables</p>
 <p>the scope of that name</p>
-<p>&lt;br/&gt;</p>
-<h3>1.2 Procedures and the Processes They Generate</h3>
+<br>
+<h3 id="12-procedures-and-the-processes-they-generate"><a class="markdownIt-Anchor" href="#12-procedures-and-the-processes-they-generate"></a> 1.2 Procedures and the Processes They Generate</h3>
 <p><strong>Procedure</strong></p>
 <ul>
 <li>A <strong>procedure</strong> is a pattern for the local evolution of a computational <strong>process</strong>.</li>
 <li>It specifies how each stage of the process is built upon the previous stage.</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.2.1 Linear Recursion and Iteration</strong></p>
 <p>Recursive procedure</p>
 <ul>
@@ -497,27 +497,27 @@
 </ul>
 <p><strong>Tail Recursive</strong></p>
 <ul>
-<li>An implementation with the property of:  &quot;An iterative process will be executed in <strong>constant space</strong>, even if it is described by a recursive procedure.&quot;</li>
+<li>An implementation with the property of:  “An iterative process will be executed in <strong>constant space</strong>, even if it is described by a recursive procedure.”</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h3>1.3 Formulating Abstractions with Higher-Order Procedures</h3>
+<br>
+<h3 id="13-formulating-abstractions-with-higher-order-procedures"><a class="markdownIt-Anchor" href="#13-formulating-abstractions-with-higher-order-procedures"></a> 1.3 Formulating Abstractions with Higher-Order Procedures</h3>
 <p>Procedures are <strong>abstractions</strong> that describe compound operations</p>
 <p>Higher-order procedures</p>
 <ul>
 <li>procedures that manipulate procedures</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>1.3.1 Procedures as Arguments</strong></p>
 <p><strong>1.3.2 Constructing Procedures Using lambda</strong></p>
-<p>In general, lambda is used to create procedures in the same way as
+<p>In general, lambda is used to create procedures in the same way as<br>
 define , except that <strong>no name</strong> is specified for the procedure</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(lambda (&lt;formal parameters&gt;)</span>
 <span class="line">  &lt;body&gt;)</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>using lambda creating local variables</p>
-<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -527,14 +527,14 @@ define , except that <strong>no name</strong> is specified for the procedure</p>
 <span class="line">      ...</span>
 <span class="line">      (<span class="name">&lt;varn&gt;</span> &lt;expn&gt;))</span>
 <span class="line">  &lt;body&gt;)</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p><strong>1.3.3 Procedures as General Methods</strong></p>
 <p>finding roots</p>
 <p>finding fixed point</p>
 <p><strong>1.3.4 Procedures as Returned Values</strong></p>
 <p>return values are themselves procedures</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Abstractions and first-class procedures</strong></p>
 <p>programming languages impose restrictions on the ways in which computational elements can be manipulated</p>
 <p>First-class status</p>
@@ -720,20 +720,6 @@ define , except that <strong>no name</strong> is specified for the procedure</p>
 
           
           
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
 
           
 
@@ -750,7 +736,7 @@ define , except that <strong>no name</strong> is specified for the procedure</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SICP ch-1 Building Abstractions with Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 The Elements of Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Procedures and the Processes They Generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Formulating Abstractions with Higher-Order Procedures</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sicp-ch-1-building-abstractions-with-procedures"><span class="nav-number">1.</span> <span class="nav-text"> SICP ch-1 Building Abstractions with Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-the-elements-of-programming"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 The Elements of Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-procedures-and-the-processes-they-generate"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 Procedures and the Processes They Generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-formulating-abstractions-with-higher-order-procedures"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 Formulating Abstractions with Higher-Order Procedures</span></a></li></ol></li></ol></div>
             
 
           </div>
