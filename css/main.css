@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1838d5;
+  background: #341b67;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2720,8 +2720,9 @@ embed {
   font-family: 'Comic Sans MS', sans-serif;
 }
 .links-of-blogroll {
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Comic Sans MS', sans-serif";
   margin-bottom: 42px;
 }
 .links-of-author {
