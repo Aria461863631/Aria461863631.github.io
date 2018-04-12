@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-05.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-22.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222649/Screenshot_from_2018-03-28_15-36-55.png">
-<meta property="og:updated_time" content="2018-04-12T21:36:30.240Z">
+<meta property="og:updated_time" content="2018-04-12T21:41:03.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NN&amp;DL-ch1] Using neural nets to recognize handwritten digits">
 <meta name="twitter:description" content="ch-1 Using neural nets to recognize handwritten digits  Perceptrons  a type of artificial neuron a device that makes decisions by weighing up evidence    perceptron in higher layer  make a decision a">
@@ -401,7 +401,7 @@
 <p>Output also between 0 and 1 which is $ σ( wx + b ) $</p>
 </li>
 </ul>
-<p>σ(z) ≡ \frac { 1 }{ 1 + e ^ {-z } } where $ z = wx + b $</p>
+<p>$ σ(z) ≡ \frac { 1 }{ 1 + e ^ {-z } } $ where $ z = wx + b $</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222647/Screenshot_from_2018-03-28_15-34-35.png" alt=""></p>
 <ul>
 <li>
@@ -483,12 +483,12 @@
 <p><strong>Stochastic gradient descent</strong></p>
 <ul>
 <li>used to speed up learning</li>
-<li>estimate the gradient $∇C $ by computing ∇C_x for a small sample of randomly chosen training inputs</li>
+<li>estimate the gradient $ ∇C $ by computing $ ∇C_x $ for a small sample of randomly chosen training inputs</li>
 </ul>
 <p>$ w_k → w_k’ = w_k − \frac{η}{m} \Sigma_j\frac{∂ C}{∂w_k }$</p>
 <p>$ b_l → b_l’ = b_l − \frac{η}{m}\Sigma_j \frac{∂ C}{∂b_l }$</p>
 <br>
-<p>###Toward deep learning</p>
+<h3 id="toward-deep-learning"><a class="markdownIt-Anchor" href="#toward-deep-learning"></a> Toward deep learning</h3>
 <p>The weights and biases in the network were discovered <strong>automatically</strong>.</p>
 <p>And that means we don’t immediately have an <strong>explanation</strong> of how the network does what it does</p>
 <br>
@@ -699,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"><span class="nav-number">1.</span> <span class="nav-text"> ch-1 Using neural nets to recognize handwritten digits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perceptrons"><span class="nav-number">1.1.</span> <span class="nav-text"> Perceptrons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-neurons"><span class="nav-number">1.2.</span> <span class="nav-text"> Sigmoid neurons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-architecture-of-neural-networks"><span class="nav-number">1.3.</span> <span class="nav-text"> The architecture of neural networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-simple-network-to-classify-handwritten-digits"><span class="nav-number">1.4.</span> <span class="nav-text"> A simple network to classify handwritten digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-with-gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text"> Learning with gradient descent</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"><span class="nav-number">1.</span> <span class="nav-text"> ch-1 Using neural nets to recognize handwritten digits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perceptrons"><span class="nav-number">1.1.</span> <span class="nav-text"> Perceptrons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-neurons"><span class="nav-number">1.2.</span> <span class="nav-text"> Sigmoid neurons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-architecture-of-neural-networks"><span class="nav-number">1.3.</span> <span class="nav-text"> The architecture of neural networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-simple-network-to-classify-handwritten-digits"><span class="nav-number">1.4.</span> <span class="nav-text"> A simple network to classify handwritten digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-with-gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text"> Learning with gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toward-deep-learning"><span class="nav-number">1.6.</span> <span class="nav-text"> Toward deep learning</span></a></li></ol></li></ol></div>
             
 
           </div>
