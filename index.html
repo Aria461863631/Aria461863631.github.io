@@ -252,6 +252,291 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/NeuralNet/nndlch1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/13/NeuralNet/nndlch1/" itemprop="url">[NN&DL-ch1] Using neural nets to recognize handwritten digits</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T05:38:47+08:00">
+                2018-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/13/NeuralNet/nndlch1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/13/NeuralNet/nndlch1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ch-1-using-neural-nets-to-recognize-handwritten-digits"><a class="markdownIt-Anchor" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"></a> ch-1 Using neural nets to recognize handwritten digits</h2>
+<h3 id="perceptrons"><a class="markdownIt-Anchor" href="#perceptrons"></a> Perceptrons</h3>
+<ul>
+<li>a type of artificial neuron</li>
+<li>a device that makes decisions by weighing up evidence</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-31-57.png" alt=""></p>
+<br>
+<p>perceptron in higher layer</p>
+<ul>
+<li>make a decision at a more complex and more <strong>abstract</strong> level</li>
+</ul>
+<p>many-layer network of perceptrons</p>
+<ul>
+<li>engage in sophisticated decision making</li>
+</ul>
+<br>
+<p><strong>weight</strong></p>
+<ul>
+<li>real numbers expressing the <strong>importance</strong> of the respective inputs to the output</li>
+</ul>
+<p><strong>bias</strong></p>
+<ul>
+<li>a measure of how <strong>easy</strong> it is to get the perceptron to fire</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-33-44.png" alt=""></p>
+<br>
+<p>Use perceptrons to compute any logical function</p>
+<ul>
+<li>NAND gate is universal for computation</li>
+</ul>
+<br>
+<h3 id="sigmoid-neurons"><a class="markdownIt-Anchor" href="#sigmoid-neurons"></a> Sigmoid neurons</h3>
+<p><strong>Learning</strong></p>
+<ul>
+<li>DEF: changing the weights and biases over and over to produce better and better output</li>
+</ul>
+<br>
+<p>Problems  of Perceptron</p>
+<ul>
+<li>
+<p>step function</p>
+</li>
+<li>
+<p>a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1</p>
+</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-34-25.png" alt=""></p>
+<p><strong>sigmoid neuron</strong></p>
+<ul>
+<li>
+<p>Input take on values between 0 an 1</p>
+</li>
+<li>
+<p>Output also between 0 and 1 which is $ σ( wx + b ) $</p>
+</li>
+</ul>
+<p>σ(z) ≡ \frac { 1 }{ 1 + e ^ {-z } } where $ z = wx + b $</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222647/Screenshot_from_2018-03-28_15-34-35.png" alt=""></p>
+<ul>
+<li>
+<p>The smoothness of σ means that small changes Δw_j in the weights and Δb in the bias will produce a small change Δoutput in the output from the neuron.</p>
+</li>
+<li>
+<p>$ \Delta output \approx  \Sigma _j \frac {\partial output}{ \partial w_j} \Delta w_j  + \frac {\partial output}{ \partial b} \Delta b  $</p>
+</li>
+</ul>
+<br>
+<h3 id="the-architecture-of-neural-networks"><a class="markdownIt-Anchor" href="#the-architecture-of-neural-networks"></a> The architecture of neural networks</h3>
+<ul>
+<li>input layer, output layer, hidden layer</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-05.png" alt=""></p>
+<p><strong>Feed Forward Neural Networks</strong></p>
+<ul>
+<li>no loops in the network</li>
+</ul>
+<p>Recurrent neural networks</p>
+<ul>
+<li>feedback loops are possible</li>
+<li>have neurons which fire for some limited duration of <strong>time</strong>, before becoming quiescent</li>
+</ul>
+<br>
+<h3 id="a-simple-network-to-classify-handwritten-digits"><a class="markdownIt-Anchor" href="#a-simple-network-to-classify-handwritten-digits"></a> A simple network to classify handwritten digits</h3>
+<p>To recognize individual digits we will use a three-layer neural network</p>
+<ul>
+<li>Input: 28 by 28 pixel = 784</li>
+<li>Output: 10 neurons represent for 0 to 9</li>
+<li>Hidden layer: n = 15 as an example</li>
+</ul>
+<br>
+<p>Output layer: why use 10 numbers rather than 4 bits?</p>
+<ul>
+<li>there’s no easy way to relate that most significant bit to simple shapes</li>
+</ul>
+<p>?A way to think about Hidden layer</p>
+<ul>
+<li>weighting up evidence and produce an abstraction</li>
+</ul>
+<br>
+<h3 id="learning-with-gradient-descent"><a class="markdownIt-Anchor" href="#learning-with-gradient-descent"></a> Learning with gradient descent</h3>
+<p><strong>cost function</strong></p>
+<ul>
+<li>DEF:  $ C( w,b ) ≡ \frac{1}{2n} ∑ ∥y(x) − a ∥^2 $</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><msup><mo>)</mo><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">y(x) = (0, 0, 0, 0, 0, 0, 1, 0, 0, 0)^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> : Desired output</li>
+<li>a : Output from network</li>
+<li>x : input, n: number of inputs, w : weight, b : bias</li>
+</ul>
+<br>
+<p><strong>Aim of our training algorithm</strong></p>
+<ul>
+<li><strong>minimize</strong> the cost C (w, b) as a function of the weights and biases</li>
+</ul>
+<br>
+<p>Why not try to maximize that number?</p>
+<ul>
+<li>the number of images correctly classified is not a smooth function of the weights and biases</li>
+</ul>
+<br>
+<p><strong>Gradient Descent Algorithm</strong></p>
+<ul>
+<li>repeatedly compute the gradient ∇C , and then to move in the opposite direction</li>
+</ul>
+<br>
+<p>$ ΔC ≈ \frac { ∂ C }{∂ w_k} Δ w_k + \frac{ ∂ C } {∂ b_l} Δ b_l  ≈ ∇C ⋅ Δv.$</p>
+<p>choose Δv so as to make ΔC <strong>negative</strong></p>
+<p>$Δv = −η∇C $</p>
+<p>apply to each component</p>
+<p>$ w_k → w_k’ = w_k − η \frac{∂ C}{∂w_k }$</p>
+<p>$ b_l → b_l’ = b_l − η \frac{∂ C}{∂b_l }$</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-22.png" alt=""></p>
+<br>
+<p>Problem</p>
+<ul>
+<li>In practical implementations, η is often varied so that it remains a good approximation, but the algorithm is too slow</li>
+</ul>
+<p><strong>Stochastic gradient descent</strong></p>
+<ul>
+<li>used to speed up learning</li>
+<li>estimate the gradient $∇C $ by computing ∇C_x for a small sample of randomly chosen training inputs</li>
+</ul>
+<p>$ w_k → w_k’ = w_k − \frac{η}{m} \Sigma_j\frac{∂ C}{∂w_k }$</p>
+<p>$ b_l → b_l’ = b_l − \frac{η}{m}\Sigma_j \frac{∂ C}{∂b_l }$</p>
+<br>
+<p>###Toward deep learning</p>
+<p>The weights and biases in the network were discovered <strong>automatically</strong>.</p>
+<p>And that means we don’t immediately have an <strong>explanation</strong> of how the network does what it does</p>
+<br>
+<p>A heuristic</p>
+<ul>
+<li>we could use is to decompose the problem into <strong>sub-problems</strong></li>
+<li>early layers answering very simple and specific questions about the input image</li>
+<li>later layers building up a hierarchy of ever more complex and <strong>abstract</strong> concepts</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222649/Screenshot_from_2018-03-28_15-36-55.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/CSAPP/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1770,167 +2055,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/ACM/kuangbin-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/20/ACM/kuangbin-12/" itemprop="url">kuangbin专题十二 基础DP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T13:37:45+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/20/ACM/kuangbin-12/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/20/ACM/kuangbin-12/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="kuangbin-专题十二-基础dp"><a class="markdownIt-Anchor" href="#kuangbin-专题十二-基础dp"></a> kuangbin 专题十二 基础DP</h2>
-<h3 id="lis"><a class="markdownIt-Anchor" href="#lis"></a> LIS</h3>
-<p>dp[ i ]代表前i个数的最长子序列大小</p>
-<p>dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &lt; val[ i ] )</p>
-<p>$ O ( n^2 ) $</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/20/ACM/kuangbin-12/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1985,7 +2109,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2007,7 +2131,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
