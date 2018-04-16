@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-04T05:26:55.574Z">
+<meta property="og:updated_time" content="2018-04-16T12:48:33.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题四 最短路">
 <meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
@@ -734,19 +734,61 @@
 <span class="line">12</span>
 <span class="line">13</span>
 <span class="line">14</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span></span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+</pre></td><td class="code"><pre><span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span> <span class="params">()</span> </span>&#123;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i )</span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; ++j ) &#123;</span>
+<span class="line">            <span class="comment">//有向图</span></span>
+<span class="line">            w[ i ][ j ] = INF;</span>
+<span class="line">            <span class="comment">//记录路径段内的后一点</span></span>
+<span class="line">            <span class="comment">//也可以改成前一点path[i][j] = i,就要反向输出;</span></span>
+<span class="line">            path[ i ][ j ] = j;</span>
+<span class="line">        &#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span></span>
 <span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>&#123;</span>
 <span class="line">    <span class="comment">// Dp</span></span>
 <span class="line">    <span class="comment">// 表示所有点只经过集合&#123; 1..k &#125;内的点时的最短路径</span></span>
 <span class="line">    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span></span>
-<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k ) &#123;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k )</span>
 <span class="line">        <span class="comment">//选取每一个起点</span></span>
 <span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
 <span class="line">            <span class="comment">//选取每一个终点</span></span>
 <span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span>
-<span class="line">                <span class="comment">// d(ij)^k = min &#123; d(ik)^(k-1) + d(kj)^(k-1) &#125;</span></span>
-<span class="line">                dis[ i ][ j ] = dis[ i ][ j ] || ( dis[ i ][ k ] &amp;&amp; dis[ k ][ j ] );</span>
-<span class="line">    &#125;</span>
+<span class="line">                <span class="comment">// i -- j的路径存在</span></span>
+<span class="line">                <span class="keyword">if</span> ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) &#123;</span>
+<span class="line"></span>
+<span class="line">                    <span class="keyword">int</span> tmp = w[ i ][ k ] + w[ k ][ j ];</span>
+<span class="line">                    <span class="comment">// d(ij)^k = min &#123; d(ik)^(k-1) + d(kj)^(k-1) &#125;</span></span>
+<span class="line">                    <span class="keyword">if</span> ( w[ i ][ j ] &gt; tmp ) &#123;</span>
+<span class="line">                        w[ i ][ j ] = tmp;</span>
+<span class="line">                        <span class="comment">//记录后继路径</span></span>
+<span class="line">                        <span class="comment">//前驱path[ i ][ j ] = path[ k ][ j ];</span></span>
+<span class="line">                        path[ i ][ j ] = path[ i ][ k ];</span>
+<span class="line">                    &#125;</span>
+<span class="line">                &#125;</span>
 <span class="line">&#125;</span>
 </pre></td></tr></table></figure>
 <h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
