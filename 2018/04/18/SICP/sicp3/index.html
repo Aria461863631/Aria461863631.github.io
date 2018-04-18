@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SICP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta name="keywords" content="SICP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[SICP-ch3] Modularity, Objects, and State">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/SICP/sicp3/index.html">
+<meta property="og:site_name" content="Aria">
+<meta property="og:description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-34-02.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-36-07.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-38-23.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-57-07.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-01-27.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-29-27.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-40-49.png">
+<meta property="og:updated_time" content="2018-04-18T14:45:22.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[SICP-ch3] Modularity, Objects, and State">
+<meta name="twitter:description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta name="twitter:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/18/SICP/sicp3/"/>
+
+
+
+
+
+  <title>[SICP-ch3] Modularity, Objects, and State | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aria</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">あなたには僕が見えるが?</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/SICP/sicp3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[SICP-ch3] Modularity, Objects, and State</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T22:46:51+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SICP/" itemprop="url" rel="index">
+                    <span itemprop="name">SICP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/18/SICP/sicp3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/18/SICP/sicp3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ch-3-modularity-objects-and-state"><a class="markdownIt-Anchor" href="#ch-3-modularity-objects-and-state"></a> ch-3 Modularity, Objects, and State</h2>
+<h3 id="31-assignment-and-local-state"><a class="markdownIt-Anchor" href="#31-assignment-and-local-state"></a> 3.1 Assignment and Local State</h3>
+<p>System decomposed into <strong>computational objects</strong> with time-varying <strong>state</strong></p>
+<p>language must provide an <strong>assignment</strong> operator to enable us to change the value</p>
+<p><strong>3.1.1 Local State Variables</strong></p>
+<p><em>model the situation of withdrawing money from a bank account</em></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)</span>
+<span class="line">	(<span class="name">lambda</span> (<span class="name">amount</span>)</span>
+<span class="line">		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)</span>
+<span class="line">			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))</span>
+<span class="line">				   balance)</span>
+<span class="line">			<span class="string">"Insufficient funds"</span>)))</span>
+</pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>3.1.2 The Benefits of Introducing Assignment</strong></p>
+<p>viewing systems as collections of objects with local state is a powerful technique for maintaining a <strong>modular</strong> design</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> rand (<span class="name">let</span> ((<span class="name">x</span> random-init))</span>
+<span class="line">	(<span class="name">lambda</span> ()</span>
+<span class="line">		(<span class="name">set!</span> x (<span class="name">rand-update</span> x))</span>
+<span class="line">		x)))</span>
+<span class="line"></span>
+<span class="line">(<span class="name">define</span> (<span class="name">cesaro-test</span>)</span>
+<span class="line">	(<span class="name">=</span> (<span class="name">gcd</span> (<span class="name">rand</span>) (<span class="name">rand</span>)) <span class="number">1</span>))</span>
+</pre></td></tr></table></figure>
+<ul>
+<li>assignment <strong>encapsulates the state</strong> of the random-number generator within the rand procedure,</li>
+<li>so that the details of random-number generation remain <strong>independent</strong> of the rest of the program</li>
+<li>therefore easy to isolate the Monte Carlo idea</li>
+</ul>
+<p><strong>3.1.3 The Costs of Introducing Assignment</strong></p>
+<p>the substitution model failed</p>
+<p><strong>functional programming</strong></p>
+<ul>
+<li>
+<p>Programming without assignments</p>
+</li>
+<li>
+<p>procedure with the same arguments will produce the same result</p>
+</li>
+<li>
+<p>can be viewed as computing mathematical functions</p>
+</li>
+</ul>
+<p><strong>imperative programming</strong></p>
+<ul>
+<li>using explicit assignment to update the values</li>
+</ul>
+<p>Pitfalls</p>
+<ul>
+<li>the order of the assignments</li>
+<li>several processes execute concurrently</li>
+</ul>
+<p><strong>Sameness and change</strong></p>
+<p>referentially transparent</p>
+<ul>
+<li>A language that supports the concept that “equals can be substituted for equals”</li>
+</ul>
+<p>violated when we include set!</p>
+<ul>
+<li>cannot determine sameness without observing the effects of change</li>
+</ul>
+<h3 id="32-the-environment-model-of-evaluation"><a class="markdownIt-Anchor" href="#32-the-environment-model-of-evaluation"></a> 3.2 The Environment Model of Evaluation</h3>
+<p>A variable can no longer be considered to be a name for a value,</p>
+<p>but designate a “place” in which values can be stored</p>
+<p>Environment</p>
+<ul>
+<li>a sequence of frames</li>
+<li>each frame is a table of bindings, associate name and value</li>
+</ul>
+<p><strong>3.2.1 The Rules for Evaluation</strong></p>
+<p>Define procedure</p>
+<ul>
+<li>a procedure is always a pair – consisting of some code and a pointer to an environment</li>
+<li>define creates definitions by adding bindings to frames</li>
+</ul>
+<p>Apply procedure</p>
+<ul>
+<li>create a new environment – containing a frame that binds the parameters to the arguments’ value</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png" alt=""></p>
+<p><strong>3.2.2 Applying Simple Procedures</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-34-02.png" alt=""></p>
+<p>each call to square creates a new environment containing a binding for x</p>
+<p><strong>3.2.3 Frames as the Repository of Local State</strong></p>
+<p>how procedures and assignment can be used to represent objects with local state</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-36-07.png" alt=""></p>
+<p><strong>3.2.4 Internal Definitions</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-38-23.png" alt=""></p>
+<p>make local procedure definitions a useful technique for modularizing programs</p>
+<ul>
+<li>local names do not interfere external names</li>
+<li>local procedures can access the arguments of the enclosing procedure</li>
+</ul>
+<h3 id="33-modeling-with-mutable-data"><a class="markdownIt-Anchor" href="#33-modeling-with-mutable-data"></a> 3.3 Modeling with Mutable Data</h3>
+<p>Mutators</p>
+<ul>
+<li>Data abstraction modify compound data objects</li>
+</ul>
+<p><strong>3.3.1 Mutable List Structure</strong></p>
+<ul>
+<li><code>set-car!</code> and <code>set-cdr!</code></li>
+<li>modify car &amp; cdr pointer</li>
+</ul>
+<p>Sharing and identity</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-57-07.png" alt=""></p>
+<p>use the predicate eq? to detect sharing in list structures</p>
+<p><strong>3.3.2 Representing Queues</strong></p>
+<p><code>( insert-queue! &lt;queue&gt; &lt;item&gt; )</code></p>
+<p><code>( delete-queue! &lt;queue&gt; &lt;item )</code></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-01-27.png" alt=""></p>
+<p>​</p>
+<p><strong>3.3.3 Representing Tables</strong></p>
+<p><code>assoc</code> returns the record that has the given key as its car</p>
+<p><code>lookup</code> then checks to see that the resulting record returned by assoc is not false, and returns the value ( the cdr ) of the record</p>
+<p><code>insert</code>first see if there is already a record, if not, consing key and value than insert in table</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-29-27.png" alt=""></p>
+<p><strong>3.3.4 A Simulator for Digital Circuits</strong></p>
+<p>event-driven simulation</p>
+<ul>
+<li>actions (“events”) trigger further events that happen at a later time, which in turn trigger more events</li>
+</ul>
+<p><code>wires</code> carry digital signals</p>
+<p><code>function boxes</code> connect wires carrying input signals to other output wires</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">inverter</span> input output)</span>
+<span class="line">	(<span class="name">define</span> (<span class="name">invert-input</span>)</span>
+<span class="line">		(<span class="name">let</span> ((<span class="name">new-value</span> (<span class="name">logical-not</span> (<span class="name">get-signal</span> input))))	</span>
+<span class="line">			(<span class="name">after-delay</span> inverter-delay</span>
+<span class="line">				(<span class="name">lambda</span> () (<span class="name">set-signal!</span> output new-value)))))</span>
+<span class="line">		(<span class="name">add-action!</span> input invert-input) 'ok)</span>
+<span class="line"></span>
+<span class="line">(<span class="name">define</span> (<span class="name">after-delay</span> delay action)</span>
+<span class="line">	(<span class="name">add-to-agenda!</span> (<span class="name">+</span> delay (<span class="name">current-time</span> the-agenda))</span>
+<span class="line">					action</span>
+<span class="line">					the-agenda))</span>
+</pre></td></tr></table></figure>
+<p><code>agenda</code> contains a schedule of things to do</p>
+<p><code>propagate</code>executing each procedure on the agenda in sequence</p>
+<p><strong>3.3.5 Propagation of Constraints</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-40-49.png" alt=""></p>
+<h3 id="34-concurrency-time-is-of-the-essence"><a class="markdownIt-Anchor" href="#34-concurrency-time-is-of-the-essence"></a> 3.4 Concurrency: Time Is of the Essence</h3>
+<p>by introducing assignment, we are forced to admit <strong>time</strong> into our computational models</p>
+<p>Objects in the world are acting <strong>concurrently</strong> —all at once.</p>
+<p><strong>3.4.1 The Nature of Time in Concurrent Systems</strong></p>
+<p><strong>3.4.2 Mechanisms for Controlling Concurrency</strong></p>
+<p>using serializer</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-account</span> balance)	</span>
+<span class="line">	(<span class="name">let</span> ((<span class="name">protected</span> (<span class="name">make-serializer</span>)))</span>
+<span class="line">		(<span class="name">define</span> (<span class="name">dispatch</span> m)</span>
+<span class="line">			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'withdraw) (<span class="name">protected</span> withdraw))</span>
+<span class="line">				  ((<span class="name">eq</span>? m 'deposit) (<span class="name">protected</span> deposit))</span>
+<span class="line">				  ((<span class="name">eq</span>? m 'balance) balance)</span>
+<span class="line">				  (<span class="name">else</span> (<span class="name">error</span> <span class="string">"Unknown request: MAKE-ACCOUNT"</span> m))))</span>
+<span class="line">dispatch))</span>
+</pre></td></tr></table></figure>
+<p><em>With this implementation, two processes cannot be withdrawing from or depositing into a single account concurrently.</em></p>
+<p>Complexity</p>
+<ul>
+<li>concurrent programming can be treacherously difficult when there are <strong>multiple shared resources</strong></li>
+</ul>
+<p>Implementing serializers</p>
+<ul>
+<li>synchronization mechanism called a mutex ( acquired &amp; release )</li>
+</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-mutex</span>)</span>
+<span class="line">	(<span class="name">let</span> ((<span class="name">cell</span> (<span class="name">list</span> false)))</span>
+<span class="line">		(<span class="name">define</span> (<span class="name">the-mutex</span> m)</span>
+<span class="line">			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'acquire)</span>
+<span class="line">				   (<span class="name">if</span> (<span class="name">test-and-set!</span> cell)</span>
+<span class="line">						(<span class="name">the-mutex</span> 'acquire)))<span class="comment">; retry</span></span>
+<span class="line">				  ((<span class="name">eq</span>? m 'release) (<span class="name">clear!</span> cell))))</span>
+<span class="line">		the-mutex))</span>
+<span class="line"></span>
+<span class="line"><span class="comment">;actual implementation depends on how our system runs concurrent processes</span></span>
+<span class="line">(<span class="name">define</span> (<span class="name">test-and-set!</span> cell)</span>
+<span class="line">	(<span class="name">if</span> (<span class="name">car</span> cell) true (<span class="name">begin</span> (<span class="name">set-car!</span> cell true) false)))</span>
+</pre></td></tr></table></figure>
+<p><strong>Deadlock</strong></p>
+<ul>
+<li>Each process is stalled forever, waiting for the other</li>
+</ul>
+<p><strong>Concurrency, time, and communication</strong></p>
+<p>The basic phenomenon here is that <em>synchronizing</em> different processes, establishing <em>shared state</em>, or imposing an <em>order</em> on events requires <strong>communication among the processes</strong>.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SICP/" rel="tag"><i class="fa fa-tag"></i> SICP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/NeuralNet/3/" rel="next" title="[NN&DL-ch3] Improving the way neural networks learn">
+                <i class="fa fa-chevron-left"></i> [NN&DL-ch3] Improving the way neural networks learn
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Aria" />
+            
+              <p class="site-author-name" itemprop="name">Aria</p>
+              <p class="site-description motion-element" itemprop="description">This guy is so lazy that he left nothing</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-modularity-objects-and-state"><span class="nav-number">1.</span> <span class="nav-text"> ch-3 Modularity, Objects, and State</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-assignment-and-local-state"><span class="nav-number">1.1.</span> <span class="nav-text"> 3.1 Assignment and Local State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-the-environment-model-of-evaluation"><span class="nav-number">1.2.</span> <span class="nav-text"> 3.2 The Environment Model of Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-modeling-with-mutable-data"><span class="nav-number">1.3.</span> <span class="nav-text"> 3.3 Modeling with Mutable Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-concurrency-time-is-of-the-essence"><span class="nav-number">1.4.</span> <span class="nav-text"> 3.4 Concurrency: Time Is of the Essence</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aria</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+   
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://aria-3.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/04/18/SICP/sicp3/';
+          this.page.identifier = '2018/04/18/SICP/sicp3/';
+          this.page.title = '[SICP-ch3] Modularity, Objects, and State';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aria-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+

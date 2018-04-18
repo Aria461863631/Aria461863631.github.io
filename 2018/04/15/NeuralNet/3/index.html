@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NeuralNet," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta name="keywords" content="NeuralNet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/NeuralNet/3/index.html">
+<meta property="og:site_name" content="Aria">
+<meta property="og:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_14-47-37.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-48-04.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-07-11.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-07-17.png">
+<meta property="og:updated_time" content="2018-04-18T14:46:02.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
+<meta name="twitter:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta name="twitter:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/NeuralNet/3/"/>
+
+
+
+
+
+  <title>[NN&DL-ch3] Improving the way neural networks learn | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aria</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">あなたには僕が見えるが?</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/NeuralNet/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[NN&DL-ch3] Improving the way neural networks learn</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T20:38:47+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NeuralNet/" itemprop="url" rel="index">
+                    <span itemprop="name">NeuralNet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/15/NeuralNet/3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/15/NeuralNet/3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ch-3-improving-the-way-neural-networks-learn"><a class="markdownIt-Anchor" href="#ch-3-improving-the-way-neural-networks-learn"></a> ch-3 Improving the way neural networks learn</h2>
+<p>The techniques we’ll develop in this chapter include</p>
+<ul>
+<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function;</li>
+<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
+<li>a better method for <strong>initializing the weights</strong> in the network;</li>
+<li>a set of heuristics to help choose <strong>good hyper-parameters</strong> ;</li>
+</ul>
+<a id="more"></a>
+<br>
+<h3 id="the-cross-entropy-cost-function"><a class="markdownIt-Anchor" href="#the-cross-entropy-cost-function"></a> The cross-entropy cost function</h3>
+<p><strong>Problem of quadratic function</strong></p>
+<p>Artificial neuron has a lot of difficulty learning when it’s badly wrong</p>
+<p>w = b = 2.0,  η = 0.15</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png" alt=""></p>
+<br>
+<p>Quadratic cost function $ C = \frac { (y-a) ^ 2 }{ 2 }  $</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png" alt=""></p>
+<ul>
+<li>when the neuron’s output is close to 1  ( might be far away from the desired output )</li>
+<li>the curve gets very flat, so $ σ′(z) $ gets very small.</li>
+<li>so $ ∂C/∂w $ and $ ∂C/∂b $ get very small.</li>
+</ul>
+<br>
+<p><strong>Introducing cross-entropy</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png" alt=""></p>
+<p>where $ a = σ(z) $ and $ z= \Sigma_j w_jx_j + b $</p>
+<ol>
+<li>It’s a cost function :</li>
+</ol>
+<ul>
+<li>non-negative</li>
+<li>close to zero when a close to y</li>
+</ul>
+<ol start="2">
+<li>avoids the problem of learning slowing down</li>
+</ol>
+<ul>
+<li>rates not controlled by $ σ’(z) $</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png" alt=""></p>
+<br>
+<p>Using the <strong>quadratic cost</strong> when we have <strong>linear</strong> neurons in the output layer</p>
+<ul>
+<li>all the neurons in the final layer are <em>linear neurons</em></li>
+<li>outputs are simply $ a_j^L = y_j^L $, sigmoid not applied</li>
+<li>quadratic cost will not slowdown learning</li>
+</ul>
+<br>
+<h3 id="softmax"><a class="markdownIt-Anchor" href="#softmax"></a> Softmax</h3>
+<ul>
+<li>define a new type of <strong>output</strong> layer</li>
+<li>apply the so-called softmax function to z</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png" alt=""></p>
+<p>output is a set of <strong>positive</strong> numbers <strong>which sum up to 1</strong>, can be thought of as a <strong>probability distribution</strong></p>
+<br>
+<p><strong>The learning slowdown problem</strong></p>
+<p><strong>log-likelihood</strong> cost function</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png" alt=""></p>
+<p>probability of $ a_y^L $ close to 1, cost close to 0</p>
+<p>$ δ_j ^L =  \partial C / \partial z_j^L $</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png" alt=""></p>
+<br>
+<h3 id="overfitting"><a class="markdownIt-Anchor" href="#overfitting"></a> Overfitting</h3>
+<p><strong>cost</strong> on the <strong>training data</strong> continue decrease while</p>
+<p>classification <strong>accuracy</strong> on the <strong>test data</strong> stops</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png" alt=""></p>
+<p><strong>cost</strong> on the <strong>test data</strong> starts increase while</p>
+<p>classification <strong>accuracy</strong> on <strong>training data</strong> rises up to 100%</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png" alt=""></p>
+<p><em>It’s almost as though our network is <strong>merely memorizing</strong> the <strong>training</strong> set, without understanding digits well enough to generalize to the test set.</em></p>
+<br>
+<p>Detect overfitting</p>
+<ul>
+<li>keeping track of accuracy on the test data as our network trains.</li>
+<li>using validation data: we may find hyper-parameters which fit particular peculiarities of the test_data if using test_data for detection.</li>
+<li><em>early stopping</em>: stop training when accuracy no longer improving</li>
+<li><em>hold out method</em>: validation_data is kept apart or “held out” from the training_data</li>
+</ul>
+<br>
+<p><strong>Avoid overfitting</strong></p>
+<ul>
+<li>one of the <strong>best</strong> ways: increase the <strong>size</strong> of the training data</li>
+<li>regularization</li>
+</ul>
+<br>
+<h3 id="regularization"><a class="markdownIt-Anchor" href="#regularization"></a> Regularization</h3>
+<h4 id="l2-regularization-weight-decay"><a class="markdownIt-Anchor" href="#l2-regularization-weight-decay"></a> L2 regularization ( weight decay )</h4>
+<p>add an extra term on cost function</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png" alt=""></p>
+<ul>
+<li>Intuitively, the effect of regularization is to make it so the network <strong>prefers to learn small weights</strong></li>
+<li>λ : compromising between finding small weights and minimizing the original cost function</li>
+<li>$ -\frac{ηλ}{n}*w  $ weights shrink by an amount <strong>proportional</strong> to w</li>
+</ul>
+<br>
+<p>Why does regularization help reduce overfitting?</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png" alt=""></p>
+<p><em>the 9th order model is really just learning the effects of <strong>local noise</strong></em></p>
+<ul>
+<li>The smallness of the <strong>weights</strong> means that the network <strong>won’t change too much</strong> if we change a few random inputs here and there</li>
+<li>having a large <strong>bias</strong> doesn’t make a neuron sensitive to its inputs in the same way as having large weights</li>
+</ul>
+<p>We don’t have an entirely satisfactory systematic understanding of what’s going on, <strong>merely incomplete heuristics</strong> and rules of thumb.</p>
+<br>
+<h4 id="l1-regularization"><a class="markdownIt-Anchor" href="#l1-regularization"></a> L1 regularization</h4>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png" alt=""></p>
+<ul>
+<li>$ -\frac{ηλ}{n} * sgn(w) $weights shrink by a <strong>constant</strong> amount toward 0</li>
+<li>when $|w| $ is large, shrink less; when $ |w| $ is small, shrink more</li>
+</ul>
+<br>
+<h4 id="dropout"><a class="markdownIt-Anchor" href="#dropout"></a> Dropout</h4>
+<p><strong>modify the network itself</strong> rather than modifying the cost function</p>
+<ul>
+<li>start by <strong>randomly deleting half the hidden neurons</strong></li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_14-47-37.png" alt=""></p>
+<ul>
+<li>forward-propagate the input and backpropagate the result, update network</li>
+<li>choosing a new random subset,  repeat;</li>
+<li>Finally, run the full network by <strong>halving</strong> all weights.</li>
+</ul>
+<br>
+<p>Heuristic</p>
+<ul>
+<li><strong>Averaging</strong> the effects of <strong>a large number of</strong> different networks</li>
+<li>a neuron cannot <strong>rely on</strong> particular other neurons, <strong>robust</strong> to losing any individual connection</li>
+</ul>
+<br>
+<h4 id="artificially-expanding-the-training-data"><a class="markdownIt-Anchor" href="#artificially-expanding-the-training-data"></a> Artificially expanding the training data</h4>
+<p>The general principle is to expand the training data by applying operations that <strong>reflect real-world variation</strong>.</p>
+<br>
+<p><strong>An aside on big data and what it means to compare classification accuracies</strong></p>
+<p><strong>more training data</strong> can sometimes compensate for differences in the machine learning algorithm used</p>
+<br>
+<h3 id="weight-initialization"><a class="markdownIt-Anchor" href="#weight-initialization"></a> Weight initialization</h3>
+<p><em>Up to now</em></p>
+<ul>
+<li>choose w &amp; b using independent <em>Gaussian random variables</em></li>
+<li>mean 0 and standard deviation 1</li>
+<li>while z <strong>sum up</strong> over a total of 501 normalized Gaussian random variables</li>
+<li>z will have a very broad Gaussian distribution</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png" alt=""></p>
+<br>
+<p>An easy way</p>
+<ul>
+<li>initialize more sharply peak</li>
+<li>mean 0 and standard deviation $ 1 / \sqrt {n_{in}} $</li>
+<li>seems only speeds up learning, doesn’t change the final performance</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png" alt=""></p>
+<br>
+<p><strong>Connection with Regularization</strong></p>
+<ul>
+<li>L2 regularization sometimes automatically gives us something similar to the new approach to weight initialization</li>
+</ul>
+<br>
+<h3 id="handwriting-recognition-revisited-the-code"><a class="markdownIt-Anchor" href="#handwriting-recognition-revisited-the-code"></a> Handwriting recognition revisited: the code</h3>
+<br>
+<br>
+<h3 id="how-to-choose-a-neural-networks-hyper-parameters"><a class="markdownIt-Anchor" href="#how-to-choose-a-neural-networks-hyper-parameters"></a> How to choose a neural network’s hyper-parameters?</h3>
+<p>Problem when choose η=10.0 and λ=1000.0</p>
+<ul>
+<li>classification accuracies are no better than <strong>chance</strong></li>
+</ul>
+<br>
+<p><strong>Broad strategy</strong></p>
+<ul>
+<li>examine network to achieve results better than chance</li>
+</ul>
+<p>Speed up experimentation</p>
+<ul>
+<li>stripping network down to the <strong>simplest</strong></li>
+<li>increasing the <strong>frequency of monitoring</strong></li>
+</ul>
+<p>When having a signal</p>
+<ul>
+<li>
+<p>gradually decrease the frequency of monitoring</p>
+</li>
+<li>
+<p>experiment with a more complex architecture, adjust  η and λ again</p>
+</li>
+</ul>
+<br>
+<p><strong>Learning Rate</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png" alt=""></p>
+<ul>
+<li>First estimate the <strong>order of threshold</strong> for η so that <strong>training cost</strong> won’t oscillating or increasing</li>
+<li>control the step size in gradient descent, no need to monitor by accuracy</li>
+</ul>
+<br>
+<p><strong>Number of training Epochs</strong></p>
+<p>Early stopping</p>
+<ul>
+<li>terminate when classification on validation data stops improving</li>
+</ul>
+<br>
+<p><strong>Learning rate schedule</strong></p>
+<ul>
+<li>μ=0 there’s a lot of friction, the velocity can’t build upuse a large learning rate when weights are badly wrong</li>
+<li>later reduce as we make more fine-tuned adjustments</li>
+</ul>
+<br>
+<p><strong>The regularization parameter, λ</strong></p>
+<ul>
+<li>starting initially λ=0.0 to determine 	η</li>
+<li>increase or decrease by factors of 10, get a fine-tune</li>
+<li>return and re-optimize η again</li>
+</ul>
+<br>
+<p><strong>Mini-batch size</strong></p>
+<ul>
+<li>it’s possible to use <strong>matrix techniques</strong> to compute the gradient update for <em>all</em> examples in a mini-batch simultaneously</li>
+<li>using the larger mini-batch would speed things up</li>
+</ul>
+<br>
+<h3 id="other-techniques"><a class="markdownIt-Anchor" href="#other-techniques"></a> Other techniques</h3>
+<p>####Variations on stochastic gradient descent</p>
+<p><strong>Hessian technique</strong></p>
+<p>incorporates not just the gradient, but also information about <strong>how the gradient is changing</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png" alt=""></p>
+<p>$ H $ is a matrix known as the <em>Hessian matrix</em>, whose $ jkth $ entry is $ ∂^2C/∂w_j∂w_k $</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-48-04.png" alt=""></p>
+<ul>
+<li>the sheer <strong>size</strong> of the Hessian matrix make it difficult to compute</li>
+</ul>
+<br>
+<p><strong>Momentum-based gradient descent</strong></p>
+<p>introduces a notion of “velocity” and “friction”</p>
+<ul>
+<li>replace the gradient descent update rule $ w→w′=w−η∇C$  by</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png" alt=""></p>
+<ul>
+<li>
+<p>the “force” ∇C is now modifying v, and the velocity is controlling the rate of change of w.</p>
+</li>
+<li>
+<p>1−μ as the amount of friction in the system.</p>
+</li>
+<li>
+<p>μ=1, there is no friction;  μ=0 there’s a lot of friction, the velocity can’t build up;</p>
+  <br>	
+</li>
+</ul>
+<h4 id="other-models-of-artificial-neuron"><a class="markdownIt-Anchor" href="#other-models-of-artificial-neuron"></a> Other models of artificial neuron</h4>
+<p><strong>tanh neuron</strong></p>
+<ul>
+<li>ranges from -1 to 1, not 0 to 1</li>
+<li>allows both positive and negative activations</li>
+<li>the activations in hidden layers would be equally balanced</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png" alt=""></p>
+<br>
+<p><strong>Rectified linear unit</strong></p>
+<ul>
+<li>never cause saturate, no corresponding learning slowdown</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-07-11.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-07-17.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NeuralNet/" rel="tag"><i class="fa fa-tag"></i> NeuralNet</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/NeuralNet/2/" rel="next" title="[NN&DL-ch2] How the backpropagation algorithm works">
+                <i class="fa fa-chevron-left"></i> [NN&DL-ch2] How the backpropagation algorithm works
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/18/SICP/sicp3/" rel="prev" title="[SICP-ch3] Modularity, Objects, and State">
+                [SICP-ch3] Modularity, Objects, and State <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Aria" />
+            
+              <p class="site-author-name" itemprop="name">Aria</p>
+              <p class="site-description motion-element" itemprop="description">This guy is so lazy that he left nothing</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-improving-the-way-neural-networks-learn"><span class="nav-number">1.</span> <span class="nav-text"> ch-3 Improving the way neural networks learn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-cross-entropy-cost-function"><span class="nav-number">1.1.</span> <span class="nav-text"> The cross-entropy cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">1.2.</span> <span class="nav-text"> Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overfitting"><span class="nav-number">1.3.</span> <span class="nav-text"> Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regularization"><span class="nav-number">1.4.</span> <span class="nav-text"> Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#l2-regularization-weight-decay"><span class="nav-number">1.4.1.</span> <span class="nav-text"> L2 regularization ( weight decay )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#l1-regularization"><span class="nav-number">1.4.2.</span> <span class="nav-text"> L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dropout"><span class="nav-number">1.4.3.</span> <span class="nav-text"> Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#artificially-expanding-the-training-data"><span class="nav-number">1.4.4.</span> <span class="nav-text"> Artificially expanding the training data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weight-initialization"><span class="nav-number">1.5.</span> <span class="nav-text"> Weight initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#handwriting-recognition-revisited-the-code"><span class="nav-number">1.6.</span> <span class="nav-text"> Handwriting recognition revisited: the code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-choose-a-neural-networks-hyper-parameters"><span class="nav-number">1.7.</span> <span class="nav-text"> How to choose a neural network’s hyper-parameters?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#other-techniques"><span class="nav-number">1.8.</span> <span class="nav-text"> Other techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#other-models-of-artificial-neuron"><span class="nav-number">1.8.1.</span> <span class="nav-text"> Other models of artificial neuron</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aria</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+   
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://aria-3.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/04/15/NeuralNet/3/';
+          this.page.identifier = '2018/04/15/NeuralNet/3/';
+          this.page.title = '[NN&DL-ch3] Improving the way neural networks learn';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aria-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+
