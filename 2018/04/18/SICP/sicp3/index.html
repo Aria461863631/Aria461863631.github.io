@@ -95,7 +95,12 @@
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-01-27.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-29-27.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-40-49.png">
-<meta property="og:updated_time" content="2018-04-18T14:45:22.258Z">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-32-39.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-31-42.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-34-11.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-35-17.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-29-47.png">
+<meta property="og:updated_time" content="2018-04-18T14:54:19.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SICP-ch3] Modularity, Objects, and State">
 <meta name="twitter:description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
@@ -593,6 +598,212 @@
 </ul>
 <p><strong>Concurrency, time, and communication</strong></p>
 <p>The basic phenomenon here is that <em>synchronizing</em> different processes, establishing <em>shared state</em>, or imposing an <em>order</em> on events requires <strong>communication among the processes</strong>.</p>
+<br>
+<p>###3.5 Streams</p>
+<p><em>an alternative approach to modeling state</em></p>
+<p>Computational Object</p>
+<table>
+<thead>
+<tr>
+<th>real-world</th>
+<th>computer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>real-world objects with local state</td>
+<td>computational objects with local variables</td>
+</tr>
+<tr>
+<td>time variation in the real world</td>
+<td>time variation in the computer</td>
+</tr>
+<tr>
+<td>implement the time variation of the states</td>
+<td>assignments to the local variables</td>
+</tr>
+</tbody>
+</table>
+<p>streams</p>
+<ul>
+<li>model change in terms of sequences that represent the time histories</li>
+</ul>
+<p><strong>3.5.1 Streams Are Delayed Lists</strong></p>
+<p>Streams allows one to formulate programs as <strong>sequence</strong> manipulations, while ataining the <strong>efficiency</strong> of incremental computation.</p>
+<p><strong>basic idea</strong></p>
+<ul>
+<li>construct a stream only partially</li>
+<li>when accessed, automatically construct just enough more of itself to produce the required part</li>
+<li>preserving the <strong>illusion</strong> that the entire stream exists</li>
+</ul>
+<p><strong>Delayed Evaluation</strong></p>
+<p>cons-stream</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">cons-stream</span> ⟨ a ⟩ ⟨ b ⟩ </span>
+<span class="line">		== (<span class="name">cons</span> ⟨ a ⟩ (<span class="name">delay</span> ⟨ b ⟩ )) )</span>
+</pre></td></tr></table></figure>
+<p>selectors</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">stream-car</span> stream) (<span class="name">car</span> stream))</span>
+<span class="line">(<span class="name">define</span> (<span class="name">stream-cdr</span> stream) (<span class="name">force</span> (<span class="name">cdr</span> stream)))</span>
+</pre></td></tr></table></figure>
+<p>Implementing delay and force</p>
+<ul>
+<li><code>delay</code> must package an expression so that it can be evaluated late</li>
+</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
+<span class="line">		== (<span class="name">lambda</span> () ⟨ exp ⟩ )</span>
+</pre></td></tr></table></figure>
+<ul>
+<li><code>force</code> simply calls the procedure (of no arguments)</li>
+</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">force</span> delayed-object) (<span class="name">delayed-object</span>))</span>
+</pre></td></tr></table></figure>
+<ul>
+<li>Optimization for forcing the same delayed object: Memoize</li>
+</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
+<span class="line">		== (<span class="name">memo-proc</span> (<span class="name">lambda</span> () ⟨ exp ⟩ ))</span>
+</pre></td></tr></table></figure>
+<p><strong>3.5.2 Infinite Streams</strong></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">integers-starting-from</span> n)</span>
+<span class="line">		(<span class="name">cons-stream</span> n (<span class="name">integers-starting-from</span> (<span class="name">+</span> n <span class="number">1</span>))))</span>
+<span class="line">(<span class="name">define</span> integers (<span class="name">integers-starting-from</span> <span class="number">1</span>))</span>
+</pre></td></tr></table></figure>
+<p>Defining streams implicitly</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> fibs</span>
+<span class="line">		(<span class="name">cons-stream</span></span>
+<span class="line">		<span class="number">0</span></span>
+<span class="line">		(<span class="name">cons-stream</span> <span class="number">1</span> (<span class="name">add-streams</span> (<span class="name">stream-cdr</span> fibs) fibs))))</span>
+</pre></td></tr></table></figure>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-32-39.png" alt=""></p>
+<p><strong>3.5.3 Exploiting the Stream Paradigm</strong></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-31-42.png" alt=""></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">pi-summands</span> n)</span>
+<span class="line">		(<span class="name">cons-stream</span> (<span class="name">/</span> <span class="number">1.0</span> n)</span>
+<span class="line">			(<span class="name">stream-map</span> - (<span class="name">pi-summands</span> (<span class="name">+</span> n <span class="number">2</span>)))))</span>
+<span class="line">(<span class="name">define</span> pi-stream</span>
+<span class="line">		(<span class="name">scale-stream</span> (<span class="name">partial-sums</span> (<span class="name">pi-summands</span> <span class="number">1</span>)) <span class="number">4</span>))</span>
+</pre></td></tr></table></figure>
+<p>sequence accelerator</p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-34-11.png" alt=""></p>
+<p>Even better, we can accelerate the accelerated sequence, and recursively accelerate that, and so on.</p>
+<p>Infinite streams of pairs</p>
+<p><em>interleave</em></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-35-17.png" alt=""></p>
+<p>Streams as signals</p>
+<p><em>signal-processing systems that contain <strong>feedback</strong> loops</em></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">integral</span> integrand initial-value dt)</span>
+<span class="line">	(<span class="name">define</span> int</span>
+<span class="line">		(<span class="name">cons-stream</span> initial-value</span>
+<span class="line">			(<span class="name">add-streams</span> (<span class="name">scale-stream</span> integrand dt)</span>
+<span class="line">						  int)))</span>
+<span class="line">int)</span>
+</pre></td></tr></table></figure>
+<p><strong>3.5.4 Streams and Delayed Evaluation</strong></p>
+<p>Unfortunately, stream models of systems with loops may require uses of <strong>delay beyond the “hidden” delay</strong> supplied by cons-stream .</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;does not work, because in the first line of solve the call to integral requires that the input dy be defined, which does not happen until the second line of solve</span></span>
+<span class="line"></span>
+<span class="line">(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)</span>
+<span class="line">		(<span class="name">define</span> y (<span class="name">integral</span> dy y0 dt))</span>
+<span class="line">		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))</span>
+<span class="line">		y)</span>
+<span class="line"></span>
+<span class="line"><span class="comment">;Correct Definition</span></span>
+<span class="line">(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)</span>
+<span class="line">		(<span class="name">define</span> y (<span class="name">integral</span> (<span class="name">delay</span> dy) y0 dt))</span>
+<span class="line">		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))</span>
+<span class="line">		y)</span>
+</pre></td></tr></table></figure>
+<p><strong>Normal-order evaluation</strong></p>
+<p>Delay and Force</p>
+<ul>
+<li>provides great programming <strong>flexibility</strong></li>
+<li>but also can make our programs more <strong>complex</strong></li>
+</ul>
+<p>normal-order evaluation language ( Section 4.2 )</p>
+<ul>
+<li>
+<p>all arguments to procedures are automatically delayed</p>
+</li>
+<li>
+<p>arguments are forced only when they are actually needed</p>
+</li>
+</ul>
+<p><strong>Mutability</strong> and <strong>Delayed evaluation</strong> do not mix well</p>
+<ul>
+<li>Unfortunately, including delays in procedure calls wreaks-havoc(破坏) with our ability to design programs that depend on the <strong>order of events</strong></li>
+<li>such as programs that use assignment, mutate data, or perform input or output.</li>
+</ul>
+<p><strong>3.5.5 Modularity of Functional Programs and Modularity of Objects</strong></p>
+<p>benefits of Assignment</p>
+<ul>
+<li>increase the modularity by encapsulating states</li>
+</ul>
+<p>Stream can provide an <strong>equivalent modularity</strong> without assignment.</p>
+<p><strong>A functional-programming view of time</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Modeling with objects</th>
+<th style="text-align:center">Functional programming language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Assignment and Mutable objects</td>
+<td style="text-align:center">Stream that represents the time history of states</td>
+</tr>
+<tr>
+<td style="text-align:center">matches the way interacting with the world</td>
+<td style="text-align:center">well-defined mathematical functions whose behavior does not change</td>
+</tr>
+<tr>
+<td style="text-align:center">raise problems of constraining the order and syncronizing</td>
+<td style="text-align:center">raise problems when we wish to design interactive systems</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-29-47.png" alt=""></p>
+<p>We can model the world as <strong>a collection of separate, time-bound, interacting objects with state</strong>, or we can model the world as <strong>a single, timeless, stateless unity</strong>.</p>
+<p>Each view has powerful advantages, but <strong>neither</strong> view alone is completely satisfactory. A grand unification has yet to emerge</p>
 
       
     </div>
