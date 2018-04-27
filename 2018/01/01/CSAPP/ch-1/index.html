@@ -369,10 +369,10 @@
       
 
       
-        <h2>CS:APP ch-1 A Tour of Computer Sytems</h2>
+        <h2 id="csapp-ch-1-a-tour-of-computer-sytems"><a class="markdownIt-Anchor" href="#csapp-ch-1-a-tour-of-computer-sytems"></a> CS:APP ch-1 A Tour of Computer Sytems</h2>
 <p>A computer system consists of hardware and systems software that work together to run application programs.</p>
 <p>Tracing the life time of hello program.</p>
-<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -388,10 +388,10 @@
 <span class="line">  </span>
 <span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<p>&lt;!-- more --&gt;</p>
-<h4>1.1 Information Is Bits + Context</h4>
+</pre></td></tr></table></figure>
+<br>
+<a id="more"></a>
+<h4 id="11-information-is-bits-context"><a class="markdownIt-Anchor" href="#11-information-is-bits-context"></a> 1.1 Information Is Bits + Context</h4>
 <p>The hello program begins life as a source program ( a sequence of bits, organized in bytes )</p>
 <p>Text files</p>
 <ul>
@@ -403,22 +403,26 @@
 </ul>
 <p>All information in a system is represented as a bunch of <strong>bits</strong>.</p>
 <p>The only thing that distinguishes different data objects is the <strong>context</strong> in which we view them.</p>
-<p>&lt;br/&gt;</p>
-<h4>1.2 Programs Are Translated by Other Programs into Different Forms</h4>
+<br>
+<h4 id="12-programs-are-translated-by-other-programs-into-different-forms"><a class="markdownIt-Anchor" href="#12-programs-are-translated-by-other-programs-into-different-forms"></a> 1.2 Programs Are Translated by Other Programs into Different Forms</h4>
 <p>In order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
 <p>These instructions are then packaged in a form called an executable object program and stored as a binary disk file.</p>
 <p><img src="http://img.blog.csdn.net/20140423174324171" alt=""></p>
-<h4>1.3 It Pays to Understand How Compilation Systems Work</h4>
+<h4 id="13-it-pays-to-understand-how-compilation-systems-work"><a class="markdownIt-Anchor" href="#13-it-pays-to-understand-how-compilation-systems-work"></a> 1.3 It Pays to Understand How Compilation Systems Work</h4>
 <p>Reasons why need to understand compilation systems</p>
 <ul>
-<li>Optimizing program performance</li>
+<li>
+<p>Optimizing program performance</p>
+</li>
+<li>
+<p>Understanding link-time error</p>
+</li>
+<li>
+<p>Avoiding security holes</p>
+</li>
 </ul>
-<ul>
-<li>Understanding link-time error</li>
-<li>Avoiding security holes</li>
-</ul>
-<p>&lt;br/&gt;</p>
-<h4>1.4 Processors Read and Interpret Instructions Stored in Memory</h4>
+<br>
+<h4 id="14-processors-read-and-interpret-instructions-stored-in-memory"><a class="markdownIt-Anchor" href="#14-processors-read-and-interpret-instructions-stored-in-memory"></a> 1.4 Processors Read and Interpret Instructions Stored in Memory</h4>
 <p>To run the executable object file, type <code>./hello</code>  to an applcation program known as a shell</p>
 <p><strong>Hardware Organization of a System</strong></p>
 <ul>
@@ -436,16 +440,16 @@
 </ul>
 <p><img src="http://img.blog.csdn.net/20140423180827984" alt=""></p>
 <p><img src="http://img.blog.csdn.net/20140423180854531" alt=""></p>
-<h4>1.5 Caches Matter</h4>
+<h4 id="15-caches-matter"><a class="markdownIt-Anchor" href="#15-caches-matter"></a> 1.5 Caches Matter</h4>
 <p>The machine instruction in the hello program are originally stored on disk</p>
 <p>When loaded, opied to main memory</p>
 <p>When processor runs, copied into the processor ( register + caches )</p>
 <p>deal with processor-memory gap</p>
-<p>&lt;br/&gt;</p>
-<h4>1.6 Storage Devices Form a Hierarchy</h4>
+<br>
+<h4 id="16-storage-devices-form-a-hierarchy"><a class="markdownIt-Anchor" href="#16-storage-devices-form-a-hierarchy"></a> 1.6 Storage Devices Form a Hierarchy</h4>
 <p>storage at one level serves as a cache for the next lower level</p>
 <p><img src="http://img.blog.csdn.net/20140423181308515" alt=""></p>
-<h4>1.7 The Operating System Manages the Hardware</h4>
+<h4 id="17-the-operating-system-manages-the-hardware"><a class="markdownIt-Anchor" href="#17-the-operating-system-manages-the-hardware"></a> 1.7 The Operating System Manages the Hardware</h4>
 <p>OS</p>
 <ul>
 <li>a layer of software interposed between the application program and the hardware</li>
@@ -456,7 +460,7 @@
 <p><img src="http://img.blog.csdn.net/20140423181504203" alt=""></p>
 <p>Process</p>
 <ul>
-<li>The operating system's abstraction for a running program</li>
+<li>The operating system’s abstraction for a running program</li>
 <li>context switching</li>
 </ul>
 <p>Thread</p>
@@ -470,11 +474,11 @@
 <li>A sequence of bytes, nothing more and nothing less</li>
 <li>Every I/O devices is modeled as a file</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h4>1.8 Systems Communicate with Other Systems Using Networks</h4>
+<br>
+<h4 id="18-systems-communicate-with-other-systems-using-networks"><a class="markdownIt-Anchor" href="#18-systems-communicate-with-other-systems-using-networks"></a> 1.8 Systems Communicate with Other Systems Using Networks</h4>
 <p><img src="http://img.blog.csdn.net/20140423182125734" alt=""></p>
-<h4>1.9 Important Themes</h4>
-<p>Amdahl's law: observation of the effectiveness</p>
+<h4 id="19-important-themes"><a class="markdownIt-Anchor" href="#19-important-themes"></a> 1.9 Important Themes</h4>
+<p>Amdahl’s law: observation of the effectiveness</p>
 <p><strong>Concurrency and Parallelism</strong></p>
 <p>concurrency</p>
 <ul>
@@ -707,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CS:APP ch-1 A Tour of Computer Sytems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 Information Is Bits + Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2 Programs Are Translated by Other Programs into Different Forms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3 It Pays to Understand How Compilation Systems Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">1.4 Processors Read and Interpret Instructions Stored in Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">1.5 Caches Matter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.6.</span> <span class="nav-text">1.6 Storage Devices Form a Hierarchy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.7.</span> <span class="nav-text">1.7 The Operating System Manages the Hardware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.8.</span> <span class="nav-text">1.8 Systems Communicate with Other Systems Using Networks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.9.</span> <span class="nav-text">1.9 Important Themes</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-1-a-tour-of-computer-sytems"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-1 A Tour of Computer Sytems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#11-information-is-bits-context"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 1.1 Information Is Bits + Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-programs-are-translated-by-other-programs-into-different-forms"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 1.2 Programs Are Translated by Other Programs into Different Forms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-it-pays-to-understand-how-compilation-systems-work"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 1.3 It Pays to Understand How Compilation Systems Work</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-processors-read-and-interpret-instructions-stored-in-memory"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 1.4 Processors Read and Interpret Instructions Stored in Memory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-caches-matter"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 1.5 Caches Matter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-storage-devices-form-a-hierarchy"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 1.6 Storage Devices Form a Hierarchy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-the-operating-system-manages-the-hardware"><span class="nav-number">1.0.7.</span> <span class="nav-text"> 1.7 The Operating System Manages the Hardware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-systems-communicate-with-other-systems-using-networks"><span class="nav-number">1.0.8.</span> <span class="nav-text"> 1.8 Systems Communicate with Other Systems Using Networks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-important-themes"><span class="nav-number">1.0.9.</span> <span class="nav-text"> 1.9 Important Themes</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
