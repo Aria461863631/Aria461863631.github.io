@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta name="description" content="ch-3 Modularity, Objects, and State 3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to cha">
 <meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SICP-ch3] Modularity, Objects, and State">
 <meta property="og:url" content="http://yoursite.com/2018/04/18/SICP/sicp3/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta property="og:description" content="ch-3 Modularity, Objects, and State 3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to cha">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-34-02.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2018-04-18T14:59:23.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SICP-ch3] Modularity, Objects, and State">
-<meta name="twitter:description" content="ch-3 Modularity, Objects, and State  3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to c">
+<meta name="twitter:description" content="ch-3 Modularity, Objects, and State 3.1 Assignment and Local State System decomposed into computational objects with time-varying state language must provide an assignment operator to enable us to cha">
 <meta name="twitter:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png">
 
 
@@ -372,14 +372,14 @@
       
 
       
-        <h2 id="ch-3-modularity-objects-and-state"><a class="markdownIt-Anchor" href="#ch-3-modularity-objects-and-state"></a> ch-3 Modularity, Objects, and State</h2>
-<h3 id="31-assignment-and-local-state"><a class="markdownIt-Anchor" href="#31-assignment-and-local-state"></a> 3.1 Assignment and Local State</h3>
+        <h2>ch-3 Modularity, Objects, and State</h2>
+<h3>3.1 Assignment and Local State</h3>
 <p>System decomposed into <strong>computational objects</strong> with time-varying <strong>state</strong></p>
 <p>language must provide an <strong>assignment</strong> operator to enable us to change the value</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -391,12 +391,12 @@
 <span class="line">			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))</span>
 <span class="line">				   balance)</span>
 <span class="line">			<span class="string">"Insufficient funds"</span>)))</span>
-</pre></td></tr></table></figure>
-<a id="more"></a>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;</p>
 <p><strong>3.1.2 The Benefits of Introducing Assignment</strong></p>
 <p>viewing systems as collections of objects with local state is a powerful technique for maintaining a <strong>modular</strong> design</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -410,39 +410,35 @@
 <span class="line"></span>
 <span class="line">(<span class="name">define</span> (<span class="name">cesaro-test</span>)</span>
 <span class="line">	(<span class="name">=</span> (<span class="name">gcd</span> (<span class="name">rand</span>) (<span class="name">rand</span>)) <span class="number">1</span>))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <ul>
 <li>assignment <strong>encapsulates the state</strong> of the random-number generator within the rand procedure,</li>
 <li>so that the details of random-number generation remain <strong>independent</strong> of the rest of the program</li>
 <li>therefore easy to isolate the Monte Carlo idea</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.1.3 The Costs of Introducing Assignment</strong></p>
 <p>the substitution model failed</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>functional programming</strong></p>
 <ul>
-<li>
-<p>Programming without assignments</p>
-</li>
-<li>
-<p>procedure with the same arguments will produce the same result</p>
-</li>
-<li>
-<p>can be viewed as computing mathematical functions</p>
-</li>
+<li>Programming without assignments</li>
+</ul>
+<ul>
+<li>procedure with the same arguments will produce the same result</li>
+<li>can be viewed as computing mathematical functions</li>
 </ul>
 <p><strong>imperative programming</strong></p>
 <ul>
 <li>using explicit assignment to update the values</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Pitfalls</p>
 <ul>
 <li>the order of the assignments</li>
 <li>several processes execute concurrently</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Sameness and change</strong></p>
 <p>referentially transparent</p>
 <ul>
@@ -452,51 +448,51 @@
 <ul>
 <li>cannot determine sameness without observing the effects of change</li>
 </ul>
-<br>
-<h3 id="32-the-environment-model-of-evaluation"><a class="markdownIt-Anchor" href="#32-the-environment-model-of-evaluation"></a> 3.2 The Environment Model of Evaluation</h3>
+<p>&lt;br/&gt;</p>
+<h3>3.2 The Environment Model of Evaluation</h3>
 <p>A variable can no longer be considered to be a name for a value,</p>
 <p>but designate a “place” in which values can be stored</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Environment</p>
 <ul>
 <li>a sequence of frames</li>
 <li>each frame is a table of bindings, associate name and value</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.2.1 The Rules for Evaluation</strong></p>
 <p>Define procedure</p>
 <ul>
-<li>a procedure is always a pair – consisting of some code and a pointer to an environment</li>
+<li>a procedure is always a pair -- consisting of some code and a pointer to an environment</li>
 <li>define creates definitions by adding bindings to frames</li>
 </ul>
 <p>Apply procedure</p>
 <ul>
-<li>create a new environment – containing a frame that binds the parameters to the arguments’ value</li>
+<li>create a new environment -- containing a frame that binds the parameters to the arguments' value</li>
 </ul>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png" alt=""></p>
 <p><strong>3.2.2 Applying Simple Procedures</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-34-02.png" alt=""></p>
 <p>each call to square creates a new environment containing a binding for x</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.2.3 Frames as the Repository of Local State</strong></p>
 <p>how procedures and assignment can be used to represent objects with local state</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-36-07.png" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.2.4 Internal Definitions</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-38-23.png" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>make local procedure definitions a useful technique for modularizing programs</p>
 <ul>
 <li>local names do not interfere external names</li>
 <li>local procedures can access the arguments of the enclosing procedure</li>
 </ul>
-<br>
-<h3 id="33-modeling-with-mutable-data"><a class="markdownIt-Anchor" href="#33-modeling-with-mutable-data"></a> 3.3 Modeling with Mutable Data</h3>
+<p>&lt;br/&gt;</p>
+<h3>3.3 Modeling with Mutable Data</h3>
 <p>Mutators</p>
 <ul>
 <li>Data abstraction modify compound data objects</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.3.1 Mutable List Structure</strong></p>
 <ul>
 <li><code>set-car!</code> and <code>set-cdr!</code></li>
@@ -505,19 +501,19 @@
 <p>Sharing and identity</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-57-07.png" alt=""></p>
 <p>use the predicate eq? to detect sharing in list structures</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.3.2 Representing Queues</strong></p>
 <p><code>( insert-queue! &lt;queue&gt; &lt;item&gt; )</code></p>
 <p><code>( delete-queue! &lt;queue&gt; &lt;item )</code></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-01-27.png" alt=""></p>
 <p>​</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.3.3 Representing Tables</strong></p>
 <p><code>assoc</code> returns the record that has the given key as its car</p>
 <p><code>lookup</code> then checks to see that the resulting record returned by assoc is not false, and returns the value ( the cdr ) of the record</p>
 <p><code>insert</code>first see if there is already a record, if not, consing key and value than insert in table</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-29-27.png" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.3.4 A Simulator for Digital Circuits</strong></p>
 <p>event-driven simulation</p>
 <ul>
@@ -525,7 +521,7 @@
 </ul>
 <p><code>wires</code> carry digital signals</p>
 <p><code>function boxes</code> connect wires carrying input signals to other output wires</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -547,22 +543,22 @@
 <span class="line">	(<span class="name">add-to-agenda!</span> (<span class="name">+</span> delay (<span class="name">current-time</span> the-agenda))</span>
 <span class="line">					action</span>
 <span class="line">					the-agenda))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><code>agenda</code> contains a schedule of things to do</p>
 <p><code>propagate</code>executing each procedure on the agenda in sequence</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.3.5 Propagation of Constraints</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-40-49.png" alt=""></p>
-<br>
-<h3 id="34-concurrency-time-is-of-the-essence"><a class="markdownIt-Anchor" href="#34-concurrency-time-is-of-the-essence"></a> 3.4 Concurrency: Time Is of the Essence</h3>
+<p>&lt;br/&gt;</p>
+<h3>3.4 Concurrency: Time Is of the Essence</h3>
 <p>by introducing assignment, we are forced to admit <strong>time</strong> into our computational models</p>
 <p>Objects in the world are acting <strong>concurrently</strong> —all at once.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.4.1 The Nature of Time in Concurrent Systems</strong></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.4.2 Mechanisms for Controlling Concurrency</strong></p>
 <p>using serializer</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -578,9 +574,9 @@
 <span class="line">				  ((<span class="name">eq</span>? m 'balance) balance)</span>
 <span class="line">				  (<span class="name">else</span> (<span class="name">error</span> <span class="string">"Unknown request: MAKE-ACCOUNT"</span> m))))</span>
 <span class="line">dispatch))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><em>With this implementation, two processes cannot be withdrawing from or depositing into a single account concurrently.</em></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Complexity</p>
 <ul>
 <li>concurrent programming can be treacherously difficult when there are <strong>multiple shared resources</strong></li>
@@ -589,7 +585,7 @@
 <ul>
 <li>synchronization mechanism called a mutex ( acquired &amp; release )</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -613,18 +609,18 @@
 <span class="line"><span class="comment">;actual implementation depends on how our system runs concurrent processes</span></span>
 <span class="line">(<span class="name">define</span> (<span class="name">test-and-set!</span> cell)</span>
 <span class="line">	(<span class="name">if</span> (<span class="name">car</span> cell) true (<span class="name">begin</span> (<span class="name">set-car!</span> cell true) false)))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>Deadlock</strong></p>
 <ul>
 <li>Each process is stalled forever, waiting for the other</li>
 </ul>
 <p><strong>Concurrency, time, and communication</strong></p>
 <p>The basic phenomenon here is that <em>synchronizing</em> different processes, establishing <em>shared state</em>, or imposing an <em>order</em> on events requires <strong>communication among the processes</strong>.</p>
-<br>
-<h3 id="35-streams"><a class="markdownIt-Anchor" href="#35-streams"></a> 3.5 Streams</h3>
+<p>&lt;br/&gt;</p>
+<h3>3.5 Streams</h3>
 <p><em>an alternative approach to modeling state</em></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Computational Object</p>
 <table>
 <thead>
@@ -648,14 +644,14 @@
 </tr>
 </tbody>
 </table>
-<br>
+<p>&lt;br/&gt;</p>
 <p>streams</p>
 <ul>
 <li>model change in terms of sequences that represent the time histories</li>
 </ul>
 <p><strong>3.5.1 Streams Are Delayed Lists</strong></p>
 <p>Streams allows one to formulate programs as <strong>sequence</strong> manipulations, while ataining the <strong>efficiency</strong> of incremental computation.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>basic idea</strong></p>
 <ul>
 <li>construct a stream only partially</li>
@@ -664,53 +660,53 @@
 </ul>
 <p><strong>Delayed Evaluation</strong></p>
 <p>cons-stream</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">cons-stream</span> ⟨ a ⟩ ⟨ b ⟩ </span>
 <span class="line">		== (<span class="name">cons</span> ⟨ a ⟩ (<span class="name">delay</span> ⟨ b ⟩ )) )</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>selectors</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">stream-car</span> stream) (<span class="name">car</span> stream))</span>
 <span class="line">(<span class="name">define</span> (<span class="name">stream-cdr</span> stream) (<span class="name">force</span> (<span class="name">cdr</span> stream)))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>Implementing delay and force</p>
 <ul>
 <li><code>delay</code> must package an expression so that it can be evaluated late</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
 <span class="line">		== (<span class="name">lambda</span> () ⟨ exp ⟩ )</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <ul>
 <li><code>force</code> simply calls the procedure (of no arguments)</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">force</span> delayed-object) (<span class="name">delayed-object</span>))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <ul>
 <li>Optimization for forcing the same delayed object: Memoize</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
 <span class="line">		== (<span class="name">memo-proc</span> (<span class="name">lambda</span> () ⟨ exp ⟩ ))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>3.5.2 Infinite Streams</strong></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">integers-starting-from</span> n)</span>
 <span class="line">		(<span class="name">cons-stream</span> n (<span class="name">integers-starting-from</span> (<span class="name">+</span> n <span class="number">1</span>))))</span>
 <span class="line">(<span class="name">define</span> integers (<span class="name">integers-starting-from</span> <span class="number">1</span>))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>Defining streams implicitly</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -718,12 +714,12 @@
 <span class="line">		(<span class="name">cons-stream</span></span>
 <span class="line">		<span class="number">0</span></span>
 <span class="line">		(<span class="name">cons-stream</span> <span class="number">1</span> (<span class="name">add-streams</span> (<span class="name">stream-cdr</span> fibs) fibs))))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-32-39.png" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.5.3 Exploiting the Stream Paradigm</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-31-42.png" alt=""></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -733,18 +729,18 @@
 <span class="line">			(<span class="name">stream-map</span> - (<span class="name">pi-summands</span> (<span class="name">+</span> n <span class="number">2</span>)))))</span>
 <span class="line">(<span class="name">define</span> pi-stream</span>
 <span class="line">		(<span class="name">scale-stream</span> (<span class="name">partial-sums</span> (<span class="name">pi-summands</span> <span class="number">1</span>)) <span class="number">4</span>))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>sequence accelerator</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-34-11.png" alt=""></p>
 <p>Even better, we can accelerate the accelerated sequence, and recursively accelerate that, and so on.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Infinite streams of pairs</p>
 <p><em>interleave</em></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-35-17.png" alt=""></p>
 <p>Streams as signals</p>
 <p><em>signal-processing systems that contain <strong>feedback</strong> loops</em></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -756,11 +752,11 @@
 <span class="line">			(<span class="name">add-streams</span> (<span class="name">scale-stream</span> integrand dt)</span>
 <span class="line">						  int)))</span>
 <span class="line">int)</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>3.5.4 Streams and Delayed Evaluation</strong></p>
 <p>Unfortunately, stream models of systems with loops may require uses of <strong>delay beyond the “hidden” delay</strong> supplied by cons-stream .</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -784,8 +780,8 @@
 <span class="line">		(<span class="name">define</span> y (<span class="name">integral</span> (<span class="name">delay</span> dy) y0 dt))</span>
 <span class="line">		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))</span>
 <span class="line">		y)</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>Normal-order evaluation</strong></p>
 <p>Delay and Force</p>
 <ul>
@@ -794,26 +790,24 @@
 </ul>
 <p>normal-order evaluation language ( Section 4.2 )</p>
 <ul>
-<li>
-<p>all arguments to procedures are automatically delayed</p>
-</li>
-<li>
-<p>arguments are forced only when they are actually needed</p>
-</li>
+<li>all arguments to procedures are automatically delayed</li>
+</ul>
+<ul>
+<li>arguments are forced only when they are actually needed</li>
 </ul>
 <p><strong>Mutability</strong> and <strong>Delayed evaluation</strong> do not mix well</p>
 <ul>
 <li>Unfortunately, including delays in procedure calls wreaks-havoc(破坏) with our ability to design programs that depend on the <strong>order of events</strong></li>
 <li>such as programs that use assignment, mutate data, or perform input or output.</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.5.5 Modularity of Functional Programs and Modularity of Objects</strong></p>
 <p>benefits of Assignment</p>
 <ul>
 <li>increase the modularity by encapsulating states</li>
 </ul>
 <p>Stream can provide an <strong>equivalent modularity</strong> without assignment.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>A functional-programming view of time</strong></p>
 <table>
 <thead>
@@ -1044,7 +1038,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-modularity-objects-and-state"><span class="nav-number">1.</span> <span class="nav-text"> ch-3 Modularity, Objects, and State</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-assignment-and-local-state"><span class="nav-number">1.1.</span> <span class="nav-text"> 3.1 Assignment and Local State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-the-environment-model-of-evaluation"><span class="nav-number">1.2.</span> <span class="nav-text"> 3.2 The Environment Model of Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-modeling-with-mutable-data"><span class="nav-number">1.3.</span> <span class="nav-text"> 3.3 Modeling with Mutable Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34-concurrency-time-is-of-the-essence"><span class="nav-number">1.4.</span> <span class="nav-text"> 3.4 Concurrency: Time Is of the Essence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-streams"><span class="nav-number">1.5.</span> <span class="nav-text"> 3.5 Streams</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">ch-3 Modularity, Objects, and State</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 Assignment and Local State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 The Environment Model of Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">3.3 Modeling with Mutable Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">3.4 Concurrency: Time Is of the Essence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">3.5 Streams</span></a></li></ol></li></ol></div>
             
 
           </div>

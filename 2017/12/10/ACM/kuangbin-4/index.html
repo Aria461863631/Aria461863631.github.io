@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta name="description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10">
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kuangbin专题四 最短路">
 <meta property="og:url" content="http://yoursite.com/2017/12/10/ACM/kuangbin-4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-04-16T12:48:33.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题四 最短路">
-<meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; 1 2 3 4 5 6 7 8 9 10">
 
 
 
@@ -358,13 +358,13 @@
       
 
       
-        <h3 id="kuangbin专题四-最短路"><a class="markdownIt-Anchor" href="#kuangbin专题四-最短路"></a> kuangbin专题四 最短路</h3>
+        <h3>kuangbin专题四 最短路</h3>
 <p>ACM图论存图方式</p>
-<p><a href="http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">http://jzqt.github.io/2015/07/21/ACM图论之存图方式/</a></p>
-<h3 id="单源最短路"><a class="markdownIt-Anchor" href="#单源最短路"></a> 单源最短路</h3>
-<h4 id="dijkstra"><a class="markdownIt-Anchor" href="#dijkstra"></a> Dijkstra</h4>
+<p>http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/</p>
+<h3>单源最短路</h3>
+<h4>Dijkstra</h4>
 <p>​	$ O(V^2 + E) $</p>
-<a id="more"></a>
+<p>&lt;!-- more --&gt;
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -425,10 +425,10 @@
 <span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<h4 id="dijkstra-stl-priority_queue"><a class="markdownIt-Anchor" href="#dijkstra-stl-priority_queue"></a> Dijkstra + STL priority_queue</h4>
+</pre></td></tr></table></figure></p>
+<h4>Dijkstra + STL priority_queue</h4>
 <p>​	$ O((V+E)lgV) $</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -510,10 +510,10 @@
 <span class="line">        &#125;</span>
 <span class="line">    &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<h4 id="spfa-shortest-path-faster-algorithm"><a class="markdownIt-Anchor" href="#spfa-shortest-path-faster-algorithm"></a> SPFA (Shortest Path Faster Algorithm)</h4>
+</pre></td></tr></table></figure></p>
+<h4>SPFA (Shortest Path Faster Algorithm)</h4>
 <p>​	$ O(kE) $ ( k &lt; 2 )</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -609,9 +609,9 @@
 <span class="line"></span>
 <span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -643,10 +643,10 @@
 <span class="line">    vis[ u ] = <span class="literal">false</span>;</span>
 <span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<h4 id="bellman-ford"><a class="markdownIt-Anchor" href="#bellman-ford"></a> Bellman-Ford</h4>
+</pre></td></tr></table></figure></p>
+<h4>Bellman-Ford</h4>
 <p>​	$ O(VE) $</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -712,15 +712,15 @@
 <span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span>
 <span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
+</pre></td></tr></table></figure></p>
+<h4>适用场景</h4>
 <p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
 <p>对于极端的链状图，SPFA无疑是最合适的了。每个结只进队一次，标准的O(E)。</p>
 <p>朴素的dijkstra对于这样的图就力不从心了：每次循环都过一遍结点，在松弛，然后发现每次O(V)的时间只松弛了一个点。</p>
 <p>​</p>
-<h4 id="多源最短路"><a class="markdownIt-Anchor" href="#多源最短路"></a> 多源最短路</h4>
-<h4 id="floyd"><a class="markdownIt-Anchor" href="#floyd"></a> Floyd</h4>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h4>多源最短路</h4>
+<h4>Floyd</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -790,8 +790,8 @@
 <span class="line">                    &#125;</span>
 <span class="line">                &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
+</pre></td></tr></table></figure></p>
+<h4>题目列表</h4>
 <p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
 <blockquote>
 <p>一个农场有n (1000)个点，有t (2000)条道路连接,  从n到1最短</p>
@@ -883,14 +883,14 @@
 <p>网络流，不会qwq</p>
 <p><strong>R - 0 or 1 HDU - 4370</strong></p>
 <blockquote>
-<p>X12+X13+…X1n=1,X1n+X2n+…Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
+<p>X12+X13+...X1n=1,X1n+X2n+...Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
 </blockquote>
 <p>神一样的建图！！节点1的出度为1.节点n的入度为1.节点2-n-1的入度和出度相等.</p>
 <p>问题就相当于求一条最短路，从节点1出发，到节点N.</p>
 <p>同时节点1的一个最小环+节点n的一个最小环也是可行解，两者取最小</p>
 <p><strong>S - Layout POJ - 3169</strong></p>
 <blockquote>
-<p>两点间可能&lt;= x 或者&gt;=x，求1–&gt;n最大</p>
+<p>两点间可能&lt;= x 或者&gt;=x，求1--&gt;n最大</p>
 </blockquote>
 <p>差分约束，和最短路一样，SPFA判断负环则代表不存在可行解</p>
 
@@ -1093,7 +1093,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kuangbin专题四-最短路"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路"><span class="nav-number">2.</span> <span class="nav-text"> 单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra"><span class="nav-number">2.1.</span> <span class="nav-text"> Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra-stl-priority_queue"><span class="nav-number">2.2.</span> <span class="nav-text"> Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spfa-shortest-path-faster-algorithm"><span class="nav-number">2.3.</span> <span class="nav-text"> SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bellman-ford"><span class="nav-number">2.4.</span> <span class="nav-text"> Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景"><span class="nav-number">2.5.</span> <span class="nav-text"> 适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多源最短路"><span class="nav-number">2.6.</span> <span class="nav-text"> 多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#floyd"><span class="nav-number">2.7.</span> <span class="nav-text"> Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目列表"><span class="nav-number">2.8.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.7.</span> <span class="nav-text">Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.</span> <span class="nav-text">题目列表</span></a></li></ol></li></ol></div>
             
 
           </div>
