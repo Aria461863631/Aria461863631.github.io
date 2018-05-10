@@ -140,7 +140,7 @@
 
 
 
-  <title>[SICP-ch3] Modularity, Objects, and State | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[SICP-ch3] Modularity, Objects, and State | Aria</title>
   
 
 
@@ -149,6 +149,9 @@
 
 
 
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -413,38 +416,25 @@
 <br>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)</span>
-<span class="line">	(<span class="name">lambda</span> (<span class="name">amount</span>)</span>
-<span class="line">		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)</span>
-<span class="line">			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))</span>
-<span class="line">				   balance)</span>
-<span class="line">			<span class="string">"Insufficient funds"</span>)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)
+	(<span class="name">lambda</span> (<span class="name">amount</span>)
+		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)
+			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))
+				   balance)
+			<span class="string">"Insufficient funds"</span>)))
+</code></pre>
 <a id="more"></a>
 <br>
 <p><strong>3.1.2 The Benefits of Introducing Assignment</strong></p>
 <p>viewing systems as collections of objects with local state is a powerful technique for maintaining a <strong>modular</strong> design</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> rand (<span class="name">let</span> ((<span class="name">x</span> random-init))</span>
-<span class="line">	(<span class="name">lambda</span> ()</span>
-<span class="line">		(<span class="name">set!</span> x (<span class="name">rand-update</span> x))</span>
-<span class="line">		x)))</span>
-<span class="line"></span>
-<span class="line">(<span class="name">define</span> (<span class="name">cesaro-test</span>)</span>
-<span class="line">	(<span class="name">=</span> (<span class="name">gcd</span> (<span class="name">rand</span>) (<span class="name">rand</span>)) <span class="number">1</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> rand (<span class="name">let</span> ((<span class="name">x</span> random-init))
+	(<span class="name">lambda</span> ()
+		(<span class="name">set!</span> x (<span class="name">rand-update</span> x))
+		x)))
+
+(<span class="name">define</span> (<span class="name">cesaro-test</span>)
+	(<span class="name">=</span> (<span class="name">gcd</span> (<span class="name">rand</span>) (<span class="name">rand</span>)) <span class="number">1</span>))
+</code></pre>
 <ul>
 <li>assignment <strong>encapsulates the state</strong> of the random-number generator within the rand procedure,</li>
 <li>so that the details of random-number generation remain <strong>independent</strong> of the rest of the program</li>
@@ -559,29 +549,18 @@
 </ul>
 <p><code>wires</code> carry digital signals</p>
 <p><code>function boxes</code> connect wires carrying input signals to other output wires</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">inverter</span> input output)</span>
-<span class="line">	(<span class="name">define</span> (<span class="name">invert-input</span>)</span>
-<span class="line">		(<span class="name">let</span> ((<span class="name">new-value</span> (<span class="name">logical-not</span> (<span class="name">get-signal</span> input))))	</span>
-<span class="line">			(<span class="name">after-delay</span> inverter-delay</span>
-<span class="line">				(<span class="name">lambda</span> () (<span class="name">set-signal!</span> output new-value)))))</span>
-<span class="line">		(<span class="name">add-action!</span> input invert-input) 'ok)</span>
-<span class="line"></span>
-<span class="line">(<span class="name">define</span> (<span class="name">after-delay</span> delay action)</span>
-<span class="line">	(<span class="name">add-to-agenda!</span> (<span class="name">+</span> delay (<span class="name">current-time</span> the-agenda))</span>
-<span class="line">					action</span>
-<span class="line">					the-agenda))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">inverter</span> input output)
+	(<span class="name">define</span> (<span class="name">invert-input</span>)
+		(<span class="name">let</span> ((<span class="name">new-value</span> (<span class="name">logical-not</span> (<span class="name">get-signal</span> input))))	
+			(<span class="name">after-delay</span> inverter-delay
+				(<span class="name">lambda</span> () (<span class="name">set-signal!</span> output new-value)))))
+		(<span class="name">add-action!</span> input invert-input) 'ok)
+
+(<span class="name">define</span> (<span class="name">after-delay</span> delay action)
+	(<span class="name">add-to-agenda!</span> (<span class="name">+</span> delay (<span class="name">current-time</span> the-agenda))
+					action
+					the-agenda))
+</code></pre>
 <p><code>agenda</code> contains a schedule of things to do</p>
 <p><code>propagate</code>executing each procedure on the agenda in sequence</p>
 <br>
@@ -596,23 +575,15 @@
 <br>
 <p><strong>3.4.2 Mechanisms for Controlling Concurrency</strong></p>
 <p>using serializer</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-account</span> balance)	</span>
-<span class="line">	(<span class="name">let</span> ((<span class="name">protected</span> (<span class="name">make-serializer</span>)))</span>
-<span class="line">		(<span class="name">define</span> (<span class="name">dispatch</span> m)</span>
-<span class="line">			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'withdraw) (<span class="name">protected</span> withdraw))</span>
-<span class="line">				  ((<span class="name">eq</span>? m 'deposit) (<span class="name">protected</span> deposit))</span>
-<span class="line">				  ((<span class="name">eq</span>? m 'balance) balance)</span>
-<span class="line">				  (<span class="name">else</span> (<span class="name">error</span> <span class="string">"Unknown request: MAKE-ACCOUNT"</span> m))))</span>
-<span class="line">dispatch))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-account</span> balance)	
+	(<span class="name">let</span> ((<span class="name">protected</span> (<span class="name">make-serializer</span>)))
+		(<span class="name">define</span> (<span class="name">dispatch</span> m)
+			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'withdraw) (<span class="name">protected</span> withdraw))
+				  ((<span class="name">eq</span>? m 'deposit) (<span class="name">protected</span> deposit))
+				  ((<span class="name">eq</span>? m 'balance) balance)
+				  (<span class="name">else</span> (<span class="name">error</span> <span class="string">"Unknown request: MAKE-ACCOUNT"</span> m))))
+dispatch))
+</code></pre>
 <p><em>With this implementation, two processes cannot be withdrawing from or depositing into a single account concurrently.</em></p>
 <br>
 <p>Complexity</p>
@@ -623,31 +594,19 @@
 <ul>
 <li>synchronization mechanism called a mutex ( acquired &amp; release )</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-mutex</span>)</span>
-<span class="line">	(<span class="name">let</span> ((<span class="name">cell</span> (<span class="name">list</span> false)))</span>
-<span class="line">		(<span class="name">define</span> (<span class="name">the-mutex</span> m)</span>
-<span class="line">			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'acquire)</span>
-<span class="line">				   (<span class="name">if</span> (<span class="name">test-and-set!</span> cell)</span>
-<span class="line">						(<span class="name">the-mutex</span> 'acquire)))<span class="comment">; retry</span></span>
-<span class="line">				  ((<span class="name">eq</span>? m 'release) (<span class="name">clear!</span> cell))))</span>
-<span class="line">		the-mutex))</span>
-<span class="line"></span>
-<span class="line"><span class="comment">;actual implementation depends on how our system runs concurrent processes</span></span>
-<span class="line">(<span class="name">define</span> (<span class="name">test-and-set!</span> cell)</span>
-<span class="line">	(<span class="name">if</span> (<span class="name">car</span> cell) true (<span class="name">begin</span> (<span class="name">set-car!</span> cell true) false)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-mutex</span>)
+	(<span class="name">let</span> ((<span class="name">cell</span> (<span class="name">list</span> false)))
+		(<span class="name">define</span> (<span class="name">the-mutex</span> m)
+			(<span class="name">cond</span> ((<span class="name">eq</span>? m 'acquire)
+				   (<span class="name">if</span> (<span class="name">test-and-set!</span> cell)
+						(<span class="name">the-mutex</span> 'acquire)))<span class="comment">; retry</span>
+				  ((<span class="name">eq</span>? m 'release) (<span class="name">clear!</span> cell))))
+		the-mutex))
+
+<span class="comment">;actual implementation depends on how our system runs concurrent processes</span>
+(<span class="name">define</span> (<span class="name">test-and-set!</span> cell)
+	(<span class="name">if</span> (<span class="name">car</span> cell) true (<span class="name">begin</span> (<span class="name">set-car!</span> cell true) false)))
+</code></pre>
 <br>
 <p><strong>Deadlock</strong></p>
 <ul>
@@ -698,76 +657,55 @@
 </ul>
 <p><strong>Delayed Evaluation</strong></p>
 <p>cons-stream</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">cons-stream</span> ⟨ a ⟩ ⟨ b ⟩ </span>
-<span class="line">		== (<span class="name">cons</span> ⟨ a ⟩ (<span class="name">delay</span> ⟨ b ⟩ )) )</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">cons-stream</span> ⟨ a ⟩ ⟨ b ⟩ 
+		== (<span class="name">cons</span> ⟨ a ⟩ (<span class="name">delay</span> ⟨ b ⟩ )) )            
+</code></pre>
 <p>selectors</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">stream-car</span> stream) (<span class="name">car</span> stream))</span>
-<span class="line">(<span class="name">define</span> (<span class="name">stream-cdr</span> stream) (<span class="name">force</span> (<span class="name">cdr</span> stream)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">stream-car</span> stream) (<span class="name">car</span> stream))
+(<span class="name">define</span> (<span class="name">stream-cdr</span> stream) (<span class="name">force</span> (<span class="name">cdr</span> stream)))
+</code></pre>
 <br>
 <p>Implementing delay and force</p>
 <ul>
 <li><code>delay</code> must package an expression so that it can be evaluated late</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
-<span class="line">		== (<span class="name">lambda</span> () ⟨ exp ⟩ )</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">delay</span> ⟨ exp ⟩ )
+		== (<span class="name">lambda</span> () ⟨ exp ⟩ )
+</code></pre>
 <ul>
 <li><code>force</code> simply calls the procedure (of no arguments)</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">force</span> delayed-object) (<span class="name">delayed-object</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">force</span> delayed-object) (<span class="name">delayed-object</span>))
+</code></pre>
 <ul>
 <li>Optimization for forcing the same delayed object: Memoize</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">delay</span> ⟨ exp ⟩ )</span>
-<span class="line">		== (<span class="name">memo-proc</span> (<span class="name">lambda</span> () ⟨ exp ⟩ ))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="">(delay ⟨ exp ⟩ )
+		== (memo-proc (lambda () ⟨ exp ⟩ ))
+</code></pre>
 <br>
 <p><strong>3.5.2 Infinite Streams</strong></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">integers-starting-from</span> n)</span>
-<span class="line">		(<span class="name">cons-stream</span> n (<span class="name">integers-starting-from</span> (<span class="name">+</span> n <span class="number">1</span>))))</span>
-<span class="line">(<span class="name">define</span> integers (<span class="name">integers-starting-from</span> <span class="number">1</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">integers-starting-from</span> n)
+		(<span class="name">cons-stream</span> n (<span class="name">integers-starting-from</span> (<span class="name">+</span> n <span class="number">1</span>))))
+(<span class="name">define</span> integers (<span class="name">integers-starting-from</span> <span class="number">1</span>))
+</code></pre>
 <br>
 <p>Defining streams implicitly</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> fibs</span>
-<span class="line">		(<span class="name">cons-stream</span></span>
-<span class="line">		<span class="number">0</span></span>
-<span class="line">		(<span class="name">cons-stream</span> <span class="number">1</span> (<span class="name">add-streams</span> (<span class="name">stream-cdr</span> fibs) fibs))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> fibs
+		(<span class="name">cons-stream</span>
+		<span class="number">0</span>
+		(<span class="name">cons-stream</span> <span class="number">1</span> (<span class="name">add-streams</span> (<span class="name">stream-cdr</span> fibs) fibs))))
+</code></pre>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-32-39.png" alt=""></p>
 <br>
 <p><strong>3.5.3 Exploiting the Stream Paradigm</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-31-42.png" alt=""></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">pi-summands</span> n)</span>
-<span class="line">		(<span class="name">cons-stream</span> (<span class="name">/</span> <span class="number">1.0</span> n)</span>
-<span class="line">			(<span class="name">stream-map</span> - (<span class="name">pi-summands</span> (<span class="name">+</span> n <span class="number">2</span>)))))</span>
-<span class="line">(<span class="name">define</span> pi-stream</span>
-<span class="line">		(<span class="name">scale-stream</span> (<span class="name">partial-sums</span> (<span class="name">pi-summands</span> <span class="number">1</span>)) <span class="number">4</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">pi-summands</span> n)
+		(<span class="name">cons-stream</span> (<span class="name">/</span> <span class="number">1.0</span> n)
+			(<span class="name">stream-map</span> - (<span class="name">pi-summands</span> (<span class="name">+</span> n <span class="number">2</span>)))))
+(<span class="name">define</span> pi-stream
+		(<span class="name">scale-stream</span> (<span class="name">partial-sums</span> (<span class="name">pi-summands</span> <span class="number">1</span>)) <span class="number">4</span>))
+</code></pre>
 <br>
 <p>sequence accelerator</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-34-11.png" alt=""></p>
@@ -778,47 +716,29 @@
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-35-17.png" alt=""></p>
 <p>Streams as signals</p>
 <p><em>signal-processing systems that contain <strong>feedback</strong> loops</em></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">integral</span> integrand initial-value dt)</span>
-<span class="line">	(<span class="name">define</span> int</span>
-<span class="line">		(<span class="name">cons-stream</span> initial-value</span>
-<span class="line">			(<span class="name">add-streams</span> (<span class="name">scale-stream</span> integrand dt)</span>
-<span class="line">						  int)))</span>
-<span class="line">int)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">integral</span> integrand initial-value dt)
+	(<span class="name">define</span> int
+		(<span class="name">cons-stream</span> initial-value
+			(<span class="name">add-streams</span> (<span class="name">scale-stream</span> integrand dt)
+						  int)))
+int)
+</code></pre>
 <br>
 <p><strong>3.5.4 Streams and Delayed Evaluation</strong></p>
 <p>Unfortunately, stream models of systems with loops may require uses of <strong>delay beyond the “hidden” delay</strong> supplied by cons-stream .</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">;does not work, because in the first line of solve the call to integral requires that the input dy be defined, which does not happen until the second line of solve</span></span>
-<span class="line"></span>
-<span class="line">(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)</span>
-<span class="line">		(<span class="name">define</span> y (<span class="name">integral</span> dy y0 dt))</span>
-<span class="line">		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))</span>
-<span class="line">		y)</span>
-<span class="line"></span>
-<span class="line"><span class="comment">;Correct Definition</span></span>
-<span class="line">(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)</span>
-<span class="line">		(<span class="name">define</span> y (<span class="name">integral</span> (<span class="name">delay</span> dy) y0 dt))</span>
-<span class="line">		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))</span>
-<span class="line">		y)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp"><span class="comment">;does not work, because in the first line of solve the call to integral requires that the input dy be defined, which does not happen until the second line of solve</span>
+
+(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)
+		(<span class="name">define</span> y (<span class="name">integral</span> dy y0 dt))
+		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))
+		y)
+
+<span class="comment">;Correct Definition</span>
+(<span class="name">define</span> (<span class="name">solve</span> f y0 dt)
+		(<span class="name">define</span> y (<span class="name">integral</span> (<span class="name">delay</span> dy) y0 dt))
+		(<span class="name">define</span> dy (<span class="name">stream-map</span> f y))
+		y)
+</code></pre>
 <br>
 <p><strong>Normal-order evaluation</strong></p>
 <p>Delay and Force</p>
@@ -1166,6 +1086,67 @@
   </div>
 
    
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
 
   
 

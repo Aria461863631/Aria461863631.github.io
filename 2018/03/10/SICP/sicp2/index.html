@@ -131,7 +131,7 @@
 
 
 
-  <title>[SICP-ch2] Building Abstractions with Data | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[SICP-ch2] Building Abstractions with Data | Aria</title>
   
 
 
@@ -140,6 +140,9 @@
 
 
 
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -428,31 +431,23 @@
 <ol>
 <li>assume the constructor and selectors are available</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">numer , denom , make-rat</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">numer , denom , make-rat
+</code></pre>
 <ol start="2">
 <li>use them to express rational operation</li>
 </ol>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-rat</span> x y)</span>
-<span class="line">	(<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))</span>
-<span class="line">		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x)))</span>
-<span class="line">		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-rat</span> x y)
+	(<span class="name">make-rat</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> x) (<span class="name">denom</span> y))
+		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">numer</span> y) (<span class="name">denom</span> x)))
+		(<span class="name"><span class="builtin-name">*</span></span> (<span class="name">denom</span> x) (<span class="name">denom</span> y))))
+</code></pre>
 <ol start="3">
 <li>implement representation</li>
 </ol>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-rat</span> n d) (<span class="name"><span class="builtin-name">cons</span></span> n d))</span>
-<span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">numer</span> x) (<span class="name"><span class="builtin-name">car</span></span> x))</span>
-<span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">denom</span> x) (<span class="name"><span class="builtin-name">cdr</span></span> x))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-rat</span> n d) (<span class="name"><span class="builtin-name">cons</span></span> n d))
+(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">numer</span> x) (<span class="name"><span class="builtin-name">car</span></span> x))
+(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">denom</span> x) (<span class="name"><span class="builtin-name">cdr</span></span> x))
+</code></pre>
 <br>
 <p><strong>2.1.2 Abstraction Barriers</strong></p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-22.png" alt=""></p>
@@ -479,84 +474,47 @@
 <p>condition: if z = ( x, y ) =&gt; ( car z ) = x &amp;&amp; ( cdr z ) = y</p>
 </li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">cons</span></span> x y)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">dispatch</span> m)</span>
-<span class="line">		(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">=</span></span> m <span class="number">0</span>) x)</span>
-<span class="line">			 ((<span class="name"><span class="builtin-name">=</span></span> m <span class="number">1</span>) y)</span>
-<span class="line">		     (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Argument not 0 or 1: CONS"</span> m))))</span>
-<span class="line">	<span class="comment">;message passing: data representation returns procedure</span></span>
-<span class="line">    dispatch)</span>
-<span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">car</span></span> z) (<span class="name">z</span> <span class="number">0</span>))</span>
-<span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> z) (<span class="name">z</span> <span class="number">1</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">cons</span></span> x y)
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">dispatch</span> m)
+		(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">=</span></span> m <span class="number">0</span>) x)
+			 ((<span class="name"><span class="builtin-name">=</span></span> m <span class="number">1</span>) y)
+		     (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Argument not 0 or 1: CONS"</span> m))))
+	<span class="comment">;message passing: data representation returns procedure</span>
+    dispatch)
+(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">car</span></span> z) (<span class="name">z</span> <span class="number">0</span>))
+(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">cdr</span></span> z) (<span class="name">z</span> <span class="number">1</span>))
+</code></pre>
 <br>
 <p>Exercise 2.6</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-<span class="line">15</span>
-<span class="line">16</span>
-<span class="line">17</span>
-<span class="line">18</span>
-<span class="line">19</span>
-<span class="line">20</span>
-<span class="line">21</span>
-<span class="line">22</span>
-<span class="line">23</span>
-<span class="line">24</span>
-<span class="line">25</span>
-<span class="line">26</span>
-<span class="line">27</span>
-<span class="line">28</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">;2.6</span></span>
-<span class="line"><span class="comment">;church numerals DEF</span></span>
-<span class="line">( define zero ( lambda ( f ) ( lambda ( x ) x ) ) )</span>
-<span class="line"></span>
-<span class="line">( define ( add-1 n )</span>
-<span class="line">         ( lambda ( f )( lambda ( x ) ( f ( ( n f ) x ) ))))</span>
-<span class="line"></span>
-<span class="line"><span class="comment">;从0开始，每多一个f就+1</span></span>
-<span class="line">( define ( church-to-int ch )</span>
-<span class="line">         ( ( ch ( lambda ( n ) ( + n <span class="number">1</span> ) ) ) <span class="number">0</span> ) )</span>
-<span class="line"></span>
-<span class="line">( define one ( lambda ( f ) ( lambda ( x ) ( f x ) ) ) )</span>
-<span class="line"></span>
-<span class="line">( define two ( lambda ( f ) ( lambda ( x ) ( f ( f x ) ) ) ) )</span>
-<span class="line"></span>
-<span class="line"><span class="comment">;a,b: function of zero, one, two...</span></span>
-<span class="line"><span class="comment">;b以x为参数经过b次apply f</span></span>
-<span class="line"><span class="comment">;a以x经过b次apply后的结果为参数(( b f ) x )，在此基础上再apply f a次</span></span>
-<span class="line">( define ( add a b )</span>
-<span class="line">         ( lambda ( f )</span>
-<span class="line">                  ( lambda ( x ) ( ( a f ) ( ( b f ) x ) ) ) ) )</span>
-<span class="line"></span>
-<span class="line"><span class="comment">;调用</span></span>
-<span class="line">( define ( square x )</span>
-<span class="line">         ( * x x ))</span>
-<span class="line"></span>
-<span class="line"><span class="comment">; f = square x = 2 </span></span>
-<span class="line">( ( two square ) <span class="number">2</span> )</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme"><span class="comment">;2.6</span>
+<span class="comment">;church numerals DEF</span>
+( define zero ( lambda ( f ) ( lambda ( x ) x ) ) )
+
+( define ( add-1 n )
+         ( lambda ( f )( lambda ( x ) ( f ( ( n f ) x ) ))))
+
+<span class="comment">;从0开始，每多一个f就+1</span>
+( define ( church-to-int ch )
+         ( ( ch ( lambda ( n ) ( + n <span class="number">1</span> ) ) ) <span class="number">0</span> ) )
+
+( define one ( lambda ( f ) ( lambda ( x ) ( f x ) ) ) )
+
+( define two ( lambda ( f ) ( lambda ( x ) ( f ( f x ) ) ) ) )
+
+<span class="comment">;a,b: function of zero, one, two...</span>
+<span class="comment">;b以x为参数经过b次apply f</span>
+<span class="comment">;a以x经过b次apply后的结果为参数(( b f ) x )，在此基础上再apply f a次</span>
+( define ( add a b )
+         ( lambda ( f )
+                  ( lambda ( x ) ( ( a f ) ( ( b f ) x ) ) ) ) )
+
+<span class="comment">;调用</span>
+( define ( square x )
+         ( * x x ))
+
+<span class="comment">; f = square x = 2 </span>
+( ( two square ) <span class="number">2</span> )
+</code></pre>
 <br>
 <h3 id="22-hierarchical-data-and-the-closure-property"><a class="markdownIt-Anchor" href="#22-hierarchical-data-and-the-closure-property"></a> 2.2 Hierarchical Data and the Closure Property</h3>
 <p><strong>closure property</strong> of cons ( an operation )</p>
@@ -567,23 +525,17 @@
 <br>
 <p><strong>2.2.1 Representing Sequences</strong></p>
 <p>The entire sequence is constructed by nested cons operations</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-</pre></td><td class="code"><pre><span class="line">(cons 1</span>
-<span class="line">	(cons 2</span>
-<span class="line">		(cons 3</span>
-<span class="line">			(cons 4 nil))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lsip">(cons 1
+	(cons 2
+		(cons 3
+			(cons 4 nil))))
+</code></pre>
 <p>Provides a primitive</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">list</span></span> ⟨ a <span class="number">1</span> ⟩ ⟨ a <span class="number">2</span> ⟩ . . . ⟨ a n ⟩ )</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">list</span></span> ⟨ a <span class="number">1</span> ⟩ ⟨ a <span class="number">2</span> ⟩ . . . ⟨ a n ⟩ )
+</code></pre>
 <p>Operations</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">ref, length, append, last-pair, reverse</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">ref, length, append, last-pair, reverse
+</code></pre>
 <br>
 <p><strong>Mapping over list</strong></p>
 <ul>
@@ -593,17 +545,12 @@
 <li>from</li>
 <li>the details of how the elements of the list are extracted and combined.</li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">map</span></span> proc items)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">null?</span></span> items)</span>
-<span class="line">	nil</span>
-<span class="line">	(<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">proc</span> (<span class="name"><span class="builtin-name">car</span></span> items))</span>
-<span class="line">		  (<span class="name"><span class="builtin-name">map</span></span> proc (<span class="name"><span class="builtin-name">cdr</span></span> items)))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">map</span></span> proc items)
+	(<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">null?</span></span> items)
+	nil
+	(<span class="name"><span class="builtin-name">cons</span></span> (<span class="name">proc</span> (<span class="name"><span class="builtin-name">car</span></span> items))
+		  (<span class="name"><span class="builtin-name">map</span></span> proc (<span class="name"><span class="builtin-name">cdr</span></span> items)))))
+</code></pre>
 <br>
 <p><strong>2.2.2 Hierarchical Structures</strong></p>
 <p>Tree</p>
@@ -634,11 +581,9 @@
 </ul>
 <br>
 <p>Nested Mappings</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">flatmap</span> proc seq)</span>
-<span class="line">	(<span class="name">accumulate</span> append nil (<span class="name"><span class="builtin-name">map</span></span> proc seq)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">flatmap</span> proc seq)
+	(<span class="name">accumulate</span> append nil (<span class="name"><span class="builtin-name">map</span></span> proc seq)))
+</code></pre>
 <br>
 <h3 id="23-symbolic-data"><a class="markdownIt-Anchor" href="#23-symbolic-data"></a> 2.3 Symbolic Data</h3>
 <p>Issue arise</p>
@@ -646,15 +591,12 @@
 <li>words and sentences may be regarded either as <strong>semantic</strong> entities ( meaning ) or as <strong>syntactic</strong> entities ( characters )</li>
 </ul>
 <p>Using quotation mark</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">list</span></span> <span class="symbol">'a</span> <span class="symbol">'b</span>)</span>
-<span class="line">(<span class="name">a</span> b)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">list</span></span> <span class="symbol">'a</span> <span class="symbol">'b</span>)
+(<span class="name">a</span> b)
+</code></pre>
 <p>manipulating symbols</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">eq?, memq</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">eq?, memq
+</code></pre>
 <br>
 <h3 id="24-multiple-representations-for-abstract-data"><a class="markdownIt-Anchor" href="#24-multiple-representations-for-abstract-data"></a> 2.4 Multiple Representations for Abstract Data</h3>
 <p>cope with data that may be represented in different ways by different parts of a program</p>
@@ -672,64 +614,48 @@
 <br>
 <p><strong>2.4.1 Representations for Complex Numbers</strong></p>
 <p>constructors</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name"><span class="builtin-name">imag-part</span></span> z))</span>
-<span class="line">(<span class="name">make-from-mag-ang</span> (<span class="name"><span class="builtin-name">magnitude</span></span> z) (<span class="name"><span class="builtin-name">angle</span></span> z))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name"><span class="builtin-name">imag-part</span></span> z))
+(<span class="name">make-from-mag-ang</span> (<span class="name"><span class="builtin-name">magnitude</span></span> z) (<span class="name"><span class="builtin-name">angle</span></span> z))
+</code></pre>
 <p>selectors</p>
 <p>rectangular representation &amp; polar representation</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">real-part,imag-part,magnitude,angle</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">real-part,imag-part,magnitude,angle
+</code></pre>
 <p>implement arithmetic on complex numbers</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">add-complex, sub-complex, mul-complex, div-complex</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">add-complex, sub-complex, mul-complex, div-complex
+</code></pre>
 <p>implement 2 representations of complex number</p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">分别用直角和极坐标来实现<span class="number">4</span>个<span class="keyword">selector</span>和<span class="number">2</span>个<span class="function"><span class="keyword">constructor</span></span></span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="">分别用直角和极坐标来实现4个selector和2个constructor
+</code></pre>
 <br>
 <p><strong>2.4.2 Tagged data</strong></p>
 <p>If <strong>both</strong> representations are included in a single system, we will need some way to <strong>distinguish</strong> data in polar form from data in rectangular form.</p>
 <p>A straightforward way to accomplish this distinction is to include a <strong>type tag</strong> —the symbol rectangular or polar —as part of each complex number.</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag-rectangular</span> x y)</span>
-<span class="line">	(<span class="name">attach-tag</span> <span class="symbol">'rectangular</span> (<span class="name"><span class="builtin-name">cons</span></span> x y)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag-rectangular</span> x y)
+	(<span class="name">attach-tag</span> <span class="symbol">'rectangular</span> (<span class="name"><span class="builtin-name">cons</span></span> x y)))
+</code></pre>
 <br>
 <p>Make sure <strong>names</strong> do not conflict: Append the suffix -rectangular</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">real-part-rectangular</span> z) (<span class="name"><span class="builtin-name">car</span></span> z))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">real-part-rectangular</span> z) (<span class="name"><span class="builtin-name">car</span></span> z))
+</code></pre>
 <br>
 <p>Generic selector</p>
 <ul>
 <li>Dispatch: checks the tag and calls the appropriate procedure of that type.</li>
 <li>because the selectors are generic, operation ( add, mul ) are unchanged</li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">rectangular?</span> z)</span>
-<span class="line">		  (<span class="name">real-part-rectangular</span> (<span class="name">contents</span> z)))</span>
-<span class="line">		 ((<span class="name">polar?</span> z)</span>
-<span class="line">		  (<span class="name">real-part-polar</span> (<span class="name">contents</span> z)))</span>
-<span class="line">		 (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown type: REAL-PART"</span> z))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z)
+	(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name">rectangular?</span> z)
+		  (<span class="name">real-part-rectangular</span> (<span class="name">contents</span> z)))
+		 ((<span class="name">polar?</span> z)
+		  (<span class="name">real-part-polar</span> (<span class="name">contents</span> z)))
+		 (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown type: REAL-PART"</span> z))))
+</code></pre>
 <br>
 <p>Generic Constructor</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
-<span class="line">	(<span class="name">make-from-real-imag-rectangular</span> x y))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)
+	(<span class="name">make-from-real-imag-rectangular</span> x y))
+</code></pre>
 <br>
 <p><strong>General mechanism</strong> for interfacing the separate representations</p>
 <ul>
@@ -757,70 +683,44 @@
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647610/Screenshot_from_2018-03-10_10-06-28.png" alt=""></p>
 <br>
 <p>Manipulate table</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">put</span> ⟨ op ⟩ ⟨ type ⟩ ⟨ item ⟩ )</span>
-<span class="line">(<span class="name">get</span> ⟨ op ⟩ ⟨ type ⟩ )</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name">put</span> ⟨ op ⟩ ⟨ type ⟩ ⟨ item ⟩ )
+(<span class="name">get</span> ⟨ op ⟩ ⟨ type ⟩ )
+</code></pre>
 <br>
 <p>Defines a package</p>
 <p>Interfaces these by adding entries to the table</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">install-rectangular-package</span>)</span>
-<span class="line">	<span class="comment">;; internal procedures</span></span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name"><span class="builtin-name">car</span></span> z))</span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y) (<span class="name"><span class="builtin-name">cons</span></span> x y))</span>
-<span class="line">		</span>
-<span class="line">	<span class="comment">;; interface to the rest of the system</span></span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tag</span> x) (<span class="name">attach-tag</span> <span class="symbol">'rectangular</span> x))</span>
-<span class="line">	(<span class="name">put</span> <span class="symbol">'real-part</span> '(rectangular) real-part)</span>
-<span class="line">  	(<span class="name">put</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span></span>
-<span class="line">		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))</span>
-<span class="line"></span>
-<span class="line">	<span class="symbol">'done</span>)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">install-rectangular-package</span>)
+	<span class="comment">;; internal procedures</span>
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name"><span class="builtin-name">car</span></span> z))
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y) (<span class="name"><span class="builtin-name">cons</span></span> x y))
+		
+	<span class="comment">;; interface to the rest of the system</span>
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tag</span> x) (<span class="name">attach-tag</span> <span class="symbol">'rectangular</span> x))
+	(<span class="name">put</span> <span class="symbol">'real-part</span> '(rectangular) real-part)
+  	(<span class="name">put</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>
+		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))
+
+	<span class="symbol">'done</span>)
+</code></pre>
 <br>
 <p>Generic Selectors</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op . args)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type-tags</span> (<span class="name"><span class="builtin-name">map</span></span> type-tag args)))</span>
-<span class="line">		(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">proc</span> (<span class="name">get</span> op type-tags)))</span>
-<span class="line">			(<span class="name"><span class="builtin-name">if</span></span> proc</span>
-<span class="line">                  <span class="comment">;apply arguments to procedure</span></span>
-<span class="line">				(<span class="name"><span class="builtin-name">apply</span></span> proc (<span class="name"><span class="builtin-name">map</span></span> contents args))</span>
-<span class="line">				(<span class="name">error</span></span>
-<span class="line">					<span class="string">"No method for these types: APPLY-GENERIC"</span></span>
-<span class="line">					(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))</span>
-</pre></td></tr></table></figure>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name">apply-generic</span> <span class="symbol">'real-part</span> z))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op . args)
+	(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type-tags</span> (<span class="name"><span class="builtin-name">map</span></span> type-tag args)))
+		(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">proc</span> (<span class="name">get</span> op type-tags)))
+			(<span class="name"><span class="builtin-name">if</span></span> proc
+                  <span class="comment">;apply arguments to procedure</span>
+				(<span class="name"><span class="builtin-name">apply</span></span> proc (<span class="name"><span class="builtin-name">map</span></span> contents args))
+				(<span class="name">error</span>
+					<span class="string">"No method for these types: APPLY-GENERIC"</span>
+					(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))
+</code></pre>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) (<span class="name">apply-generic</span> <span class="symbol">'real-part</span> z))
+</code></pre>
 <br>
 <p>Generic Constructors</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
-<span class="line">	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>) x y))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)
+	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>) x y))
+</code></pre>
 <br>
 <p>Interface ( generic selectors )</p>
 <table>
@@ -867,67 +767,44 @@
 </ul>
 <br>
 <p>Constructor</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">dispatch</span> op)</span>
-<span class="line">		(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> op <span class="symbol">'real-part</span>) x)</span>
-<span class="line">			  (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown op: MAKE-FROM-REAL-IMAG"</span> op))))</span>
-<span class="line">	<span class="comment">;return procedure</span></span>
-<span class="line">	dispatch)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">dispatch</span> op)
+		(<span class="name"><span class="builtin-name">cond</span></span> ((<span class="name"><span class="builtin-name">eq?</span></span> op <span class="symbol">'real-part</span>) x)
+			  (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"Unknown op: MAKE-FROM-REAL-IMAG"</span> op))))
+	<span class="comment">;return procedure</span>
+	dispatch)
+</code></pre>
 <br>
 <p>Selector</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op arg) (<span class="name">arg</span> op))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op arg) (<span class="name">arg</span> op))
+</code></pre>
 <br>
 <h3 id="25-systems-with-generic-operations"><a class="markdownIt-Anchor" href="#25-systems-with-generic-operations"></a> 2.5 Systems with Generic Operations</h3>
 <p>use data-directed techniques to construct a package of arithmetic operations</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-59.png" alt=""></p>
 <p><strong>2.5.1 Generic Arithmetic Operations</strong></p>
 <p>generic arithmetic procedures</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add</span> x y) (<span class="name">apply-generic</span> <span class="symbol">'add</span> x y))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add</span> x y) (<span class="name">apply-generic</span> <span class="symbol">'add</span> x y))
+</code></pre>
 <p>install packages</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">install-complex-package</span>)</span>
-<span class="line">	<span class="comment">;; imported procedures from rectangular and polar packages</span></span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)</span>
-<span class="line">		((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>) x y))</span>
-<span class="line">    <span class="comment">;; internal procedures</span></span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-complex</span> z1 z2)</span>
-<span class="line">		(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z1) (<span class="name"><span class="builtin-name">real-part</span></span> z2))</span>
-<span class="line">						   (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">imag-part</span></span> z1) (<span class="name"><span class="builtin-name">imag-part</span></span> z2))))</span>
-<span class="line">    <span class="comment">;; interface to rest of the system</span></span>
-<span class="line">	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tag</span> z) (<span class="name">attach-tag</span> <span class="symbol">'complex</span> z))</span>
-<span class="line">  	(<span class="name">put</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span></span>
-<span class="line">		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))</span>
-<span class="line">    <span class="symbol">'done</span>)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">install-complex-package</span>)
+	<span class="comment">;; imported procedures from rectangular and polar packages</span>
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-from-real-imag</span> x y)
+		((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'rectangular</span>) x y))
+    <span class="comment">;; internal procedures</span>
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-complex</span> z1 z2)
+		(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z1) (<span class="name"><span class="builtin-name">real-part</span></span> z2))
+						   (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">imag-part</span></span> z1) (<span class="name"><span class="builtin-name">imag-part</span></span> z2))))
+    <span class="comment">;; interface to rest of the system</span>
+	(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">tag</span> z) (<span class="name">attach-tag</span> <span class="symbol">'complex</span> z))
+  	(<span class="name">put</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span>
+		(<span class="name"><span class="builtin-name">lambda</span></span> (x y) (<span class="name">tag</span> (<span class="name">make-from-real-imag</span> x y))))
+    <span class="symbol">'done</span>)
+</code></pre>
 <p>constructor</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-complex-from-real-imag</span> x y)</span>
-<span class="line">	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span>) x y))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">make-complex-from-real-imag</span> x y)
+	((<span class="name">get</span> <span class="symbol">'make-from-real-imag</span> <span class="symbol">'complex</span>) x y))
+</code></pre>
 <p>two-level tag system</p>
 <br>
 <p><strong>2.5.3 Example: Symbolic Algebra</strong></p>
@@ -953,17 +830,12 @@
 <p>Define cross-type operations</p>
 <br>
 <p>One way: design a different procedure for each possible combination of types</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">;; to be included in the complex package</span></span>
-<span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-complex-to-schemenum</span> z x)</span>
-<span class="line">	(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) x) (<span class="name"><span class="builtin-name">imag-part</span></span> z)))</span>
-<span class="line">(<span class="name">put</span> <span class="symbol">'add</span> '(complex scheme-number)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">lambda</span></span> (z x) (<span class="name">tag</span> (<span class="name">add-complex-to-schemenum</span> z x))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme"><span class="comment">;; to be included in the complex package</span>
+(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">add-complex-to-schemenum</span> z x)
+	(<span class="name">make-from-real-imag</span> (<span class="name"><span class="builtin-name">+</span></span> (<span class="name"><span class="builtin-name">real-part</span></span> z) x) (<span class="name"><span class="builtin-name">imag-part</span></span> z)))
+(<span class="name">put</span> <span class="symbol">'add</span> '(complex scheme-number)
+	(<span class="name"><span class="builtin-name">lambda</span></span> (z x) (<span class="name">tag</span> (<span class="name">add-complex-to-schemenum</span> z x))))
+</code></pre>
 <p>Cumbersome</p>
 <ul>
 <li>more code is needed</li>
@@ -975,70 +847,43 @@
 <li>objects of one type may be viewed as being of another type</li>
 </ul>
 <p>coercion procedure</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">scheme-number-&gt;complex</span> n)</span>
-<span class="line">	(<span class="name">make-complex-from-real-imag</span> (<span class="name">contents</span> n) <span class="number">0</span>))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">scheme-number-&gt;complex</span> n)
+	(<span class="name">make-complex-from-real-imag</span> (<span class="name">contents</span> n) <span class="number">0</span>))
+</code></pre>
 <p>install in coercion table</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">put-coercion</span> 'scheme-number</span>
-<span class="line">			 'complex</span>
-<span class="line">			  scheme-number-&gt;complex)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="">(put-coercion 'scheme-number
+			 'complex
+			  scheme-number-&gt;complex)
+</code></pre>
 <p>apply-generic</p>
 <ul>
 <li>check the coercion table to see</li>
 <li>if objects of the first type can be coerced to the second type or</li>
 <li>if there is a way to coerce the second argument to the type of the first argument</li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-<span class="line">15</span>
-<span class="line">16</span>
-<span class="line">17</span>
-<span class="line">18</span>
-<span class="line">19</span>
-<span class="line">20</span>
-<span class="line">21</span>
-<span class="line">22</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op . args)</span>
-<span class="line">	(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type-tags</span> (<span class="name"><span class="builtin-name">map</span></span> type-tag args)))</span>
-<span class="line">		(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">proc</span> (<span class="name">get</span> op type-tags)))</span>
-<span class="line">			</span>
-<span class="line">			(<span class="name"><span class="builtin-name">if</span></span> proc</span>
-<span class="line">				(<span class="name"><span class="builtin-name">apply</span></span> proc (<span class="name"><span class="builtin-name">map</span></span> contents args))</span>
-<span class="line">				</span>
-<span class="line">				(<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> (<span class="name"><span class="builtin-name">length</span></span> args) <span class="number">2</span>)</span>
-<span class="line">					(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type1</span> (<span class="name"><span class="builtin-name">car</span></span> type-tags))</span>
-<span class="line">						  (<span class="name">type2</span> (<span class="name"><span class="builtin-name">cadr</span></span> type-tags))</span>
-<span class="line">					       (<span class="name">a1</span> (<span class="name"><span class="builtin-name">car</span></span> args))</span>
-<span class="line">						   (<span class="name">a2</span> (<span class="name"><span class="builtin-name">cadr</span></span> args)))</span>
-<span class="line">						(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">t1-&gt;t2</span> (<span class="name">get-coercion</span> type1 type2))</span>
-<span class="line">							  (<span class="name">t2-&gt;t1</span> (<span class="name">get-coercion</span> type2 type1)))</span>
-<span class="line">							(<span class="name"><span class="builtin-name">cond</span></span> (<span class="name">t1-&gt;t2</span></span>
-<span class="line">								     (<span class="name">apply-generic</span> op (<span class="name">t1-&gt;t2</span> a1) a2))</span>
-<span class="line">								 (<span class="name">t2-&gt;t1</span></span>
-<span class="line">									(<span class="name">apply-generic</span> op a1 (<span class="name">t2-&gt;t1</span> a2)))</span>
-<span class="line">								 (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"No method for these types"</span></span>
-<span class="line">										(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))</span>
-<span class="line">						(<span class="name">error</span> <span class="string">"No method for these types"</span></span>
-<span class="line">								(<span class="name"><span class="builtin-name">list</span></span> op type-tags)))))))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="scheme">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">apply-generic</span> op . args)
+	(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type-tags</span> (<span class="name"><span class="builtin-name">map</span></span> type-tag args)))
+		(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">proc</span> (<span class="name">get</span> op type-tags)))
+			
+			(<span class="name"><span class="builtin-name">if</span></span> proc
+				(<span class="name"><span class="builtin-name">apply</span></span> proc (<span class="name"><span class="builtin-name">map</span></span> contents args))
+				
+				(<span class="name"><span class="builtin-name">if</span></span> (<span class="name"><span class="builtin-name">=</span></span> (<span class="name"><span class="builtin-name">length</span></span> args) <span class="number">2</span>)
+					(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">type1</span> (<span class="name"><span class="builtin-name">car</span></span> type-tags))
+						  (<span class="name">type2</span> (<span class="name"><span class="builtin-name">cadr</span></span> type-tags))
+					       (<span class="name">a1</span> (<span class="name"><span class="builtin-name">car</span></span> args))
+						   (<span class="name">a2</span> (<span class="name"><span class="builtin-name">cadr</span></span> args)))
+						(<span class="name"><span class="builtin-name">let</span></span> ((<span class="name">t1-&gt;t2</span> (<span class="name">get-coercion</span> type1 type2))
+							  (<span class="name">t2-&gt;t1</span> (<span class="name">get-coercion</span> type2 type1)))
+							(<span class="name"><span class="builtin-name">cond</span></span> (<span class="name">t1-&gt;t2</span>
+								     (<span class="name">apply-generic</span> op (<span class="name">t1-&gt;t2</span> a1) a2))
+								 (<span class="name">t2-&gt;t1</span>
+									(<span class="name">apply-generic</span> op a1 (<span class="name">t2-&gt;t1</span> a2)))
+								 (<span class="name"><span class="builtin-name">else</span></span> (<span class="name">error</span> <span class="string">"No method for these types"</span>
+										(<span class="name"><span class="builtin-name">list</span></span> op type-tags))))))
+						(<span class="name">error</span> <span class="string">"No method for these types"</span>
+								(<span class="name"><span class="builtin-name">list</span></span> op type-tags)))))))
+</code></pre>
 <br>
 <p>Advantage</p>
 <ul>
@@ -1353,6 +1198,67 @@
   </div>
 
    
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
 
   
 

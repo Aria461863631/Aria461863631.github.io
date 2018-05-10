@@ -124,7 +124,7 @@
 
 
 
-  <title>Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Aria</title>
   
 
 
@@ -133,6 +133,9 @@
 
 
 
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -566,19 +569,13 @@
 <br>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)</span>
-<span class="line">	(<span class="name">lambda</span> (<span class="name">amount</span>)</span>
-<span class="line">		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)</span>
-<span class="line">			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))</span>
-<span class="line">				   balance)</span>
-<span class="line">			<span class="string">"Insufficient funds"</span>)))</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)
+	(<span class="name">lambda</span> (<span class="name">amount</span>)
+		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)
+			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))
+				   balance)
+			<span class="string">"Insufficient funds"</span>)))
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/18/SICP/sicp3/#more" rel="contents">
@@ -1732,23 +1729,15 @@ we change the weights and biases</li>
           <h2 id="csapp-ch-1-a-tour-of-computer-sytems"><a class="markdownIt-Anchor" href="#csapp-ch-1-a-tour-of-computer-sytems"></a> CS:APP ch-1 A Tour of Computer Sytems</h2>
 <p>A computer system consists of hardware and systems software that work together to run application programs.</p>
 <p>Tracing the life time of hello program.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span>
-<span class="line">  </span>
-<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span>
-<span class="line"><span class="function"></span>&#123;  </span>
-<span class="line">        <span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);  </span>
-<span class="line">  </span>
-<span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span>
+  
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  
+</span>{  
+        <span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);  
+  
+        <span class="keyword">return</span> <span class="number">0</span>;  
+}  
+</code></pre>
 <br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2154,6 +2143,67 @@ we change the weights and biases</li>
   </div>
 
    
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
 
   
 

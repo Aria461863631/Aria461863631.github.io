@@ -133,7 +133,7 @@
 
 
 
-  <title>[CS:APP-ch8] Exceptional Control Flow | Aria</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>[CS:APP-ch8] Exceptional Control Flow | Aria</title>
   
 
 
@@ -142,6 +142,9 @@
 
 
 
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -516,9 +519,8 @@
 <p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
 <h4 id="84-process-control"><a class="markdownIt-Anchor" href="#84-process-control"></a> 8.4 Process Control</h4>
 <p><strong>Obtaining Process ID</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );
+</code></pre>
 <br>
 <p><strong>Create and Terminating process</strong></p>
 <p>Three states</p>
@@ -527,14 +529,11 @@
 <li>Stopped</li>
 <li>Terminated</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;</span>
-</pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">//return 0 to child, PID of chile to parent</span></span>
-<span class="line"><span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;
+</code></pre>
+<pre class="highlight"><code class="cpp"><span class="comment">//return 0 to child, PID of chile to parent</span>
+<span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );
+</code></pre>
 <ul>
 <li>Call Once Return Twice</li>
 <li>Concurrent execution</li>
@@ -547,22 +546,17 @@
 <blockquote>
 <p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">// return PID of terminated child and reap it</span></span>
-<span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="comment">// return PID of terminated child and reap it</span>
+<span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)
+</code></pre>
 <br>
 <p><strong>Putting Process to Sleep</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;</span>
-<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span></span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;
+<span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span>
+</code></pre>
 <p><strong>Loading and Running Programs</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;</span>
-</pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;
+</code></pre>
 <br>
 <h4 id="85-signals"><a class="markdownIt-Anchor" href="#85-signals"></a> 8.5 Signals</h4>
 <p>The transfer of a signal to a destination process occurs in two distinct steps</p>
@@ -875,6 +869,67 @@
   </div>
 
    
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
 
   
 
