@@ -97,7 +97,11 @@
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-25-17.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-25-29.png">
 <meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-26-10.png">
-<meta property="og:updated_time" content="2018-05-10T13:20:35.177Z">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-43-00.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-43-11.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-49-18.png">
+<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-57-28.png">
+<meta property="og:updated_time" content="2018-05-10T13:31:25.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch1] REGULAR LANGUAGES">
 <meta name="twitter:description" content="[ITOC-ch1] REGULAR LANGUAGES  1.1 FINITE AUTOMATA Deterministic Finite Automata  DEF Every state of a DFA always has exactly one exiting transition arrow for each symbol in the alphabet.    Computati">
@@ -475,87 +479,59 @@
 <p>DEF</p>
 <p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-26-10.png" alt=""></p>
 <br>
- ε $$ : empty string; 
-
-$$ ∅ $$ : empty set ( even with out empty string )
-
-<p>∅ ^ * = {ε}. \<br>
-1^* ∅ = ∅  \<br>
-1^* ε = 1^*</p>
-<br>
-
-**EQUIVALENCE WITH FINITE AUTOMATA**
-
-*FA == RL == RE*
-
-**Proof**
-
-**[1] If a language is described by a regular expression, then it is regular.**
-
-(Proof by recursive definition from base case 1,2,3 )
-
-**[2] If a language is regular, then it is described by a regular expression.**
-
-Using GNFA
-
-- the transition arrows may have any regular expressions as labels
-
-![](http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-43-00.png)
-
-![](http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-43-11.png)
-
-
+<p>$ ε $ : empty string;</p>
+<p>$ ∅ $ : empty set ( even with out empty string )</p>
+∅ ^ * = \\{ε\\} \\\\
+1 ^* ∅ = ∅ \\\\
+1 ^* ε = 1 ^* * \\\\
 
 <br>
-
-### 1.4 NONREGULAR LANGUAGES
-
-( cannot compute infinite possibilities with finite states )
-
-**THE PUMPING LEMMA FOR REGULAR LANGUAGES**
-
-DEF
-
--  If A is a *regular language*, then *there is* a number p (the pumping length) where if s is any string in A of length at least p, then s may be divided into three pieces, $ s = xyz $, satisfying the following conditions: 
-
-![](http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-49-18.png)
-
+<p><strong>EQUIVALENCE WITH FINITE AUTOMATA</strong></p>
+<p><em>FA == RL == RE</em></p>
+<p><strong>Proof</strong></p>
+<p><strong>[1] If a language is described by a regular expression, then it is regular.</strong></p>
+<p>(Proof by recursive definition from base case 1,2,3 )</p>
+<p><strong>[2] If a language is regular, then it is described by a regular expression.</strong></p>
+<p>Using GNFA</p>
+<ul>
+<li>the transition arrows may have any regular expressions as labels</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-43-00.png" alt=""></p>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-43-11.png" alt=""></p>
 <br>
-
-Proof
-
-- Let M = DFA that recognizes A. We assign the pumping length p to be the number of states of M.
--  We show that any strings in A of length at least p may be broken into the three pieces xyz, satisfying our three conditions.
-- Due to pigeon hole principle, among the first p + 1 elements in the sequence, two must be the same state
-- Therefore we can divide the string as the following figure while q9 is the state appears twice in the first p+1 length
-
-![](http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-57-28.png)
-
+<h3 id="14-nonregular-languages"><a class="markdownIt-Anchor" href="#14-nonregular-languages"></a> 1.4 NONREGULAR LANGUAGES</h3>
+<p>( cannot compute infinite possibilities with finite states )</p>
+<p><strong>THE PUMPING LEMMA FOR REGULAR LANGUAGES</strong></p>
+<p>DEF</p>
+<ul>
+<li>If A is a <em>regular language</em>, then <em>there is</em> a number p (the pumping length) where if s is any string in A of length at least p, then s may be divided into three pieces, $ s = xyz $, satisfying the following conditions:</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-49-18.png" alt=""></p>
 <br>
-
-**Proof language B is not regular **
-
-Contradiction
-
-1. Assume p exist ( B is regular )
-2. find a string s in B that has length p or greater
-3. considering all ways of dividing s into x, y, and z and for each such division, finding a value i where $ xy^i z \notin B $
-
+<p>Proof</p>
+<ul>
+<li>Let M = DFA that recognizes A. We assign the pumping length p to be the number of states of M.</li>
+<li>We show that any strings in A of length at least p may be broken into the three pieces xyz, satisfying our three conditions.</li>
+<li>Due to pigeon hole principle, among the first p + 1 elements in the sequence, two must be the same state</li>
+<li>Therefore we can divide the string as the following figure while q9 is the state appears twice in the first p+1 length</li>
+</ul>
+<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-57-28.png" alt=""></p>
 <br>
-
-Example
-
-B  $=  \{ 0^n 1^n | n ≥ 0 \} $
-
-1. Assume p
-2. Choose s to be the string $ 0^p 1^p $.
-3. divide s ( 3 cases ) and show $ xy^i z \notin B $
-
-
-
-
-
-
+<p>**Proof language B is not regular **</p>
+<p>Contradiction</p>
+<ol>
+<li>Assume p exist ( B is regular )</li>
+<li>find a string s in B that has length p or greater</li>
+<li>considering all ways of dividing s into x, y, and z and for each such division, finding a value i where $ xy^i z \notin B $</li>
+</ol>
+<br>
+<p>Example</p>
+<p>B  $=  { 0^n 1^n | n ≥ 0 } $</p>
+<ol>
+<li>Assume p</li>
+<li>Choose s to be the string $ 0^p 1^p $.</li>
+<li>divide s ( 3 cases ) and show $ xy^i z \notin B $</li>
+</ol>
 
       
     </div>
@@ -756,7 +732,7 @@ B  $=  \{ 0^n 1^n | n ≥ 0 \} $
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#itoc-ch1-regular-languages"><span class="nav-number">1.</span> <span class="nav-text"> [ITOC-ch1] REGULAR LANGUAGES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-finite-automata"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 FINITE AUTOMATA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-nondeterminism"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 NONDETERMINISM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-regular-expressions"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 REGULAR EXPRESSIONS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#itoc-ch1-regular-languages"><span class="nav-number">1.</span> <span class="nav-text"> [ITOC-ch1] REGULAR LANGUAGES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-finite-automata"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 FINITE AUTOMATA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-nondeterminism"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 NONDETERMINISM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-regular-expressions"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 REGULAR EXPRESSIONS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-nonregular-languages"><span class="nav-number">1.4.</span> <span class="nav-text"> 1.4 NONREGULAR LANGUAGES</span></a></li></ol></li></ol></div>
             
 
           </div>
