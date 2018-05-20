@@ -87,19 +87,19 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="ch-2 How the backpropagation algorithm works discuss how to compute the gradient ( ∇C\nabla C∇C ) of the cost function Heart of backpropagation  an expression for the partial derivative ∂ C /∂ w of t">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png">
-<meta property="og:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png">
-<meta property="og:updated_time" content="2018-04-18T15:01:23.265Z">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png">
+<meta property="og:updated_time" content="2018-05-20T02:42:27.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NN&amp;DL-ch2] How the backpropagation algorithm works">
 <meta name="twitter:description" content="ch-2 How the backpropagation algorithm works discuss how to compute the gradient ( ∇C\nabla C∇C ) of the cost function Heart of backpropagation  an expression for the partial derivative ∂ C /∂ w of t">
-<meta name="twitter:image" content="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
 
 
 
@@ -426,8 +426,8 @@ we change the weights and biases</li>
 <br>
 <h3 id="warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"><a class="markdownIt-Anchor" href="#warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"></a> Warm up: a fast matrix-based approach to computing the output from a neural network</h3>
 <p>Notation</p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png" alt=""></p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png" alt=""></p>
 <br>
 <p>Vectorized form</p>
 <ul>
@@ -443,15 +443,15 @@ we change the weights and biases</li>
 <br>
 <h3 id="the-four-fundamental-equations-behind-backpropagation"><a class="markdownIt-Anchor" href="#the-four-fundamental-equations-behind-backpropagation"></a> The four fundamental equations behind backpropagation</h3>
 <p>**DEF error ** $ δ^l_j $</p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png" alt=""></p>
 <p><strong>Error in the output layer</strong> δ^l</p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png" alt=""></p>
 <p><strong>Error δ^l in terms of the error in the next layer, δ^l+1</strong></p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png" alt=""></p>
 <p><strong>Rate of change of the cost with respect to any bias</strong></p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png" alt=""></p>
 <p><strong>Rate of change of the cost with respect to any weight</strong></p>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png" alt=""></p>
 <br>
 <h3 id="proof-of-the-four-fundamental-equations"><a class="markdownIt-Anchor" href="#proof-of-the-four-fundamental-equations"></a> Proof of the four fundamental equations</h3>
 <p>using chain rule</p>
@@ -461,7 +461,7 @@ we change the weights and biases</li>
 <li>correctness: because the cost is a function of outputs</li>
 <li>To understand how the cost varies with earlier weights and biases we need to repeatedly apply the chain rule, , working backward through the layers to obtain usable expressions</li>
 </ul>
-<p><img src="http://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png" alt=""></p>
 <br>
 <h3 id="backpropagation-the-big-picture"><a class="markdownIt-Anchor" href="#backpropagation-the-big-picture"></a> Backpropagation: the big picture</h3>
 <p>a clever way of keeping track of small perturbations to the weights (and biases) as they propagate through the network, reach the output, and then affect the cost</p>
