@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-18_09-37-57.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-18_09-43-43.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526706724/Screenshot_from_2018-05-19_13-11-48.png">
-<meta property="og:updated_time" content="2018-05-20T02:42:27.278Z">
+<meta property="og:updated_time" content="2018-05-21T14:07:28.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch2] CONTEXT-FREE LANGUAGES">
 <meta name="twitter:description" content="[ITOC-ch2] CONTEXT-FREE LANGUAGES In this chapter we present context-free grammars to describe certain features that have a recursive structure. help us organize and understand relationships of terms">
@@ -523,6 +523,14 @@
 <ul>
 <li>construct CFG G that generates all the strings PDA P accepts <em>(go from its Start state to an Accept state)</em></li>
 </ul>
+<br>
+<p>Prepare: simplify P to have following features</p>
+<ol>
+<li>has single accept state $ q_{accept} $</li>
+<li>empties its stack before accepting</li>
+<li>each transition either push or pop a symbol, but never do both</li>
+</ol>
+<br>
 <p>Description of G</p>
 <ol>
 <li>
