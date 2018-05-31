@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png">
-<meta property="og:updated_time" content="2018-05-31T14:01:59.873Z">
+<meta property="og:updated_time" content="2018-05-31T14:06:43.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch5] REDUCIBILITY">
 <meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
@@ -458,6 +458,7 @@
 <li>If M has accepted, accept ; if M has rejected, reject .”</li>
 </ol>
 <br>
+<br>
 <p>$ A_ {TM} ≤_m E_{TM} $</p>
 <p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
@@ -470,6 +471,7 @@
 <li>Run R on input $ &lt; M_1 &gt; $.</li>
 <li>If R accepts, reject ; if R rejects, accept .”</li>
 </ol>
+<br>
 <br>
 <p>$ A_ {TM} ≤_m REGULAR_{TM} $</p>
 <p>$ REGULAR_{TM} = \{ &lt; M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
@@ -503,6 +505,7 @@ $ M_2 $ = “On input x:</li>
 <li>determining any property of the languages recognized by Turing machines is undecidable.</li>
 </ul>
 <br>
+<br>
 <p>$ E_ {TM} ≤_m EQ_{TM} $</p>
 <p>$ EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
 <p><strong>Proof</strong></p>
@@ -523,6 +526,7 @@ $ M_2 $ = “On input x:</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png" alt=""></p>
 <br>
+<br>
 <p><em>decidable</em></p>
 <p>$ A_{LBA} = \{ &lt;M, w&gt;| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</p>
 <br>
@@ -536,6 +540,7 @@ $ M_2 $ = “On input x:</li>
 <li>reject after $ qng^n $ steps because M is looping</li>
 </ul>
 <br>
+<br>
 <p>$ A_ {TM} ≤_m E_{LBA} $</p>
 <p>$ E_{LBA} = \{&lt; M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
@@ -546,6 +551,7 @@ $ M_2 $ = “On input x:</li>
 <li>$ C_l $ is an accepting configuration for M .</li>
 <li>Each $ C_{i+1} $ legally follows from $ C_i $ .</li>
 </ol>
+<br>
 <br>
 <p>$ A_ {TM} ≤_m ALL_{LBA} $</p>
 <p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
@@ -641,7 +647,7 @@ $ M_2 $ = “On input x:</li>
 <p><strong>If  $ A ≤_m B $ and B is Turing-recognizable, then A is Turing-recognizable.</strong></p>
 <br>
 <p><strong>If $ A ≤_m B $ and A is not Turing-recognizable, then B is not Turing-recognizable.</strong></p>
-<p>if $ A_{TM} ≤_m \overline{B}$ than \overline{ A _ {TM}} ≤ _ m B $ therefore B isn’t recognizable.</p>
+<p>if $ A_{TM} ≤_m \overline{B}$ than \overline{A_ {TM}} ≤_m B $ therefore B isn’t recognizable.</p>
 <br>
 <p>$ EQ_{TM} $ is neither Turing-recognizable nor co-Turing-recognizable.</p>
 <p>Proofed by corollary above.</p>
