@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png">
-<meta property="og:updated_time" content="2018-05-31T13:55:18.850Z">
+<meta property="og:updated_time" content="2018-05-31T14:01:59.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch5] REDUCIBILITY">
 <meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
@@ -446,8 +446,8 @@
 </ul>
 <a id="more"></a>
 <br>
-<p>$ A_ {TM} ≤_m HALT_{TM} <span class="katex"><span class="katex-mathml"><math><semantics><mrow></mrow><annotation encoding="application/x-tex">
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0em;"></span><span class="strut bottom" style="height:0em;vertical-align:0em;"></span><span class="base textstyle uncramped"></span></span></span> HALT_{TM} = \{ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
+<p>$ A_ {TM} ≤_m HALT_{TM} $</p>
+<p>$ HALT_{TM} = \{ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If M loop on w, we can use R to reject.</em></p>
 <p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
@@ -458,8 +458,8 @@
 <li>If M has accepted, accept ; if M has rejected, reject .”</li>
 </ol>
 <br>
-<p>$ A_ {TM} ≤_m E_{TM} <span class="katex"><span class="katex-mathml"><math><semantics><mrow></mrow><annotation encoding="application/x-tex">
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0em;"></span><span class="strut bottom" style="height:0em;vertical-align:0em;"></span><span class="base textstyle uncramped"></span></span></span> E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
+<p>$ A_ {TM} ≤_m E_{TM} $</p>
+<p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L (M_1) $ is empty, than M accept w</em></p>
 <p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
@@ -503,8 +503,8 @@ $ M_2 $ = “On input x:</li>
 <li>determining any property of the languages recognized by Turing machines is undecidable.</li>
 </ul>
 <br>
-<p>$ E_ {TM} ≤_m EQ_{TM} <span class="katex"><span class="katex-mathml"><math><semantics><mrow></mrow><annotation encoding="application/x-tex">
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0em;"></span><span class="strut bottom" style="height:0em;vertical-align:0em;"></span><span class="base textstyle uncramped"></span></span></span> EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
+<p>$ E_ {TM} ≤_m EQ_{TM} $</p>
+<p>$ EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
 <p><strong>Proof</strong></p>
 <p>$ M_1 $ is a TM that rejects all inputs.</p>
 <p><em>If $ L(M) = L(M_1) $, than $ L(M) = ∅ $</em></p>
@@ -548,7 +548,7 @@ $ M_2 $ = “On input x:</li>
 </ol>
 <br>
 <p>$ A_ {TM} ≤_m ALL_{LBA} $</p>
-<p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ }. $</p>
+<p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(G) \neq Σ ^ ∗  $ = { all strings except all computation histories for M on w }, than M accepts w.</em></p>
 <p>Construct G to generate all strings that</p>
@@ -594,13 +594,13 @@ $ M_2 $ = “On input x:</li>
 </li>
 <li>
 <p>pseudo-steps after accept, head eat adjacent symbols.</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-24.png" alt=""></p>
+</li>
+<li>
+<p>Final alignment</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_21-13-27.png" alt=""></p>
 </li>
 </ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-24.png" alt=""></p>
-<ul>
-<li>Final alignment</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_21-13-27.png" alt=""></p>
 </li>
 <li>
 <p>add * symbol so that the only possible match is start with the first domino. ( change MPCP into PCP )</p>
