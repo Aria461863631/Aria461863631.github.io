@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif">
-<meta property="og:updated_time" content="2018-05-25T12:25:08.903Z">
+<meta property="og:updated_time" content="2018-06-05T03:45:42.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
 <meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
@@ -427,6 +427,7 @@
 <li>reductions</li>
 <li>the first NP-complete problem</li>
 </ul>
+<br>
 <a id="more"></a>
 <h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
 <p>Abstract Problems</p>
@@ -440,11 +441,13 @@
 <li>Abstract Pro–&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</li>
 <li>polynomial related</li>
 </ul>
+<br>
 <p>Polynomial time solvable</p>
 <ul>
 <li>exist an algorithm to solve a concrete problem in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></li>
 <li>extend the definition from concrete to abstract by using encoding as bridge</li>
 </ul>
+<br>
 <p>A formal language framework</p>
 <ul>
 <li>alphabet $\Sigma $ a finite set of symbols { 0,1 }</li>
@@ -452,6 +455,7 @@
 <li>$ \Sigma ^* $ the language of all strings over Σ</li>
 </ul>
 <p>view instances for any decision problems Q as a language L over Σ = { 0 ,1 }</p>
+<br>
 <p>Accepted</p>
 <ul>
 <li>
@@ -470,29 +474,35 @@
 <li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
 <li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
 </ul>
+<br>
 <p><strong>Complexity class P</strong></p>
 <p>$ P = \{ L \subseteq \{ 0,1 \}^{*} $ : exists an algorithm A that decides L in polynomial time $ \}$</p>
+<br>
 <h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
 <p>algorithms verify membership from a certificate in languages</p>
 <p>Verified</p>
 <ul>
 <li>The language L verified by an algorithm A $ L = \{ x \in \{ 0, 1 \}^* : $ there exist $ y \in \{ 0,1 \}^* $ such that A( x,y ) = 1 $ \} $</li>
 </ul>
+<br>
 <p><strong>Complexity class NP</strong></p>
 <p>$ NP = \{ L \subseteq \{ 0, 1 \}^*  : L = \{ x \in \{ 0,1\}^* $ : there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 $ \} \} $</p>
 <p>$P \subseteq NP $</p>
+<br>
 <p><strong>Complexity class co-NP</strong></p>
 <ul>
 <li>set of languages L such that $ \bar L \in NP $</li>
 </ul>
 <p>Four possibilities for relationship among complexity class</p>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
+<br>
 <h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
 <p><strong>Reducibility</strong></p>
 <ul>
 <li>if Q – &gt; reduce --&gt; Q’ , Q is “no harder to solve” than Q’</li>
 <li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
 </ul>
+<br>
 <p><strong>NP-completeness</strong></p>
 <ol>
 <li>$ L  \in NP $</li>
@@ -504,6 +514,7 @@
 <li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
 </ul>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
+<br>
 <p><strong>Circuit satisfiability</strong></p>
 <p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
 <p>34.5 belongs to NP</p>
@@ -514,6 +525,7 @@
 <li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
 <li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
 </ul>
+<br>
 <h4 id="345-np-complete-problems"><a class="markdownIt-Anchor" href="#345-np-complete-problems"></a> 34.5 NP-complete problems</h4>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
 
