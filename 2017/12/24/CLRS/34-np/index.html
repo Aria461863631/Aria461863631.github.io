@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta name="description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
 <meta name="keywords" content="CLRS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CLRS-ch34] NP-Completeness">
 <meta property="og:url" content="http://yoursite.com/2017/12/24/CLRS/34-np/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta property="og:description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif">
-<meta property="og:updated_time" content="2018-06-05T03:45:42.820Z">
+<meta property="og:updated_time" content="2018-06-05T13:57:57.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
-<meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  it is in NP and is as hard as any problem in NP decision proble">
+<meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
 <meta name="twitter:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
 
 
@@ -414,47 +414,96 @@
 <h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
 <p>class P</p>
 <ul>
-<li>solvable in polynomial time</li>
+<li>problems are <strong>solvable</strong> in polynomial time</li>
 </ul>
 <p>class NP</p>
 <ul>
-<li>problems are verifiable in polynomial time</li>
+<li>problems are <strong>verifiable</strong> in polynomial time</li>
 </ul>
 <p>class NPC</p>
 <ul>
-<li>it is in NP and is as hard as any problem in NP</li>
+<li>problems in NP and is as hard as any problem in NP</li>
+<li>3 concept showing a problem is NPC
+<ol>
 <li>decision problems</li>
 <li>reductions</li>
 <li>the first NP-complete problem</li>
+</ol>
+</li>
 </ul>
 <br>
 <a id="more"></a>
+<p>Decision problems vs. optimization problems</p>
+<ul>
+<li><strong>optimization</strong> <strong>problems :</strong> find a feasible solution with the best value.</li>
+<li><strong>decision problems :</strong> answer is simply “yes” or “no”</li>
+<li><strong>Relationship :</strong> decision is no harder</li>
+</ul>
+<br>
+<p>Reductions</p>
+<ul>
+<li>$ A \longrightarrow B $</li>
+<li>If B polynomially solvable, than A solvable</li>
+<li>If A polynomially unsolvable, than B unsolvable as well</li>
+</ul>
+<p>\pic</p>
+<br>
 <h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
 <p>Abstract Problems</p>
 <ul>
-<li>a binary relation on a set I of instances and a set S of solutions</li>
+<li>a binary <strong>relation</strong> (function) on a set $ I $ of <strong>instances</strong> and a set $ S $ of <strong>solutions</strong></li>
 </ul>
-<p>Encodings</p>
+<p>Concrete Problems</p>
 <ul>
-<li>In order to solve abstract problems, represent problem instances in a way program understands</li>
-<li>a mapping e from S to the set of binary strings</li>
-<li>Abstract Pro–&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</li>
-<li>polynomial related</li>
+<li>problems whose instance set $ I $ is the set of <strong>binary</strong> <strong>strings</strong></li>
 </ul>
-<br>
 <p>Polynomial time solvable</p>
 <ul>
-<li>exist an algorithm to solve a concrete problem in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></li>
-<li>extend the definition from concrete to abstract by using encoding as bridge</li>
+<li>exist an algorithm to solve a concrete problem in $ O(n^k) $</li>
 </ul>
+<br>
+<p><strong>Encodings</strong></p>
+<ul>
+<li>
+<p>a mapping <em>e</em> from the set of abstract object to the set of binary strings (abstract pro instances --&gt; concrete pro ins)</p>
+</li>
+<li>
+<p><strong>extend</strong> the definition of class P into abstract problems</p>
+</li>
+<li>
+<p>Abstract Pro --&gt;  Encode --&gt; Concrete Pro --&gt;Algorithm Solve</p>
+</li>
+<li>
+<p><strong>depending on the encoding</strong>, the algorithm may runs in either polynomial or superpolynomial time.</p>
+</li>
+<li>
+<p>polynomially related encodings</p>
+<ul>
+<li>exist a polynomial-time algorithm can compute the en-coding $ e_2 (i) $ from the encoding $ e_1 (i) $, and vice versa.</li>
+</ul>
+</li>
+<li>
+<p><strong>Only</strong> when two encodings $ e_1 $ and $ e_2 $ of an abstract problem are <strong>polynomially related</strong>, whether the problem is polynomial-time solvable or not <strong>can</strong> be <strong>independent</strong> of which encoding we use.</p>
+</li>
+</ul>
+<br>
+<p>Therefore</p>
+<p><strong>Assume reasonable/standard encoding</strong> $ &lt; G &gt; $</p>
+<ul>
+<li>encoding of an integer is polynomially related to its binary representation</li>
+<li>encoding of a finite set is polynomially related to its encoding as a list of its elements</li>
+<li>derive encodings of other object</li>
+</ul>
+<p>so that the choice of encoding has no effect on whether the abstract problem is polynomial-time solvable.</p>
+<br>
 <br>
 <p>A formal language framework</p>
 <ul>
-<li>alphabet $\Sigma $ a finite set of symbols { 0,1 }</li>
-<li>language L over Σ is any set of strings made up of symbols from Σ { 10, 11, 101 … }</li>
-<li>$ \Sigma ^* $ the language of all strings over Σ</li>
+<li>alphabet $ \Sigma $ a finite set of symbols $ \{ 0,1 \} $</li>
+<li>language $ L $ over $ Σ $ is any set of strings made up of symbols from $ Σ \{ 10, \ 11, \  101 … \} $</li>
+<li>$ \Sigma ^* $ the language of all strings over $ Σ $</li>
 </ul>
-<p>view instances for any decision problems Q as a language L over Σ = { 0 ,1 }</p>
+<p>view instances for any decision problems Q as a language L over $ Σ = \{ 0 ,1 \} $</p>
 <br>
 <p>Accepted</p>
 <ul>
@@ -475,7 +524,7 @@
 <li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
 </ul>
 <br>
-<p><strong>Complexity class P</strong></p>
+<p>**Complexity class P **</p>
 <p>$ P = \{ L \subseteq \{ 0,1 \}^{*} $ : exists an algorithm A that decides L in polynomial time $ \}$</p>
 <br>
 <h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
@@ -499,7 +548,7 @@
 <h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
 <p><strong>Reducibility</strong></p>
 <ul>
-<li>if Q – &gt; reduce --&gt; Q’ , Q is “no harder to solve” than Q’</li>
+<li>if $ Q \longrightarrow \ reduce \ \longrightarrow Q’ $ , $ Q  $ is “no harder to solve” than $ Q’ $</li>
 <li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
 </ul>
 <br>
