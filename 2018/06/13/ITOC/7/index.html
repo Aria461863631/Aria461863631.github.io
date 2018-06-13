@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-15-48.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-16-26.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-19-04.png">
-<meta property="og:updated_time" content="2018-06-13T14:47:59.286Z">
+<meta property="og:updated_time" content="2018-06-13T14:59:38.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch7] TIME COMPLEXITY">
 <meta name="twitter:description" content="[ITOC-ch7] TIME COMPLEXITY  7.1 MEASURING COMPLEXITY BIG-O AND SMALL-O NOTATION $ f(n) = O(g(n)) \  \Longleftrightarrow f(n) \  \le cg(n) $ $ f(n) = o(g(n)) \  \Longleftrightarrow f(n) \  \lt cg(n) $">
@@ -425,12 +425,14 @@
 <p>$ f(n) = o(g(n)) \  \Longleftrightarrow f(n) \  \lt cg(n) $</p>
 <p>polynomial bounds: with the form  n^c</p>
 <p>exponential bounds: with the form  2<sup>{(n</sup>\delta)}</p>
+<br>
 <p><strong>Time complexity</strong></p>
 <ul>
 <li>M is <strong>deterministic</strong></li>
 <li>f(n) is the maximum number of steps that M uses on any <strong>input of length</strong> n.</li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900587/Screenshot_from_2018-06-13_22-36-08.png" alt=""></li>
 </ul>
+<br>
 <a id="more"></a>
 <p><strong>ANALYZING ALGORITHMS</strong></p>
 <p><strong>TIME(t(n))</strong></p>
@@ -438,17 +440,20 @@
 <li>collection of <strong>languages</strong> that are <strong>decidable</strong> by a TM</li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_15-36-37.png" alt=""></li>
 </ul>
+<br>
 <p><strong>nondeterministic Time complexity</strong></p>
 <ul>
 <li>N is <strong>nondeterministic</strong></li>
 <li>f(n) is the maximum number of steps that N uses <strong>on any branch</strong> of its computation on any input of length n</li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900674/Screenshot_from_2018-06-13_22-37-40.png" alt=""></li>
 </ul>
+<br>
 <p><strong>NTIME(t(n))</strong></p>
 <ul>
 <li>collection of <strong>languages</strong> that are <strong>decidable</strong> by a <strong>NTM</strong></li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_15-46-16.png" alt=""></li>
 </ul>
+<br>
 <p><strong>COMPLEXITY RELATIONSHIPS AMONG MODELS</strong></p>
 <p><em>computational model can affect the time complexity of languages</em></p>
 <p>Theorem 7.8</p>
@@ -461,6 +466,7 @@
 <li>Let $ t(n) $ be a function, where $ t(n) ≥ n $. Then every $ t(n) $ time <strong>nondeterministic single-tape</strong> Turing machine has an equivalent $ 2^{O(t(n))} $ time <strong>deterministic single-tape</strong> Turing machine.</li>
 <li>at most <strong>exponential</strong> difference</li>
 </ul>
+<br>
 <h3 id="72-the-class-p"><a class="markdownIt-Anchor" href="#72-the-class-p"></a> 7.2 THE CLASS P</h3>
 <p><strong>POLYNOMIAL TIME</strong></p>
 <p>polynomially equivalent</p>
@@ -468,23 +474,28 @@
 <li>one of them can simulate another with only a polynomial increase in running time</li>
 <li>All reasonable deterministic computational models are polynomially equivalent.</li>
 </ul>
+<br>
 <p>class P</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_16-31-01.png" alt=""></p>
+<br>
 <p>Examples</p>
 <ul>
 <li>$ PATH = \{ &lt;G, s, t&gt; | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\} $</li>
 <li>$ RELPRIME = \{&lt;x, y&gt;| \ x \ and \ y \ are \ relatively \ prime\} $</li>
 <li>Every context-free language is a member of P.</li>
 </ul>
+<br>
 <h3 id="73-the-class-np"><a class="markdownIt-Anchor" href="#73-the-class-np"></a> 7.3 THE CLASS NP</h3>
 <p>class NP</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_16-37-27.png" alt=""></p>
+<br>
 <p>Another equivalent definition</p>
 <ul>
-<li>A <strong>verifier</strong> for a language A is an algorithm V , where $ A = {w| \ V \ accepts \ &lt;w, ci&gt; \  for \ some \ string c\} $</li>
+<li>A <strong>verifier</strong> for a language A is an algorithm V , where $ A = \{w| \ V \ accepts \ &lt;w, c&gt; \  for \ some \ string \ c\} $</li>
 <li><strong>certificate</strong>: additional information $ c $ the verifier use</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_16-50-38.png" alt=""></p>
+<br>
 <p>Proof of equivalence</p>
 <p>Theorem 7.20</p>
 <ul>
@@ -503,15 +514,18 @@
 </ul>
 </li>
 </ol>
+<br>
 <p>Examples</p>
 <ul>
 <li>$ HAMPATH = \{&lt;G, s, t&gt;| \ G \ is \ a \ directed \ graph \ with \ a \ Hamiltonian \ path \ from \ s \ to \ t\} $</li>
 <li>$ COMPOSITES = \{x| \  x = pq, \ for \  integers \ p, q &gt; 1 \} $</li>
 <li>$ CLIQUE = \{&lt;G, k&gt;| \ G \ is \ an \ undirected \  graph \ with \ a \ k-clique \} $</li>
-<li>$ SUBSET-SUM = \{&lt;S, t&gt;| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ {x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</li>
+<li>$ SUBSET-SUM = \{&lt;S, t&gt;| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ \{x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</li>
 </ul>
+<br>
 <p><strong>THE P VERSUS NP QUESTION</strong></p>
 <p>$ P \subset NP $ or $ P = NP $</p>
+<br>
 <h3 id="74-np-completeness"><a class="markdownIt-Anchor" href="#74-np-completeness"></a> 7.4 NP-COMPLETENESS</h3>
 <p><strong>POLYNOMIAL TIME REDUCIBILITY</strong></p>
 <ul>
@@ -525,6 +539,7 @@
 <p>$ A  ≤_P B $ than A is no harder than B</p>
 </li>
 </ul>
+<br>
 <p><strong>DEFINITION OF NP-COMPLETENESS</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_19-18-22.png" alt=""></p>
 <p>Theorem 7.35</p>
@@ -535,6 +550,7 @@
 <ul>
 <li><strong>If $ B $ is NP-complete and $ B ≤_P C $ for $ C $ in $ NP $, then $ C $ is NP-complete.</strong></li>
 </ul>
+<br>
 <p><strong>THE COOK—LEVIN THEOREM</strong></p>
 <p>$ SAT $ is NP-complete.</p>
 <p>Idea</p>
@@ -546,7 +562,7 @@
 <p>Proof</p>
 <ul>
 <li>
-<p><strong>variable</strong>: For each $ i $ and $ j $ between 1 and  $ n^k $ and for each $ s $ in $ C = Q ∪ Γ ∪ { # } $, we have a variable, $ x_{i,j,s} $, If $ x_{i,j,s} $ takes on the value 1, it means that $ cell [i, j] $ in the tableau contains an s</p>
+<p><strong>variable</strong>: For each $ i $ and $ j $ between 1 and  $ n^k $ and for each $ s $ in $ C = Q ∪ Γ ∪ \{ # \} $, we have a variable, $ x_{i,j,s} $, If $ x_{i,j,s} $ takes on the value 1, it means that $ cell [i, j] $ in the tableau contains an s</p>
 </li>
 <li>
 <p><strong>formula φ</strong>: $ φ_{cell} ∧ φ_{start} ∧ φ_{move} ∧ φ_{accept} $</p>
@@ -576,6 +592,7 @@
 <p><strong>complexity</strong> of the reduction: $ O(n^{2k} )  $</p>
 </li>
 </ul>
+<br>
 <h3 id="75-additional-np-complete-problems"><a class="markdownIt-Anchor" href="#75-additional-np-complete-problems"></a> 7.5 ADDITIONAL NP-COMPLETE PROBLEMS</h3>
 <p>(几乎都是从3SAT reduce 来的…感觉比CLRS难哭唧唧感觉还是CLRS讲的懂一点x)</p>
 <p>CLIQUE</p>
