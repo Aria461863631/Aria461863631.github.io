@@ -402,29 +402,192 @@
 
       
         
-          <h2 id="itoc-ch7-time-complexity"><a class="markdownIt-Anchor" href="#itoc-ch7-time-complexity"></a> [ITOC-ch7] TIME COMPLEXITY</h2>
-<br>
-<h3 id="71-measuring-complexity"><a class="markdownIt-Anchor" href="#71-measuring-complexity"></a> 7.1 MEASURING COMPLEXITY</h3>
+          
+            <h2>[ITOC-ch7] TIME COMPLEXITY</h2>
+<p>&lt;br/&gt;</p>
+<h3>7.1 MEASURING COMPLEXITY</h3>
 <p><strong>BIG-O AND SMALL-O NOTATION</strong></p>
 <p>$ f(n) = O(g(n)) \  \Longleftrightarrow f(n) \  \le cg(n) $</p>
 <p>$ f(n) = o(g(n)) \  \Longleftrightarrow f(n) \  \lt cg(n) $</p>
 <p>polynomial bounds: with the form $  n^c $</p>
-<p>exponential bounds: with the form $ 2<sup>{(n</sup>\delta)} $</p>
-<br>
+<p>exponential bounds: with the form $ 2^{(n^{\delta})} $</p>
+<p>&lt;br/&gt;</p>
 <p><strong>Time complexity</strong></p>
 <ul>
 <li>M is <strong>deterministic</strong></li>
 <li>f(n) is the maximum number of steps that M uses on any <strong>input of length</strong> n.</li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900587/Screenshot_from_2018-06-13_22-36-08.png" alt=""></li>
 </ul>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/13/ITOC/7/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;
+&lt;!-- more --&gt;</p>
+<p><strong>ANALYZING ALGORITHMS</strong></p>
+<p><strong>TIME(t(n))</strong></p>
+<ul>
+<li>collection of <strong>languages</strong> that are <strong>decidable</strong> by a TM</li>
+<li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_15-36-37.png" alt=""></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>nondeterministic Time complexity</strong></p>
+<ul>
+<li>N is <strong>nondeterministic</strong></li>
+<li>f(n) is the maximum number of steps that N uses <strong>on any branch</strong> of its computation on any input of length n</li>
+<li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900674/Screenshot_from_2018-06-13_22-37-40.png" alt=""></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>NTIME(t(n))</strong></p>
+<ul>
+<li>collection of <strong>languages</strong> that are <strong>decidable</strong> by a <strong>NTM</strong></li>
+<li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_15-46-16.png" alt=""></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>COMPLEXITY RELATIONSHIPS AMONG MODELS</strong></p>
+<p><em>computational model can affect the time complexity of languages</em></p>
+<p>Theorem 7.8</p>
+<ul>
+<li>Let $  t(n) $ be a function, where $ t(n) ≥ n $. Then every $ t(n) $ time <strong>multitape</strong> Turing machine has an equivalent $ O(t^2 (n)) $ time <strong>single-tape</strong> Turing machine</li>
+<li>at most <strong>polynomial</strong> difference</li>
+</ul>
+<p>Theorem 7.11</p>
+<ul>
+<li>Let $ t(n) $ be a function, where $ t(n) ≥ n $. Then every $ t(n) $ time <strong>nondeterministic single-tape</strong> Turing machine has an equivalent $ 2^{O(t(n))} $ time <strong>deterministic single-tape</strong> Turing machine.</li>
+<li>at most <strong>exponential</strong> difference</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>7.2 THE CLASS P</h3>
+<p><strong>POLYNOMIAL TIME</strong></p>
+<p>polynomially equivalent</p>
+<ul>
+<li>one of them can simulate another with only a polynomial increase in running time</li>
+<li>All reasonable deterministic computational models are polynomially equivalent.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>class P</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_16-31-01.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Examples</p>
+<ul>
+<li>$ PATH = \{ &lt;G, s, t&gt; | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\} $</li>
+<li>$ RELPRIME = \{&lt;x, y&gt;| \ x \ and \ y \ are \ relatively \ prime\} $</li>
+<li>Every context-free language is a member of P.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>7.3 THE CLASS NP</h3>
+<p>class NP</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900251/Screenshot_from_2018-06-13_16-37-27.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Another equivalent definition</p>
+<ul>
+<li>A <strong>verifier</strong> for a language A is an algorithm V , where $ A = \{w| \ V \ accepts \ &lt;w, c&gt; \  for \ some \ string \ c\} $</li>
+<li><strong>certificate</strong>: additional information $ c $ the verifier use</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_16-50-38.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Proof of equivalence</p>
+<p>Theorem 7.20</p>
+<ul>
+<li>A language have <strong>polynomial verifiers</strong> iff it is decided by some <strong>nondeterministic polynomial time Turing machine</strong>.</li>
+</ul>
+<p>Proof</p>
+<ol>
+<li>Assume that A is verified by a polynomial time TM $ V $ and construct $ N $
+<ul>
+<li>N nondeterministically select string c and run V for the verification</li>
+</ul>
+</li>
+<li>Assume that A is decided by a polynomial time NTM $ N $ and construct $ V $
+<ul>
+<li>V treat each symbol of c as a description of the nondeterministic choice</li>
+</ul>
+</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Examples</p>
+<ul>
+<li>$ HAMPATH = \{&lt;G, s, t&gt;| \ G \ is \ a \ directed \ graph \ with \ a \ Hamiltonian \ path \ from \ s \ to \ t\} $</li>
+<li>$ COMPOSITES = \{x| \  x = pq, \ for \  integers \ p, q &gt; 1 \} $</li>
+<li>$ CLIQUE = \{&lt;G, k&gt;| \ G \ is \ an \ undirected \  graph \ with \ a \ k-clique \} $</li>
+<li>$ SUBSET-SUM = \{&lt;S, t&gt;| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ \{x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>THE P VERSUS NP QUESTION</strong></p>
+<p>$ P \subset NP $ or $ P = NP $</p>
+<p>&lt;br/&gt;</p>
+<h3>7.4 NP-COMPLETENESS</h3>
+<p><strong>POLYNOMIAL TIME REDUCIBILITY</strong></p>
+<ul>
+<li>
+<p><em>define a version of reducibility that takes the <strong>efficiency</strong> of computation into account</em></p>
+</li>
+<li>
+<p>the reduction function is polynomial time computable</p>
+</li>
+<li>
+<p>$ A  ≤_P B $ than A is no harder than B</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>DEFINITION OF NP-COMPLETENESS</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_19-18-22.png" alt=""></p>
+<p>Theorem 7.35</p>
+<ul>
+<li><strong>If $ B $ is NP-complete and $ B ∈ P $, then $ P = NP $.</strong></li>
+</ul>
+<p>Theorem 7.36</p>
+<ul>
+<li><strong>If $ B $ is NP-complete and $ B ≤_P C $ for $ C $ in $ NP $, then $ C $ is NP-complete.</strong></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>THE COOK---LEVIN THEOREM</strong></p>
+<p>$ SAT $ is NP-complete.</p>
+<p>Idea</p>
+<ul>
+<li>By DEF: show that <strong>every</strong> language $ A $ in NP is polynomial time reducible to SAT</li>
+<li>Reduction function: takes a string w and produces a Boolean formula φ that simulates the NP machine for A on input w, while w is in A iff φ is satisfiable</li>
+<li>将每个configuration里的每个symbol都设为一个变量, 按照A accept w的过程来模拟布尔表达式</li>
+</ul>
+<p>Proof</p>
+<ul>
+<li>
+<p><strong>variable</strong>: For each $ i $ and $ j $ between 1 and  $ n^k $ and for each $ s $ in $ C = Q ∪ Γ ∪ \{'#'\} $, we have a variable, $ x_{i,j,s} $, If $ x_{i,j,s} $ takes on the value 1, it means that $ cell [i, j] $ in the tableau contains an s</p>
+</li>
+<li>
+<p><strong>formula φ</strong>: $ φ_{cell} ∧ φ_{start} ∧ φ_{move} ∧ φ_{accept} $</p>
+<ul>
+<li>
+<p>$ φ_{cell} $: ensure that there must have exactly one variable on for every cell (tableau is valid)</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-13-34.png" alt=""></p>
+</li>
+<li>
+<p>$  φ_{start} $: ensure that the first row of the table is the starting configuration</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-15-48.png" alt=""></p>
+</li>
+<li>
+<p>$ φ_{accept}  $:ensure that an accepting configuration occurs in the tableau</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-16-26.png" alt=""></p>
+</li>
+<li>
+<p>$ φ_{move} $: ensure that each row's configuration legally follows the preceding row’s configuration according to N ’s rules.</p>
+<ul>
+<li>Ensure each <strong>2 × 3 window</strong> of cells is legal</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-19-04.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>complexity</strong> of the reduction: $ O(n^{2k} )  $</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>7.5 ADDITIONAL NP-COMPLETE PROBLEMS</h3>
+<p>(几乎都是从3SAT reduce 来的....感觉比CLRS难哭唧唧感觉还是CLRS讲的懂一点x)</p>
+<p>CLIQUE</p>
+<p>VERTEX-COVER</p>
+<p>HAMPATH</p>
+<p>UHAMPATH</p>
+<p>SUBSET-SUM</p>
+
+          
         
       
     </div>
@@ -574,10 +737,11 @@
 
       
         
-          <h2 id="itoc-ch6-advanced-topics-in-computability-theory"><a class="markdownIt-Anchor" href="#itoc-ch6-advanced-topics-in-computability-theory"></a> [ITOC-ch6] ADVANCED TOPICS IN COMPUTABILITY THEORY</h2>
-<h3 id="61-the-recursion-theorem"><a class="markdownIt-Anchor" href="#61-the-recursion-theorem"></a> 6.1 THE RECURSION THEOREM</h3>
+          
+            <h2>[ITOC-ch6] ADVANCED TOPICS IN COMPUTABILITY THEORY</h2>
+<h3>6.1 THE RECURSION THEOREM</h3>
 <p>Making machines that reproduce themselves.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>SELF-REFERENCE</strong></p>
 <p>Construct $ SELF $ prints out a copy of its own description.</p>
 <p><strong>LEMMA 6.1</strong></p>
@@ -591,13 +755,109 @@
 <li>2 parts: $ A $ and $ B $, so $ &lt; SELF &gt; = &lt; AB &gt; $</li>
 <li><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422821/Screenshot_from_2018-06-07_21-51-26.png" alt=""></li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/08/ITOC/6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;
+RZ师兄的例子</p>
+<pre><code class="language-python">#python
+
+#Part A print &lt;B&gt;
+a = ['print &quot;a=&quot;, a', 'for s in a: print s']
+#B compute and print q(&lt;B&gt;) = &lt;A&gt; 
+#这里q函数只是加上了a=而已
+print &quot;a=&quot;, a
+#B combine &lt;B&gt; (from the output of that A produce)
+for s in a: print s
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Extends the technique so that a program can <strong>automatically</strong> obtain its own description and then <em>go on to compute</em> with it</p>
+<p><strong>Recursion theorem</strong></p>
+<ul>
+<li>First we have a T, than we can construct R</li>
+<li>Input w to R, R can obtain &lt; R &gt; and give &lt; R &gt; and w to T for further computation</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422821/Screenshot_from_2018-06-07_22-05-04.png" alt=""></p>
+<p>$ A $ writes $ w &lt; BT &gt; $ , $ B $ writes $ &lt; A &gt; $ , together the resulting string $ &lt; R, w &gt; $ is on the tape, than passes control to T</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422821/Screenshot_from_2018-06-07_22-12-33.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>APPLICATIONS</strong></p>
+<ul>
+<li>computer virus</li>
+<li>Simpler proof of $ A_{TM} $ is undecidable (4.11显式构建了D出来)</li>
+<li>$ MIN_{TM} $ is not Turing-recognizable.</li>
+<li>For computable function $ t: Σ ^ ∗ → Σ^ ∗ $, there is a $ &lt; F &gt; = t( &lt; F &gt; ) $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>6.2 DECIDABILITY OF LOGICAL THEORIES</h3>
+<p><strong>model</strong></p>
+<ul>
+<li>a tuple $ (U, P_1 , . . . , P_k ) $, where U is the universe ( possible variable values ) and $ P_1 $ through $ P_k $ are the relations assigned to symbols $ R_1 $ through $ R_k $.</li>
+</ul>
+<p>language of a model</p>
+<ul>
+<li>use things only the model defined</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422822/Screenshot_from_2018-06-07_22-26-37.png" alt=""></p>
+<p><strong>theory of M</strong> $ Th(M) $</p>
+<ul>
+<li>the collection of true sentences in the language of that model</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>6.12</strong> $ Th(N , +) $ is decidable.</p>
+<p><strong>6.13</strong> $ Th(N , +, ×) $ is undecidable.</p>
+<p><strong>6.16</strong> Some true statement in $ Th(N , +, ×) $ is not provable.</p>
+<p>(真假性客观存在但不可证明)</p>
+<p>&lt;br/&gt;</p>
+<h3>6.3 TURING REDUCIBILITY</h3>
+<p>Reducibility</p>
+<ul>
+<li>if A is reducible to B, and we find a solution to B, we can obtain a solution to A.</li>
+</ul>
+<p>Mapping reducibility</p>
+<ul>
+<li>$ \exists f $ so $ w \in A \Longleftrightarrow f(w) \in B $</li>
+</ul>
+<p><strong>Turing reducibility</strong></p>
+<p>oracle for a language</p>
+<ul>
+<li>an external device that can report whether a string w is a member of the language</li>
+</ul>
+<p>oracle Turing Machine</p>
+<ul>
+<li>TM that has the additional capability of querying an oracle.</li>
+<li>more powerful than TM</li>
+<li>Still cannot decide all languages</li>
+</ul>
+<p>$ E_{TM} $ is decidable relative to $ A_{TM} $</p>
+<ul>
+<li>we can use the oracle of $ A_{TM} $ to decide $ E_{TM} $</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422821/Screenshot_from_2018-06-08_09-29-22.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>6.4 A DEFINITION OF INFORMATION</h3>
+<p><em>define information using computability theory.</em></p>
+<p>&lt;br/&gt;</p>
+<p>quantity of information</p>
+<ul>
+<li>the size of that object’s <strong>smallest</strong> representation or description.</li>
+</ul>
+<p><strong>MINIMAL LENGTH DESCRIPTIONS</strong></p>
+<p>Select our language describing information</p>
+<ul>
+<li>describe a binary string x as $ &lt; M &gt; w $ while M is a TM and w is input</li>
+<li>locate the separation between $ &lt; M &gt; $ and $ w $
+<ul>
+<li>One way to do so is to write each bit of  $ &lt; M &gt; $ twice, writing 0 as 00 and 1 as 11, and then follow it with 01 to mark the separation point.</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528422822/Screenshot_from_2018-06-08_09-47-08.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>6.24</strong>: $ \exists c \forall x \ [ K(x) \le |x| + c ] $</p>
+<p><strong>6.25</strong>: $ \exists c \forall x \ [ K(xx) \le K(x) + c ] $</p>
+<p><strong>6.26</strong>: $ \exists c \forall x,y \ [ K(xy) \le 2K(x) + K(y) + c ] $</p>
+<p>&lt;br/&gt;</p>
+
+          
         
       
     </div>
@@ -747,7 +1007,8 @@
 
       
         
-          <h2 id="itoc-ch5-reducibility"><a class="markdownIt-Anchor" href="#itoc-ch5-reducibility"></a> [ITOC-ch5] REDUCIBILITY</h2>
+          
+            <h2>[ITOC-ch5] REDUCIBILITY</h2>
 <p>If A reduces to B</p>
 <ul>
 <li>we can use a solution to B to solve A</li>
@@ -755,8 +1016,8 @@
 </ul>
 <p>$ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
 <p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<br>
-<h3 id="51-undecidable-problems-from-language-theory"><a class="markdownIt-Anchor" href="#51-undecidable-problems-from-language-theory"></a> 5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3>
+<p>&lt;br/&gt;</p>
+<h3>5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3>
 <p><strong>General Idea</strong></p>
 <ul>
 <li>
@@ -772,13 +1033,215 @@
 <p>thus obtain a contradiction.</p>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/31/ITOC/5/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m HALT_{TM} $</p>
+<p>$ HALT_{TM} = \{ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If M loop on w, we can use R to reject.</em></p>
+<p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
+<ol>
+<li>Run TM R on input $ &lt;M, w&gt; $.</li>
+<li>If R rejects, reject .</li>
+<li>If R accepts, simulate M on w until it halts.</li>
+<li>If M has accepted, accept ; if M has rejected, reject .”</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m E_{TM} $</p>
+<p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If $ L (M_1) $ is empty, than M accept w</em></p>
+<p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
+<ol>
+<li>Construct $ M_1 $ = “On input x:</li>
+<li>If $ x \neq w $, reject .</li>
+<li>If $ x = w $, run M on input w and accept if M does.”</li>
+<li>Run R on input $ &lt; M_1 &gt; $.</li>
+<li>If R accepts, reject ; if R rejects, accept .”</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m REGULAR_{TM} $</p>
+<p>$ REGULAR_{TM} = \{ &lt; M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If $ L(M_2) $ is regular, than M accept w</em></p>
+<p>If M does not accept w</p>
+<ul>
+<li>$ M_2 $ recognize  $ \{0^n 1^n \ | \ n ≥ 0 \} $ which is nonregular</li>
+</ul>
+<p>If M accepts w</p>
+<ul>
+<li>$ M_2 $ 	recognize all strings $ Σ^ * $ ( including $ 0^n 1^n $) which is regular</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>S = “On input $ &lt;M, w&gt; $, where M is a TM and w is a string:</p>
+<ol>
+<li>Construct the following TM $ M_2 $ .
+$ M_2 $ = “On input x:</li>
+</ol>
+<ul>
+<li>If x has the form $ 0^n 1^n $ , accept .</li>
+<li>If x does not have this form, run M on input w and accept if M accepts w.”</li>
+</ul>
+<ol start="2">
+<li>Run R on input $ &lt;M_2 &gt; $.</li>
+<li>If R accepts, accept; if R rejects, reject .”</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Rice's theorem</p>
+<ul>
+<li>determining any property of the languages recognized by Turing machines is undecidable.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ E_ {TM} ≤_m EQ_{TM} $</p>
+<p>$ EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
+<p><strong>Proof</strong></p>
+<p>$ M_1 $ is a TM that rejects all inputs.</p>
+<p><em>If $ L(M) = L(M_1) $, than $ L(M) = ∅ $</em></p>
+<p>&lt;br/&gt;</p>
+<p><strong>REDUCTIONS VIA COMPUTATION HISTORIES</strong></p>
+<p><strong>computation history</strong></p>
+<ul>
+<li>the sequence of configurations that the machine goes through as it processes the input</li>
+<li>Finite sequences. If M doesn’t halt on w, no accepting or rejecting computation history exists for M on w.</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Linear bounded automaton</strong></p>
+<ul>
+<li>the amount of memory is limited and linear in input size n</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p><em>decidable</em></p>
+<p>$ A_{LBA} = \{ &lt;M, w&gt;| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</p>
+<p>&lt;br/&gt;</p>
+<p><strong>LEMMA 5.8</strong></p>
+<ul>
+<li>If a LBA has q states and g symbols with tape length n.</li>
+<li>There are exactly $ qng^n $ distinct configurations.</li>
+</ul>
+<p><strong>Proof</strong></p>
+<ul>
+<li>reject after $ qng^n $ steps because M is looping</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m E_{LBA} $</p>
+<p>$ E_{LBA} = \{&lt; M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If $ L(B) \neq  ∅  $ = { all accepting computation histories for M on w }, than M accepts w.</em></p>
+<p>Construct B to generate all strings that</p>
+<ol>
+<li>$ C_1 $ is the start configuration for M on w.</li>
+<li>$ C_l $ is an accepting configuration for M .</li>
+<li>Each $ C_{i+1} $ legally follows from $ C_i $ .</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m ALL_{LBA} $</p>
+<p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If $ L(G) \neq Σ ^ ∗  $ = { all strings except all computation histories for M on w }, than M accepts w.</em></p>
+<p>Construct G to generate all strings that</p>
+<ol>
+<li>do not start with $ C_1 $</li>
+<li>do not end with an accepting configuration</li>
+<li>some $ C_i $ does not properly yield $ C_{i+1} $ under the rules of M</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<h3>5.2 A SIMPLE UNDECIDABLE PROBLEM</h3>
+<p><em>an example of an undecidable problem not concerning automaton</em></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Post Correspondence Problem</strong></p>
+<ul>
+<li>determine that a collection of dominos has a match (repetitions permitted).</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-09-49.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>$ A_ {TM} ≤_m PCP $</p>
+<p>$ PCP = \{&lt; P &gt;| \ P \ is \ an \ instance \ of \ the \ Post \ Correspondence \ Problem \ with \ a \ match\}. $</p>
+<p><strong>Proof</strong></p>
+<p><em>If the P we construct has a match, than M accepts w</em></p>
+<p>Construct P</p>
+<ul>
+<li>
+<p>let P be an instance of MPCP that starting matching with the first domino.</p>
+<ul>
+<li>
+<p>begins with configuration $ C_1 $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-22-52.png" alt=""></p>
+</li>
+<li>
+<p>Head motions to right and left</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-01.png" alt=""></p>
+</li>
+<li>
+<p>Other tape alphabet surrounded the head</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-10.png" alt=""></p>
+</li>
+<li>
+<p>Separation of the configuration</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-17.png" alt=""></p>
+</li>
+<li>
+<p>pseudo-steps after accept, head eat adjacent symbols.</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-24.png" alt=""></p>
+</li>
+<li>
+<p>Final alignment</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_21-13-27.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li>
+<p>add * symbol so that the only possible match is start with the first domino. ( change MPCP into PCP )</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-31-40.png" alt=""></p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>5.3 MAPPING REDUCIBILITY</h3>
+<p><em>formalize the notion of mapping reducibility</em></p>
+<p>&lt;br/&gt;</p>
+<p><strong>COMPUTABLE FUNCTIONS</strong></p>
+<p><em>f == TM</em></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>FORMAL DEFINITION OF MAPPING REDUCIBILITY</strong></p>
+<p><strong>mapping reducibility</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>If $ A ≤_m B $ and B is decidable, then A is decidable.</strong></p>
+<p>Proof</p>
+<p>construct A's decider N = “On input w:</p>
+<ol>
+<li>Compute f (w).</li>
+<li>Run M on input f (w) and output whatever M outputs.”</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p><strong>If $ A ≤_m B $ and A is undecidable, then B is undecidable.</strong></p>
+<p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
+<p>&lt;br/&gt;</p>
+<p>Example of computable function</p>
+<ul>
+<li>Input $ &lt; M,w &gt; $ while output $ &lt;M',w'&gt; $</li>
+<li>$ &lt; M, w &gt; ∈ A_{TM} $ if and only if $ &lt;M' , w' &gt; ∈ HALT_{TM} $.</li>
+</ul>
+<p>(5.1中,在每个S里构造的机器就是这里的reduce function)</p>
+<p>&lt;br/&gt;</p>
+<p><strong>If  $ A ≤_m B $ and B is Turing-recognizable, then A is Turing-recognizable.</strong></p>
+<p>&lt;br/&gt;</p>
+<p><strong>If $ A ≤_m B $ and A is not Turing-recognizable, then B is not Turing-recognizable.</strong></p>
+<p>if $ A_{TM} ≤_m \overline{B} $ then $ \overline{A_{TM}} ≤_m B $ therefore B isn't recognizable.</p>
+<p>&lt;br/&gt;</p>
+<p>$ EQ_{TM} $ is neither Turing-recognizable nor co-Turing-recognizable.</p>
+<p>Proofed by corollary above.</p>
+
+          
         
       
     </div>
@@ -928,7 +1391,8 @@
 
       
         
-          <h2 id="itoc-ch4-decidability"><a class="markdownIt-Anchor" href="#itoc-ch4-decidability"></a> [ITOC-ch4] DECIDABILITY</h2>
+          
+            <h2>[ITOC-ch4] DECIDABILITY</h2>
 <p>Recall:</p>
 <p><strong>Recognizer</strong></p>
 <ul>
@@ -940,11 +1404,11 @@
 <li>if $ w∈L $, than M must accept w.</li>
 <li>if $ w∉L $, than M must reject w.</li>
 </ul>
-<br>
-<h3 id="41-decidable-languages"><a class="markdownIt-Anchor" href="#41-decidable-languages"></a> 4.1 DECIDABLE LANGUAGES</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.1 DECIDABLE LANGUAGES</h3>
 <p><strong>DECIDABLE PROBLEMS CONCERNING REGULAR LANGUAGES</strong></p>
 <p>$ A_{DFA} =   \{ \ &lt;B,w&gt; \ | \ B \ is \ a \ DFA \ that \ accepts \ input \ string \ w \} $.</p>
-<p>Proof that it’s a decidable language by designing a decider</p>
+<p>Proof that it's a decidable language by designing a decider</p>
 <ul>
 <li>M = “On input &lt;B, w&gt;, where B is a DFA and w is a string:
 <ul>
@@ -953,13 +1417,171 @@
 </ul>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/25/ITOC/4/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<p>$ A_{NFA} = \{ \ &lt;B, w&gt; \ | \ B \ is \ an \ NFA \ that \ accepts \ input \ string \ w \} $.</p>
+<p>Proof</p>
+<ul>
+<li>Convert NFA to DFA</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ A_{REX} = \{ \ &lt;R, w&gt; \ | \ R \ is \ a \ regular \ expression \ that \ generates \ string \ w \}$.</p>
+<p>Proof</p>
+<ul>
+<li>Convert RE to NFA</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ E_{DFA} = \{ \ &lt; A &gt; | \  A \ is \ a \ DFA \ and \ L(A) = ∅ \} $.</p>
+<p>Proof</p>
+<ul>
+<li>Mark all states reachable from start state. accept if no accept state is marked</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ EQ_{DFA} = \{ \ &lt;A, B&gt; \ | \ A \ and \ B \ are \ DFA \ s \ and \ L(A) = L(B) \} $.</p>
+<p>Proof</p>
+<ul>
+<li>Construct L( C ) = L( A ) xor L( B ),  test if L( C ) $ \in E_{DFA} $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>DECIDABLE PROBLEMS CONCERNING CONTEXT-FREE LANGUAGES</strong></p>
+<p>$ A_{CFG} = \{ \ &lt;G, w&gt; \ | \ G \ is \ a \ CFG \ that \ generates \ string \ w \} $</p>
+<p><em>if G were in Chomsky normal form, any derivation of w has 2n − 1 steps, where n is the length of w.</em></p>
+<p>Proof</p>
+<ul>
+<li>List all derivations with 2n − 1 steps, check if w is in them</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ E_{CFG} = \{ \ &lt; G &gt; | \ G \ is \ a \ CFG \ and \ L(G) = ∅ \} $.</p>
+<p>Proof</p>
+<ul>
+<li>Mark all terminal symbols and Mark all variables that can derive into marked symbols</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ EQ_{CFG} = \{ \ &lt;G, H&gt; \ | \ G \ and \ H \ are \ CFG \ s \ and \ L(G) = L(H) \} $.</p>
+<p>Not decidable (P226)</p>
+<p>&lt;br/&gt;</p>
+<p>Every context-free language is decidable.</p>
+<p>Proof:</p>
+<ul>
+<li>
+<p>Use TM S that decide $ A_{CFG} $ ( if w is generated by G )</p>
+</li>
+<li>
+<p>Let G be a CFG for the CFL A we want to decide</p>
+</li>
+<li>
+<p>Run S on &lt;G,w&gt;, if accept, means that $ w \in G $ therefore $ w \in A $, accept</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>4.2 UNDECIDABILITY</h3>
+<p>$ A_{TM} = \{ \ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ accepts \ w \} $.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>THE DIAGONALIZATION METHOD</strong></p>
+<p><strong>same size</strong></p>
+<ul>
+<li>Set A and set B are the same size if there is a correspondence f : A→B.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>countable</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_14-57-25.png" alt=""></p>
+<p>Ex: $ Q = \{ \frac{m}{n} | m, n ∈ N \} $ is countable</p>
+<p>&lt;br/&gt;</p>
+<p><strong>uncountable</strong></p>
+<p>Ex: the set of real numbers $ R $ is uncountable</p>
+<p><em>using diagonalization method</em></p>
+<p>ensure that $ x \neq f (n) $ for any n, therefore the correspondence to $ N $ failed</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-26-10.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Some languages are not Turing-recognizable.</strong></p>
+<p>Proof</p>
+<ul>
+<li>
+<p>Set of all Turing machines $ M $ is <strong>countable</strong></p>
+<ul>
+<li>
+<p>(图灵机的个数 == 图灵机识别的语言的个数 == 自然数的个数)</p>
+</li>
+<li>
+<p>each TM M has an encoding into a string &lt;M&gt;</p>
+</li>
+<li>
+<p>and set of all strings $ Σ^ ∗ $is countable ( set of <em>finite length</em> strings )</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Set of all languages $ L $ is <strong>uncountable</strong></p>
+<ul>
+<li>
+<p>(所有语言的个数 == 实数的个数)</p>
+</li>
+<li>
+<p>$ B $, the set of all <em>infinite length</em> binary sequence, is uncountable as $ R $</p>
+</li>
+<li>
+<p>$ L $, the set of all languages over alphabet $ Σ $, have a correspondence with $ B $</p>
+</li>
+<li>
+<p>Each language $ A ∈ L $ has a unique sequence in $ B $.</p>
+</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-42-06.png" alt=""></p>
+</li>
+<li>
+<p>therefore $ L $ is larger than $ L_{TM}$</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>AN UNDECIDABLE LANGUAGE</strong></p>
+<p>$ A_{TM} = \{ \ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ accepts \ w \} $.</p>
+<p>&lt;br/&gt;</p>
+<p>$ A_{TM} $ <strong>is Turing-recognizable</strong></p>
+<ul>
+<li>Simulate M on w</li>
+<li>If M ever enters its accept state, accept ; if M ever enters its reject state, reject ; If M loops, loop.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ A_{TM} $ <strong>is undecidable</strong></p>
+<p>Proof</p>
+<ul>
+<li>Assume we have the decider $ H $ to decide whether M accept w</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-53-12.png" alt=""></p>
+<ul>
+<li>construct a new TM $ D $ with $ H $ as a subroutine</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-54-36.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236509/Screenshot_from_2018-05-25_15-57-58.png" alt=""></p>
+<ul>
+<li>Contradiction when we run D with its own description &lt;D&gt; as input</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-57-21.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>diagnolization in the proof</p>
+<ul>
+<li>first list the table of whether $ M_i $ accepts $ &lt;M_j&gt; $</li>
+<li>construct $ H $ so that $ H $ reject when $ M_i $ doesn't accept $ &lt;M_j&gt; $</li>
+<li>Finally the contradiction in $ D $</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236509/Screenshot_from_2018-05-25_15-58-53.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>A TURING-UNRECOGNIZABLE LANGUAGE</strong></p>
+<p><strong>A language is decidable iff it is Turing-recognizable and co-Turing recognizable.</strong></p>
+<p>Proof</p>
+<ul>
+<li>
+<p>if $ A $ decidable, $ \bar A$ is decidable, therefore both are recognizable</p>
+</li>
+<li>
+<p>if both recognizable, we can construct decider for $ A $, therefore $ A $ is decidable</p>
+<p>Run their recognizer $ M_1 $ and $ M_2 $ simultaneously. If $ M_1 $ accepts, accept ; if $ M_2 $ accepts, reject.</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ \overline { A_{TM} }  $ is not Turing-recognizable.</p>
+
+          
         
       
     </div>
@@ -1109,23 +1731,139 @@
 
       
         
-          <h2 id="itoc-ch3-the-churchturing-thesis"><a class="markdownIt-Anchor" href="#itoc-ch3-the-churchturing-thesis"></a> [ITOC-ch3] THE CHURCH—TURING THESIS</h2>
-<h3 id="31-turing-machines"><a class="markdownIt-Anchor" href="#31-turing-machines"></a> 3.1 TURING MACHINES</h3>
+          
+            <h2>[ITOC-ch3] THE CHURCH—TURING THESIS</h2>
+<h3>3.1 TURING MACHINES</h3>
 <p><em>unrestricted access to unlimited memory</em></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>The Turing machine model uses an <strong>infinite</strong> tape as its unlimited memory.</p>
 <p>It has a tape head that can <strong>read and write</strong> symbols and <strong>move both left and right</strong> on the tape.</p>
-<p>The outputs accept and reject are obtained by entering designated <strong>accepting and rejecting states</strong>. If it doesn’t enter an accepting or a rejecting state, it will go on forever, never <strong>halting</strong>.</p>
-<br>
+<p>The outputs accept and reject are obtained by entering designated <strong>accepting and rejecting states</strong>. If it doesn't enter an accepting or a rejecting state, it will go on forever, never <strong>halting</strong>.</p>
+<p>&lt;br/&gt;</p>
 <p>DEF</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-18_14-52-08.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/ITOC/3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;
+configuration</p>
+<ul>
+<li>a setting of current state, the current tape contents, and the current head location.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Machine M</p>
+<p><strong>Recognizer</strong></p>
+<ul>
+<li>input a w, accept, reject or loop</li>
+<li>may fail to accept an input by entering the $ q_{reject} $ state and rejecting, or by looping</li>
+</ul>
+<p>EX:</p>
+<p>if $ w \in L $, than M must accept w.</p>
+<p>if $ w \notin L $, than M may loop when input w.</p>
+<p><strong>Decider</strong></p>
+<ul>
+<li>halts on all inputs</li>
+</ul>
+<p>EX:</p>
+<p>if $ w \in L $, than M must accept w.</p>
+<p>if $ w \notin L $, than M must reject w.</p>
+<p>&lt;br/&gt;</p>
+<p>Language L</p>
+<p><em>The collection of strings that M accepts</em></p>
+<p><strong>Turing-recognizable language</strong></p>
+<ul>
+<li>there exist some Turing machine recognizes it.</li>
+</ul>
+<p><strong>Turing-decidable language</strong></p>
+<ul>
+<li>there exist some decider decides it.</li>
+</ul>
+<p>?<strong>Undecidable language</strong></p>
+<ul>
+<li>
+<p>exist recognizer accept all strings $ w \in L $</p>
+</li>
+<li>
+<p>No decider exist, always loop when input specific string $ w \notin  L $</p>
+</li>
+</ul>
+<p>example: 4.2</p>
+<p>?H can't halt when its input D simulate H itself</p>
+<p>&lt;br/&gt;</p>
+<h3>3.2 VARIANTS OF TURING MACHINES</h3>
+<p>MULTITAPE TURING MACHINES</p>
+<p>$ δ : Q × Γ^k → Q × Γ^k × { \{L, R, S\} }^k $</p>
+<p>equivalent with ordinary Turing machine</p>
+<ul>
+<li>uses  # to separate different tapes</li>
+<li>uses dot to keep track the heads</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-18_17-26-19.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>NONDETERMINISTIC TURING MACHINES</p>
+<p>$ δ : Q × Γ→P(Q × Γ × \{L, R\}) $</p>
+<p>equivalent with ordinary Turing machine</p>
+<ul>
+<li>have D try all possible branches of N ’s nondeterministic computation</li>
+<li>tape 1: input; tape2: copy of N ’s tape on some branch;</li>
+<li>tape 3: node address of N where D is now in</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-18_17-26-09.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>ENUMERATORS</p>
+<ul>
+<li>a Turing machine with an attached printer</li>
+<li>The language enumerated by E is the collection of all the strings that it eventually prints out.</li>
+</ul>
+<p>equivalent with ordinary Turing machine</p>
+<ul>
+<li>construct M recognize language A enumerated by E</li>
+<li>construct E enumerate language A recognized by M</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>3.3 THE DEFINITION OF ALGORITHM</h3>
+<p><em>Informally speaking, an algorithm is a collection of instructions to perform some task.</em></p>
+<p>&lt;br/&gt;</p>
+<p><strong>HILBERT’S PROBLEMS</strong></p>
+<p>Algorithm</p>
+<p>DEF</p>
+<ol>
+<li>λ-calculus notation system by Alonzo Church</li>
+<li>Turing machines by Alan Turing</li>
+</ol>
+<p><strong>Church–Turing thesis</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-19_10-20-58.png" alt=""></p>
+<p>&lt;br/&gt;
+Example: Hilbert’s tenth problem</p>
+<ul>
+<li>Algorithm: Test whether a polynomial has an integral root</li>
+<li>TM: constructing such algorithm <strong>equals</strong> constructing a TM to decide the language D</li>
+</ul>
+<p>$ D = \{p \ | \ p \ is \ a \ polynomial \ with \ an \ integral \ root\}. $</p>
+<ul>
+<li>decider D can't exist, problem algorithmically unsolvable.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>TERMINOLOGY FOR DESCRIBING TURING MACHINES</strong></p>
+<p>3 levels describing Algorithm or TM</p>
+<ul>
+<li>formal description
+<ul>
+<li>spells out in full the Turing machine’s states, transition function, and so on</li>
+</ul>
+</li>
+<li>implementation description
+<ul>
+<li>describe the way TM moves its head and the way it stores data on its tape</li>
+</ul>
+</li>
+<li>high-level description
+<ul>
+<li>input <strong>encoded</strong> object as strings</li>
+<li>break the algorithm into stages, each involves individual steps of the Turing machine’s computation</li>
+</ul>
+</li>
+</ul>
+
+          
         
       
     </div>
@@ -1275,20 +2013,195 @@
 
       
         
-          <h2 id="itoc-ch2-context-free-languages"><a class="markdownIt-Anchor" href="#itoc-ch2-context-free-languages"></a> [ITOC-ch2] CONTEXT-FREE LANGUAGES</h2>
+          
+            <h2>[ITOC-ch2] CONTEXT-FREE LANGUAGES</h2>
 <p>In this chapter we present context-free grammars to describe certain features that have a <strong>recursive</strong> structure.</p>
 <p>help us organize and understand relationships of terms.</p>
 <p>Application: compilers and interpreters</p>
 <ul>
 <li>Most compilers and interpreters contain a <strong>parser</strong> that extracts the meaning of a program before generating the compiled code or performing the interpreted execution.</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/ITOC/2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;</p>
+<h3>2.1 CONTEXT-FREE GRAMMAR</h3>
+<p>Context Free Grammar</p>
+<ul>
+<li>consists of a collection of <strong>substitution rules</strong></li>
+</ul>
+<p>Variable</p>
+<ul>
+<li>symbols on the <strong>left hand side</strong></li>
+</ul>
+<p>Terminal</p>
+<ul>
+<li>other symbols</li>
+<li>can't appear in the left hand side in CFG  ( Ex: aB --&gt; XX )</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697835/Screenshot_from_2018-05-11_13-42-47.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Derivation</strong></p>
+<ul>
+<li>The sequence of substitutions to obtain a string</li>
+<li>u derives v, written $ u ⇒^{ * } v $, if u = v or if a sequence $u 1 , u 2 , . . . , u k $ exists for k ≥ 0 and</li>
+</ul>
+<p>$ u ⇒ u 1 ⇒ u 2 ⇒ . . . ⇒ u k ⇒ v. $</p>
+<p>&lt;br/&gt;</p>
+<p>Context Free Language</p>
+<ul>
+<li>strings generated by CFG</li>
+<li>$ \{ w ∈ Σ^{ ∗ } | S ⇒^{ * } w \}. $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>?Parsing</p>
+<ul>
+<li>the compiler extracts the ?meaning of the code</li>
+</ul>
+<p><strong>Parser Tree</strong></p>
+<ul>
+<li>Representation of the meaning of the code</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-11_13-52-06.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>leftmost derivation</p>
+<ul>
+<li>Derivation that at every step the leftmost remaining variable is the one replaced</li>
+</ul>
+<p><strong>AMBIGUITY</strong></p>
+<p>DEF</p>
+<ul>
+<li>A string w is derived ambiguously in context-free grammar G if it has two or more different leftmost derivations.</li>
+<li>Grammar G is ambiguous if it generates some string ambiguously.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>CHOMSKY NORMAL FORM</strong></p>
+<p>Simplified form for CFG, can generate all CFL.</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-18_14-43-58.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>2.2 PUSHDOWN AUTOMATA</h3>
+<p><strong>nondeterministic</strong> PDA (with extra <strong>stack</strong> )</p>
+<ul>
+<li>DEF</li>
+<li>(transition functions return sets)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697835/Screenshot_from_2018-05-17_21-46-47.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Computation</strong> under PDA</p>
+<ul>
+<li>A pushdown automaton $ M = (Q, Σ, Γ, δ, q_0 , F ) $ while input $ \in $ $ Σ_ε $, states $ \in Q $, stack strings $ \in Γ^{ ∗ } $</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697835/Screenshot_from_2018-05-17_21-50-29.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Example</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697835/Screenshot_from_2018-05-17_21-55-04.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>EQUIVALENCE WITH CONTEXT-FREE GRAMMARS</strong></p>
+<ul>
+<li><strong>2.21</strong> If a language is context free, then some pushdown automaton recognizes it.</li>
+<li><strong>2.27</strong> If a pushdown automaton recognizes some language, then it is context free.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.21</strong></p>
+<ul>
+<li>Construct PDA P to accept all strings generated by CFG G</li>
+</ul>
+<p>Description of P</p>
+<ol>
+<li>stack push: marker $ than Start variable</li>
+<li>while ( stack.top != '$' )
+<ul>
+<li>(stack.top == Variable A) nondeterministically select one of the rules A --&gt; w and substitute A by w</li>
+<li>(stack.top == Terminal a) read next symbol and compare it to a</li>
+</ul>
+</li>
+<li>pop '$', Accept</li>
+</ol>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-17_22-18-54.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>2.27</strong></p>
+<ul>
+<li>construct CFG G that generates all the strings PDA P accepts <em>(go from its Start state to an Accept state)</em></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Prepare: simplify P to have following features</p>
+<ol>
+<li>has single accept state $ q_{accept} $</li>
+<li>empties its stack before accepting</li>
+<li>each transition either push or pop a symbol, but never do both</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Description of G</p>
+<ol>
+<li>
+<p>Variables of G are $ \{A_{pq} \ | \ p, q ∈ Q \ \} $. The start variable is $ A_{q0} ,q_{accept} $.</p>
+</li>
+<li>
+<p>Rules</p>
+<ul>
+<li>
+<p>For each $ p ∈ Q $, put the rule $ A_{pp} → ε $ in G.</p>
+</li>
+<li>
+<p>For each $ p, q, r, s ∈ Q $, $ u ∈ Γ $ , and $ a, b ∈ Σ_ε $ , if $ δ(p, a, ε) $ contains $ (r, u) $ and $ δ(s, b, u) $ contains $ (q, ε)$, put the rule $ A_{pq}  → aA_{rs} b $ in G.</p>
+</li>
+<li>
+<p>For each $ p, q, r ∈ Q $, put the rule $ A_{pq} → A_{pr} A_{rq} $ in G.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Idea</p>
+<ul>
+<li>variable $ A_{pq} $ generates all the strings that can take P from p with an empty stack to q with an empty stack.</li>
+<li>递归生成串？最后从最开始的变量 $ A_{q0} ,q_{accept} $ 出发生成的串就是PDA所有ac的串？</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-18_09-37-57.png" alt=""></p>
+<p>Proof</p>
+<ul>
+<li>prove that this construction works by demonstrating that $ A_{pq} $ generates x if and only if (iff) x can bring P from p with empty stack to q with empty stack.</li>
+<li>Two direction. Induction</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>2.3 NON-CONTEXT-FREE LANGUAGES</h3>
+<p><strong>THE PUMPING LEMMA FOR CONTEXT-FREE LANGUAGES</strong></p>
+<p>DEF</p>
+<ul>
+<li>If A is a context-free language, then <em>there is</em> a number p (the pumping length) where, if s is any string in A of length at least p, then s may be divided into five pieces $ s = uvxyz $ satisfying the conditions</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697836/Screenshot_from_2018-05-18_09-43-43.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Proof</p>
+<ul>
+<li>
+<p>Let A be a CFL and let G be a CFG that generates it.</p>
+</li>
+<li>
+<p>We assign the pumping length p to be $ b^{|V| + 1 } $</p>
+<ul>
+<li>b is maximum number of symbols in the right-hand side of a rule ( maximum number of children per node )</li>
+<li>|V| is the number of variables in G</li>
+<li>$  b^{|V| + 1 } $ is the length of the string when its parse tree is|V| + 1 high</li>
+<li>τ is a parse tree that has the smallest number of nodes.</li>
+</ul>
+</li>
+<li>
+<p>We show that any strings in A of length at least p may be broken into the five pieces uvxyz, satisfying our three conditions.</p>
+<ol>
+<li>When τ is at least |V| + 1 high, due to pigeon hole principle, some variable R must appears more than once on that path. And we can divide s as follows</li>
+</ol>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526706724/Screenshot_from_2018-05-19_13-11-48.png" alt=""></p>
+<ol start="2">
+<li>Contradiction: if both y and v are ε than τ won't be the smallest tree generate s</li>
+<li>The subtree where R generates vxy is at most |V| + 1 high, therefore has length at most $  b^{|V| + 1 }  = p $</li>
+</ol>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Example</p>
+<p>$ C = \{a_i b_j c_k | 0 ≤ i ≤ j ≤ k \ \} $</p>
+<p>&lt;br/&gt;</p>
+<h3>2.4 DETERMINISTIC CONTEXT-FREE LANGUAGES</h3>
+
+          
         
       
     </div>
@@ -1438,22 +2351,131 @@
 
       
         
-          <h2 id="itoc-ch1-regular-languages"><a class="markdownIt-Anchor" href="#itoc-ch1-regular-languages"></a> [ITOC-ch1] REGULAR LANGUAGES</h2>
-<h3 id="11-finite-automata"><a class="markdownIt-Anchor" href="#11-finite-automata"></a> 1.1 FINITE AUTOMATA</h3>
+          
+            <h2>[ITOC-ch1] REGULAR LANGUAGES</h2>
+<h3>1.1 FINITE AUTOMATA</h3>
 <p><strong>Deterministic Finite Automata</strong></p>
 <ul>
 <li>DEF</li>
 <li><em>Every state of a DFA always has exactly one exiting transition arrow for <strong>each</strong> symbol in the alphabet.</em></li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_19-57-08.png" alt=""></p>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/10/ITOC/ch1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<p><strong>Computation</strong> under DFA</p>
+<p>DEF</p>
+<ul>
+<li>Let M = (Q, Σ, δ, q0 , F ) be a finite automaton and let w = $ w_1 w_2 · · · w_n $ be a string where each $ w_i $ is a member of the alphabet Σ.</li>
+<li>Then M <strong>accepts</strong> w if a sequence of states $ r_0 , r_1 , . . . , r_n $ in Q exists with three conditions</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_20-04-29.png" alt=""></p>
+<ul>
+<li><em>doing computation == state transition</em></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>1.2 NONDETERMINISM</h3>
+<p><strong>Nondeterministic Finite Automata</strong></p>
+<ul>
+<li>DEF</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_20-12-42.png" alt=""></p>
+<p>Difference</p>
+<ul>
+<li>a state may have ε, zero, one, or many exiting arrows for each alphabet symbol.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Computation</strong> under NFA</p>
+<ul>
+<li>( $ \in $ )</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-21-17.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>EQUIVALENCE OF NFAS AND DFAS</strong></p>
+<p>Every nondeterministic finite automaton has an equivalent deterministic finite automaton.</p>
+<p>Proof</p>
+<ul>
+<li>convert the NFA into an equivalent DFA that simulates the NFA</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<hr>
+<p>&lt;br/&gt;</p>
+<p>We say that M recognizes language A if $ A = \{w| M \ accepts \ w \} $</p>
+<p><strong>Regular language</strong></p>
+<p>DEF</p>
+<ul>
+<li><em>DFA == NFA == RL</em></li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_20-07-05.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Regular Operations</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_20-09-27.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>CLOSURE UNDER THE REGULAR OPERATIONS</strong></p>
+<p>Union</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957747/Screenshot_from_2018-05-10_20-25-06.png" alt=""></p>
+<p>Concatenation</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-25-17.png" alt=""></p>
+<p>Star</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-25-29.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>1.3 REGULAR EXPRESSIONS</h3>
+<p>DEF</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-26-10.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>$ ε $ : empty string;</p>
+<p>$ ∅ $ : empty set ( even with out empty string )</p>
+<p>$ ∅ ^ * = {ε} $</p>
+<p>$ 1 ^ ∅ = ∅ $</p>
+<p>$ 1 ^* ε = 1 ^* * $</p>
+<p>&lt;br/&gt;</p>
+<p><strong>EQUIVALENCE WITH FINITE AUTOMATA</strong></p>
+<p><em>FA == RL == RE</em></p>
+<p><strong>Proof</strong></p>
+<p><strong>[1] If a language is described by a regular expression, then it is regular.</strong></p>
+<p>(Proof by recursive definition from base case 1,2,3 )</p>
+<p><strong>[2] If a language is regular, then it is described by a regular expression.</strong></p>
+<p>Using GNFA</p>
+<ul>
+<li>the transition arrows may have any regular expressions as labels</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-43-00.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-43-11.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>1.4 NONREGULAR LANGUAGES</h3>
+<p>( cannot compute infinite possibilities with finite states )</p>
+<p><strong>THE PUMPING LEMMA FOR REGULAR LANGUAGES</strong></p>
+<p>DEF</p>
+<ul>
+<li>If A is a <em>regular language</em>, then <em>there is</em> a number p (the pumping length) where if s is any string in A of length at least p, then s may be divided into three pieces, $ s = xyz $, satisfying the following conditions:</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957749/Screenshot_from_2018-05-10_20-49-18.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Proof</p>
+<ul>
+<li>Let M = DFA that recognizes A. We assign the pumping length p to be the number of states of M.</li>
+<li>We show that any strings in A of length at least p may be broken into the three pieces xyz, satisfying our three conditions.</li>
+<li>Due to pigeon hole principle, among the first p + 1 elements in the sequence, two must be the same state</li>
+<li>Therefore we can divide the string as the following figure while q9 is the state appears twice in the first p+1 length</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1525957748/Screenshot_from_2018-05-10_20-57-28.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Proof language B is not regular</strong></p>
+<p>Contradiction</p>
+<ol>
+<li>Assume p exist ( B is regular )</li>
+<li>find a string s in B that has length p or greater</li>
+<li>considering all ways of dividing s into x, y, and z and for each such division, finding a value i where $ xy^i z \notin B $</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Example</p>
+<p>B  $=  \{ 0^n 1^n | n ≥ 0 \} $</p>
+<ol>
+<li>Assume p</li>
+<li>Choose s to be the string $ 0^p 1^p $.</li>
+<li>divide s ( 3 cases ) and show $ xy^i z \notin B $</li>
+</ol>
+
+          
         
       
     </div>
@@ -1603,27 +2625,449 @@
 
       
         
-          <h2 id="sicp-ch4-metalinguistic-abstraction"><a class="markdownIt-Anchor" href="#sicp-ch4-metalinguistic-abstraction"></a> [SICP-ch4] Metalinguistic Abstraction</h2>
+          
+            <h2>[SICP-ch4] Metalinguistic Abstraction</h2>
 <p>establishing new languages and implement these languages by constructing evaluators.</p>
 <p>(极简版)</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>evaluators ( interpreter )</p>
 <ul>
 <li>a procedure that, when applied to an expression of the language, performs the actions required to evaluate that expression.</li>
 </ul>
-<br>
-<h3 id="41-the-metacircular-evaluator"><a class="markdownIt-Anchor" href="#41-the-metacircular-evaluator"></a> 4.1 The Metacircular Evaluator</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.1 The Metacircular Evaluator</h3>
 <p>metacircular</p>
 <ul>
 <li>An evaluator that is written in the same language that it evaluates</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/27/SICP/sicp4/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>Recall environment model</p>
+<ul>
+<li>To <strong>evaluate</strong> a compound procedure, evaluate the subexpressions and then <strong>apply</strong> the
+value</li>
+<li>To <strong>apply</strong> a compound procedure, <strong>evaluate</strong> the body of the procedure in a new environment.</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817444/Screenshot_from_2018-04-27_16-21-11.png" alt=""></p>
+<p><strong>Data Abstraction</strong></p>
+<ul>
+<li>make the evaluator independent of the representation of the language.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.1 The Core of the Evaluator</strong></p>
+<p><code>eval</code> and <code>apply</code></p>
+<pre><code class="language-lisp">(define (eval exp env)
+    	;primitive
+   (cond ((self-evaluating? exp) exp)
+		((variable? exp) (lookup-variable-value exp env))
+       	;special form
+		((quoted? exp) (text-of-quotation exp))
+		((assignment? exp) (eval-assignment exp env))
+		((definition? exp) (eval-definition exp env))
+		((if? exp) (eval-if exp env))
+		((lambda? exp) (make-procedure (lambda-parameters exp)
+									(lambda-body exp)
+									env))
+		((begin? exp)
+		     (eval-sequence (begin-actions exp) env))
+		((cond? exp) (eval (cond-&gt;if exp) env))
+       		;combinations
+		((application? exp)
+         	;apply
+			(apply (eval (operator exp) env)
+				   (list-of-values (operands exp) env)))
+		(else
+		      (error &quot;Unknown expression type: EVAL&quot; exp))))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<pre><code class="language-lisp">(define (apply procedure arguments)
+    		;primitive
+	(cond ((primitive-procedure? procedure)
+		   (apply-primitive-procedure procedure arguments))
+        	;compound
+		  ((compound-procedure? procedure)
+           ;eval
+		   (eval-sequence
+				(procedure-body procedure)
+				(extend-environment
+					(procedure-parameters procedure)
+					arguments
+					(procedure-environment procedure))))
+		(else
+			(error
+				&quot;Unknown procedure type: APPLY&quot; procedure))))
+</code></pre>
+<p>Conditionals <code>eval-if</code></p>
+<p>Sequences <code>eval-sequence</code></p>
+<p>Assignments <code>eval-assignment</code></p>
+<p>Definitions <code>eval-definition</code></p>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.2 Representing Expressions</strong></p>
+<p>building constructor, selector and predeicate of our language</p>
+<p>&lt;br/&gt;</p>
+<ul>
+<li>The only self-evaluating items are numbers and strings</li>
+<li>Variables are represented by symbols</li>
+<li>Quotations have the form <code>(quote ⟨text-of-quotation⟩)</code></li>
+<li>Assignments have the form <code>(set! ⟨var⟩ ⟨value⟩)</code></li>
+<li>Definitions have the form <code>(define ⟨var⟩ ⟨value⟩)</code></li>
+<li>lambda expressions are <em>lists that begin with the symbol lambda</em></li>
+<li>Conditionals <em>begin with if and have a predicate, a consequent, and an (optional) alternative.</em></li>
+<li>begin packages <em>a sequence of expressions</em> into a single expression.</li>
+<li>An application is any compound expression with <em>operator in car and operands in cdr</em></li>
+</ul>
+<p>Derived expressions</p>
+<ul>
+<li>cond</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.3 Evaluator Data Structures</strong></p>
+<p>representation of</p>
+<ul>
+<li>true and false</li>
+</ul>
+<ul>
+<li>procedures</li>
+<li>environments  （a sequence of frams and each frame is a table of bindings）</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.4 Running the Evaluator as a Program</strong></p>
+<ul>
+<li>model the application of primitive procedures.</li>
+<li>set up a global environment</li>
+<li>provide a <strong>driver loop that models the read-eval-print loop</strong></li>
+</ul>
+<pre><code class="language-lisp">(define (driver-loop)
+	(prompt-for-input input-prompt)
+    ;input
+	(let ((input (read)))
+         ;evaluate output
+		(let ((output (eval input the-global-environment)))
+			(announce-output output-prompt)
+			(user-print output)))
+(driver-loop))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.5 Data as Programs</strong></p>
+<p>One operational view of the meaning of a program is that a program is a description of an abstract (perhaps infinitely large) <strong>machine</strong>.</p>
+<p>&lt;br/&gt;</p>
+<p>Evaluator as a bridge between the <strong>data objects</strong> and the language</p>
+<ul>
+<li>From the perspective of the user, (* x x) is an expression in the programming language</li>
+<li>From the perspective of the evaluator,  (* x x) is simply a list to be manipulated.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.6 Internal Definitions</strong></p>
+<p>evaluator execute definitions in sequence, resulting <strong>different scope</strong> for internal definition</p>
+<p>Ways providing simultaneous scope</p>
+<ul>
+<li>scan all definitions and create, and then set to their values by assignment.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.1.7 Separating Syntactic Analysis from Execution</strong></p>
+<p>separate <code>eval</code> into <strong>analysis</strong> and <strong>execution</strong></p>
+<pre><code class="language-lisp">(define (eval exp env) ((analyze exp) env))
+</code></pre>
+<p>syntactic of analysis procedure</p>
+<ul>
+<li>returns an <strong>execution procedure</strong> that ignores its environment argument</li>
+</ul>
+<pre><code class="language-lisp">(define (analyze-self-evaluating exp)
+	(lambda (env) exp))
+</code></pre>
+<p><code>analyze-quoted</code>, <code>analyze-variable</code>, <code>analyze-assignment</code>, <code>analyze-definition</code>, <code>analyze-if</code></p>
+<p><code>analyze-lambda</code>, <code>analyze-sequence</code>, <code>analyze-application</code></p>
+<p>&lt;br/&gt;</p>
+<h3>4.2 Variations on a Scheme — Lazy Evaluation</h3>
+<p><strong>4.2.1 Normal Order and Applicative Order</strong></p>
+<p>applicative-order</p>
+<ul>
+<li>evaluate arguments than apply</li>
+<li>strict procedure</li>
+</ul>
+<p>normal-order</p>
+<ul>
+<li>enter body procedure than evaluate arguments</li>
+<li>non-strict procedure</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.2.2 An Interpreter with Lazy Evaluation</strong></p>
+<p>implement a normal-order language</p>
+<p>&lt;br/&gt;</p>
+<p>thunk</p>
+<ul>
+<li>delayed arguments</li>
+<li>contain the information for applying when needed</li>
+<li>forcing : evaluating expression in thunk</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Modifying the evaluator</p>
+<p>primitive: strict</p>
+<p>compound: non-strict</p>
+<p>change <code>eval</code> into <code>actual-value</code></p>
+<pre><code class="language-lisp">(define (actual-value exp env)
+	(force-it (eval exp env)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Representing thunks</p>
+<p>&lt;br/&gt;</p>
+<p><strong>4.2.3 Streams as Lazy Lists</strong></p>
+<p>With lazy evaluation, streams and <strong>lists</strong> can be identical, so there is no need for special forms or for separate list and stream operations.</p>
+<p>Represent <code>car</code>,  <code>cdr</code> and <code>cons</code> as non-strict procedure</p>
+<p>List lazier than previous stream</p>
+<ul>
+<li>The <code>car</code> of the list, as well as the <code>cdr</code> , is delayed.</li>
+<li>won't need explicit <code>delay</code> anymore ( ch-3 )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>4.3 Variations on a Scheme — Nondeterministic Computing</h3>
+<p>nondeterministic computing</p>
+<ul>
+<li>support automatic search</li>
+<li>expressions have more than one possible value</li>
+</ul>
+<p>Our approach</p>
+<ul>
+<li>generate the sequence of all possible pairs and filter</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.3.1 Amb and Search</strong></p>
+<p>amb</p>
+<pre><code class="language-lisp">(list (amb 1 2 3) (amb 'a 'b))
+
+can have six possible values:
+
+(1 a) (1 b) (2 a) (2 b) (3 a) (3 b)
+</code></pre>
+<p>require</p>
+<pre><code class="language-lisp">(define (require p) (if (not p) (amb)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>evaluate amb causes time to split into branches</p>
+<ul>
+<li>machine with sufficient number of processors: parallel executions of choices</li>
+<li>machine with only one processor: dfs</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.3.2 Examples of Nondeterministic Programs</strong></p>
+<p>Logical puzzles</p>
+<p>Parsing natural language</p>
+<p>&lt;br/&gt;</p>
+<p><strong>4.3.3 Implementing the amb Evaluator</strong></p>
+<p>Nondeterministic evaluation</p>
+<ul>
+<li>result in the discovery of a dead end, must <strong>backtrack</strong> to a previous choice point</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Base on 4.1.7: analyzing evalutor ( analyze + execute )</p>
+<p>Difference</p>
+<ul>
+<li>entirely in the <strong>execution</strong> procedures</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Execution procedures and continuations</strong></p>
+<p>the execution procedures in the amb evaluator take three arguments</p>
+<ul>
+<li>Original: environment</li>
+<li>Additional: success continuation &amp; failure continuation</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>success continuation</p>
+<ul>
+<li>Arguments: value &amp; failure continuation</li>
+<li>recieve value and proceed with the computation</li>
+<li>call faliure continuation when value leads to a dead end</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>failure continuation</p>
+<ul>
+<li>try another branch of the nondeterministic process</li>
+</ul>
+<p>In summary, failure continuations are <strong>constructed</strong> by</p>
+<ul>
+<li><code>amb</code> expressions—to provide a mechanism to <strong>make alternative choices</strong> if the current choice leads to a dead end;</li>
+<li><code>the top-level driver</code>—to provide a mechanism to <strong>report failure</strong> when the choices are exhausted;</li>
+<li><code>assignments</code>—to intercept failures and <strong>undo</strong> assignments during backtracking.</li>
+</ul>
+<p>Failures are <strong>initiated</strong> only when encountered a dead end. This occurs if</p>
+<ul>
+<li>user program executes (amb) ( no choice any more )</li>
+<li>user types <code>try-again</code> at the top-level driver</li>
+</ul>
+<p>Failure continuations are also <strong>called</strong> during processing of a failure</p>
+<p>in order to <em>propagate</em> failure back to the choice point or to the top level:</p>
+<ul>
+<li>When failure continuation created by an <em>assignment</em> finish undoing, it <strong>calls</strong> the failure continuation it intercepted,</li>
+<li>When failure continuation for an <em>amb</em> runs out of choices, it <strong>calls</strong> the failure continuation that was originally given to the amb</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Structure of the evaluator</strong></p>
+<p>amb evaluator</p>
+<pre><code class="language-lisp">(define (ambeval exp env succeed fail)
+	((analyze exp) env succeed fail))
+</code></pre>
+<p>general form of an execution procedure</p>
+<pre><code class="language-lisp">(lambda (env succeed fail)
+	;; succeed is (lambda (value fail) . . . )
+	;; fail is (lambda () . . . )
+	. . . )
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>example: <code>amb</code></p>
+<p>neo analyze ( return execution procedure )</p>
+<pre><code class="language-lisp">(define (analyze-amb exp)
+	(let ((cprocs (map analyze (amb-choices exp))))
+		(lambda (env succeed fail)
+			(define (try-next choices)
+				(if (null? choices)
+					(fail)
+					((car choices)
+					  env
+                     ;success continuation
+					  succeed
+                     ;failure continuation
+					  (lambda () (try-next (cdr choices))))))
+			(try-next cprocs))))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Driver loop</strong></p>
+<p>either calls <code>try-again</code> in response to the user typing try-again at the driver loop</p>
+<p>or else starts a new evaluation by calling <code>ambeval</code>.</p>
+<p>&lt;br/&gt;</p>
+<h3>4.4 Logic Programming</h3>
+<p>computer science deals with <strong>imperative</strong> (how to) knowledge, whereas</p>
+<p>mathematics deals with <strong>declarative</strong> (what is) knowledge.</p>
+<p>&lt;br/&gt;</p>
+<p>Bias</p>
+<ul>
+<li>programming is about constructing algorithms for computing <strong>unidirectional functions</strong>  (computations with well-defined inputs and outputs)</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Example of logical programming</p>
+<pre><code class="language-lisp">(define (append x y)
+	(if (null? x) y (cons (car x) (append (cdr x) y))))
+</code></pre>
+<p><code>append</code> procedure can be regard as two <strong>rules</strong> translate into lisp</p>
+<pre><code class="language-lisp">y = y append '()
+( cons u v ) append y = ( cons u z ) IF v appedn y = z
+</code></pre>
+<p>In a logic programming language, the programmer writes an append
+“procedure” by stating the <strong>two rules ( What is append )</strong> about append given above.</p>
+<p><strong>“How to”</strong> knowledge is provided automatically by the interpreter</p>
+<p>&lt;br/&gt;</p>
+<p><strong>query language</strong></p>
+<ul>
+<li>our logic programming language</li>
+<li>primitive: pattern ?x</li>
+<li>compound: and, or, not</li>
+<li>means of abstraction: rules</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>4.4.1 Deductive Information Retrieval</strong></p>
+<p>Simple queries</p>
+<pre><code class="language-lisp">;;; Query input:
+(job ?x (computer programmer))
+;;; Query results:
+(job (Hacker Alyssa P) (computer programmer))
+(job (Fect Cy D) (computer programmer))
+</code></pre>
+<p>Compound queries</p>
+<pre><code class="language-lisp">(and (job ?person (computer programmer))
+	(address ?person ?where))
+</code></pre>
+<p>Rules</p>
+<pre><code class="language-lisp">;⟨ conclusion ⟩ is a pattern and ⟨ body ⟩ is any query.
+; ?first satisfy conclusion than apply body
+(rule ⟨ conclusion ⟩ ⟨ body ⟩ )
+</code></pre>
+<p>Logic as programs ( implement our append in logical language )</p>
+<pre><code class="language-lisp">(rule (append-to-form () ?y ?y))
+(rule (append-to-form (?u . ?v) ?y (?u . ?z))
+	  (append-to-form ?v ?y ?z))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>4.4.2 How the Query System Works</strong></p>
+<p><em>Implement query evaluator</em></p>
+<ul>
+<li>must perform some kind of <strong>search</strong> in order to match queries against facts and rules in the data base.</li>
+</ul>
+<p>Approaches</p>
+<ul>
+<li>nondeterministic program</li>
+<li><strong>Search with the aid of streams</strong></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Pattern matching</strong></p>
+<ul>
+<li>evaluate primitive and compound</li>
+</ul>
+<p>Pattern Matcher Input</p>
+<ul>
+<li>a pattern</li>
+<li>a datum</li>
+<li>a <strong>frame</strong> that specifies <strong>bindings</strong> for various pattern variables.</li>
+</ul>
+<p>Pattern Matcher Output</p>
+<ul>
+<li>returns the given <strong>frame</strong> <strong>augmented</strong> by any <strong>bindings</strong> that may have been determined by the match.</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817445/Screenshot_from_2018-04-27_16-22-18.png" alt=""></p>
+<p><strong>Compound queries</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817445/Screenshot_from_2018-04-27_16-22-24.png" alt=""></p>
+<p><strong>Unification</strong></p>
+<ul>
+<li>evaluate rules</li>
+<li>a generalization of pattern matching</li>
+<li>which both the “pattern” and the “datum” may contain variables.</li>
+</ul>
+<p><strong>Applying rules</strong></p>
+<p>similar to applying a procedure in the eval / apply</p>
+<p>&lt;br/&gt;</p>
+<p><strong>4.4.3 Is Logic Programming Mathematical Logic?</strong></p>
+<p>No</p>
+<p>Query language provides a <strong>control structure</strong> that interprets the logical statements <strong>procedurally</strong>.</p>
+<p>&lt;br/&gt;</p>
+<p>Differences</p>
+<ul>
+<li>Take advantage in efficiency</li>
+</ul>
+<pre><code class="language-lisp">;while less supervisor than programmers
+(and (job ?x (computer programmer)) (supervisor ?x ?y))
+(and (supervisor ?x ?y) (job ?x (computer programmer)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<ul>
+<li>Infinite loops</li>
+</ul>
+<p>whether the system will find the simple answer (married Minnie Mickey) <strong>before</strong> it goes into the loop depends on implementation details concerning <strong>the order in which the system checks</strong> the items in the data base.</p>
+<pre><code class="language-lisp">;assert rules
+(assert! (rule (married ?x ?y) (married ?y ?x)))
+;query
+(married Mickey ?who)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<ul>
+<li>Problems with not</li>
+</ul>
+<p>not</p>
+<pre><code class="language-lisp">;input empty frame where x unbound, \not filters out frames, return empty stream 
+(and (not (job ?x (computer programmer)))
+	 (supervisor ?x ?y))
+</code></pre>
+<p>not of logic programming languages reflects the so-called <em>closed world assumption</em> that all relevant information has been included in the data base.（见脚注)</p>
+<p>&lt;br/&gt;</p>
+<p><strong>4.4.4 Implementing the Query System</strong></p>
+<p>4.4.4.1 The Driver Loop and Instantiation</p>
+<p>4.4.4.2 The Evaluator</p>
+<p>4.4.4.3 Finding Assertions by Pattern Matching</p>
+<p>4.4.4.4 Rules and Unification</p>
+<p>4.4.4.5 Maintaining the Data Base</p>
+<p>4.4.4.6 Stream Operations</p>
+<p>4.4.4.7 Query Syntax Procedures</p>
+<p>4.4.4.8 Frames and Bindings</p>
+<p>&lt;br/&gt;</p>
+<p>もう...続けない.....なわけないだろ！</p>
+
+          
         
       
     </div>
@@ -1773,27 +3217,388 @@
 
       
         
-          <h2 id="ch-3-modularity-objects-and-state"><a class="markdownIt-Anchor" href="#ch-3-modularity-objects-and-state"></a> ch-3 Modularity, Objects, and State</h2>
-<h3 id="31-assignment-and-local-state"><a class="markdownIt-Anchor" href="#31-assignment-and-local-state"></a> 3.1 Assignment and Local State</h3>
+          
+            <h2>ch-3 Modularity, Objects, and State</h2>
+<h3>3.1 Assignment and Local State</h3>
 <p>System decomposed into <strong>computational objects</strong> with time-varying <strong>state</strong></p>
 <p>language must provide an <strong>assignment</strong> operator to enable us to change the value</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)
-	(<span class="name">lambda</span> (<span class="name">amount</span>)
-		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)
-			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))
+<pre><code class="language-lisp">(define (make-withdraw balance)
+	(lambda (amount)
+		(if (&gt;= balance amount)
+			(begin (set! balance (- balance amount))
 				   balance)
-			<span class="string">"Insufficient funds"</span>)))
+			&quot;Insufficient funds&quot;)))
 </code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/18/SICP/sicp3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.1.2 The Benefits of Introducing Assignment</strong></p>
+<p>viewing systems as collections of objects with local state is a powerful technique for maintaining a <strong>modular</strong> design</p>
+<pre><code class="language-lisp">(define rand (let ((x random-init))
+	(lambda ()
+		(set! x (rand-update x))
+		x)))
+
+(define (cesaro-test)
+	(= (gcd (rand) (rand)) 1))
+</code></pre>
+<ul>
+<li>assignment <strong>encapsulates the state</strong> of the random-number generator within the rand procedure,</li>
+<li>so that the details of random-number generation remain <strong>independent</strong> of the rest of the program</li>
+<li>therefore easy to isolate the Monte Carlo idea</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>3.1.3 The Costs of Introducing Assignment</strong></p>
+<p>the substitution model failed</p>
+<p>&lt;br/&gt;</p>
+<p><strong>functional programming</strong></p>
+<ul>
+<li>Programming without assignments</li>
+</ul>
+<ul>
+<li>procedure with the same arguments will produce the same result</li>
+<li>can be viewed as computing mathematical functions</li>
+</ul>
+<p><strong>imperative programming</strong></p>
+<ul>
+<li>using explicit assignment to update the values</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Pitfalls</p>
+<ul>
+<li>the order of the assignments</li>
+<li>several processes execute concurrently</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Sameness and change</strong></p>
+<p>referentially transparent</p>
+<ul>
+<li>A language that supports the concept that “equals can be substituted for equals”</li>
+</ul>
+<p>violated when we include set!</p>
+<ul>
+<li>cannot determine sameness without observing the effects of change</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>3.2 The Environment Model of Evaluation</h3>
+<p>A variable can no longer be considered to be a name for a value,</p>
+<p>but designate a “place” in which values can be stored</p>
+<p>&lt;br/&gt;</p>
+<p>Environment</p>
+<ul>
+<li>a sequence of frames</li>
+<li>each frame is a table of bindings, associate name and value</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>3.2.1 The Rules for Evaluation</strong></p>
+<p>Define procedure</p>
+<ul>
+<li>a procedure is always a pair -- consisting of some code and a pointer to an environment</li>
+<li>define creates definitions by adding bindings to frames</li>
+</ul>
+<p>Apply procedure</p>
+<ul>
+<li>create a new environment -- containing a frame that binds the parameters to the arguments' value</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-30-28.png" alt=""></p>
+<p><strong>3.2.2 Applying Simple Procedures</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-34-02.png" alt=""></p>
+<p>each call to square creates a new environment containing a binding for x</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.2.3 Frames as the Repository of Local State</strong></p>
+<p>how procedures and assignment can be used to represent objects with local state</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-36-07.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.2.4 Internal Definitions</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042521/Screenshot_from_2018-04-17_09-38-23.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>make local procedure definitions a useful technique for modularizing programs</p>
+<ul>
+<li>local names do not interfere external names</li>
+<li>local procedures can access the arguments of the enclosing procedure</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>3.3 Modeling with Mutable Data</h3>
+<p>Mutators</p>
+<ul>
+<li>Data abstraction modify compound data objects</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>3.3.1 Mutable List Structure</strong></p>
+<ul>
+<li><code>set-car!</code> and <code>set-cdr!</code></li>
+<li>modify car &amp; cdr pointer</li>
+</ul>
+<p>Sharing and identity</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_09-57-07.png" alt=""></p>
+<p>use the predicate eq? to detect sharing in list structures</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.3.2 Representing Queues</strong></p>
+<p><code>( insert-queue! &lt;queue&gt; &lt;item&gt; )</code></p>
+<p><code>( delete-queue! &lt;queue&gt; &lt;item )</code></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-01-27.png" alt=""></p>
+<p>​</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.3.3 Representing Tables</strong></p>
+<p><code>assoc</code> returns the record that has the given key as its car</p>
+<p><code>lookup</code> then checks to see that the resulting record returned by assoc is not false, and returns the value ( the cdr ) of the record</p>
+<p><code>insert</code>first see if there is already a record, if not, consing key and value than insert in table</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-29-27.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.3.4 A Simulator for Digital Circuits</strong></p>
+<p>event-driven simulation</p>
+<ul>
+<li>actions (“events”) trigger further events that happen at a later time, which in turn trigger more events</li>
+</ul>
+<p><code>wires</code> carry digital signals</p>
+<p><code>function boxes</code> connect wires carrying input signals to other output wires</p>
+<pre><code class="language-lisp">(define (inverter input output)
+	(define (invert-input)
+		(let ((new-value (logical-not (get-signal input))))	
+			(after-delay inverter-delay
+				(lambda () (set-signal! output new-value)))))
+		(add-action! input invert-input) 'ok)
+
+(define (after-delay delay action)
+	(add-to-agenda! (+ delay (current-time the-agenda))
+					action
+					the-agenda))
+</code></pre>
+<p><code>agenda</code> contains a schedule of things to do</p>
+<p><code>propagate</code>executing each procedure on the agenda in sequence</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.3.5 Propagation of Constraints</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524042522/Screenshot_from_2018-04-17_10-40-49.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>3.4 Concurrency: Time Is of the Essence</h3>
+<p>by introducing assignment, we are forced to admit <strong>time</strong> into our computational models</p>
+<p>Objects in the world are acting <strong>concurrently</strong> —all at once.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.4.1 The Nature of Time in Concurrent Systems</strong></p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.4.2 Mechanisms for Controlling Concurrency</strong></p>
+<p>using serializer</p>
+<pre><code class="language-lisp">(define (make-account balance)	
+	(let ((protected (make-serializer)))
+		(define (dispatch m)
+			(cond ((eq? m 'withdraw) (protected withdraw))
+				  ((eq? m 'deposit) (protected deposit))
+				  ((eq? m 'balance) balance)
+				  (else (error &quot;Unknown request: MAKE-ACCOUNT&quot; m))))
+dispatch))
+</code></pre>
+<p><em>With this implementation, two processes cannot be withdrawing from or depositing into a single account concurrently.</em></p>
+<p>&lt;br/&gt;</p>
+<p>Complexity</p>
+<ul>
+<li>concurrent programming can be treacherously difficult when there are <strong>multiple shared resources</strong></li>
+</ul>
+<p>Implementing serializers</p>
+<ul>
+<li>synchronization mechanism called a mutex ( acquired &amp; release )</li>
+</ul>
+<pre><code class="language-lisp">(define (make-mutex)
+	(let ((cell (list false)))
+		(define (the-mutex m)
+			(cond ((eq? m 'acquire)
+				   (if (test-and-set! cell)
+						(the-mutex 'acquire))); retry
+				  ((eq? m 'release) (clear! cell))))
+		the-mutex))
+
+;actual implementation depends on how our system runs concurrent processes
+(define (test-and-set! cell)
+	(if (car cell) true (begin (set-car! cell true) false)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Deadlock</strong></p>
+<ul>
+<li>Each process is stalled forever, waiting for the other</li>
+</ul>
+<p><strong>Concurrency, time, and communication</strong></p>
+<p>The basic phenomenon here is that <em>synchronizing</em> different processes, establishing <em>shared state</em>, or imposing an <em>order</em> on events requires <strong>communication among the processes</strong>.</p>
+<p>&lt;br/&gt;</p>
+<h3>3.5 Streams</h3>
+<p><em>an alternative approach to modeling state</em></p>
+<p>&lt;br/&gt;</p>
+<p>Computational Object</p>
+<table>
+<thead>
+<tr>
+<th>real-world</th>
+<th>computer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>real-world objects with local state</td>
+<td>computational objects with local variables</td>
+</tr>
+<tr>
+<td>time variation in the real world</td>
+<td>time variation in the computer</td>
+</tr>
+<tr>
+<td>implement the time variation of the states</td>
+<td>assignments to the local variables</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;br/&gt;</p>
+<p>streams</p>
+<ul>
+<li>model change in terms of sequences that represent the time histories</li>
+</ul>
+<p><strong>3.5.1 Streams Are Delayed Lists</strong></p>
+<p>Streams allows one to formulate programs as <strong>sequence</strong> manipulations, while ataining the <strong>efficiency</strong> of incremental computation.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>basic idea</strong></p>
+<ul>
+<li>construct a stream only partially</li>
+<li>when accessed, automatically construct just enough more of itself to produce the required part</li>
+<li>preserving the <strong>illusion</strong> that the entire stream exists</li>
+</ul>
+<p><strong>Delayed Evaluation</strong></p>
+<p>cons-stream</p>
+<pre><code class="language-lisp">(cons-stream ⟨ a ⟩ ⟨ b ⟩ 
+		== (cons ⟨ a ⟩ (delay ⟨ b ⟩ )) )            
+</code></pre>
+<p>selectors</p>
+<pre><code class="language-lisp">(define (stream-car stream) (car stream))
+(define (stream-cdr stream) (force (cdr stream)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Implementing delay and force</p>
+<ul>
+<li><code>delay</code> must package an expression so that it can be evaluated late</li>
+</ul>
+<pre><code class="language-lisp">(delay ⟨ exp ⟩ )
+		== (lambda () ⟨ exp ⟩ )
+</code></pre>
+<ul>
+<li><code>force</code> simply calls the procedure (of no arguments)</li>
+</ul>
+<pre><code class="language-lisp">(define (force delayed-object) (delayed-object))
+</code></pre>
+<ul>
+<li>Optimization for forcing the same delayed object: Memoize</li>
+</ul>
+<pre><code>(delay ⟨ exp ⟩ )
+		== (memo-proc (lambda () ⟨ exp ⟩ ))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>3.5.2 Infinite Streams</strong></p>
+<pre><code class="language-lisp">(define (integers-starting-from n)
+		(cons-stream n (integers-starting-from (+ n 1))))
+(define integers (integers-starting-from 1))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Defining streams implicitly</p>
+<pre><code class="language-lisp">(define fibs
+		(cons-stream
+		0
+		(cons-stream 1 (add-streams (stream-cdr fibs) fibs))))
+</code></pre>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-32-39.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>3.5.3 Exploiting the Stream Paradigm</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-31-42.png" alt=""></p>
+<pre><code class="language-lisp">(define (pi-summands n)
+		(cons-stream (/ 1.0 n)
+			(stream-map - (pi-summands (+ n 2)))))
+(define pi-stream
+		(scale-stream (partial-sums (pi-summands 1)) 4))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>sequence accelerator</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-34-11.png" alt=""></p>
+<p>Even better, we can accelerate the accelerated sequence, and recursively accelerate that, and so on.</p>
+<p>&lt;br/&gt;</p>
+<p>Infinite streams of pairs</p>
+<p><em>interleave</em></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543773/Screenshot_from_2018-04-12_22-35-17.png" alt=""></p>
+<p>Streams as signals</p>
+<p><em>signal-processing systems that contain <strong>feedback</strong> loops</em></p>
+<pre><code class="language-lisp">(define (integral integrand initial-value dt)
+	(define int
+		(cons-stream initial-value
+			(add-streams (scale-stream integrand dt)
+						  int)))
+int)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>3.5.4 Streams and Delayed Evaluation</strong></p>
+<p>Unfortunately, stream models of systems with loops may require uses of <strong>delay beyond the “hidden” delay</strong> supplied by cons-stream .</p>
+<pre><code class="language-lisp">;does not work, because in the first line of solve the call to integral requires that the input dy be defined, which does not happen until the second line of solve
+
+(define (solve f y0 dt)
+		(define y (integral dy y0 dt))
+		(define dy (stream-map f y))
+		y)
+
+;Correct Definition
+(define (solve f y0 dt)
+		(define y (integral (delay dy) y0 dt))
+		(define dy (stream-map f y))
+		y)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Normal-order evaluation</strong></p>
+<p>Delay and Force</p>
+<ul>
+<li>provides great programming <strong>flexibility</strong></li>
+<li>but also can make our programs more <strong>complex</strong></li>
+</ul>
+<p>normal-order evaluation language ( Section 4.2 )</p>
+<ul>
+<li>all arguments to procedures are automatically delayed</li>
+</ul>
+<ul>
+<li>arguments are forced only when they are actually needed</li>
+</ul>
+<p><strong>Mutability</strong> and <strong>Delayed evaluation</strong> do not mix well</p>
+<ul>
+<li>Unfortunately, including delays in procedure calls wreaks-havoc(破坏) with our ability to design programs that depend on the <strong>order of events</strong></li>
+<li>such as programs that use assignment, mutate data, or perform input or output.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>3.5.5 Modularity of Functional Programs and Modularity of Objects</strong></p>
+<p>benefits of Assignment</p>
+<ul>
+<li>increase the modularity by encapsulating states</li>
+</ul>
+<p>Stream can provide an <strong>equivalent modularity</strong> without assignment.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>A functional-programming view of time</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Modeling with objects</th>
+<th style="text-align:center">Functional programming language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Assignment and Mutable objects</td>
+<td style="text-align:center">Stream that represents the time history of states</td>
+</tr>
+<tr>
+<td style="text-align:center">matches the way interacting with the world</td>
+<td style="text-align:center">well-defined mathematical functions whose behavior does not change</td>
+</tr>
+<tr>
+<td style="text-align:center">raise problems of constraining the order and syncronizing</td>
+<td style="text-align:center">raise problems when we wish to design interactive systems</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523543772/Screenshot_from_2018-04-12_22-29-47.png" alt=""></p>
+<p>We can model the world as <strong>a collection of separate, time-bound, interacting objects with state</strong>, or we can model the world as <strong>a single, timeless, stateless unity</strong>.</p>
+<p>Each view has powerful advantages, but <strong>neither</strong> view alone is completely satisfactory. A grand unification has yet to emerge</p>
+
+          
         
       
     </div>
@@ -1943,21 +3748,276 @@
 
       
         
-          <h2 id="ch-3-improving-the-way-neural-networks-learn"><a class="markdownIt-Anchor" href="#ch-3-improving-the-way-neural-networks-learn"></a> ch-3 Improving the way neural networks learn</h2>
-<p>The techniques we’ll develop in this chapter include</p>
+          
+            <h2>ch-3 Improving the way neural networks learn</h2>
+<p>The techniques we'll develop in this chapter include</p>
 <ul>
 <li>a better choice of <strong>cost function</strong>, the cross-entropy cost function;</li>
-<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
+<li>four so-called <strong>&quot;regularization&quot;</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
 <li>a better method for <strong>initializing the weights</strong> in the network;</li>
 <li>a set of heuristics to help choose <strong>good hyper-parameters</strong> ;</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/NeuralNet/3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<h3>The cross-entropy cost function</h3>
+<p><strong>Problem of quadratic function</strong></p>
+<p>Artificial neuron has a lot of difficulty learning when it's badly wrong</p>
+<p>w = b = 2.0,  η = 0.15</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Quadratic cost function $ C = \frac { (y-a) ^ 2 }{ 2 }  $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png" alt=""></p>
+<ul>
+<li>when the neuron's output is close to 1  ( might be far away from the desired output )</li>
+<li>the curve gets very flat, so $ σ′(z) $ gets very small.</li>
+<li>so $ ∂C/∂w $ and $ ∂C/∂b $ get very small.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Introducing cross-entropy</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png" alt=""></p>
+<p>where $ a = σ(z) $ and $ z= \Sigma_j w_jx_j + b $</p>
+<ol>
+<li>It's a cost function :</li>
+</ol>
+<ul>
+<li>non-negative</li>
+<li>close to zero when a close to y</li>
+</ul>
+<ol start="2">
+<li>avoids the problem of learning slowing down</li>
+</ol>
+<ul>
+<li>rates not controlled by $ σ'(z) $</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Using the <strong>quadratic cost</strong> when we have <strong>linear</strong> neurons in the output layer</p>
+<ul>
+<li>all the neurons in the final layer are <em>linear neurons</em></li>
+<li>outputs are simply $ a_j^L = y_j^L $, sigmoid not applied</li>
+<li>quadratic cost will not slowdown learning</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Softmax</h3>
+<ul>
+<li>define a new type of <strong>output</strong> layer</li>
+<li>apply the so-called softmax function to z</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png" alt=""></p>
+<p>output is a set of <strong>positive</strong> numbers <strong>which sum up to 1</strong>, can be thought of as a <strong>probability distribution</strong></p>
+<p>&lt;br/&gt;</p>
+<p><strong>The learning slowdown problem</strong></p>
+<p><strong>log-likelihood</strong> cost function</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png" alt=""></p>
+<p>probability of $ a_y^L $ close to 1, cost close to 0</p>
+<p>$ δ_j ^L =  \partial C / \partial z_j^L $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>Overfitting</h3>
+<p><strong>cost</strong> on the <strong>training data</strong> continue decrease while</p>
+<p>classification <strong>accuracy</strong> on the <strong>test data</strong> stops</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png" alt=""></p>
+<p><strong>cost</strong> on the <strong>test data</strong> starts increase while</p>
+<p>classification <strong>accuracy</strong> on <strong>training data</strong> rises up to 100%</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png" alt=""></p>
+<p><em>It's almost as though our network is <strong>merely memorizing</strong> the <strong>training</strong> set, without understanding digits well enough to generalize to the test set.</em></p>
+<p>&lt;br/&gt;</p>
+<p>Detect overfitting</p>
+<ul>
+<li>keeping track of accuracy on the test data as our network trains.</li>
+<li>using validation data: we may find hyper-parameters which fit particular peculiarities of the test_data if using test_data for detection.</li>
+<li><em>early stopping</em>: stop training when accuracy no longer improving</li>
+<li><em>hold out method</em>: validation_data is kept apart or &quot;held out&quot; from the training_data</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Avoid overfitting</strong></p>
+<ul>
+<li>one of the <strong>best</strong> ways: increase the <strong>size</strong> of the training data</li>
+<li>regularization</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Regularization</h3>
+<h4>L2 regularization ( weight decay )</h4>
+<p>add an extra term on cost function</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png" alt=""></p>
+<ul>
+<li>Intuitively, the effect of regularization is to make it so the network <strong>prefers to learn small weights</strong></li>
+<li>λ : compromising between finding small weights and minimizing the original cost function</li>
+<li>$ -\frac{ηλ}{n}*w  $ weights shrink by an amount <strong>proportional</strong> to w</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Why does regularization help reduce overfitting?</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png" alt=""></p>
+<p><em>the 9th order model is really just learning the effects of <strong>local noise</strong></em></p>
+<ul>
+<li>The smallness of the <strong>weights</strong> means that the network <strong>won't change too much</strong> if we change a few random inputs here and there</li>
+<li>having a large <strong>bias</strong> doesn't make a neuron sensitive to its inputs in the same way as having large weights</li>
+</ul>
+<p>We don't have an entirely satisfactory systematic understanding of what's going on, <strong>merely incomplete heuristics</strong> and rules of thumb.</p>
+<p>&lt;br/&gt;</p>
+<h4>L1 regularization</h4>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png" alt=""></p>
+<ul>
+<li>$ -\frac{ηλ}{n} * sgn(w) $weights shrink by a <strong>constant</strong> amount toward 0</li>
+<li>when $|w| $ is large, shrink less; when $ |w| $ is small, shrink more</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>Dropout</h4>
+<p><strong>modify the network itself</strong> rather than modifying the cost function</p>
+<ul>
+<li>start by <strong>randomly deleting half the hidden neurons</strong></li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_14-47-37.png" alt=""></p>
+<ul>
+<li>forward-propagate the input and backpropagate the result, update network</li>
+<li>choosing a new random subset,  repeat;</li>
+<li>Finally, run the full network by <strong>halving</strong> all weights.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Heuristic</p>
+<ul>
+<li><strong>Averaging</strong> the effects of <strong>a large number of</strong> different networks</li>
+<li>a neuron cannot <strong>rely on</strong> particular other neurons, <strong>robust</strong> to losing any individual connection</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>Artificially expanding the training data</h4>
+<p>The general principle is to expand the training data by applying operations that <strong>reflect real-world variation</strong>.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>An aside on big data and what it means to compare classification accuracies</strong></p>
+<p><strong>more training data</strong> can sometimes compensate for differences in the machine learning algorithm used</p>
+<p>&lt;br/&gt;</p>
+<h3>Weight initialization</h3>
+<p><em>Up to now</em></p>
+<ul>
+<li>choose w &amp; b using independent <em>Gaussian random variables</em></li>
+<li>mean 0 and standard deviation 1</li>
+<li>while z <strong>sum up</strong> over a total of 501 normalized Gaussian random variables</li>
+<li>z will have a very broad Gaussian distribution</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>An easy way</p>
+<ul>
+<li>initialize more sharply peak</li>
+<li>mean 0 and standard deviation $ 1 / \sqrt {n_{in}} $</li>
+<li>seems only speeds up learning, doesn't change the final performance</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Connection with Regularization</strong></p>
+<ul>
+<li>L2 regularization sometimes automatically gives us something similar to the new approach to weight initialization</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Handwriting recognition revisited: the code</h3>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<h3>How to choose a neural network's hyper-parameters?</h3>
+<p>Problem when choose η=10.0 and λ=1000.0</p>
+<ul>
+<li>classification accuracies are no better than <strong>chance</strong></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Broad strategy</strong></p>
+<ul>
+<li>examine network to achieve results better than chance</li>
+</ul>
+<p>Speed up experimentation</p>
+<ul>
+<li>stripping network down to the <strong>simplest</strong></li>
+<li>increasing the <strong>frequency of monitoring</strong></li>
+</ul>
+<p>When having a signal</p>
+<ul>
+<li>gradually decrease the frequency of monitoring</li>
+</ul>
+<ul>
+<li>experiment with a more complex architecture, adjust  η and λ again</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Learning Rate</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png" alt=""></p>
+<ul>
+<li>First estimate the <strong>order of threshold</strong> for η so that <strong>training cost</strong> won't oscillating or increasing</li>
+<li>control the step size in gradient descent, no need to monitor by accuracy</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Number of training Epochs</strong></p>
+<p>Early stopping</p>
+<ul>
+<li>terminate when classification on validation data stops improving</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Learning rate schedule</strong></p>
+<ul>
+<li>μ=0 there's a lot of friction, the velocity can't build upuse a large learning rate when weights are badly wrong</li>
+<li>later reduce as we make more fine-tuned adjustments</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>The regularization parameter, λ</strong></p>
+<ul>
+<li>starting initially λ=0.0 to determine 	η</li>
+<li>increase or decrease by factors of 10, get a fine-tune</li>
+<li>return and re-optimize η again</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Mini-batch size</strong></p>
+<ul>
+<li>it's possible to use <strong>matrix techniques</strong> to compute the gradient update for <em>all</em> examples in a mini-batch simultaneously</li>
+<li>using the larger mini-batch would speed things up</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Other techniques</h3>
+<p>####Variations on stochastic gradient descent</p>
+<p><strong>Hessian technique</strong></p>
+<p>incorporates not just the gradient, but also information about <strong>how the gradient is changing</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png" alt=""></p>
+<p>$ H $ is a matrix known as the <em>Hessian matrix</em>, whose $ jkth $ entry is $ ∂^2C/∂w_j∂w_k $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-48-04.png" alt=""></p>
+<ul>
+<li>the sheer <strong>size</strong> of the Hessian matrix make it difficult to compute</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Momentum-based gradient descent</strong></p>
+<p>introduces a notion of &quot;velocity&quot; and &quot;friction&quot;</p>
+<ul>
+<li>replace the gradient descent update rule $ w→w′=w−η∇C$  by</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png" alt=""></p>
+<ul>
+<li>the &quot;force&quot; ∇C is now modifying v, and the velocity is controlling the rate of change of w.</li>
+</ul>
+<ul>
+<li>
+<p>1−μ as the amount of friction in the system.</p>
+</li>
+<li>
+<p>μ=1, there is no friction;  μ=0 there's a lot of friction, the velocity can't build up;</p>
+<p>&lt;br/&gt;</p>
+</li>
+</ul>
+<h4>Other models of artificial neuron</h4>
+<p><strong>tanh neuron</strong></p>
+<ul>
+<li>ranges from -1 to 1, not 0 to 1</li>
+<li>allows both positive and negative activations</li>
+<li>the activations in hidden layers would be equally balanced</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Rectified linear unit</strong></p>
+<ul>
+<li>never cause saturate, no corresponding learning slowdown</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-07-11.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-07-17.png" alt=""></p>
+
+          
         
       
     </div>

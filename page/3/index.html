@@ -402,8 +402,9 @@
 
       
         
-          <h2 id="clrs-ch34-np-completeness"><a class="markdownIt-Anchor" href="#clrs-ch34-np-completeness"></a> CLRS-ch34 NP-Completeness</h2>
-<h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
+          
+            <h2>CLRS-ch34 NP-Completeness</h2>
+<h4>Intro</h4>
 <p>class P</p>
 <ul>
 <li>problems are <strong>solvable</strong> in polynomial time</li>
@@ -423,14 +424,150 @@
 </ol>
 </li>
 </ul>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/24/CLRS/34-np/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<p>Decision problems vs. optimization problems</p>
+<ul>
+<li><strong>optimization</strong> <strong>problems :</strong> find a feasible solution with the best value.</li>
+<li><strong>decision problems :</strong> answer is simply “yes” or “no”</li>
+<li><strong>Relationship :</strong> decision is no harder</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Reductions</p>
+<ul>
+<li>$ A \longrightarrow B $</li>
+<li>If B polynomially solvable, than A solvable</li>
+<li>If A polynomially unsolvable, than B unsolvable as well</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528207262/Screenshot_from_2018-06-05_22-00-45.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h4>34.1 Polynomial time</h4>
+<p>Abstract Problems</p>
+<ul>
+<li>a binary <strong>relation</strong> (function) on a set $ I $ of <strong>instances</strong> and a set $ S $ of <strong>solutions</strong></li>
+</ul>
+<p>Concrete Problems</p>
+<ul>
+<li>problems whose instance set $ I $ is the set of <strong>binary</strong> <strong>strings</strong></li>
+</ul>
+<p>Polynomial time solvable</p>
+<ul>
+<li>exist an algorithm to solve a concrete problem in $ O(n^k) $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Encodings</strong></p>
+<ul>
+<li>
+<p>a mapping <em>e</em> from the set of abstract object to the set of binary strings (abstract pro instances --&gt; concrete pro ins)</p>
+</li>
+<li>
+<p><strong>extend</strong> the definition of class P into abstract problems</p>
+</li>
+<li>
+<p>Abstract Pro $ \longrightarrow $  Encode $ \longrightarrow $ Concrete Pro $ \longrightarrow $ Algorithm Solve</p>
+</li>
+<li>
+<p><strong>depending on the encoding</strong>, the algorithm may runs in either polynomial or superpolynomial time.</p>
+</li>
+<li>
+<p>polynomially related encodings</p>
+<ul>
+<li>exist a polynomial-time algorithm can compute the en-coding $ e_2 (i) $ from the encoding $ e_1 (i) $, and vice versa.</li>
+</ul>
+</li>
+<li>
+<p><strong>Only</strong> when two encodings $ e_1 $ and $ e_2 $ of an abstract problem are <strong>polynomially related</strong>, whether the problem is polynomial-time solvable or not <strong>can</strong> be <strong>independent</strong> of which encoding we use.</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Therefore</p>
+<p><strong>Assume reasonable/standard encoding</strong> $ &lt; G &gt; $</p>
+<ul>
+<li>encoding of an integer is polynomially related to its binary representation</li>
+<li>encoding of a finite set is polynomially related to its encoding as a list of its elements</li>
+<li>derive encodings of other object</li>
+</ul>
+<p>so that the choice of encoding has no effect on whether the abstract problem is polynomial-time solvable.</p>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
+<p>A formal language framework</p>
+<ul>
+<li>alphabet $ \Sigma $ a finite set of symbols $ \{ 0,1 \} $</li>
+<li>language $ L $ over $ Σ $ is any set of strings made up of symbols from $ Σ \ \{ 10, \ 11, \  101 ... \} $</li>
+<li>$ \Sigma ^* $ the language of all strings over $ Σ $</li>
+</ul>
+<p>view instances for any decision problems Q as a language L over $ Σ = \{ 0 ,1 \} $</p>
+<p>&lt;br/&gt;</p>
+<p>Accepted</p>
+<ul>
+<li>The language L accepted by an algorithm A $ L = \{ x \in \{0,1\}^* : A(x) = 1 \} $</li>
+</ul>
+<ul>
+<li>Reject : A(x) = 0</li>
+<li>may runs forever if doesn't accept</li>
+</ul>
+<p>Decided</p>
+<ul>
+<li>The language L decided by an algorithm A</li>
+<li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
+<li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>**Complexity class P **</p>
+<p>$ P = \{ L \subseteq \{ 0,1 \}^{*} $ : exists an algorithm A that decides L in polynomial time $ \}$</p>
+<p>&lt;br/&gt;</p>
+<h4>34.2 Polynomial-time verification</h4>
+<p>algorithms verify membership from a certificate in languages</p>
+<p>Verified</p>
+<ul>
+<li>The language L verified by an algorithm A $ L = \{ x \in \{ 0, 1 \}^* : $ there exist $ y \in \{ 0,1 \}^* $ such that A( x,y ) = 1 $ \} $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Complexity class NP</strong></p>
+<p>$ NP = \{ L \subseteq \{ 0, 1 \}^*  : L = \{ x \in \{ 0,1\}^* $ : there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 $ \} \} $</p>
+<p>$P \subseteq NP $</p>
+<p>&lt;br/&gt;</p>
+<p><strong>Complexity class co-NP</strong></p>
+<ul>
+<li>set of languages L such that $ \bar L \in NP $</li>
+</ul>
+<p>Four possibilities for relationship among complexity class</p>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h4>34.3 NP-completeness and reducibility</h4>
+<p><strong>Reducibility</strong></p>
+<ul>
+<li>if $ Q \longrightarrow \ reduce \ \longrightarrow Q' $ , $ Q  $ is &quot;no harder to solve&quot; than $ Q' $</li>
+<li>$ Q  \le_p Q' $ ( no more than a polynomial factor harder )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>NP-completeness</strong></p>
+<ol>
+<li>$ L  \in NP $</li>
+<li>$ L' \le_p L $ for every $ L' \in NP $. (hardest)</li>
+</ol>
+<p><strong>Theorem 34.4</strong></p>
+<ul>
+<li>If any NP-complete problem is polynomial time solvable, then <strong>P = NP</strong></li>
+<li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
+</ul>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Circuit satisfiability</strong></p>
+<p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
+<p>34.5 belongs to NP</p>
+<p>34.6 NP-hard</p>
+<ul>
+<li>basic idea : represent the computation of A(algorithm verify L) as a sequence of configurations.</li>
+<li>Each configuration is mapped to the next configuration by a boolean combinational circuit M. The output is a distinguished bit in the working storage.</li>
+<li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
+<li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>34.5 NP-complete problems</h4>
+<p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
+
+          
         
       
     </div>
@@ -580,18 +717,241 @@
 
       
         
-          <h2 id="kuangbin-专题十二-基础dp"><a class="markdownIt-Anchor" href="#kuangbin-专题十二-基础dp"></a> kuangbin 专题十二 基础DP</h2>
-<h3 id="lis"><a class="markdownIt-Anchor" href="#lis"></a> LIS</h3>
+          
+            <h2>kuangbin 专题十二 基础DP</h2>
+<h3>LIS</h3>
 <p>dp[ i ]代表前i个数的最长子序列大小</p>
 <p>dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &lt; val[ i ] )</p>
-<p>$ O ( n^2 ) $</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/20/ACM/kuangbin-12/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>$ O ( n^2 ) $
+&lt;!-- more --&gt;</p>
+<pre><code class="language-cpp">int dp[ N ], val[ N ];
+
+int LIS ( int n ) {
+    int mx = 0;
+    for ( int i = 0; i &lt; n; ++i ) {
+        dp[ i ] = 1;
+        for ( int j = 0; j &lt; i; ++j ) {
+            if ( val[ j ] &lt; val[ i ] &amp;&amp; dp[ i ] &lt; dp[ j ] + 1 )
+                dp[ i ] = dp[ j ] + 1;
+        }
+        if ( mx &lt; dp[ i ] )
+            mx = dp[ i ];
+    }
+    return mx;
+}
+</code></pre>
+<p>$ O ( nlgn ) $</p>
+<p>http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</p>
+<p>http://blog.csdn.net/shuangde800/article/details/7474903</p>
+<pre><code class="language-cpp">int val[ N ];//输入的值
+int len;//ed数组的长度（LIS长度）
+int ed[ N ];//每个长度的序列的末尾
+
+//下界，返回 &gt;= 所查找对象的第一个位置
+int binary_search ( int i ) {
+    int left, right, mid;
+    left = 0, right = len;
+    while ( left &lt; right ) {
+        mid = left + ( right - left ) / 2;
+        if ( ed[ mid ] &gt;= val[ i ] )
+            right = mid;
+        else
+            left = mid + 1;
+    }
+    return left;
+}
+
+void LIS ( int n ) {
+    ed[ 1 ] = val[ 1 ];
+    len = 1;
+    for ( int i = 2; i &lt;= n; ++i ) {
+      //更新最长的末尾
+        if ( val[ i ] &gt; ed[ len ] )
+            ed[ ++len ] = val[ i ];
+      //产生了新的序列，改变旧的长度的末尾
+        else {
+            // 如果用STL： pos=lower_bound(ed,ed+len,val[i])-ed;
+            int pos = binary_search ( i );
+            ed[ pos ] = val[ i ];
+        }
+        printf ( &quot;%d\n&quot;, len );
+    }
+}
+</code></pre>
+<h3>LCS</h3>
+<p>dp[ i ][ j ] 代表两个字符串前i / j 个下的最长大小</p>
+<p>dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1 ( val[ i ] == val[ j ] )</p>
+<p>dp[ i ][ j ] = max ( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] ) ( != )</p>
+<pre><code class="language-cpp">//CLRS 15.4
+
+int len1, len2;
+char s1[ N ], s2[ N ];
+int dp[ N ][ N ];
+
+inline int max ( int a, int b ) { return a &gt; b ? a : b; }
+
+void LCS () {
+    for ( int i = 1; i &lt;= len1; i++ ) {
+        for ( int j = 1; j &lt;= len2; j++ ) {
+            if ( s1[ i ] == s2[ j ] )
+                dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1;
+            else
+                dp[ i ][ j ] = max ( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] );
+        }
+    }
+}
+
+void Print ( int i, int j ) {
+    //当最长的子序列搜索完，但其中一串仍有剩余时，输出
+    if ( i == 0 || j == 0 ) {
+        return;
+    }
+    //找到公共字符
+    if ( s1[ i ] == s2[ j ] ) {
+        Print ( i - 1, j - 1 );
+        printf ( &quot;%c&quot;, s1[ i ] );
+
+    } else if ( dp[ i - 1 ][ j ] &gt; dp[ i ][ j - 1 ] ) {
+        Print ( i - 1, j );
+
+    } else {
+        Print ( i, j - 1 );
+    }
+}
+
+
+</code></pre>
+<h3>完全背包</h3>
+<p>dp[ i ]代表背包重i的时候最大的价值</p>
+<p>dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] )</p>
+<pre><code class="language-cpp">int v[ N ], w[ N ]; // value，weight
+int dp[ N ];
+
+//n个物品，最多装wei的东西
+int knapsack ( int n, int wei ) {
+    memset ( dp, INF, sizeof ( dp ) );
+    dp[ 0 ] = 0;
+
+    for ( int i = 1; i &lt;= wei; ++i ) {
+        for ( int j = 0; j &lt; n; ++j ) {
+            if ( i &gt;= w[ j ] )
+                dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] );
+        }
+    }
+
+    return dp[ wei ];
+}
+
+</code></pre>
+<h3>题目列表</h3>
+<p><strong>A - Max Sum Plus Plus HDU - 1024</strong></p>
+<blockquote>
+<p>n个数，要求分成m组，使m组的和加起来得到最大值。</p>
+</blockquote>
+<p>dp[i][j]表示前j个数分成i组的最大值。</p>
+<p>dp[i][j]=max(dp[i][j-1]+a[j],max(dp[i-1][k])+a[j])</p>
+<p><strong>B - Ignatius and the Princess IV HDU - 1029</strong></p>
+<blockquote>
+<p>给n(奇数)个数，定义特殊的数为在序列中出现次数不少于(n+1)/2次的数，找出这个特殊的数</p>
+</blockquote>
+<p>一边输入一边记录个数就好了</p>
+<p><strong>C - Monkey and Banana HDU - 1069</strong></p>
+<blockquote>
+<p>给定箱子种类数量n，及对应长宽高，每个箱子数量无限，求其能叠起来的最大高度是多少(上面箱子的长宽严格小于下面箱子)</p>
+</blockquote>
+<p>按照长排序，在求宽关于高的LIS</p>
+<p><strong>D - Doing Homework HDU - 1074</strong></p>
+<blockquote>
+<p>有n门功课需要完成，每一门功课都有时间期限以及你完成所需要的时间，如果完成的时间超出时间期限多少单位，就会被减多少学分，问以怎样的功课完成顺序，会使减掉的学分最少，有多个解时，输出功课名排列最小的一个。</p>
+</blockquote>
+<p>15个作业状态压缩来做</p>
+<p>枚举每一个状态，枚举每个状态新增的那个节点，再计算最小并记录前一个状态</p>
+<p><strong>E - Super Jumping! Jumping! Jumping! HDU - 1087</strong></p>
+<blockquote>
+<p>从起点到达终点，只能前行不能后退，且下一步必须比前面的点的值大，求所有走的点的值总和最大是多少。</p>
+</blockquote>
+<p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;
+最大递增子串和。</p>
+<p><strong>F - Piggy-Bank HDU - 1114</strong></p>
+<blockquote>
+<p>给出存钱罐本身的重量和装钱后的重量，以及存钱罐中钱的面值和重量，求存钱罐装满时，钱的总和最小是多少</p>
+</blockquote>
+<p>完全背包解题，每种钱币都可以装无限个，注意初始化的值</p>
+<p>dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] );</p>
+<p><strong>G - 免费馅饼 HDU - 1176</strong></p>
+<blockquote>
+<p>0—10的点，不同时间在每个点上掉下来物品，只能到达左右两边距离为1和本身所在的位置，求最大物品数</p>
+</blockquote>
+<p>dp[x][t] = max ( dp[x-1][t-1],dp[x][t-1],dp[x+1][t-1]) + v[x][t]</p>
+<p><strong>H - Tickets HDU - 1260</strong></p>
+<blockquote>
+<p>单张或两张一起买，给出一个一个买票和两个两个买票的时间，求最少</p>
+</blockquote>
+<p>dp[ i ] = min ( dp[ i - 1 ] + s[ i ], dp[ i - 2 ] + d[ i - 1 ] );</p>
+<p><strong>I - 最少拦截系统 HDU - 1257</strong></p>
+<blockquote>
+<p>求有多少个递减序列</p>
+</blockquote>
+<p>反过来，转换成求整个系列有多少个LIS，则是所求的组数</p>
+<p><strong>J - FatMouse's Speed HDU - 1160</strong></p>
+<blockquote>
+<p>给n个老鼠的体重和速度，求找出一个最长的序列，此序列体重递增速度递减</p>
+</blockquote>
+<p>按体重递增排序，再求最长递增(此递增表示体重递增速度递减)子序列。</p>
+<p>dp[i] = max(dp[j]+1) 0&lt;=j&lt;=i-1</p>
+<p><strong>K - Jury Compromise POJ - 1015</strong></p>
+<blockquote>
+<p>必须满足辩方总分D和控方总分P的差的绝对值|D-P|最小。如果有多种选择方案的 |D-P| 值相同，那么选辩控双方总分之和D+P最大的方案即可。</p>
+</blockquote>
+<p>dp(j, k)表示，取j 个候选人，使其辩控差为k 的所有方案中，辩控和最大的那个方案的辩控和。</p>
+<p>综上：dp[j][k]=dp[j-1][k-V[i]]+S[i]</p>
+<p>正向计算，输出的时候就用正向的输出了,不过每次都要查找下一个位置是否在之前用过了</p>
+<p><strong>L - Common Subsequence POJ - 1458</strong></p>
+<blockquote>
+<p>LCS</p>
+</blockquote>
+<p>LCS模板</p>
+<p><strong>M - Help Jimmy POJ - 1661</strong></p>
+<blockquote>
+<p>老鼠在时刻0从高于所有平台的某处开始下落.当Jimmy落到某个平台上时，游戏者选择让它向左还是向右跑.当Jimmy跑到平台的边缘时，开始继续下落。Jimmy每次下落的高度不能超过MAX</p>
+</blockquote>
+<p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)
+dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右右取最小)</p>
+<p><strong>N - Longest Ordered Subsequence POJ - 2533</strong></p>
+<blockquote>
+<p>LIS</p>
+</blockquote>
+<p>LIS模板</p>
+<p><strong>O - Treats for the Cows POJ - 3186</strong></p>
+<blockquote>
+<p>n个数在一个双端队列中，每次从队首或队尾出。出的第n个数乘以n，最后加起来，求最大和。</p>
+</blockquote>
+<p>dp[i][j] 代表从i取到j的最大总数
+dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
+<p><strong>P - FatMouse and Cheese HDU - 1078</strong></p>
+<blockquote>
+<p>给定一幅图，每个点有一定权值，现在有一只老鼠在起始点（0,0），他能水平或者垂直移动1~k格之后，停在某点并获得权值，而且每次移动后所在的点，都要比刚离开的那个点的权值更大，求最多能获得多少权值。</p>
+</blockquote>
+<p>DP / Memoized</p>
+<p>dp[ x ][ y ] = dp[ xx ][ yy ] + val[ x ][ y ]</p>
+<p><strong>Q - Phalanx HDU - 2859</strong></p>
+<blockquote>
+<p>给了一个字符串矩阵，求以次对角线方向对称的最大对称矩阵。</p>
+</blockquote>
+<p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。
+dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
+<p><strong>R - Milking Time POJ - 3616</strong></p>
+<blockquote>
+<p>奶牛Bessie在0~N时间段产奶。农夫约翰有M个时间段可以挤奶，时间段f,t内Bessie能挤到的牛奶量e。奶牛产奶后需要休息R小时才能继续下一次产奶，求Bessie最大的挤奶量。</p>
+</blockquote>
+<p>dp[ i ] = max ( dp[ j ] + node[ i ].val, dp[ i ] ) ( node[ j ].ed &lt;= node[ i ].st  )</p>
+<p><strong>S - Making the Grade POJ - 3666</strong></p>
+<blockquote>
+<p>农夫约翰想修一条尽量平缓的路，路的每一段海拔是A_i，修理后是B_i，花费|A_i – B_i|，求最小花费。</p>
+</blockquote>
+<p>dp[i][j] = min(dp[i – 1][k]) + |A[i] – B[j]| 离散化</p>
+
+          
         
       
     </div>
@@ -719,8 +1079,9 @@
 
       
         
-          <h2 id="eigenvalues-and-eigenvectors"><a class="markdownIt-Anchor" href="#eigenvalues-and-eigenvectors"></a> Eigenvalues and Eigenvectors</h2>
-<h3 id="61-introduction"><a class="markdownIt-Anchor" href="#61-introduction"></a> 6.1 Introduction</h3>
+          
+            <h2>Eigenvalues and Eigenvectors</h2>
+<h3>6.1 Introduction</h3>
 <p>certain vectors x are in the same direction as Ax</p>
 <p>basic equation:</p>
 <p>​	$ Ax = \lambda x $</p>
@@ -733,13 +1094,189 @@
 <p>Projection: $ \lambda = 1 $ or 0</p>
 <p>Reflection: $ \lambda = 1 $ or -1</p>
 <p>Rotation: complex eigenvalues only</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/14/GSLA/6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br&gt;</p>
+<p><strong>product of eigenvalues  == determinant  == product of pivots</strong></p>
+<p><strong>sum of eigenvalues == sum of diagonal entries ( not pivots ) == trace</strong></p>
+<p>&lt;br&gt;</p>
+<h3>6.2 Diagonalizing</h3>
+<p>eigenvectors in columns of S, eigenvalues in diagonal of Λ</p>
+<p>$ Λ = S^{-1}AS $</p>
+<p>$ A = SΛS^{-1} $</p>
+<p>&lt;br&gt;</p>
+<p>Independent x from different λ:</p>
+<ul>
+<li>$ c_1 λ_1 x_1 + c_2 λ_2 x_2 = 0 $</li>
+</ul>
+<ul>
+<li>$ c_1 λ_2 x_2 + c_2 λ_2 x_2 = 0 $</li>
+</ul>
+<p>subtract</p>
+<ul>
+<li>$ (λ_1 - λ_2)c_1x_1 = 0 $</li>
+</ul>
+<p>&lt;br&gt;</p>
+<p>diagonalizability:</p>
+<ul>
+<li>enough eigenvectors (maybe same λ) so that S is invertible</li>
+</ul>
+<p>$u_k = A^k u_0  = S \Lambda^k S^{-1}u_0$</p>
+<ol>
+<li>
+<p>$ u_0  = c_1x_1 + c_2x_2 + ..  +c_nx_n $ eigenvector basis</p>
+</li>
+<li>
+<p>multiply $\lambda_i ^ k$</p>
+</li>
+<li>
+<p>add up</p>
+</li>
+</ol>
+<p>A,B  share same eigenvector matrix S if and only if AB = BA</p>
+<p>&lt;br&gt;</p>
+<p><strong>?Heisenberg uncertainty principle</strong></p>
+<p>position matrix P, momentum matrix Q, $ QP-PQ = I $</p>
+<p>knew P still could not know Q</p>
+<p>$ |Px||Qx| \ge \frac{1}{2}|x|^2 $</p>
+<p>&lt;br&gt;</p>
+<h3>6.3 Applications to Differential Equations</h3>
+<p>&lt;br&gt;</p>
+<h3>6.4 Symmetric Matrices</h3>
+<ol>
+<li>real eigenvalues</li>
+<li>orthonormal eigenvectors</li>
+</ol>
+<p><strong>Spectral Theorem</strong></p>
+<p>(principle of axis theorem)</p>
+<p>$ A = Q\Lambda Q^T $</p>
+<p>&lt;br&gt;</p>
+<p>Normal Matrices $ \bar A^TA = A \bar A^T $</p>
+<p>symmetric,  skewed-symmetric, orthogonal</p>
+<p><strong>A has n orthonormal vectors ($ A = Q\Lambda \bar Q ^T $) if and only if A is normal</strong></p>
+<p>Real Eigenvalues</p>
+<p>proof:</p>
+<ul>
+<li>$ Ax = \lambda x $                      $ \bar x ^TA = \bar x ^T \bar\lambda $ (  $ A = A^T $ )( conjugate and transpose )</li>
+</ul>
+<ul>
+<li>$ \bar x^T  A x = \bar x^T \lambda x $             $ \bar x ^ T A x = \bar x ^ T \bar\lambda x $</li>
+</ul>
+<p>left side the same</p>
+<p>therefor $ \lambda == \bar \lambda $</p>
+<p>&lt;br&gt;</p>
+<p>Orthonormal</p>
+<p>proof:</p>
+<ul>
+<li>no eigenvalues repeated</li>
+</ul>
+<ul>
+<li>Allow repeated eigenvalues  ( ? Schur's Theorem )</li>
+</ul>
+<p>&lt;br&gt;</p>
+<p>sum of rank one projection matrices</p>
+<p>$ A = \lambda_1x_1x_1^T + \lambda_2x_2x_2^T+... $</p>
+<p>$  = \lambda_1P_1 +\lambda_2P2+.... $</p>
+<p>&lt;br&gt;</p>
+<p>number of positive pivots == number of positive eigenvalues</p>
+<p>&lt;br&gt;</p>
+<p>$ A = LDL^T $</p>
+<p>&lt;br&gt;</p>
+<h3>6.5 Positive Definite Matrices</h3>
+<p>All λ &gt; 0</p>
+<p>&lt;br&gt;</p>
+<p>quick way to test</p>
+<ol>
+<li>
+<p>All pivots positive</p>
+</li>
+<li>
+<p>n eigenvalues positive</p>
+</li>
+<li>
+<p><strong>$ x^TAx  $ is positive except x = 0</strong></p>
+</li>
+<li>
+<p>$ A == R^TR $  (symmetric) and R has independent columns ($ x^T R^TRX &gt;= 0 $)</p>
+</li>
+<li>
+<p>n upper left determinants</p>
+</li>
+</ol>
+<p>R can be chosen:</p>
+<ul>
+<li>rectangular / $ (L\sqrt D)^T $ / $ Q \sqrt\Lambda Q^T $</li>
+</ul>
+<p>$x^TAx $</p>
+<ul>
+<li>(2*2) = $ ax^2 + 2bxy + cy^2 &gt; 0 $ ( ellipse  $ z = x^2/a^2 + y^2/b^2 $  )</li>
+</ul>
+<p>&lt;br&gt;</p>
+<p>Application</p>
+<ol>
+<li>tilted ellipse $ x^TAx $</li>
+<li>lined - up ellipse $ X^T\Lambda X = 1 $</li>
+<li>rotation matrix Q</li>
+</ol>
+<p>axes: eigenvectors</p>
+<p>half-length: $ 1/\sqrt\lambda $</p>
+<h3>6.6 Similar Matrices</h3>
+<p>DEF: A similar to B (A family)</p>
+<ul>
+<li>$ B = M^{-1}AM $</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Property:</p>
+<ul>
+<li>A and B have same eigenvalues</li>
+<li>x a eigenvector of A and $ M^{-1}x $ eigenvector of B</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Jordan Form</p>
+<ul>
+<li>triple eigenvalues while one eigenvector</li>
+<li>J with  λ in the diagonal and 1 above</li>
+<li>similar to every matrices with repeated eigenvalues  λ and one eigenvector</li>
+<li>λ repeated only once than J ==  Λ</li>
+<li>Jordan Block</li>
+<li>make A as simple as possible while preserving essential properties</li>
+</ul>
+<h3>6.7 Singular Value Decomposition</h3>
+<p>SUMMARY</p>
+<p>$ A = U \Sigma V^T $</p>
+<p>$ \Sigma^2 = \Lambda $ (of  $ A^TA $ and $ AA^T $ )</p>
+<p>$ U = Q $  (of $ AA^T $ in $ R^m $)</p>
+<p>$ V = Q $  (of $ A^TA $ in $ R^n $)</p>
+<p>&lt;br/&gt;</p>
+<p>orthonormal basis of row space {$ v_1, v_2, ... v_r $}</p>
+<p>orthonormal basis of null space{ $ v_{r+1}, v_{r+2},...v_n $}</p>
+<p>orthonormal basis of column space{ $ u_1, u_2,...u_r $}</p>
+<p>orthonormal basis of left null space { $ u_{r+1}, u_{r+2}, ... u_m $}</p>
+<p>&lt;br/&gt;</p>
+<p>Rotation -- Stretch -- Rotation</p>
+<p><img src="https://cdn.goushi.me/wp-content/uploads/2017/02/The-Geometry-of-the-SVD.png" alt="em"></p>
+<p>$ Av_1 = \sigma_1u_1 $ ...</p>
+<p>so $ AV = U\Sigma $</p>
+<p>(m * n) * (n * n) = (m * m)* (m * n)</p>
+<p>$ V $ and $ U $ are orthogonal matrices</p>
+<p>$ \Sigma $  = ( old r*r $ \Sigma $ ) + (m-r zero rows) + ( n-r zero columns )</p>
+<p>therefore ...</p>
+<p>&lt;br/&gt;</p>
+<p>when A positive definite symmetric</p>
+<p>$ A = U \Sigma V^T = Q\Lambda Q^{T} $</p>
+<h3>7.3 Diagonalization and the Pseudoinverse</h3>
+<p>change bases</p>
+<p>$ \Lambda <em>{ w -- w } = S^{-1}</em>{std -- w} A_{std} S_{ w -- std } $</p>
+<p>$ \Sigma <em>{ v -- u } = U^{-1}</em>{std -- u} A{std}V{v -- std} $</p>
+<p>Polar Decomposition</p>
+<p>orthogonal and semidefinite</p>
+<p>rotation and stretching</p>
+<p>$ A = U\Sigma V^T = ( UV^T ) (V \Sigma V^T) = QH $</p>
+<p>Pseudoinverse</p>
+<p>$ A^+ = V\Sigma^+ U^T $</p>
+<p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-12-16%2020-13-46.png" alt="r-&amp;gt;c"></p>
+<p><img src="https://cdn.goushi.me/wp-content/uploads/2017/02/The-Big-Picture-of-Pseudoinverse.png" alt="c-&amp;gt;r"></p>
+
+          
         
       
     </div>
@@ -889,19 +1426,341 @@
 
       
         
-          <h3 id="kuangbin专题四-最短路"><a class="markdownIt-Anchor" href="#kuangbin专题四-最短路"></a> kuangbin专题四 最短路</h3>
+          
+            <h3>kuangbin专题四 最短路</h3>
 <p>ACM图论存图方式</p>
-<p><a href="http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">http://jzqt.github.io/2015/07/21/ACM图论之存图方式/</a></p>
-<h3 id="单源最短路"><a class="markdownIt-Anchor" href="#单源最短路"></a> 单源最短路</h3>
-<h4 id="dijkstra"><a class="markdownIt-Anchor" href="#dijkstra"></a> Dijkstra</h4>
+<p>http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/</p>
+<h3>单源最短路</h3>
+<h4>Dijkstra</h4>
 <p>​	$ O(V^2 + E) $</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/10/ACM/kuangbin-4/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;</p>
+<pre><code class="language-cpp">int edg[ N ][ N ]; // weight of each edge
+int dis[ N ];      // distance of each node from source
+bool vis[ N ];     // SET S represent for nodes already visited
+
+// CLRS 24.3
+// s:start point,  n: total number of nodes
+void dijkstra ( int s, int n ) {
+    // INITIALIZE-SINGLE-SOURCE
+    memset ( vis, false, sizeof ( vis ) );
+    vis[ s ] = true;
+    for ( int i = 1; i &lt;= n; ++i )
+        dis[ i ] = edg[ s ][ i ];
+    dis[ s ] = 0;
+
+    // Extract Min
+    // u for the node, mi for dis[ u ]
+    for ( int i = 1; i &lt;= n - 1; ++i ) {
+        int u = -1, mi = INF;
+        for ( int j = 1; j &lt;= n; ++j )
+            if ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )
+                mi = dis[ u = j ];
+
+        vis[ u ] = true;
+
+        // Relax edges adjacent to u
+        for ( int j = 1; j &lt;= n; ++j )
+            if ( !vis[ j ] )
+                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );
+    }
+}
+</code></pre>
+<h4>Dijkstra + STL priority_queue</h4>
+<p>​	$ O((V+E)lgV) $</p>
+<pre><code class="language-cpp">int head[ N ]; //链式前向星建图
+int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
+
+struct Node {
+    int u, d; // id, dis
+    bool operator&lt; ( const Node &amp;rhs ) const { return d &gt; rhs.d; }
+};
+
+struct Edge {
+    int u, v, w, nex;
+} edg[ N ];
+
+// CLRS 24.3
+// s:start point
+void dijkstra ( int s ) {
+    priority_queue&lt;Node&gt; Q;
+    dis[ s ] = 0;
+    Q.push ( ( Node ){s, dis[ s ]} );
+    while ( !Q.empty () ) {
+        // u = Extract_Min( Q )
+        Node x = Q.top ();
+        Q.pop ();
+        int u = x.u;
+
+        if ( vis[ u ] )
+            continue;
+        vis[ u ] = true;
+
+        // for each vertex v in G.adj[ u ]
+        for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+            int v = edg[ i ].v;
+            int w = edg[ i ].w;
+            // relax
+            if ( dis[ v ] &gt; dis[ u ] + w ) {
+                dis[ v ] = dis[ u ] + w;
+                Q.push ( ( Node ){v, dis[ v ]} );
+            }
+        }
+    }
+}
+</code></pre>
+<h4>SPFA (Shortest Path Faster Algorithm)</h4>
+<p>​	$ O(kE) $ ( k &lt; 2 )</p>
+<pre><code class="language-cpp">
+int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
+int cnt[ N ];  //入列次数超过n，有负环
+int head[ N ]; //链式前向星
+
+struct edg {
+    int u, v, w, nex;
+} edg[ N ];
+
+bool SPFA ( int s, int n ) {
+    // INIT
+    memset ( vis, false, sizeof ( vis ) );
+    vis[ s ] = true;
+    for ( int i = 1; i &lt;= n; ++i )
+        dis[ i ] = INF;
+    dis[ s ] = 0;
+    memset ( cnt, 0, sizeof ( cnt ) );
+    cnt[ s ] = 1;
+
+    // BFS方式的spfa
+    queue&lt;int&gt; Q;
+    Q.push ( s );
+
+    while ( !Q.empty () ) {
+        int u = Q.front ();
+        Q.pop ();
+        vis[ u ] = false; // 出队要取消标记
+
+        for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+            int v = edg[ i ].v;
+            // Relax所有出边
+            if ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) {
+                dis[ v ] = dis[ u ] + edg[ i ].w;
+                //没入队的标记并入队
+                if ( !vis[ v ] ) {
+                    vis[ v ] = true;
+                    Q.push ( v );
+                    // 判断负环
+                    if ( ++cnt[ v ] &gt; n )
+                        return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+</code></pre>
+<p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
+<pre><code class="language-cpp">int spfa_dfs ( int u ) {
+    vis[ u ] = true;
+    for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+        int v = edg[ i ].v, w = edg[ i ].w;
+        if ( dis[ u ] + w &lt; dis[ v ] ) {
+            dis[ v ] = dis[ u ] + w;
+            if ( !vis[ v ] ) {
+                if ( spfa_dfs ( v ) )
+                    return 1;
+            } else
+                return 1;
+        }
+    }
+    vis[ u ] = false;
+    return 0;
+}
+</code></pre>
+<h4>Bellman-Ford</h4>
+<p>​	$ O(VE) $</p>
+<pre><code class="language-cpp">int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
+
+struct edg {
+    int u, v, w;
+} edg[ N ];
+
+//CLRS 24.1
+//对每个点，relax所有的边
+bool Bellman_Ford ( int n, int e, int s, double num ) {
+    // Initialize Single Sorce( G,s )
+    for ( int i = 1; i &lt;= n; ++i )
+        dis[ i ] = 0;
+    dis[ s ] = num;
+
+    // for i = 1 to |G.V|-1
+    for ( int i = 0; i &lt; n - 1; ++i ) {
+        // for each edg ( u,v ) in G.E
+        for ( int j = 0; j &lt; e; ++j ) {
+            int u = edg[ j ].u;
+            int v = edg[ j ].v;
+            // Relax
+            if ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) {
+                dis[ v ] = dis[ u ] + edg[ u ].w;
+            }
+        }
+    }
+    // 存在负环
+    for ( int i = 0; i &lt; e; ++i )
+        if ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )
+            return false;
+    return true;
+}
+</code></pre>
+<h4>适用场景</h4>
+<p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
+<p>对于极端的链状图，SPFA无疑是最合适的了。每个结只进队一次，标准的O(E)。</p>
+<p>朴素的dijkstra对于这样的图就力不从心了：每次循环都过一遍结点，在松弛，然后发现每次O(V)的时间只松弛了一个点。</p>
+<p>​</p>
+<h4>多源最短路</h4>
+<h4>Floyd</h4>
+<pre><code class="language-cpp">
+void init () {
+    for ( int i = 0; i &lt;= n; ++i )
+        for ( int j = 0; j &lt;= n; ++j ) {
+            //有向图
+            w[ i ][ j ] = INF;
+            //记录路径段内的后一点
+            //也可以改成前一点path[i][j] = i,就要反向输出;
+            path[ i ][ j ] = j;
+        }
+}
+
+// CLRS 25.2 All-Pairs-Shortest-Path
+void Floyd () {
+    // Dp
+    // 表示所有点只经过集合{ 1..k }内的点时的最短路径
+    // 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n
+    for ( int k = 1; k &lt;= n; ++k )
+        //选取每一个起点
+        for ( int i = 1; i &lt;= n; ++i )
+            //选取每一个终点
+            for ( int j = 1; j &lt;= n; ++j )
+                // i -- j的路径存在
+                if ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) {
+
+                    int tmp = w[ i ][ k ] + w[ k ][ j ];
+                    // d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }
+                    if ( w[ i ][ j ] &gt; tmp ) {
+                        w[ i ][ j ] = tmp;
+                        //记录后继路径
+                        //前驱path[ i ][ j ] = path[ k ][ j ];
+                        path[ i ][ j ] = path[ i ][ k ];
+                    }
+                }
+}
+</code></pre>
+<h4>题目列表</h4>
+<p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
+<blockquote>
+<p>一个农场有n (1000)个点，有t (2000)条道路连接,  从n到1最短</p>
+</blockquote>
+<p>dijkstra 模板</p>
+<p><strong>B - Frogger POJ-2253</strong></p>
+<blockquote>
+<p>无向图一条1~2的路径使得该路径上的最大边权最小. (max Route weight is the minimum among all routes)</p>
+</blockquote>
+<p>dijkstra变形 double minimax = max ( mi, v[ j ][ u ] );</p>
+<p><strong>C - Heavy Transportation  POJ - 1797</strong></p>
+<blockquote>
+<p>​	有n个城市，n个城市之间有m条公路或桥梁，每个公路或桥都有一个最大载重量，问从城市1到城市n所能运送到货物到最大重量是多少 ( min Route weight is the maximum among all routes )</p>
+</blockquote>
+<p>dijkstra变形  int maxmini = min ( mi, v[ j ][ u ] );</p>
+<p><strong>D - Silver Cow Party POJ - 3268</strong></p>
+<blockquote>
+<p>n个农场，m条单向路，n个牛分别在n个农场，第x农场为终点，问每个牛从所在农场前往x农场的往返路程最小值是多少，求出n个牛中最短路上往返路程的最大的那个</p>
+</blockquote>
+<p>从n个点到1再从1回到n个点，通过调转边的方向两次dijkstra</p>
+<p><strong>E - Currency Exchange POJ - 1860</strong></p>
+<blockquote>
+<p>有n种货币，你含有num面额的其中一种货币。求有没有可能，在多次兑换后你手中的货币大于num。</p>
+</blockquote>
+<p>求最大路径，反向用Bellman-Ford</p>
+<p><strong>F - Wormholes POJ - 3259</strong></p>
+<blockquote>
+<p>农场之间有很多条路，以及单向的虫洞，每条路走完会花费一定的时间，而虫洞可以回到之前的时间，问农场主是否能回到自己出发时间前的出发点</p>
+</blockquote>
+<p>SPFA判断负环</p>
+<p><strong>G - MPI Maelstrom POJ - 1502</strong></p>
+<blockquote>
+<p>从第一个点出发，求到其他点最短路的最大值</p>
+</blockquote>
+<p>dijkstra 注意下三角矩阵邻接表的建图</p>
+<p><strong>H - Cow Contest POJ - 3660</strong></p>
+<blockquote>
+<p>n个牛进行比赛，现已知m个关系， 牛u可以胜过牛v。问最后可以确定排名位数的有几个牛.</p>
+</blockquote>
+<p>Floyd判断两两牛之间的关系。如果一个牛可以胜过a个牛，b个牛可以胜过它，那么如果a＋b＝n－1，他的排名就可以确定</p>
+<p><strong>I - Arbitrage POJ - 2240</strong></p>
+<blockquote>
+<p>给定多种货币之间的兑换关系，问是否可以套利</p>
+</blockquote>
+<p>Bellman-Ford判断正环（要返回自己所以松弛n次)</p>
+<p>floyd判断回来后是否&gt;1</p>
+<p><strong>J - Invitation Cards POJ - 1511</strong></p>
+<blockquote>
+<p>求源点到各点的往返最短路之和</p>
+</blockquote>
+<p>邻接表逆置（建了两个邻接表）</p>
+<p>数据多需要优化SPFA/dijkstra+heap</p>
+<p><strong>K - Candies POJ - 3159</strong></p>
+<blockquote>
+<p>给n个人分糖果，m组数据a，b，c；意思是a比b少的糖果个数绝对不超过c个，也就是d(b)-d(a) &lt; c，求1比n少的糖果数的最大值。</p>
+</blockquote>
+<p>差分约束，和最短路的松弛一样</p>
+<p>数据多，dijkstra+heap</p>
+<p><strong>L - Subway POJ - 2502</strong></p>
+<blockquote>
+<p>小明步行的速度是10km/h，地铁速度是40km/h，给定家和学校的坐标，再给定多条地铁线路站点的坐标，问小明从家到学校所需的最短时间</p>
+</blockquote>
+<p>dijkstra，建图连接所有的点并赋值时间</p>
+<p><strong>M - 昂贵的聘礼 POJ - 1062</strong></p>
+<blockquote>
+<p>每个人可能有直接购买或者交换物品换取折扣这两种方式交易（交换物品要从别人手里买）</p>
+<p>等级差之间超过m的不能交易</p>
+<p>求用最少的钱买到非洲大酋长的承诺</p>
+</blockquote>
+<p>等级限制采用枚举的方法，分别从lv[ 1 ] - m ~~ lv[ 1 ] + m，每次枚举的区间长度为m,一共m次最短路搜索</p>
+<p><strong>N - Tram POJ - 1847</strong></p>
+<blockquote>
+<p>电动巴士在每个十字路口有一个默认方向，走向别的方向需要改动扳手。</p>
+</blockquote>
+<p>dijkstra 每个边初始化为INF,要切换的路 = 1,不用切换 = 0</p>
+<p><strong>O - Extended Traffic LightOJ - 1074</strong></p>
+<blockquote>
+<p>给定每条街的拥挤度p(x)，街a到街b的时间就是(p(b)-p(a))**3，求第一个点到第k个点的最短路</p>
+</blockquote>
+<p>SPFA判断负环</p>
+<p>dfs记录负环里的点</p>
+<p><strong>P - The Shortest Path in Nya Graph HDU - 4725</strong></p>
+<blockquote>
+<p>共n个点，n层(每个点单独一层)，相邻的两层之间权值为w</p>
+<p>还有m条额外的边，权值为v，求1到n的最短路</p>
+</blockquote>
+<p>建图 ！！给每个点两个辅助点，一个做出度，一个做入度</p>
+<p><strong>Q - Marriage Match IV HDU - 3416</strong></p>
+<p>网络流，不会qwq</p>
+<p><strong>R - 0 or 1 HDU - 4370</strong></p>
+<blockquote>
+<p>X12+X13+...X1n=1,X1n+X2n+...Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
+</blockquote>
+<p>神一样的建图！！节点1的出度为1.节点n的入度为1.节点2-n-1的入度和出度相等.</p>
+<p>问题就相当于求一条最短路，从节点1出发，到节点N.</p>
+<p>同时节点1的一个最小环+节点n的一个最小环也是可行解，两者取最小</p>
+<p><strong>S - Layout POJ - 3169</strong></p>
+<blockquote>
+<p>两点间可能&lt;= x 或者&gt;=x，求1--&gt;n最大</p>
+</blockquote>
+<p>差分约束，和最短路一样，SPFA判断负环则代表不存在可行解</p>
+
+          
         
       
     </div>

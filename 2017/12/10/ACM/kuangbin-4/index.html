@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta name="description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; int edg[ N ][ N ]; //">
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kuangbin专题四 最短路">
 <meta property="og:url" content="http://yoursite.com/2017/12/10/ACM/kuangbin-4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; int edg[ N ][ N ]; //">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-04-16T12:48:33.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题四 最短路">
-<meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
+<meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/ 单源最短路 Dijkstra ​	$ O(V^2 + E) $ &amp;lt;!-- more --&amp;gt; int edg[ N ][ N ]; //">
 
 
 
@@ -405,81 +405,81 @@
       
 
       
-        <h3 id="kuangbin专题四-最短路"><a class="markdownIt-Anchor" href="#kuangbin专题四-最短路"></a> kuangbin专题四 最短路</h3>
+        <h3>kuangbin专题四 最短路</h3>
 <p>ACM图论存图方式</p>
-<p><a href="http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">http://jzqt.github.io/2015/07/21/ACM图论之存图方式/</a></p>
-<h3 id="单源最短路"><a class="markdownIt-Anchor" href="#单源最短路"></a> 单源最短路</h3>
-<h4 id="dijkstra"><a class="markdownIt-Anchor" href="#dijkstra"></a> Dijkstra</h4>
+<p>http://jzqt.github.io/2015/07/21/ACM%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%AD%98%E5%9B%BE%E6%96%B9%E5%BC%8F/</p>
+<h3>单源最短路</h3>
+<h4>Dijkstra</h4>
 <p>​	$ O(V^2 + E) $</p>
-<a id="more"></a>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> edg[ N ][ N ]; <span class="comment">// weight of each edge</span>
-<span class="keyword">int</span> dis[ N ];      <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ];     <span class="comment">// SET S represent for nodes already visited</span>
+<p>&lt;!-- more --&gt;</p>
+<pre><code class="language-cpp">int edg[ N ][ N ]; // weight of each edge
+int dis[ N ];      // distance of each node from source
+bool vis[ N ];     // SET S represent for nodes already visited
 
-<span class="comment">// CLRS 24.3</span>
-<span class="comment">// s:start point,  n: total number of nodes</span>
-<span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>{
-    <span class="comment">// INITIALIZE-SINGLE-SOURCE</span>
-    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );
-    vis[ s ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
+// CLRS 24.3
+// s:start point,  n: total number of nodes
+void dijkstra ( int s, int n ) {
+    // INITIALIZE-SINGLE-SOURCE
+    memset ( vis, false, sizeof ( vis ) );
+    vis[ s ] = true;
+    for ( int i = 1; i &lt;= n; ++i )
         dis[ i ] = edg[ s ][ i ];
-    dis[ s ] = <span class="number">0</span>;
+    dis[ s ] = 0;
 
-    <span class="comment">// Extract Min</span>
-    <span class="comment">// u for the node, mi for dis[ u ]</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) {
-        <span class="keyword">int</span> u = <span class="number">-1</span>, mi = INF;
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )
+    // Extract Min
+    // u for the node, mi for dis[ u ]
+    for ( int i = 1; i &lt;= n - 1; ++i ) {
+        int u = -1, mi = INF;
+        for ( int j = 1; j &lt;= n; ++j )
+            if ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )
                 mi = dis[ u = j ];
 
-        vis[ u ] = <span class="literal">true</span>;
+        vis[ u ] = true;
 
-        <span class="comment">// Relax edges adjacent to u</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-            <span class="keyword">if</span> ( !vis[ j ] )
+        // Relax edges adjacent to u
+        for ( int j = 1; j &lt;= n; ++j )
+            if ( !vis[ j ] )
                 dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );
     }
 }
 </code></pre>
-<h4 id="dijkstra-stl-priority_queue"><a class="markdownIt-Anchor" href="#dijkstra-stl-priority_queue"></a> Dijkstra + STL priority_queue</h4>
+<h4>Dijkstra + STL priority_queue</h4>
 <p>​	$ O((V+E)lgV) $</p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星建图</span>
-<span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
+<pre><code class="language-cpp">int head[ N ]; //链式前向星建图
+int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
 
-<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> {</span>
-    <span class="keyword">int</span> u, d; <span class="comment">// id, dis</span>
-    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; ( <span class="keyword">const</span> Node &amp;rhs ) <span class="keyword">const</span> { <span class="keyword">return</span> d &gt; rhs.d; }
+struct Node {
+    int u, d; // id, dis
+    bool operator&lt; ( const Node &amp;rhs ) const { return d &gt; rhs.d; }
 };
 
-<span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> {</span>
-    <span class="keyword">int</span> u, v, w, nex;
+struct Edge {
+    int u, v, w, nex;
 } edg[ N ];
 
-<span class="comment">// CLRS 24.3</span>
-<span class="comment">// s:start point</span>
-<span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s )</span> </span>{
+// CLRS 24.3
+// s:start point
+void dijkstra ( int s ) {
     priority_queue&lt;Node&gt; Q;
-    dis[ s ] = <span class="number">0</span>;
+    dis[ s ] = 0;
     Q.push ( ( Node ){s, dis[ s ]} );
-    <span class="keyword">while</span> ( !Q.empty () ) {
-        <span class="comment">// u = Extract_Min( Q )</span>
+    while ( !Q.empty () ) {
+        // u = Extract_Min( Q )
         Node x = Q.top ();
         Q.pop ();
-        <span class="keyword">int</span> u = x.u;
+        int u = x.u;
 
-        <span class="keyword">if</span> ( vis[ u ] )
-            <span class="keyword">continue</span>;
-        vis[ u ] = <span class="literal">true</span>;
+        if ( vis[ u ] )
+            continue;
+        vis[ u ] = true;
 
-        <span class="comment">// for each vertex v in G.adj[ u ]</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-            <span class="keyword">int</span> v = edg[ i ].v;
-            <span class="keyword">int</span> w = edg[ i ].w;
-            <span class="comment">// relax</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + w ) {
+        // for each vertex v in G.adj[ u ]
+        for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+            int v = edg[ i ].v;
+            int w = edg[ i ].w;
+            // relax
+            if ( dis[ v ] &gt; dis[ u ] + w ) {
                 dis[ v ] = dis[ u ] + w;
                 Q.push ( ( Node ){v, dis[ v ]} );
             }
@@ -487,155 +487,155 @@
     }
 }
 </code></pre>
-<h4 id="spfa-shortest-path-faster-algorithm"><a class="markdownIt-Anchor" href="#spfa-shortest-path-faster-algorithm"></a> SPFA (Shortest Path Faster Algorithm)</h4>
+<h4>SPFA (Shortest Path Faster Algorithm)</h4>
 <p>​	$ O(kE) $ ( k &lt; 2 )</p>
-<pre class="highlight"><code class="cpp">
-<span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
-<span class="keyword">int</span> cnt[ N ];  <span class="comment">//入列次数超过n，有负环</span>
-<span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星</span>
+<pre><code class="language-cpp">
+int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
+int cnt[ N ];  //入列次数超过n，有负环
+int head[ N ]; //链式前向星
 
-<span class="class"><span class="keyword">struct</span> <span class="title">edg</span> {</span>
-    <span class="keyword">int</span> u, v, w, nex;
+struct edg {
+    int u, v, w, nex;
 } edg[ N ];
 
-<span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>{
-    <span class="comment">// INIT</span>
-    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );
-    vis[ s ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
+bool SPFA ( int s, int n ) {
+    // INIT
+    memset ( vis, false, sizeof ( vis ) );
+    vis[ s ] = true;
+    for ( int i = 1; i &lt;= n; ++i )
         dis[ i ] = INF;
-    dis[ s ] = <span class="number">0</span>;
-    <span class="built_in">memset</span> ( cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> ( cnt ) );
-    cnt[ s ] = <span class="number">1</span>;
+    dis[ s ] = 0;
+    memset ( cnt, 0, sizeof ( cnt ) );
+    cnt[ s ] = 1;
 
-    <span class="comment">// BFS方式的spfa</span>
-    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;
+    // BFS方式的spfa
+    queue&lt;int&gt; Q;
     Q.push ( s );
 
-    <span class="keyword">while</span> ( !Q.empty () ) {
-        <span class="keyword">int</span> u = Q.front ();
+    while ( !Q.empty () ) {
+        int u = Q.front ();
         Q.pop ();
-        vis[ u ] = <span class="literal">false</span>; <span class="comment">// 出队要取消标记</span>
+        vis[ u ] = false; // 出队要取消标记
 
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-            <span class="keyword">int</span> v = edg[ i ].v;
-            <span class="comment">// Relax所有出边</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) {
+        for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+            int v = edg[ i ].v;
+            // Relax所有出边
+            if ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) {
                 dis[ v ] = dis[ u ] + edg[ i ].w;
-                <span class="comment">//没入队的标记并入队</span>
-                <span class="keyword">if</span> ( !vis[ v ] ) {
-                    vis[ v ] = <span class="literal">true</span>;
+                //没入队的标记并入队
+                if ( !vis[ v ] ) {
+                    vis[ v ] = true;
                     Q.push ( v );
-                    <span class="comment">// 判断负环</span>
-                    <span class="keyword">if</span> ( ++cnt[ v ] &gt; n )
-                        <span class="keyword">return</span> <span class="literal">false</span>;
+                    // 判断负环
+                    if ( ++cnt[ v ] &gt; n )
+                        return false;
                 }
             }
         }
     }
 
-    <span class="keyword">return</span> <span class="literal">true</span>;
+    return true;
 }
 </code></pre>
 <p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
-<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">spfa_dfs</span> <span class="params">( <span class="keyword">int</span> u )</span> </span>{
-    vis[ u ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-        <span class="keyword">int</span> v = edg[ i ].v, w = edg[ i ].w;
-        <span class="keyword">if</span> ( dis[ u ] + w &lt; dis[ v ] ) {
+<pre><code class="language-cpp">int spfa_dfs ( int u ) {
+    vis[ u ] = true;
+    for ( int i = head[ u ]; i != -1; i = edg[ i ].nex ) {
+        int v = edg[ i ].v, w = edg[ i ].w;
+        if ( dis[ u ] + w &lt; dis[ v ] ) {
             dis[ v ] = dis[ u ] + w;
-            <span class="keyword">if</span> ( !vis[ v ] ) {
-                <span class="keyword">if</span> ( spfa_dfs ( v ) )
-                    <span class="keyword">return</span> <span class="number">1</span>;
-            } <span class="keyword">else</span>
-                <span class="keyword">return</span> <span class="number">1</span>;
+            if ( !vis[ v ] ) {
+                if ( spfa_dfs ( v ) )
+                    return 1;
+            } else
+                return 1;
         }
     }
-    vis[ u ] = <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="number">0</span>;
+    vis[ u ] = false;
+    return 0;
 }
 </code></pre>
-<h4 id="bellman-ford"><a class="markdownIt-Anchor" href="#bellman-ford"></a> Bellman-Ford</h4>
+<h4>Bellman-Ford</h4>
 <p>​	$ O(VE) $</p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
+<pre><code class="language-cpp">int dis[ N ];  // distance of each node from source
+bool vis[ N ]; // SET S represent for nodes already visited
 
-<span class="class"><span class="keyword">struct</span> <span class="title">edg</span> {</span>
-    <span class="keyword">int</span> u, v, w;
+struct edg {
+    int u, v, w;
 } edg[ N ];
 
-<span class="comment">//CLRS 24.1</span>
-<span class="comment">//对每个点，relax所有的边</span>
-<span class="function"><span class="keyword">bool</span> <span class="title">Bellman_Ford</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> e, <span class="keyword">int</span> s, <span class="keyword">double</span> num )</span> </span>{
-    <span class="comment">// Initialize Single Sorce( G,s )</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-        dis[ i ] = <span class="number">0</span>;
+//CLRS 24.1
+//对每个点，relax所有的边
+bool Bellman_Ford ( int n, int e, int s, double num ) {
+    // Initialize Single Sorce( G,s )
+    for ( int i = 1; i &lt;= n; ++i )
+        dis[ i ] = 0;
     dis[ s ] = num;
 
-    <span class="comment">// for i = 1 to |G.V|-1</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i ) {
-        <span class="comment">// for each edg ( u,v ) in G.E</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; e; ++j ) {
-            <span class="keyword">int</span> u = edg[ j ].u;
-            <span class="keyword">int</span> v = edg[ j ].v;
-            <span class="comment">// Relax</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) {
+    // for i = 1 to |G.V|-1
+    for ( int i = 0; i &lt; n - 1; ++i ) {
+        // for each edg ( u,v ) in G.E
+        for ( int j = 0; j &lt; e; ++j ) {
+            int u = edg[ j ].u;
+            int v = edg[ j ].v;
+            // Relax
+            if ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) {
                 dis[ v ] = dis[ u ] + edg[ u ].w;
             }
         }
     }
-    <span class="comment">// 存在负环</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; ++i )
-        <span class="keyword">if</span> ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )
-            <span class="keyword">return</span> <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="literal">true</span>;
+    // 存在负环
+    for ( int i = 0; i &lt; e; ++i )
+        if ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )
+            return false;
+    return true;
 }
 </code></pre>
-<h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
+<h4>适用场景</h4>
 <p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
 <p>对于极端的链状图，SPFA无疑是最合适的了。每个结只进队一次，标准的O(E)。</p>
 <p>朴素的dijkstra对于这样的图就力不从心了：每次循环都过一遍结点，在松弛，然后发现每次O(V)的时间只松弛了一个点。</p>
 <p>​</p>
-<h4 id="多源最短路"><a class="markdownIt-Anchor" href="#多源最短路"></a> 多源最短路</h4>
-<h4 id="floyd"><a class="markdownIt-Anchor" href="#floyd"></a> Floyd</h4>
-<pre class="highlight"><code class="cpp">
-<span class="function"><span class="keyword">void</span> <span class="title">init</span> <span class="params">()</span> </span>{
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i )
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; ++j ) {
-            <span class="comment">//有向图</span>
+<h4>多源最短路</h4>
+<h4>Floyd</h4>
+<pre><code class="language-cpp">
+void init () {
+    for ( int i = 0; i &lt;= n; ++i )
+        for ( int j = 0; j &lt;= n; ++j ) {
+            //有向图
             w[ i ][ j ] = INF;
-            <span class="comment">//记录路径段内的后一点</span>
-            <span class="comment">//也可以改成前一点path[i][j] = i,就要反向输出;</span>
+            //记录路径段内的后一点
+            //也可以改成前一点path[i][j] = i,就要反向输出;
             path[ i ][ j ] = j;
         }
 }
 
-<span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span>
-<span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>{
-    <span class="comment">// Dp</span>
-    <span class="comment">// 表示所有点只经过集合{ 1..k }内的点时的最短路径</span>
-    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k )
-        <span class="comment">//选取每一个起点</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-            <span class="comment">//选取每一个终点</span>
-            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-                <span class="comment">// i -- j的路径存在</span>
-                <span class="keyword">if</span> ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) {
+// CLRS 25.2 All-Pairs-Shortest-Path
+void Floyd () {
+    // Dp
+    // 表示所有点只经过集合{ 1..k }内的点时的最短路径
+    // 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n
+    for ( int k = 1; k &lt;= n; ++k )
+        //选取每一个起点
+        for ( int i = 1; i &lt;= n; ++i )
+            //选取每一个终点
+            for ( int j = 1; j &lt;= n; ++j )
+                // i -- j的路径存在
+                if ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) {
 
-                    <span class="keyword">int</span> tmp = w[ i ][ k ] + w[ k ][ j ];
-                    <span class="comment">// d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }</span>
-                    <span class="keyword">if</span> ( w[ i ][ j ] &gt; tmp ) {
+                    int tmp = w[ i ][ k ] + w[ k ][ j ];
+                    // d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }
+                    if ( w[ i ][ j ] &gt; tmp ) {
                         w[ i ][ j ] = tmp;
-                        <span class="comment">//记录后继路径</span>
-                        <span class="comment">//前驱path[ i ][ j ] = path[ k ][ j ];</span>
+                        //记录后继路径
+                        //前驱path[ i ][ j ] = path[ k ][ j ];
                         path[ i ][ j ] = path[ i ][ k ];
                     }
                 }
 }
 </code></pre>
-<h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
+<h4>题目列表</h4>
 <p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
 <blockquote>
 <p>一个农场有n (1000)个点，有t (2000)条道路连接,  从n到1最短</p>
@@ -727,14 +727,14 @@
 <p>网络流，不会qwq</p>
 <p><strong>R - 0 or 1 HDU - 4370</strong></p>
 <blockquote>
-<p>X12+X13+…X1n=1,X1n+X2n+…Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
+<p>X12+X13+...X1n=1,X1n+X2n+...Xn-1n=1,其余行列和相同，求ΣCij*Xij</p>
 </blockquote>
 <p>神一样的建图！！节点1的出度为1.节点n的入度为1.节点2-n-1的入度和出度相等.</p>
 <p>问题就相当于求一条最短路，从节点1出发，到节点N.</p>
 <p>同时节点1的一个最小环+节点n的一个最小环也是可行解，两者取最小</p>
 <p><strong>S - Layout POJ - 3169</strong></p>
 <blockquote>
-<p>两点间可能&lt;= x 或者&gt;=x，求1–&gt;n最大</p>
+<p>两点间可能&lt;= x 或者&gt;=x，求1--&gt;n最大</p>
 </blockquote>
 <p>差分约束，和最短路一样，SPFA判断负环则代表不存在可行解</p>
 
@@ -937,7 +937,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kuangbin专题四-最短路"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路"><span class="nav-number">2.</span> <span class="nav-text"> 单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra"><span class="nav-number">2.1.</span> <span class="nav-text"> Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra-stl-priority_queue"><span class="nav-number">2.2.</span> <span class="nav-text"> Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spfa-shortest-path-faster-algorithm"><span class="nav-number">2.3.</span> <span class="nav-text"> SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bellman-ford"><span class="nav-number">2.4.</span> <span class="nav-text"> Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景"><span class="nav-number">2.5.</span> <span class="nav-text"> 适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多源最短路"><span class="nav-number">2.6.</span> <span class="nav-text"> 多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#floyd"><span class="nav-number">2.7.</span> <span class="nav-text"> Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目列表"><span class="nav-number">2.8.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.7.</span> <span class="nav-text">Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.8.</span> <span class="nav-text">题目列表</span></a></li></ol></li></ol></div>
             
 
           </div>

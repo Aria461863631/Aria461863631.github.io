@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
+<meta name="description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; int dp[ N ], val[ N ];  int LIS ( int n ) {     int mx = 0;     f">
 <meta name="keywords" content="ACM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kuangbin专题十二 基础DP">
 <meta property="og:url" content="http://yoursite.com/2017/12/20/ACM/kuangbin-12/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
+<meta property="og:description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; int dp[ N ], val[ N ];  int LIS ( int n ) {     int mx = 0;     f">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-01-04T05:26:56.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题十二 基础DP">
-<meta name="twitter:description" content="kuangbin 专题十二 基础DP  LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $">
+<meta name="twitter:description" content="kuangbin 专题十二 基础DP LIS dp[ i ]代表前i个数的最长子序列大小 dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &amp;lt; val[ i ] ) $ O ( n^2 ) $ &amp;lt;!-- more --&amp;gt; int dp[ N ], val[ N ];  int LIS ( int n ) {     int mx = 0;     f">
 
 
 
@@ -405,132 +405,132 @@
       
 
       
-        <h2 id="kuangbin-专题十二-基础dp"><a class="markdownIt-Anchor" href="#kuangbin-专题十二-基础dp"></a> kuangbin 专题十二 基础DP</h2>
-<h3 id="lis"><a class="markdownIt-Anchor" href="#lis"></a> LIS</h3>
+        <h2>kuangbin 专题十二 基础DP</h2>
+<h3>LIS</h3>
 <p>dp[ i ]代表前i个数的最长子序列大小</p>
 <p>dp[ i ] =max { dp[ j ] + 1 } ( val[ j ] &lt; val[ i ] )</p>
-<p>$ O ( n^2 ) $</p>
-<a id="more"></a>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> dp[ N ], val[ N ];
+<p>$ O ( n^2 ) $
+&lt;!-- more --&gt;</p>
+<pre><code class="language-cpp">int dp[ N ], val[ N ];
 
-<span class="function"><span class="keyword">int</span> <span class="title">LIS</span> <span class="params">( <span class="keyword">int</span> n )</span> </span>{
-    <span class="keyword">int</span> mx = <span class="number">0</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i ) {
-        dp[ i ] = <span class="number">1</span>;
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; ++j ) {
-            <span class="keyword">if</span> ( val[ j ] &lt; val[ i ] &amp;&amp; dp[ i ] &lt; dp[ j ] + <span class="number">1</span> )
-                dp[ i ] = dp[ j ] + <span class="number">1</span>;
+int LIS ( int n ) {
+    int mx = 0;
+    for ( int i = 0; i &lt; n; ++i ) {
+        dp[ i ] = 1;
+        for ( int j = 0; j &lt; i; ++j ) {
+            if ( val[ j ] &lt; val[ i ] &amp;&amp; dp[ i ] &lt; dp[ j ] + 1 )
+                dp[ i ] = dp[ j ] + 1;
         }
-        <span class="keyword">if</span> ( mx &lt; dp[ i ] )
+        if ( mx &lt; dp[ i ] )
             mx = dp[ i ];
     }
-    <span class="keyword">return</span> mx;
+    return mx;
 }
 </code></pre>
 <p>$ O ( nlgn ) $</p>
-<p><a href="http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
-<p><a href="http://blog.csdn.net/shuangde800/article/details/7474903" target="_blank" rel="noopener">http://blog.csdn.net/shuangde800/article/details/7474903</a></p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> val[ N ];<span class="comment">//输入的值</span>
-<span class="keyword">int</span> len;<span class="comment">//ed数组的长度（LIS长度）</span>
-<span class="keyword">int</span> ed[ N ];<span class="comment">//每个长度的序列的末尾</span>
+<p>http://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</p>
+<p>http://blog.csdn.net/shuangde800/article/details/7474903</p>
+<pre><code class="language-cpp">int val[ N ];//输入的值
+int len;//ed数组的长度（LIS长度）
+int ed[ N ];//每个长度的序列的末尾
 
-<span class="comment">//下界，返回 &gt;= 所查找对象的第一个位置</span>
-<span class="function"><span class="keyword">int</span> <span class="title">binary_search</span> <span class="params">( <span class="keyword">int</span> i )</span> </span>{
-    <span class="keyword">int</span> left, right, mid;
-    left = <span class="number">0</span>, right = len;
-    <span class="keyword">while</span> ( left &lt; right ) {
-        mid = left + ( right - left ) / <span class="number">2</span>;
-        <span class="keyword">if</span> ( ed[ mid ] &gt;= val[ i ] )
+//下界，返回 &gt;= 所查找对象的第一个位置
+int binary_search ( int i ) {
+    int left, right, mid;
+    left = 0, right = len;
+    while ( left &lt; right ) {
+        mid = left + ( right - left ) / 2;
+        if ( ed[ mid ] &gt;= val[ i ] )
             right = mid;
-        <span class="keyword">else</span>
-            left = mid + <span class="number">1</span>;
+        else
+            left = mid + 1;
     }
-    <span class="keyword">return</span> left;
+    return left;
 }
 
-<span class="function"><span class="keyword">void</span> <span class="title">LIS</span> <span class="params">( <span class="keyword">int</span> n )</span> </span>{
-    ed[ <span class="number">1</span> ] = val[ <span class="number">1</span> ];
-    len = <span class="number">1</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i ) {
-      <span class="comment">//更新最长的末尾</span>
-        <span class="keyword">if</span> ( val[ i ] &gt; ed[ len ] )
+void LIS ( int n ) {
+    ed[ 1 ] = val[ 1 ];
+    len = 1;
+    for ( int i = 2; i &lt;= n; ++i ) {
+      //更新最长的末尾
+        if ( val[ i ] &gt; ed[ len ] )
             ed[ ++len ] = val[ i ];
-      <span class="comment">//产生了新的序列，改变旧的长度的末尾</span>
-        <span class="keyword">else</span> {
-            <span class="comment">// 如果用STL： pos=lower_bound(ed,ed+len,val[i])-ed;</span>
-            <span class="keyword">int</span> pos = binary_search ( i );
+      //产生了新的序列，改变旧的长度的末尾
+        else {
+            // 如果用STL： pos=lower_bound(ed,ed+len,val[i])-ed;
+            int pos = binary_search ( i );
             ed[ pos ] = val[ i ];
         }
-        <span class="built_in">printf</span> ( <span class="string">"%d\n"</span>, len );
+        printf ( &quot;%d\n&quot;, len );
     }
 }
 </code></pre>
-<h3 id="lcs"><a class="markdownIt-Anchor" href="#lcs"></a> LCS</h3>
+<h3>LCS</h3>
 <p>dp[ i ][ j ] 代表两个字符串前i / j 个下的最长大小</p>
 <p>dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1 ( val[ i ] == val[ j ] )</p>
 <p>dp[ i ][ j ] = max ( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] ) ( != )</p>
-<pre class="highlight"><code class="cpp"><span class="comment">//CLRS 15.4</span>
+<pre><code class="language-cpp">//CLRS 15.4
 
-<span class="keyword">int</span> len1, len2;
-<span class="keyword">char</span> s1[ N ], s2[ N ];
-<span class="keyword">int</span> dp[ N ][ N ];
+int len1, len2;
+char s1[ N ], s2[ N ];
+int dp[ N ][ N ];
 
-<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">max</span> <span class="params">( <span class="keyword">int</span> a, <span class="keyword">int</span> b )</span> </span>{ <span class="keyword">return</span> a &gt; b ? a : b; }
+inline int max ( int a, int b ) { return a &gt; b ? a : b; }
 
-<span class="function"><span class="keyword">void</span> <span class="title">LCS</span> <span class="params">()</span> </span>{
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len1; i++ ) {
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= len2; j++ ) {
-            <span class="keyword">if</span> ( s1[ i ] == s2[ j ] )
-                dp[ i ][ j ] = dp[ i - <span class="number">1</span> ][ j - <span class="number">1</span> ] + <span class="number">1</span>;
-            <span class="keyword">else</span>
-                dp[ i ][ j ] = max ( dp[ i - <span class="number">1</span> ][ j ], dp[ i ][ j - <span class="number">1</span> ] );
+void LCS () {
+    for ( int i = 1; i &lt;= len1; i++ ) {
+        for ( int j = 1; j &lt;= len2; j++ ) {
+            if ( s1[ i ] == s2[ j ] )
+                dp[ i ][ j ] = dp[ i - 1 ][ j - 1 ] + 1;
+            else
+                dp[ i ][ j ] = max ( dp[ i - 1 ][ j ], dp[ i ][ j - 1 ] );
         }
     }
 }
 
-<span class="function"><span class="keyword">void</span> <span class="title">Print</span> <span class="params">( <span class="keyword">int</span> i, <span class="keyword">int</span> j )</span> </span>{
-    <span class="comment">//当最长的子序列搜索完，但其中一串仍有剩余时，输出</span>
-    <span class="keyword">if</span> ( i == <span class="number">0</span> || j == <span class="number">0</span> ) {
-        <span class="keyword">return</span>;
+void Print ( int i, int j ) {
+    //当最长的子序列搜索完，但其中一串仍有剩余时，输出
+    if ( i == 0 || j == 0 ) {
+        return;
     }
-    <span class="comment">//找到公共字符</span>
-    <span class="keyword">if</span> ( s1[ i ] == s2[ j ] ) {
-        Print ( i - <span class="number">1</span>, j - <span class="number">1</span> );
-        <span class="built_in">printf</span> ( <span class="string">"%c"</span>, s1[ i ] );
+    //找到公共字符
+    if ( s1[ i ] == s2[ j ] ) {
+        Print ( i - 1, j - 1 );
+        printf ( &quot;%c&quot;, s1[ i ] );
 
-    } <span class="keyword">else</span> <span class="keyword">if</span> ( dp[ i - <span class="number">1</span> ][ j ] &gt; dp[ i ][ j - <span class="number">1</span> ] ) {
-        Print ( i - <span class="number">1</span>, j );
+    } else if ( dp[ i - 1 ][ j ] &gt; dp[ i ][ j - 1 ] ) {
+        Print ( i - 1, j );
 
-    } <span class="keyword">else</span> {
-        Print ( i, j - <span class="number">1</span> );
+    } else {
+        Print ( i, j - 1 );
     }
 }
 
 
 </code></pre>
-<h3 id="完全背包"><a class="markdownIt-Anchor" href="#完全背包"></a> 完全背包</h3>
+<h3>完全背包</h3>
 <p>dp[ i ]代表背包重i的时候最大的价值</p>
 <p>dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] )</p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> v[ N ], w[ N ]; <span class="comment">// value，weight</span>
-<span class="keyword">int</span> dp[ N ];
+<pre><code class="language-cpp">int v[ N ], w[ N ]; // value，weight
+int dp[ N ];
 
-<span class="comment">//n个物品，最多装wei的东西</span>
-<span class="function"><span class="keyword">int</span> <span class="title">knapsack</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> wei )</span> </span>{
-    <span class="built_in">memset</span> ( dp, INF, <span class="keyword">sizeof</span> ( dp ) );
-    dp[ <span class="number">0</span> ] = <span class="number">0</span>;
+//n个物品，最多装wei的东西
+int knapsack ( int n, int wei ) {
+    memset ( dp, INF, sizeof ( dp ) );
+    dp[ 0 ] = 0;
 
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= wei; ++i ) {
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j ) {
-            <span class="keyword">if</span> ( i &gt;= w[ j ] )
+    for ( int i = 1; i &lt;= wei; ++i ) {
+        for ( int j = 0; j &lt; n; ++j ) {
+            if ( i &gt;= w[ j ] )
                 dp[ i ] = min ( dp[ i ], dp[ i - w[ j ] ] + v[ j ] );
         }
     }
 
-    <span class="keyword">return</span> dp[ wei ];
+    return dp[ wei ];
 }
 
 </code></pre>
-<h3 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h3>
+<h3>题目列表</h3>
 <p><strong>A - Max Sum Plus Plus HDU - 1024</strong></p>
 <blockquote>
 <p>n个数，要求分成m组，使m组的和加起来得到最大值。</p>
@@ -557,7 +557,7 @@
 <blockquote>
 <p>从起点到达终点，只能前行不能后退，且下一步必须比前面的点的值大，求所有走的点的值总和最大是多少。</p>
 </blockquote>
-<p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;<br>
+<p>dp[i] = max(dp[k] + a[j]); 1&lt;=k&lt;=i-1;
 最大递增子串和。</p>
 <p><strong>F - Piggy-Bank HDU - 1114</strong></p>
 <blockquote>
@@ -580,7 +580,7 @@
 <p>求有多少个递减序列</p>
 </blockquote>
 <p>反过来，转换成求整个系列有多少个LIS，则是所求的组数</p>
-<p><strong>J - FatMouse’s Speed HDU - 1160</strong></p>
+<p><strong>J - FatMouse's Speed HDU - 1160</strong></p>
 <blockquote>
 <p>给n个老鼠的体重和速度，求找出一个最长的序列，此序列体重递增速度递减</p>
 </blockquote>
@@ -602,7 +602,7 @@
 <blockquote>
 <p>老鼠在时刻0从高于所有平台的某处开始下落.当Jimmy落到某个平台上时，游戏者选择让它向左还是向右跑.当Jimmy跑到平台的边缘时，开始继续下落。Jimmy每次下落的高度不能超过MAX</p>
 </blockquote>
-<p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)<br>
+<p>dp[i][0] = min(dp[k][0]+l[i]-l[k], dp[k][1]+r[i]-l[k]) + h[i]-h[k]; (左左和左右取最小)
 dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右右取最小)</p>
 <p><strong>N - Longest Ordered Subsequence POJ - 2533</strong></p>
 <blockquote>
@@ -613,7 +613,7 @@ dp[i][1] = min(dp[k][0]+r[i]-l[k], dp[k][1]+r[i]-r[k]) + h[i]-h[k];(右左和右
 <blockquote>
 <p>n个数在一个双端队列中，每次从队首或队尾出。出的第n个数乘以n，最后加起来，求最大和。</p>
 </blockquote>
-<p>dp[i][j] 代表从i取到j的最大总数<br>
+<p>dp[i][j] 代表从i取到j的最大总数
 dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
 <p><strong>P - FatMouse and Cheese HDU - 1078</strong></p>
 <blockquote>
@@ -625,7 +625,7 @@ dp[i][j] = max(dp[i+1][j]+a[i] * (n+i-j) , dp[i][j-1]+a[j] * (n+i-j));</p>
 <blockquote>
 <p>给了一个字符串矩阵，求以次对角线方向对称的最大对称矩阵。</p>
 </blockquote>
-<p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。<br>
+<p>每次只需求最外面一层对称个数sum，再和右上角对称矩阵大小加一取最小就行，就求出当前小矩阵的最大对称矩阵。最后取个所有对称矩阵大小的最大值就行。
 dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
 <p><strong>R - Milking Time POJ - 3616</strong></p>
 <blockquote>
@@ -841,7 +841,7 @@ dp[i][j] = min(sum,dp[i-1][j+1]+1);</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kuangbin-专题十二-基础dp"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin 专题十二 基础DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lis"><span class="nav-number">1.1.</span> <span class="nav-text"> LIS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lcs"><span class="nav-number">1.2.</span> <span class="nav-text"> LCS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全背包"><span class="nav-number">1.3.</span> <span class="nav-text"> 完全背包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目列表"><span class="nav-number">1.4.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">kuangbin 专题十二 基础DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">LIS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">LCS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">完全背包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">题目列表</span></a></li></ol></li></ol></div>
             
 
           </div>

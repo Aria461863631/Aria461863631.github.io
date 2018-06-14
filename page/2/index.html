@@ -402,21 +402,60 @@
 
       
         
-          <h2 id="ch-2-how-the-backpropagation-algorithm-works"><a class="markdownIt-Anchor" href="#ch-2-how-the-backpropagation-algorithm-works"></a> ch-2 How the backpropagation algorithm works</h2>
-<p>discuss <strong>how to compute</strong> the gradient ( <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\nabla C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">∇</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> ) of the cost function</p>
+          
+            <h2>ch-2 How the backpropagation algorithm works</h2>
+<p>discuss <strong>how to compute</strong> the gradient ( $\nabla C$ ) of the cost function</p>
 <p>Heart of backpropagation</p>
 <ul>
-<li>an expression for the partial derivative ∂ C /∂ w of the cost function C with respect to any weight w ( or bias b ) in the network</li>
-<li>tells us <strong>how quickly</strong> the cost changes when<br>
+<li>an expression for the partial derivative $∂ C /∂ w$ of the cost function C with respect to any weight w ( or bias b ) in the network</li>
+<li>tells us <strong>how quickly</strong> the cost changes when
 we change the weights and biases</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/NeuralNet/2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<h3>Warm up: a fast matrix-based approach to computing the output from a neural network</h3>
+<p>Notation</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Vectorized form</p>
+<ul>
+<li>apply the weight matrix to the activations, then add the bias vector, and finally apply the σ function</li>
+<li>$a^l=σ(w^la^{l−1}+b^l) =σ(z^l)$</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>The two assumptions we need about the cost function</h3>
+<ol>
+<li>the cost function can be written as an average $ C=\frac{1}{n}∑_xC_x$ over cost functions $C_x$ for individual training examples, x.</li>
+<li>the cost can be written as a <strong>function of the outputs</strong> from the neural network: $cost C = C ( a^L )$</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<h3>The four fundamental equations behind backpropagation</h3>
+<p>**DEF error ** $ δ^l_j $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png" alt=""></p>
+<p><strong>Error in the output layer</strong> $δ^l$</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png" alt=""></p>
+<p><strong>Error $δ^l$ in terms of the error in the next layer, $δ^l+1$</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png" alt=""></p>
+<p><strong>Rate of change of the cost with respect to any bias</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png" alt=""></p>
+<p><strong>Rate of change of the cost with respect to any weight</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>Proof of the four fundamental equations</h3>
+<p>using chain rule</p>
+<p>&lt;br/&gt;</p>
+<h3>The backpropagation algorithm</h3>
+<ul>
+<li>correctness: because the cost is a function of outputs</li>
+<li>To understand how the cost varies with earlier weights and biases we need to repeatedly apply the chain rule, , working backward through the layers to obtain usable expressions</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<h3>Backpropagation: the big picture</h3>
+<p>a clever way of keeping track of small perturbations to the weights (and biases) as they propagate through the network, reach the output, and then affect the cost</p>
+
+          
         
       
     </div>
@@ -566,20 +605,162 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="ch-1-using-neural-nets-to-recognize-handwritten-digits"><a class="markdownIt-Anchor" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"></a> ch-1 Using neural nets to recognize handwritten digits</h2>
-<h3 id="perceptrons"><a class="markdownIt-Anchor" href="#perceptrons"></a> Perceptrons</h3>
+          
+            <h2>ch-1 Using neural nets to recognize handwritten digits</h2>
+<h3>Perceptrons</h3>
 <ul>
 <li>a type of artificial neuron</li>
 <li>a device that makes decisions by weighing up evidence</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-31-57.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/13/NeuralNet/nndlch1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<p>perceptron in higher layer</p>
+<ul>
+<li>make a decision at a more complex and more <strong>abstract</strong> level</li>
+</ul>
+<p>many-layer network of perceptrons</p>
+<ul>
+<li>engage in sophisticated decision making</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>weight</strong></p>
+<ul>
+<li>real numbers expressing the <strong>importance</strong> of the respective inputs to the output</li>
+</ul>
+<p><strong>bias</strong></p>
+<ul>
+<li>a measure of how <strong>easy</strong> it is to get the perceptron to fire</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-33-44.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Use perceptrons to compute any logical function</p>
+<ul>
+<li>NAND gate is universal for computation</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Sigmoid neurons</h3>
+<p><strong>Learning</strong></p>
+<ul>
+<li>DEF: changing the weights and biases over and over to produce better and better output</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Problems  of Perceptron</p>
+<ul>
+<li>step function</li>
+</ul>
+<ul>
+<li>a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-34-25.png" alt=""></p>
+<p><strong>sigmoid neuron</strong></p>
+<ul>
+<li>Input take on values between 0 an 1</li>
+</ul>
+<ul>
+<li>Output also between 0 and 1 which is $ σ( wx + b ) $</li>
+</ul>
+<p>$ σ(z) ≡ \frac { 1 }{ 1 + e ^ {-z } } $ where $ z = wx + b $</p>
+<p>$  σ'(z) =  σ(z)  (1- σ(z) ) $</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222647/Screenshot_from_2018-03-28_15-34-35.png" alt=""></p>
+<ul>
+<li>
+<p>The smoothness of σ means that small changes $Δw_j$ in the weights and $Δb$ in the bias will produce a small change $Δoutput$ in the output from the neuron.</p>
+</li>
+<li>
+<p>$ \Delta output \approx  \Sigma _j \frac {\partial output}{ \partial w_j} \Delta w_j  + \frac {\partial output}{ \partial b} \Delta b  $</p>
+</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>The architecture of neural networks</h3>
+<ul>
+<li>input layer, output layer, hidden layer</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-05.png" alt=""></p>
+<p><strong>Feed Forward Neural Networks</strong></p>
+<ul>
+<li>no loops in the network</li>
+</ul>
+<p>Recurrent neural networks</p>
+<ul>
+<li>feedback loops are possible</li>
+<li>have neurons which fire for some limited duration of <strong>time</strong>, before becoming quiescent</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>A simple network to classify handwritten digits</h3>
+<p>To recognize individual digits we will use a three-layer neural network</p>
+<ul>
+<li>Input: 28 by 28 pixel = 784</li>
+<li>Output: 10 neurons represent for 0 to 9</li>
+<li>Hidden layer: n = 15 as an example</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Output layer: why use 10 numbers rather than 4 bits?</p>
+<ul>
+<li>there's no easy way to relate that most significant bit to simple shapes</li>
+</ul>
+<p>?A way to think about Hidden layer</p>
+<ul>
+<li>weighting up evidence and produce an abstraction</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>Learning with gradient descent</h3>
+<p><strong>cost function</strong></p>
+<ul>
+<li>DEF:  $ C( w,b ) ≡ \frac{1}{2n} ∑ ∥y(x) − a ∥^2 $</li>
+<li>$y(x) = (0, 0, 0, 0, 0, 0, 1, 0, 0, 0)^T$ : Desired output</li>
+<li>a : Output from network</li>
+<li>x : input, n: number of inputs, w : weight, b : bias</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Aim of our training algorithm</strong></p>
+<ul>
+<li><strong>minimize</strong> the cost C (w, b) as a function of the weights and biases</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Why not try to maximize that number?</p>
+<ul>
+<li>the number of images correctly classified is not a smooth function of the weights and biases</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Gradient Descent Algorithm</strong></p>
+<ul>
+<li>repeatedly compute the gradient ∇C , and then to move in the opposite direction</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>$ ΔC ≈ \frac { ∂ C }{∂ w_k} Δ w_k + \frac{ ∂ C } {∂ b_l} Δ b_l  ≈ ∇C ⋅ Δv.$</p>
+<p>choose Δv so as to make ΔC <strong>negative</strong></p>
+<p>$Δv = −η∇C $</p>
+<p>apply to each component</p>
+<p>$ w_k → w_k' = w_k − η \frac{∂ C}{∂w_k }$</p>
+<p>$ b_l → b_l' = b_l − η \frac{∂ C}{∂b_l }$</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-22.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Problem</p>
+<ul>
+<li>In practical implementations, η is often varied so that it remains a good approximation, but the algorithm is too slow</li>
+</ul>
+<p><strong>Stochastic gradient descent</strong></p>
+<ul>
+<li>used to speed up learning</li>
+<li>estimate the gradient $ ∇C $ by computing $ ∇C_x $ for a small sample of randomly chosen training inputs</li>
+</ul>
+<p>$ w_k → w_k' = w_k − \frac{η}{m} \Sigma_j\frac{∂ C}{∂w_k }$</p>
+<p>$ b_l → b_l' = b_l − \frac{η}{m}\Sigma_j \frac{∂ C}{∂b_l }$</p>
+<p>&lt;br/&gt;</p>
+<h3>Toward deep learning</h3>
+<p>The weights and biases in the network were discovered <strong>automatically</strong>.</p>
+<p>And that means we don't immediately have an <strong>explanation</strong> of how the network does what it does</p>
+<p>&lt;br/&gt;</p>
+<p>A heuristic</p>
+<ul>
+<li>we could use is to decompose the problem into <strong>sub-problems</strong></li>
+<li>early layers answering very simple and specific questions about the input image</li>
+<li>later layers building up a hierarchy of ever more complex and <strong>abstract</strong> concepts</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222649/Screenshot_from_2018-03-28_15-36-55.png" alt=""></p>
+
+          
         
       
     </div>
@@ -729,25 +910,310 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch8-shell-lab"><a class="markdownIt-Anchor" href="#csapp-ch8-shell-lab"></a> [CS:APP-ch8] Shell Lab</h2>
-<p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
-<p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
-<p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
-<br>
-<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
+          
+            <h2>[CS:APP-ch8] Shell Lab</h2>
+<p>http://csapp.cs.cmu.edu/3e/labs.html</p>
+<p>http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</p>
+<p>https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</p>
+<p>&lt;br/&gt;</p>
+<h3>Target</h3>
 <p>implement</p>
 <ul>
 <li>eval, builtin_cmd, do_bgfg, waitfg</li>
 <li>sigchld_handler, sigint_handler, sigtstp_handler</li>
 </ul>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/21/CSAPP/shell/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<h3>0. Preparation</h3>
+<p><code>tshref</code>: 正确的参考shell，要求自己实现后的shell和它的结果一样</p>
+<p><code>make test01</code>用trace01.txt来验证结果，可以参考<code>make rtest01</code>的结果</p>
+<p><code>gdb</code> makefile去掉参数O2,加上-g</p>
+<p>&lt;br/&gt;</p>
+<h3>1. void eval ( char*cmdline )</h3>
+<p>原型：p755</p>
+<ul>
+<li>If command is a built-in command, the shell program handles it immediately.</li>
+<li>Otherwise, the shell creates a child process to load and execute the program for command.</li>
+</ul>
+<p>Hint</p>
+<ul>
+<li>In <code>eval</code>, the <strong>parent</strong> must use <code>sigprocmask</code>to <strong>block</strong> <code>SIGCHLD</code> signals before it forks the child, then <strong>unblock</strong> these signals, again using <code>sigprocmask</code> after it adds the child to the job list by calling <code>addjob</code>.</li>
+<li>Since children inherit the blocked vectors of their parents, the <strong>child</strong> must be sure to then <strong>unblock</strong> <code>SIGCHLD</code> signals before it <code>execs</code> the new program.</li>
+<li>The <strong>parent</strong> needs to <strong>block</strong> the <code>SIGCHLD</code> signals in this way in order to avoid the <strong>race</strong> condition where the child is reaped by <code>sigchld_handler</code> (and thus removed from the job list) before the parent calls addjob.</li>
+<li>After the <code>fork</code>, but before the <code>execve</code>, the child process should call <code>setpgid(0, 0)</code>, which puts the child in a <strong>new</strong> process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the <strong>foreground process group</strong>. When you type <code>ctrl-c</code>, the shell should catch the resulting <code>SIGINT</code> and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</li>
+</ul>
+<pre><code class="language-c++">/*
+ * eval - Evaluate the command line that the user has just typed in
+ *
+ * If the user has requested a built-in command (quit, jobs, bg or fg)
+ * then execute it immediately. Otherwise, fork a child process and
+ * run the job in the context of the child. If the job is running in
+ * the foreground, wait for it to terminate and then return.  Note:
+ * each child process must have a unique process group ID so that our
+ * background children don't receive SIGINT (SIGTSTP) from the kernel
+ * when we type ctrl-c (ctrl-z) at the keyboard.
+ */
+void eval ( char *cmdline ) {
+
+    pid_t pid;
+    sigset_t mask;
+    char *argv[ MAXARGS ];
+    //Parse the command line and build the argv array
+    int bg = parseline ( cmdline, argv );
+
+    if ( !builtin_cmd ( argv ) ) {
+
+        // blocking SIGCHLD, race
+        sigemptyset ( &amp;mask );
+        sigaddset ( &amp;mask, SIGCHLD );
+        sigprocmask ( SIG_BLOCK, &amp;mask, NULL );
+
+        // fork new process
+        if ( ( pid = fork () ) &lt; 0 )
+            unix_error ( &quot;fork error&quot; );
+
+        // child process
+        else if ( pid == 0 ) {
+            // unblock SIGCHLD in child process
+            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );
+            // ensures that there will be only one process
+            setpgid ( 0, 0 );
+            // execute command
+            if ( execvp ( argv[ 0 ], argv ) &lt; 0 ) {
+                printf ( &quot;%s: Command not found\n&quot;, argv[ 0 ] );
+                exit ( 1 );
+            }
+
+        // parent
+        } else {
+
+            addjob ( jobs, pid, bg ? BG : FG, cmdline );
+            // get SIGCHLD back after add job
+            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );
+
+            if ( !bg ) {
+                // reap when job terminated ( send signal SIGCHILD )
+                waitfg ( pid );
+            } else {
+                //[1] (6325) ./myspin 1 &amp;
+                printf ( &quot;[%d] (%d) %s&quot;, pid2jid ( pid ), pid, cmdline );
+            }
+        }
+    }
+    return;
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>2.int builtin_cmd( char **argv)</h3>
+<ul>
+<li>Four commands are to be built-in in the shell</li>
+<li>quit: exit the shell.</li>
+<li>jobs: List the running and stopped background jobs.</li>
+</ul>
+<pre><code class="language-c++">/*
+ * builtin_cmd - If the user has typed a built-in command then execute
+ *    it immediately.
+ */ 
+int builtin_cmd ( char **argv ) {
+    if ( strcmp ( argv[ 0 ], &quot;quit&quot; ) == 0 ) {
+        exit ( 0 );
+    } else if ( strcmp ( argv[ 0 ], &quot;jobs&quot; ) == 0 ) {
+        listjobs ( jobs );
+        return 1;
+    } else if ( !strcmp ( argv[ 0 ], &quot;fg&quot; ) || !strcmp ( argv[ 0 ], &quot;bg&quot; ) ) {
+        do_bgfg ( argv );
+        return 1;
+    }
+    return 0; /* not a builtin command */
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>3. void waitfg( pid_t pid )</h3>
+<ul>
+<li>shell should wait for foreground process</li>
+<li>This function should wait by sleeping for 1 second repeatedly until the specified process is no longer the foreground process (state = FG)</li>
+</ul>
+<p>Hints</p>
+<ul>
+<li>In <code>waitfg</code>, use a busy loop around the sleep function.</li>
+</ul>
+<pre><code class="language-c++">/*
+ * waitfg - Block until process pid is no longer the foreground process
+ */
+void waitfg ( pid_t pid ) {
+    struct job_t *job = getjobpid ( jobs, pid );
+    if ( pid == 0 )
+        return;
+
+    if ( job != NULL ) {
+        // sleep
+        while ( pid == fgpid ( jobs ) ) {
+        }
+    }
+    return;
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>4. void do_bgfg( char **argv )</h3>
+<ul>
+<li><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</li>
+<li><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</li>
+<li>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</li>
+</ul>
+<ul>
+<li>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</li>
+</ul>
+<pre><code class="language-c++">/*
+ * do_bgfg - Execute the builtin bg and fg commands
+ */
+void do_bgfg ( char **argv ) {
+    struct job_t *job;
+    char *tmp;
+    int jid;
+    pid_t pid;
+
+    tmp = argv[ 1 ];
+
+    // unvalid id
+    if ( tmp == NULL ) {
+        printf ( &quot;%s command requires PID or %%jobid argument\n&quot;, argv[ 0 ] );
+        return;
+    }
+
+    // jid
+    if ( tmp[ 0 ] == '%' ) {
+        // string to integer
+        jid = atoi ( &amp;tmp[ 1 ] );
+        job = getjobjid ( jobs, jid );
+
+        // unvalid jid
+        if ( job == NULL ) {
+            //%2: No such job
+            printf ( &quot;%s: No such job\n&quot;, tmp );
+            return;
+        } else {
+            pid = job-&gt;pid;
+        }
+    }
+
+    // pid
+    else if ( isdigit ( tmp[ 0 ] ) ) {
+        pid = atoi ( tmp );
+        job = getjobpid ( jobs, pid );
+
+        // unvalid pid
+        if ( job == NULL ) {
+            //(2): No such process
+            printf ( &quot;(%d): No such process\n&quot;, pid );
+            return;
+        }
+    } else {
+        printf ( &quot;%s: argument must be a PID or %%jobid\n&quot;, argv[ 0 ] );
+        return;
+    }
+    // awakened by the receipt of a SIGCONT signal.
+    kill ( -pid, SIGCONT );
+
+    if ( !strcmp ( &quot;fg&quot;, argv[ 0 ] ) ) {
+        // foreground, shell wait for it
+        job-&gt;state = FG;
+        waitfg ( job-&gt;pid );
+    } else {
+        job-&gt;state = BG;
+        // print
+        printf ( &quot;[%d] (%d) %s&quot;, job-&gt;jid, job-&gt;pid, job-&gt;cmdline );
+    }
+
+    return;
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>5.void sigchld_handler( int sig )</h3>
+<p>This is the shell's handler for the<code>SIGCHLD</code> signal.</p>
+<p>Hints</p>
+<ul>
+<li>In <code>sigchld_handler</code>, use exactly one call to <code>waitpid</code></li>
+</ul>
+<pre><code class="language-c++">
+/*
+ * sigchld_handler - The kernel sends a SIGCHLD to the shell whenever
+ *     a child job terminates (becomes a zombie), or stops because it
+ *     received a SIGSTOP or SIGTSTP signal. The handler reaps all
+ *     available zombie children, but doesn't wait for any other
+ *     currently running children to terminate.
+ */
+void sigchld_handler ( int sig ) {
+    pid_t pid;
+    int status;
+
+    // wait for all child to end
+    while ( ( pid = waitpid ( -1, &amp;status, WNOHANG | WUNTRACED ) ) &gt; 0 ) {
+        // child currently stopped
+        if ( WIFSTOPPED ( status ) ) {
+            // change state
+            struct job_t *job = getjobpid ( jobs, pid );
+            job-&gt;state = ST;
+
+            int jid = pid2jid ( pid );
+            // Job [2] (14171) stopped by signal 20
+            printf ( &quot;Job [%d] (%d) stopped by signal %d\n&quot;, jid, pid, WSTOPSIG ( status ) );
+
+        }
+        // child terminated because of a signal
+        else if ( WIFSIGNALED ( status ) ) {
+            int jid = pid2jid ( pid );
+            // INT
+            // Job [1] (13253) terminated by signal 2
+            printf ( &quot;Job [%d] (%d) terminated by signal %d\n&quot;, jid, pid, WTERMSIG ( status ) );
+            deletejob ( jobs, pid );
+        }
+        // child terminated normally
+        else if ( WIFEXITED ( status ) ) {
+            deletejob ( jobs, pid );
+        }
+    }
+    return;
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>6. void sigint_handler ( int sig )</h3>
+<p>Hints</p>
+<ul>
+<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.
+The <code>sdriver.pl</code> program tests for this error.</li>
+</ul>
+<pre><code class="language-c++">/*
+ * sigint_handler - The kernel sends a SIGINT to the shell whenver the
+ *    user types ctrl-c at the keyboard.  Catch it and send it along
+ *    to the foreground job.
+ */
+void sigint_handler ( int sig ) {
+    pid_t pid = fgpid ( jobs );
+
+    if ( pid != 0 ) {
+        kill ( -pid, sig );
+    }
+    return;
+}
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>7.void sigtstp_handler ( int sig )</h3>
+<pre><code class="language-c++">/*
+ * sigtstp_handler - The kernel sends a SIGTSTP to the shell whenever
+ *     the user types ctrl-z at the keyboard. Catch it and suspend the
+ *     foreground job by sending it a SIGTSTP.
+ */
+void sigtstp_handler ( int sig ) {
+    pid_t pid = fgpid ( jobs );
+
+    if ( pid != 0 ) {
+        kill ( -pid, sig );
+    }
+    return;
+}
+</code></pre>
+
+          
         
       
     </div>
@@ -897,9 +1363,10 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="sicp-ch2-building-abstractions-with-data"><a class="markdownIt-Anchor" href="#sicp-ch2-building-abstractions-with-data"></a> SICP-ch2 Building Abstractions with Data</h2>
+          
+            <h2>SICP-ch2 Building Abstractions with Data</h2>
 <p>building abstractions by forming compound data</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Intro</p>
 <ul>
 <li>2.1 data abstraction erect abstraction barriers</li>
@@ -908,14 +1375,497 @@ we change the weights and biases</li>
 <li>2.4  generic operations, data directed programming, additivity</li>
 <li>2.5 implement a package</li>
 </ul>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/10/SICP/sicp2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<h3>2.1 Introduction to Data Abstraction</h3>
+<p><strong>Data abstraction</strong></p>
+<ul>
+<li>isolating</li>
+<li>( the parts of a program that deal with how data objects are <strong>represented</strong> )</li>
+<li>from</li>
+<li>( the parts of a program that deal with how data objects are <strong>used</strong> )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Construct abstract data</p>
+<ul>
+<li>use constructors, selectors as interface</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.1.1 Example: Arithmetic Operations for Rational Numbers</strong></p>
+<ol>
+<li>assume the constructor and selectors are available</li>
+</ol>
+<pre><code class="language-scheme">numer , denom , make-rat
+</code></pre>
+<ol start="2">
+<li>use them to express rational operation</li>
+</ol>
+<pre><code class="language-scheme">(define (add-rat x y)
+	(make-rat (+ (* (numer x) (denom y))
+		(* (numer y) (denom x)))
+		(* (denom x) (denom y))))
+</code></pre>
+<ol start="3">
+<li>implement representation</li>
+</ol>
+<pre><code class="language-scheme">(define (make-rat n d) (cons n d))
+(define (numer x) (car x))
+(define (denom x) (cdr x))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>2.1.2 Abstraction Barriers</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-22.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>2.1.3 What Is Meant by Data?</strong></p>
+<p>DEF:</p>
+<ol>
+<li>some collection of selectors and constructors</li>
+<li>together with specified conditions for the representation</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Example</p>
+<ul>
+<li>Pairs z = ( x, y )</li>
+</ul>
+<ul>
+<li>selector: car, cdr</li>
+<li>constructor: cons</li>
+<li>condition: if z = ( x, y ) =&gt; ( car z ) = x &amp;&amp; ( cdr z ) = y</li>
+</ul>
+<pre><code class="language-scheme">(define (cons x y)
+	(define (dispatch m)
+		(cond ((= m 0) x)
+			 ((= m 1) y)
+		     (else (error &quot;Argument not 0 or 1: CONS&quot; m))))
+	;message passing: data representation returns procedure
+    dispatch)
+(define (car z) (z 0))
+(define (cdr z) (z 1))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Exercise 2.6</p>
+<pre><code class="language-scheme">;2.6
+;church numerals DEF
+( define zero ( lambda ( f ) ( lambda ( x ) x ) ) )
+
+( define ( add-1 n )
+         ( lambda ( f )( lambda ( x ) ( f ( ( n f ) x ) ))))
+
+;从0开始，每多一个f就+1
+( define ( church-to-int ch )
+         ( ( ch ( lambda ( n ) ( + n 1 ) ) ) 0 ) )
+
+( define one ( lambda ( f ) ( lambda ( x ) ( f x ) ) ) )
+
+( define two ( lambda ( f ) ( lambda ( x ) ( f ( f x ) ) ) ) )
+
+;a,b: function of zero, one, two...
+;b以x为参数经过b次apply f
+;a以x经过b次apply后的结果为参数(( b f ) x )，在此基础上再apply f a次
+( define ( add a b )
+         ( lambda ( f )
+                  ( lambda ( x ) ( ( a f ) ( ( b f ) x ) ) ) ) )
+
+;调用
+( define ( square x )
+         ( * x x ))
+
+; f = square x = 2 
+( ( two square ) 2 )
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>2.2 Hierarchical Data and the Closure Property</h3>
+<p><strong>closure property</strong> of cons ( an operation )</p>
+<ul>
+<li>The ability to create pairs whose elements are pairs</li>
+<li>Closure is the key to create hierarchical structures</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.2.1 Representing Sequences</strong></p>
+<p>The entire sequence is constructed by nested cons operations</p>
+<pre><code class="language-lsip">(cons 1
+	(cons 2
+		(cons 3
+			(cons 4 nil))))
+</code></pre>
+<p>Provides a primitive</p>
+<pre><code class="language-scheme">(list ⟨ a 1 ⟩ ⟨ a 2 ⟩ . . . ⟨ a n ⟩ )
+</code></pre>
+<p>Operations</p>
+<pre><code class="language-scheme">ref, length, append, last-pair, reverse
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Mapping over list</strong></p>
+<ul>
+<li>Establish an abstraction barrier that</li>
+<li>isolates</li>
+<li>the implementation of procedures that transform lists</li>
+<li>from</li>
+<li>the details of how the elements of the list are extracted and combined.</li>
+</ul>
+<pre><code class="language-scheme">(define (map proc items)
+	(if (null? items)
+	nil
+	(cons (proc (car items))
+		  (map proc (cdr items)))))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>2.2.2 Hierarchical Structures</strong></p>
+<p>Tree</p>
+<ul>
+<li>sequences whose elements are sequences</li>
+<li>Recursion is a natural tool for dealing with tree structures</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.2.3 Sequences as Conventional Interfaces</strong></p>
+<p>Conventional Interface</p>
+<ul>
+<li>permits us to combine processing modules</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Signal Processing</strong></p>
+<blockquote>
+<p>A signal-processing engineer would find it natural to conceptualize these processes in terms of signals flowing through a cascade of stages, each of which implements part of the program plan.</p>
+</blockquote>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647409/Screenshot_from_2018-03-10_10-03-03.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p><strong>Organizing programs so as to reflect the signal-flow structure</strong></p>
+<ul>
+<li>concentrate on the “signals”</li>
+<li>represent these signals as <strong>lists</strong></li>
+<li>use list operations to implement the processing</li>
+<li>helps us make program designs that are modular</li>
+<li>connecting the components in flexible ways</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Nested Mappings</p>
+<pre><code class="language-scheme">(define (flatmap proc seq)
+	(accumulate append nil (map proc seq)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>2.3 Symbolic Data</h3>
+<p>Issue arise</p>
+<ul>
+<li>words and sentences may be regarded either as <strong>semantic</strong> entities ( meaning ) or as <strong>syntactic</strong> entities ( characters )</li>
+</ul>
+<p>Using quotation mark</p>
+<pre><code class="language-scheme">(list 'a 'b)
+(a b)
+</code></pre>
+<p>manipulating symbols</p>
+<pre><code class="language-scheme">eq?, memq
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>2.4 Multiple Representations for Abstract Data</h3>
+<p>cope with data that may be represented in different ways by different parts of a program</p>
+<p><strong>Data Abstraction</strong></p>
+<ul>
+<li><strong>separate</strong> the task of designing a program that <strong>uses</strong> rational numbers from the task of <strong>implementing</strong> rational numbers</li>
+<li>an application of the &quot;principle of least commitment&quot;</li>
+</ul>
+<p><strong>Abstraction Barrier</strong></p>
+<ul>
+<li>formed by the selectors and constructors</li>
+<li>permits us to defer to the last possible moment the choice of a concrete representation</li>
+<li>thus retain maximum flexibility</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.4.1 Representations for Complex Numbers</strong></p>
+<p>constructors</p>
+<pre><code class="language-scheme">(make-from-real-imag (real-part z) (imag-part z))
+(make-from-mag-ang (magnitude z) (angle z))
+</code></pre>
+<p>selectors</p>
+<p>rectangular representation &amp; polar representation</p>
+<pre><code class="language-scheme">real-part,imag-part,magnitude,angle
+</code></pre>
+<p>implement arithmetic on complex numbers</p>
+<pre><code class="language-scheme">add-complex, sub-complex, mul-complex, div-complex
+</code></pre>
+<p>implement 2 representations of complex number</p>
+<pre><code>分别用直角和极坐标来实现4个selector和2个constructor
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>2.4.2 Tagged data</strong></p>
+<p>If <strong>both</strong> representations are included in a single system, we will need some way to <strong>distinguish</strong> data in polar form from data in rectangular form.</p>
+<p>A straightforward way to accomplish this distinction is to include a <strong>type tag</strong> —the symbol rectangular or polar —as part of each complex number.</p>
+<pre><code class="language-scheme">(define (make-from-real-imag-rectangular x y)
+	(attach-tag 'rectangular (cons x y)))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Make sure <strong>names</strong> do not conflict: Append the suffix -rectangular</p>
+<pre><code class="language-scheme">(define (real-part-rectangular z) (car z))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Generic selector</p>
+<ul>
+<li>Dispatch: checks the tag and calls the appropriate procedure of that type.</li>
+<li>because the selectors are generic, operation ( add, mul ) are unchanged</li>
+</ul>
+<pre><code class="language-scheme">(define (real-part z)
+	(cond ((rectangular? z)
+		  (real-part-rectangular (contents z)))
+		 ((polar? z)
+		  (real-part-polar (contents z)))
+		 (else (error &quot;Unknown type: REAL-PART&quot; z))))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Generic Constructor</p>
+<pre><code class="language-scheme">(define (make-from-real-imag x y)
+	(make-from-real-imag-rectangular x y))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>General mechanism</strong> for interfacing the separate representations</p>
+<ul>
+<li>stripping off and attaching tags as data objects are passed from level to level</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.4.3 Data-Directed Programming and Additivity</strong></p>
+<p>Two weaknesses of dispatching above</p>
+<ul>
+<li>generic interface procedures must know about <strong>all</strong> the different representations</li>
+<li>must guarantee that no two procedures in the entire system have the same <strong>name</strong></li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Additive</p>
+<ul>
+<li>design the individual packages separately and</li>
+<li>combine them to produce a generic system</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Data-directed programming</strong></p>
+<ul>
+<li>dealing with a two-dimensional table</li>
+<li>the possible operations on one axis and the possible types on the other axisss</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647610/Screenshot_from_2018-03-10_10-06-28.png" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Manipulate table</p>
+<pre><code class="language-scheme">(put ⟨ op ⟩ ⟨ type ⟩ ⟨ item ⟩ )
+(get ⟨ op ⟩ ⟨ type ⟩ )
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Defines a package</p>
+<p>Interfaces these by adding entries to the table</p>
+<pre><code class="language-scheme">(define (install-rectangular-package)
+	;; internal procedures
+	(define (real-part z) (car z))
+	(define (make-from-real-imag x y) (cons x y))
+		
+	;; interface to the rest of the system
+	(define (tag x) (attach-tag 'rectangular x))
+	(put 'real-part '(rectangular) real-part)
+  	(put 'make-from-real-imag 'rectangular
+		(lambda (x y) (tag (make-from-real-imag x y))))
+
+	'done)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Generic Selectors</p>
+<pre><code class="language-scheme">(define (apply-generic op . args)
+	(let ((type-tags (map type-tag args)))
+		(let ((proc (get op type-tags)))
+			(if proc
+                  ;apply arguments to procedure
+				(apply proc (map contents args))
+				(error
+					&quot;No method for these types: APPLY-GENERIC&quot;
+					(list op type-tags))))))
+</code></pre>
+<pre><code class="language-scheme">(define (real-part z) (apply-generic 'real-part z))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Generic Constructors</p>
+<pre><code class="language-scheme">(define (make-from-real-imag x y)
+	((get 'make-from-real-imag 'rectangular) x y))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Interface ( generic selectors )</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Previous</th>
+<th style="text-align:center">Data-directed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a set of procedures</td>
+<td style="text-align:center">single procedure</td>
+</tr>
+<tr>
+<td style="text-align:center">explicit dispatch</td>
+<td style="text-align:center">looks up</td>
+</tr>
+<tr>
+<td style="text-align:center">name conflicts</td>
+<td style="text-align:center">internal</td>
+</tr>
+<tr>
+<td style="text-align:center">change if a new representation is added</td>
+<td style="text-align:center">doesn't change</td>
+</tr>
+<tr>
+<td style="text-align:center">Centralized selectors</td>
+<td style="text-align:center">Decentralized</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;br/&gt;</p>
+<p><strong>Message passing</strong></p>
+<p>Data object receives the requested operation name as a “message.”</p>
+<p>&lt;br/&gt;</p>
+<p>Instead of using “intelligent operations” that dispatch on data types</p>
+<p>work with “intelligent data objects” that dispatch on <strong>operation names</strong>.</p>
+<p>&lt;br/&gt;</p>
+<p>Represent <strong>data object</strong> as a <strong>procedure</strong></p>
+<ul>
+<li>takes as input the required operation name</li>
+<li>performs the operation indicated</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Constructor</p>
+<pre><code class="language-scheme">(define (make-from-real-imag x y)
+	(define (dispatch op)
+		(cond ((eq? op 'real-part) x)
+			  (else (error &quot;Unknown op: MAKE-FROM-REAL-IMAG&quot; op))))
+	;return procedure
+	dispatch)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Selector</p>
+<pre><code class="language-scheme">(define (apply-generic op arg) (arg op))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h3>2.5 Systems with Generic Operations</h3>
+<p>use data-directed techniques to construct a package of arithmetic operations</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1520647179/Screenshot_from_2018-03-10_09-58-59.png" alt=""></p>
+<p><strong>2.5.1 Generic Arithmetic Operations</strong></p>
+<p>generic arithmetic procedures</p>
+<pre><code class="language-scheme">(define (add x y) (apply-generic 'add x y))
+</code></pre>
+<p>install packages</p>
+<pre><code class="language-scheme">(define (install-complex-package)
+	;; imported procedures from rectangular and polar packages
+	(define (make-from-real-imag x y)
+		((get 'make-from-real-imag 'rectangular) x y))
+    ;; internal procedures
+	(define (add-complex z1 z2)
+		(make-from-real-imag (+ (real-part z1) (real-part z2))
+						   (+ (imag-part z1) (imag-part z2))))
+    ;; interface to rest of the system
+	(define (tag z) (attach-tag 'complex z))
+  	(put 'make-from-real-imag 'complex
+		(lambda (x y) (tag (make-from-real-imag x y))))
+    'done)
+</code></pre>
+<p>constructor</p>
+<pre><code class="language-scheme">(define (make-complex-from-real-imag x y)
+	((get 'make-from-real-imag 'complex) x y))
+</code></pre>
+<p>two-level tag system</p>
+<p>&lt;br/&gt;</p>
+<p><strong>2.5.3 Example: Symbolic Algebra</strong></p>
+<p>implement polynomial package</p>
+<ol>
+<li>arithmetic on polynomials</li>
+<li>representation of polynomials</li>
+<li>arithmetic on term list</li>
+<li>representation of term list</li>
+</ol>
+<p><strong>Data Directed Recursion</strong></p>
+<ul>
+<li>using generic operation ( ADD ) inside each package</li>
+</ul>
+<p>Hierarchy of types in symbolic data</p>
+<ul>
+<li>recursive data abstraction</li>
+<li>neither of these types is above the other naturally</li>
+<li>difficult to control coercion</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>2.5.2 Combining Data of Different Types</strong></p>
+<p>Define cross-type operations</p>
+<p>&lt;br/&gt;</p>
+<p>One way: design a different procedure for each possible combination of types</p>
+<pre><code class="language-scheme">;; to be included in the complex package
+(define (add-complex-to-schemenum z x)
+	(make-from-real-imag (+ (real-part z) x) (imag-part z)))
+(put 'add '(complex scheme-number)
+	(lambda (z x) (tag (add-complex-to-schemenum z x))))
+</code></pre>
+<p>Cumbersome</p>
+<ul>
+<li>more code is needed</li>
+<li>individual packages need to take account of other packages ( not additive )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Coercion</strong></p>
+<ul>
+<li>objects of one type may be viewed as being of another type</li>
+</ul>
+<p>coercion procedure</p>
+<pre><code class="language-scheme">(define (scheme-number-&gt;complex n)
+	(make-complex-from-real-imag (contents n) 0))
+</code></pre>
+<p>install in coercion table</p>
+<pre><code>(put-coercion 'scheme-number
+			 'complex
+			  scheme-number-&gt;complex)
+</code></pre>
+<p>apply-generic</p>
+<ul>
+<li>check the coercion table to see</li>
+<li>if objects of the first type can be coerced to the second type or</li>
+<li>if there is a way to coerce the second argument to the type of the first argument</li>
+</ul>
+<pre><code class="language-scheme">(define (apply-generic op . args)
+	(let ((type-tags (map type-tag args)))
+		(let ((proc (get op type-tags)))
+			
+			(if proc
+				(apply proc (map contents args))
+				
+				(if (= (length args) 2)
+					(let ((type1 (car type-tags))
+						  (type2 (cadr type-tags))
+					       (a1 (car args))
+						   (a2 (cadr args)))
+						(let ((t1-&gt;t2 (get-coercion type1 type2))
+							  (t2-&gt;t1 (get-coercion type2 type1)))
+							(cond (t1-&gt;t2
+								     (apply-generic op (t1-&gt;t2 a1) a2))
+								 (t2-&gt;t1
+									(apply-generic op a1 (t2-&gt;t1 a2)))
+								 (else (error &quot;No method for these types&quot;
+										(list op type-tags))))))
+						(error &quot;No method for these types&quot;
+								(list op type-tags)))))))
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p>Advantage</p>
+<ul>
+<li>need to write only one procedure for each pair of types rather than a different procedure for each collection of types and each generic operation.</li>
+</ul>
+<p>Not General Enough</p>
+<ul>
+<li>can't converting both objects to a third type.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Hierarchies of types</strong></p>
+<p>apply-generic</p>
+<ul>
+<li>raise the object to its super type</li>
+<li>until we either find a level at which the desired operation can be performed</li>
+<li>or hit the top</li>
+</ul>
+<p>Inadequates</p>
+<ul>
+<li>multiple-supertypes</li>
+<li>means that there is no unique way to “raise” a type in the hierarchy</li>
+</ul>
+
+          
         
       
     </div>
@@ -1065,24 +2015,176 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="sicp-ch-1-building-abstractions-with-procedures"><a class="markdownIt-Anchor" href="#sicp-ch-1-building-abstractions-with-procedures"></a> SICP ch-1 Building Abstractions with Procedures</h2>
+          
+            <h2>SICP ch-1 Building Abstractions with Procedures</h2>
 <p>We are about to study the idea of computational process</p>
-<br>
-<h3 id="11-the-elements-of-programming"><a class="markdownIt-Anchor" href="#11-the-elements-of-programming"></a> 1.1 The Elements of Programming</h3>
+<p>&lt;br/&gt;</p>
+<h3>1.1 The Elements of Programming</h3>
 <p>Language combine simple ideas to form complex ideas by three mechanisms</p>
 <ol>
 <li>primitive expression</li>
 <li>means of combination</li>
 <li>means of abstraction</li>
 </ol>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/28/SICP/sicp1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<p><strong>1.1.1 Expressions</strong></p>
+<ul>
+<li>you type an expression, the <strong>interpreter</strong> responds by displaying the result of its <strong>evaluating</strong> that expression ( 486 )</li>
+</ul>
+<p>Combinations</p>
+<ul>
+<li>Expressions formed by delimiting a list of expressions within parentheses ( + 137 349 )</li>
+<li>operator, operands</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.2 Naming and the Environment</strong></p>
+<p>Naming</p>
+<ul>
+<li>language provides the means of using names ( variable ) to refer to computational objects ( value )</li>
+<li>Associating values with symbols</li>
+</ul>
+<p><strong>Environment</strong></p>
+<ul>
+<li>The <strong>memory</strong> that interpreter must maintain to <strong>keeps track</strong> of the name-object pairs.  ( ch-3 )</li>
+<li>Determine the meaning of the symbols in expressions.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.3 Evaluating Combinations</strong></p>
+<p>Interpreter is itself following a procedure</p>
+<ol>
+<li><strong>Evaluate</strong> the <strong>subexpressions</strong> of the combination</li>
+<li><strong>Apply</strong> the procedure that is the value of the leftmost <strong>subexpression</strong> (the operator) to the arguments that are the values of the other <strong>subexpressions</strong> (the operands).</li>
+</ol>
+<p>Thus, the evaluation rule is <strong>recursive</strong> in nature.</p>
+<p>&lt;br/&gt;</p>
+<p><strong>Special Forms</strong></p>
+<ul>
+<li>Exceptions to the general evaluation rule. ( apply operator to operands )</li>
+<li>Each special form has its own evaluation rule.</li>
+<li>define, cond, if, and, or,</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.4 Compound Procedures</strong></p>
+<p>Procedure definitions</p>
+<pre><code class="language-lisp">(define (&lt;name&gt; &lt;formal parameters&gt;)
+  &lt;body&gt;)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.5 The Substitution Model for Procedure Application</strong></p>
+<p>Evaluate a combination</p>
+<ul>
+<li>evaluates the elements of the combination</li>
+<li>applies the procedure to the arguments</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Substitution Model</strong></p>
+<ul>
+<li>To <strong>apply</strong> a compound procedure to arguments, <strong>evaluate</strong> the body of he procedure with each formal parameter <strong>replaced</strong> by the corresponding argument.</li>
+<li>Typical interpreters <strong>do not</strong> evaluate procedure by substitute values, but using a <strong>local environment</strong> for the formal parameters ( ch-3 )</li>
+<li>This model breaks down when we address procedures with &quot;mutable data&quot; ( ch-3 set! )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Normal Order</p>
+<p>fully expand and then reduce (x)</p>
+<p><strong>Applicative Order</strong></p>
+<p>evaluate the arguments and then apply</p>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.6 Conditional Expressions and Predicates</strong></p>
+<p><strong>Predicate</strong></p>
+<ul>
+<li>an expression whose value is interpreted as either true or false.</li>
+</ul>
+<pre><code class="language-lisp">(cond (&lt;p1&gt; &lt;e1&gt;)
+      (&lt;p2&gt; &lt;e2&gt;)
+      ...
+      (&lt;pn&gt; &lt;en&gt;))
+
+(if &lt;predicate&gt;
+    &lt;consequent&gt;
+    &lt;alternative&gt;)
+
+(and &lt;e1&gt; ... &lt;en&gt;)
+(or &lt;e1&gt; ... &lt;en&gt;)
+(not &lt;e&gt;)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>1.1.7 Example: Square Roots by Newton’s Method</strong></p>
+<p><strong>1.1.8 Procedures are Black-Box Abstractions</strong></p>
+<p>bound variables</p>
+<ul>
+<li>In procedure definition, it doesn't matter what name the formal parameter has.</li>
+</ul>
+<p>free variables</p>
+<p>the scope of that name</p>
+<p>&lt;br/&gt;</p>
+<h3>1.2 Procedures and the Processes They Generate</h3>
+<p><strong>Procedure</strong></p>
+<ul>
+<li>A <strong>procedure</strong> is a pattern for the local evolution of a computational <strong>process</strong>.</li>
+<li>It specifies how each stage of the process is built upon the previous stage.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>1.2.1 Linear Recursion and Iteration</strong></p>
+<p>Recursive procedure</p>
+<ul>
+<li>syntactic fact that the procedure definition refers to the procedure itself</li>
+</ul>
+<p>Recursive <strong>process</strong></p>
+<ul>
+<li>The process that characterized by a chain of <strong>deferred</strong> operations</li>
+<li>Requires <strong>interpreter</strong> keep track of operations to be performed later on.</li>
+</ul>
+<p>Iterative process</p>
+<ul>
+<li>one whose state can be summarized by a fixed number of <strong>state variables</strong>, together with a fixed rule that describes how the state variables should be <strong>updated</strong> as the process moves from state to state and an (optional) end test.</li>
+</ul>
+<p><strong>Tail Recursive</strong></p>
+<ul>
+<li>An implementation with the property of:  &quot;An iterative process will be executed in <strong>constant space</strong>, even if it is described by a recursive procedure.&quot;</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h3>1.3 Formulating Abstractions with Higher-Order Procedures</h3>
+<p>Procedures are <strong>abstractions</strong> that describe compound operations</p>
+<p>Higher-order procedures</p>
+<ul>
+<li>procedures that manipulate procedures</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>1.3.1 Procedures as Arguments</strong></p>
+<p><strong>1.3.2 Constructing Procedures Using lambda</strong></p>
+<p>In general, lambda is used to create procedures in the same way as
+define , except that <strong>no name</strong> is specified for the procedure</p>
+<pre><code class="language-commonlisp">(lambda (&lt;formal parameters&gt;)
+  &lt;body&gt;)
+</code></pre>
+<p>using lambda creating local variables</p>
+<pre><code class="language-lisp">(let ((&lt;var1&gt; &lt;exp1&gt;)
+      (&lt;var2&gt; &lt;exp2&gt;)
+      ...
+      (&lt;varn&gt; &lt;expn&gt;))
+  &lt;body&gt;)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>1.3.3 Procedures as General Methods</strong></p>
+<p>finding roots</p>
+<p>finding fixed point</p>
+<p><strong>1.3.4 Procedures as Returned Values</strong></p>
+<p>return values are themselves procedures</p>
+<p>&lt;br/&gt;</p>
+<p><strong>Abstractions and first-class procedures</strong></p>
+<p>programming languages impose restrictions on the ways in which computational elements can be manipulated</p>
+<p>First-class status</p>
+<ul>
+<li>elements with fewest restrictions</li>
+<li>They may be named by variables.</li>
+<li>They may be passed as arguments to procedures.</li>
+<li>They may be returned as the results of procedures.</li>
+<li>They may be included in data structures.</li>
+</ul>
+<p>Lisp awards <strong>procedures</strong> full first-class status, which poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.</p>
+
+          
         
       
     </div>
@@ -1232,26 +2334,135 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch-1-a-tour-of-computer-sytems"><a class="markdownIt-Anchor" href="#csapp-ch-1-a-tour-of-computer-sytems"></a> CS:APP ch-1 A Tour of Computer Sytems</h2>
+          
+            <h2>CS:APP ch-1 A Tour of Computer Sytems</h2>
 <p>A computer system consists of hardware and systems software that work together to run application programs.</p>
 <p>Tracing the life time of hello program.</p>
-<pre class="highlight"><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;  
   
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  
-</span>{  
-        <span class="built_in">printf</span>(<span class="string">"hello world!\n"</span>);  
+int main()  
+{  
+        printf(&quot;hello world!\n&quot;);  
   
-        <span class="keyword">return</span> <span class="number">0</span>;  
+        return 0;  
 }  
 </code></pre>
-<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/01/CSAPP/ch-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<h4>1.1 Information Is Bits + Context</h4>
+<p>The hello program begins life as a source program ( a sequence of bits, organized in bytes )</p>
+<p>Text files</p>
+<ul>
+<li>files consist exclusively ASCII characters.</li>
+</ul>
+<p>Binary files</p>
+<ul>
+<li>all other files</li>
+</ul>
+<p>All information in a system is represented as a bunch of <strong>bits</strong>.</p>
+<p>The only thing that distinguishes different data objects is the <strong>context</strong> in which we view them.</p>
+<p>&lt;br/&gt;</p>
+<h4>1.2 Programs Are Translated by Other Programs into Different Forms</h4>
+<p>In order to run hello.c on the system, the individual C statements must be translated by other programs into a sequence of low-level machine-language instructions.</p>
+<p>These instructions are then packaged in a form called an executable object program and stored as a binary disk file.</p>
+<p><img src="http://img.blog.csdn.net/20140423174324171" alt=""></p>
+<h4>1.3 It Pays to Understand How Compilation Systems Work</h4>
+<p>Reasons why need to understand compilation systems</p>
+<ul>
+<li>Optimizing program performance</li>
+</ul>
+<ul>
+<li>Understanding link-time error</li>
+<li>Avoiding security holes</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>1.4 Processors Read and Interpret Instructions Stored in Memory</h4>
+<p>To run the executable object file, type <code>./hello</code>  to an applcation program known as a shell</p>
+<p><strong>Hardware Organization of a System</strong></p>
+<ul>
+<li>Buses: transfer words</li>
+<li>I/O Devices: system’s connection to the external world, connected to I/O bus by either a controller or an adapter</li>
+<li>Main Memory:  temporary storage device that holds both a program and the data it manipulates while the processor is executing the program</li>
+<li>Processor: the engine that inter-prets (or executes ) instructions stored in main memory</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423180155531" alt=""></p>
+<p>Running hello</p>
+<ul>
+<li>Reading command from keyboard</li>
+<li>Load file from disk to memory</li>
+<li>Write output string from memory to display</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423180827984" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140423180854531" alt=""></p>
+<h4>1.5 Caches Matter</h4>
+<p>The machine instruction in the hello program are originally stored on disk</p>
+<p>When loaded, opied to main memory</p>
+<p>When processor runs, copied into the processor ( register + caches )</p>
+<p>deal with processor-memory gap</p>
+<p>&lt;br/&gt;</p>
+<h4>1.6 Storage Devices Form a Hierarchy</h4>
+<p>storage at one level serves as a cache for the next lower level</p>
+<p><img src="http://img.blog.csdn.net/20140423181308515" alt=""></p>
+<h4>1.7 The Operating System Manages the Hardware</h4>
+<p>OS</p>
+<ul>
+<li>a layer of software interposed between the application program and the hardware</li>
+<li>two primitive purpose: (1)protect hardware (2)provide applications with simple and uniform mechanisms for manipulating hardwares</li>
+<li>achieve both goals via <strong>abstractions</strong></li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423181431437" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140423181504203" alt=""></p>
+<p>Process</p>
+<ul>
+<li>The operating system's abstraction for a running program</li>
+<li>context switching</li>
+</ul>
+<p>Thread</p>
+<p>VIrtual Memory</p>
+<ul>
+<li>Each process has the same uniform view of memory ( virtual address space )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423181937906" alt=""></p>
+<p>Files</p>
+<ul>
+<li>A sequence of bytes, nothing more and nothing less</li>
+<li>Every I/O devices is modeled as a file</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>1.8 Systems Communicate with Other Systems Using Networks</h4>
+<p><img src="http://img.blog.csdn.net/20140423182125734" alt=""></p>
+<h4>1.9 Important Themes</h4>
+<p>Amdahl's law: observation of the effectiveness</p>
+<p><strong>Concurrency and Parallelism</strong></p>
+<p>concurrency</p>
+<ul>
+<li>a system with multiple, simultaneous activities</li>
+</ul>
+<p>parallelism</p>
+<ul>
+<li>use of concurrency to make a system run faster</li>
+</ul>
+<p>Parrallelism can be exploited at multiple( three ) levels of abstraction in a computer system. ( hight --&gt; low )</p>
+<ol>
+<li>Thread-level Concurrency: multicore &amp; hyperthreading</li>
+<li>Instruction-level Parallelism: pipeling</li>
+<li>Single-Instruction, Multiple-Data ( SIMD ) Parallelism</li>
+</ol>
+<p><strong>The Importance of Abstractions in Computer Systems</strong></p>
+<p>Processor side</p>
+<ul>
+<li>instruction set architecture provides an abstraction of actual processor</li>
+</ul>
+<p>Operating System side</p>
+<ul>
+<li>Files as an abstraction of I/O</li>
+<li>Virtual Memory as an abstraction of Program Memory</li>
+<li>Processes as an abstraction of a Running Program</li>
+<li>Virtual Machine as an abstraction of the Entire Computer</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140423182814015" alt=""></p>
+
+          
         
       
     </div>
@@ -1401,7 +2612,8 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch-9-virtual-memory"><a class="markdownIt-Anchor" href="#csapp-ch-9-virtual-memory"></a> CS:APP ch-9 Virtual Memory</h2>
+          
+            <h2>CS:APP ch-9 Virtual Memory</h2>
 <p>Virtual Memory</p>
 <ul>
 <li>modern systems provide an abstraction of main memory</li>
@@ -1412,13 +2624,94 @@ we change the weights and biases</li>
 <li>It simplifies memory <strong>management</strong> by providing each process with a uniform address space.</li>
 <li>It <strong>protects</strong> the address space of each process from corruption by other processes.</li>
 </ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/29/CSAPP/ch-9/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<h4>9.1 Physical and Virtual Addressing</h4>
+<p>Main memory organized as an array of M contiguous byte-size cells, each byte has a unique <strong>physical address</strong>.</p>
+<p>Physical Addressing: use physical address ( PA ) to access memory</p>
+<p>Virtual Addressing: use virtual address ( VA ) and translate to physical address</p>
+<p>Addressing Translation: converting a virtual address to a physical one</p>
+<p><img src="http://img.blog.csdn.net/20140726024101287" alt=""></p>
+<h4>9.2 Address Spaces</h4>
+<p>Virtual Address Space</p>
+<ul>
+<li>CPU generates virtual addresses from an address space of $ N = 2^n $ addresses called the virtual address space  {0 , 1, 2 ,...,N − 1}</li>
+</ul>
+<p>Physical Address Space</p>
+<ul>
+<li>A system also has a physical address space that corresponds to the M bytes of physical memory in the system {0 , 1, 2 ,...,M − 1}</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>9.3 VM as a Tool for Caching</h4>
+<p>A virtual memory is organized as an array of N contiguous byte-sized cells stored on <strong>disk</strong>. Each byte has a unique virtual address that serves as an index into the array.</p>
+<p>VM systems partition the virtual memory into fixed-size blocks call <strong>Virtual Pages ( VP )</strong> as transfer units between <strong>disk</strong> and <strong>main memory</strong>.</p>
+<p>Three sets of VP: Unallocated, Cached, Uncached</p>
+<p><img src="http://img.blog.csdn.net/20140726024435296" alt=""></p>
+<p>DRAM cache organization</p>
+<ol>
+<li>large virtual pages ( cache block )( 4 KB to 2 MB )</li>
+<li>fully associative</li>
+<li>sophisticated replacement algorithms</li>
+<li>use write-back</li>
+</ol>
+<p><strong>Page Tables</strong></p>
+<p>A data structure stored in physical memory that maps virtual pages to physical pages.</p>
+<p><img src="http://img.blog.csdn.net/20140727083649381" alt=""></p>
+<p>Page Hit</p>
+<p>Check valid bit, uses the physical memory address in the PTE (which points to the start of the cached page in PP 1) to construct the physical address of the word.</p>
+<p><img src="http://img.blog.csdn.net/20140727084524775" alt=""></p>
+<p>Page Faults</p>
+<p>The page fault exception invokes a <strong>page fault exception handler</strong> in the kernel</p>
+<ol>
+<li>selects a victim page, in this case VP 4 stored in PP 3.</li>
+<li>modifies the page table entry for VP 4 to reflect the fact that VP 4 is no longer cached in main memory.</li>
+<li>copies VP 3 from disk to PP 3 in memory, updates PTE 3, and then returns.</li>
+<li>restarts the faulting instruction and page hit</li>
+<li>The strategy of waiting until the last moment to swap in a page, when a miss occurs, is known as <strong>demand paging</strong></li>
+</ol>
+<p><img src="http://img.blog.csdn.net/20140727085405051" alt=""></p>
+<h4>9.4 VM as a Tool for Memory Management</h4>
+<p>Operating systems provide a <strong>separate page table</strong>, and thus a separate virtual address space, for each <strong>process</strong>.</p>
+<ol>
+<li>
+<p>Linking: Allow each <strong>process</strong> to use the same basic format for its memory image ( code segment always start at 0x400000 )</p>
+</li>
+<li>
+<p>Loading: (1) Allocate Virtual Pages (2) Mark as invalid ( not cached ) (3) Point table entries to the location of in object file (4) Data are paged in th first time referenced</p>
+</li>
+<li>
+<p>Sharing: Multiple processes share a single copy of some code</p>
+</li>
+<li>
+<p>Memory Allocation</p>
+<p><img src="http://img.blog.csdn.net/20140727090642531" alt=""></p>
+<p>​</p>
+<h4></h4>
+<p>​</p>
+</li>
+</ol>
+<h4>9.5 VM as a Tool for Memory Protection</h4>
+<p>three permission bits to each PTE</p>
+<ul>
+<li>SUP must run in kernel mode</li>
+<li>READ / WRITE</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>9.6 Address Translation</h4>
+<p>a mapping between an N-element virtual address space and M-element physical address space</p>
+<p><img src="http://img.blog.csdn.net/20140727120229642" alt=""></p>
+<p>Steps that the CPU hardware performs when there is a page hit / fault</p>
+<p><img src="http://img.blog.csdn.net/20140727120529090" alt=""></p>
+<p>Speeding up Address Translation with a TLB</p>
+<ul>
+<li>a small cache of PTEs in the MMU called a translation look aside buffer (TLB)</li>
+</ul>
+<p>Multi-Level Page Tables</p>
+<p><img src="http://img.blog.csdn.net/20140727132255390" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140727133211948" alt=""></p>
+<p>つ....つづく！</p>
+
+          
         
       
     </div>
@@ -1568,7 +2861,8 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch-8-exceptional-control-flow"><a class="markdownIt-Anchor" href="#csapp-ch-8-exceptional-control-flow"></a> CS:APP ch-8 Exceptional Control Flow</h2>
+          
+            <h2>CS:APP ch-8 Exceptional Control Flow</h2>
 <p>control flow</p>
 <ul>
 <li>sequence of control transfers ( from the address of instruction to the next )</li>
@@ -1585,13 +2879,164 @@ we change the weights and biases</li>
 </ol>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/28/CSAPP/ch8/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+&lt;br/&gt;</p>
+<h4>8.1 Exceptions</h4>
+<p>DEF</p>
+<ul>
+<li>Abrupt change in control flow in response to some change in the processor's state</li>
+</ul>
+<p>event</p>
+<ul>
+<li>change in state</li>
+</ul>
+<p><strong>Exception Handling</strong></p>
+<ul>
+<li>Hardware
+<ol>
+<li>processor detect an event</li>
+<li>determine corresponding exception number k</li>
+<li>trigger exception by calling the handler through entry k of the exception table</li>
+</ol>
+</li>
+<li>Software ( handler )
+<ol>
+<li>do some processing</li>
+<li>return control to the interrupted control flow</li>
+</ol>
+</li>
+<li>Difference with procedure call
+<ol>
+<li>return either current or next instruction</li>
+<li>push additional processor state to restart ( on kernel stack )</li>
+<li>handlers run in kernel mode</li>
+</ol>
+</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140725235855886" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140726000658286" alt=""></p>
+<p>Classes of Exceptions</p>
+<ul>
+<li>Interrupt: I/O devices</li>
+<li>Trap: System call ( fork, read, execve, exit )</li>
+<li>Fault: error conditions that might be able to correct or just abort ( page fault, segmentation fault, divide zero )</li>
+<li>Abort: unrecoverable ( machine check )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140726001053046" alt=""></p>
+<h4>8.2 Processes</h4>
+<p>DEF: An instance of program in execution</p>
+<p>program run in context of process</p>
+<p><strong>Logical Control Flow</strong></p>
+<ul>
+<li>provide an illusion that program has exclusive use of the processor</li>
+<li>The sequence of PC values is know as logical control flow</li>
+<li>Each process executes a portion of its flow and then is preempted (temporarily suspended) while other processes take their turns.</li>
+</ul>
+<p>Concurrent Flow</p>
+<ul>
+<li>A logic flow whose execution overlaps in time with another flow</li>
+</ul>
+<p><strong>Concurrency</strong></p>
+<ul>
+<li>The general phenomenon of multiple flows executing concurrently</li>
+</ul>
+<p>Parallel Flow</p>
+<ul>
+<li>subset of concurrent flow that run on different cores</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p><strong>Private Address Space</strong></p>
+<ul>
+<li>
+<p>provide an illusion that program has exclusive use of the system address's space</p>
+<p><img src="http://img.blog.csdn.net/20140726011912515" alt=""></p>
+</li>
+</ul>
+<p>User and kernel mode: mode bit</p>
+<p>&lt;br/&gt;</p>
+<p>context</p>
+<ul>
+<li>the state that kernel needs to restart the preempted process</li>
+</ul>
+<ul>
+<li>( general-purpose registers, floating point registers, program counter, user's stack, status register, kernel's stack, page table, process table, file table )</li>
+</ul>
+<p>scheduling</p>
+<ul>
+<li>the kernel decide to preempt the current process and restart a previously preempted process</li>
+</ul>
+<p><strong>Context Switch</strong></p>
+<ol>
+<li>Saves context of the current process</li>
+<li>Restores the saved context of previous process</li>
+<li>Passes control to newly restored process</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p>Example when execute read system call ( disk )</p>
+<p>Kernel switch process until disk sends an interrupt signal</p>
+<p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
+<h4>8.4 Process Control</h4>
+<p><strong>Obtaining Process ID</strong></p>
+<pre><code class="language-cpp">pid_t getpid ( void );
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Create and Terminating process</strong></p>
+<p>Three states</p>
+<ol>
+<li>Running</li>
+<li>Stopped</li>
+<li>Terminated</li>
+</ol>
+<pre><code class="language-cpp">void exit ( int status );
+</code></pre>
+<pre><code class="language-cpp">//return 0 to child, PID of chile to parent
+pid_t fork ( void );
+</code></pre>
+<ul>
+<li>Call Once Return Twice</li>
+<li>Concurrent execution</li>
+<li>Duplicate but separate address space</li>
+<li>Shared files</li>
+</ul>
+<p><img src="http://blog.wuxu92.com/images/post/fork-graph.png" alt=""></p>
+<p><strong>Reaping Child Process</strong></p>
+<p>The process kept around in a terminated state until it is reaped by its parent</p>
+<blockquote>
+<p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
+</blockquote>
+<pre><code class="language-cpp">// return PID of terminated child and reap it
+pid_t waitpid(pid_t pid, int *statud, int options)
+</code></pre>
+<p>&lt;br/&gt;</p>
+<p><strong>Putting Process to Sleep</strong></p>
+<pre><code class="language-cpp">unsigned int sleep(unsigned int secs);
+int pause(void); // 一直休眠，直到收到一个信号
+</code></pre>
+<p><strong>Loading and Running Programs</strong></p>
+<pre><code class="language-cpp">int execve(const char *filename, const char *argv[], const char *envp[]);
+</code></pre>
+<p>&lt;br/&gt;</p>
+<h4>8.5 Signals</h4>
+<p>The transfer of a signal to a destination process occurs in two distinct steps</p>
+<p>Sending a signal</p>
+<ul>
+<li>The kernel has detected a system event such as a divide-by-zero error or the termination of a child process.</li>
+<li>A process has invoked the kill function to explicitly request the kernel to send a signal to the destination process. A process can send a signal to itself.</li>
+</ul>
+<p>Receiving a signal</p>
+<ul>
+<li>The process can either ignore the signal, terminate, or catch the signal by executing a user-level function called a signal handler.</li>
+</ul>
+<p>Pending signal</p>
+<ul>
+<li>A signal that has been sent but not yet received</li>
+<li>At any point in time, there can be at most one pending signal of a particular type.</li>
+<li>Received at most once: The kernel sets bit k in pending whenever a signal of type k is delivered and clears bit k in pending whenever a signal of type k is received.</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>8.6 Nonlocal Jumps</h4>
+
+          
         
       
     </div>
@@ -1741,28 +3186,178 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch-6-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#csapp-ch-6-the-memory-hierarchy"></a> CS:APP ch-6 The Memory Hierarchy</h2>
-<h4 id="61-storage-technologies"><a class="markdownIt-Anchor" href="#61-storage-technologies"></a> 6.1 Storage Technologies</h4>
+          
+            <h2>CS:APP ch-6 The Memory Hierarchy</h2>
+<h4>6.1 Storage Technologies</h4>
 <p>SRAM</p>
 <ul>
 <li><strong>cache</strong>, transistor, stable, fast, expensive</li>
 </ul>
- <br>
+<p>&lt;br/&gt;</p>
 <p>DRAM</p>
 <ul>
 <li><strong>main memory</strong>,  capacitor, sensitive( periodically refresh every bit )</li>
 <li>d * w cells --&gt; d supercells  == r rows * c columns ( two dimension array )</li>
 <li>data pins ( w bits ) &amp; addr pins ( row addr i, column addr j )</li>
 <li>Memory modules: Each supercell stores 11 byte. Each address represent by 8 supercells</li>
-<li>Enhanced DRAM</li>
+<li>Enhanced DRAM
+&lt;!-- more --&gt;
+<img src="http://img.blog.csdn.net/20140704131022875" alt=""></li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/27/CSAPP/ch-6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p><img src="http://img.blog.csdn.net/20140704131344546" alt=""></p>
+<p>&lt;br/&gt;</p>
+<p>Nonvolatile Memory ( ROM )</p>
+<ul>
+<li>
+<p>retain information even when they're powered off</p>
+</li>
+<li>
+<p>Flash memory ( erasable programmable ROM )</p>
+</li>
+<li>
+<p>firmware: programs stored in ROM</p>
+<p>&lt;br/&gt;</p>
+</li>
+</ul>
+<p>Accessing Main Memory</p>
+<ul>
+<li>I/O bridge: translate signals</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Disk</p>
+<ul>
+<li>
+<p>platter --&gt; surface --&gt; track --&gt; sectors</p>
+<p><img src="http://img.blog.csdn.net/20140704134951375" alt=""></p>
+</li>
+<li>
+<p>Logical Disk Blocks: hide complexity from OS</p>
+</li>
+<li>
+<p>disk controller: maintains mapping between logical block number and physical disk sectors</p>
+</li>
+<li>
+<p>I/O devices: USB, graphics card, host bus adapter</p>
+</li>
+<li>
+<p>I/O bus: connect disks to CPU and main memory, independent under CPU</p>
+</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140704150817828" alt=""></p>
+<p>Accessing Disk</p>
+<ul>
+<li>Memory mapped I/O: a block of addresses in the address space is reserved for communicating with I/O devices. Each of these address is known as an I/O <strong>port</strong>. Each device associated with one or more ports.</li>
+<li>CPU read disk
+<ol>
+<li>initiate a read</li>
+<li>indicate logical block number that should be read</li>
+<li>indicate main memory address to store disk sector</li>
+<li>do other work</li>
+</ol>
+</li>
+<li>Disk controller receives the read command
+<ol>
+<li>translates logical block number to sector address</li>
+<li>read content</li>
+<li>transfer content directly to main memory ( DMA )</li>
+<li>send a interrupt signal to CPU</li>
+</ol>
+</li>
+<li>CPU returns control to the point where interrupted</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140704152101593" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140704152111687" alt=""></p>
+<p>Solid State Disk</p>
+<ul>
+<li>A page can be written only after the entire block it belongs to has erased</li>
+<li>A block wears out after roughly 100, 000 repeated writes</li>
+<li>Advantage: semiconductor, faster, use less power, more rugged</li>
+<li>Disadvantage: potential to wear out, expensive</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>6.2 Locality</h4>
+<p>Temporal Locality: reference again multiple times</p>
+<p>Spatial Locality: reference nearby locations</p>
+<p>stride-k reference pattern: visiting every kth element of a contiguous vector</p>
+<p>k increase, spatial decrease</p>
+<p>&lt;br/&gt;</p>
+<h4>6.3 The Memory Hierarchy</h4>
+<p><img src="http://img.blog.csdn.net/20140715185732354" alt=""></p>
+<p>Caching in memory hierarchy</p>
+<p><img src="http://img.blog.csdn.net/20140715191154022" alt=""></p>
+<p>Cache hits</p>
+<p>Cache misses</p>
+<ul>
+<li>replacing / evicting the block, victim block, replacement policy</li>
+</ul>
+<p>Kind of Cache misses</p>
+<ul>
+<li>cold miss: cache is empty</li>
+<li>conflict miss: map to the same block</li>
+<li>capacity miss: size of working set exceed</li>
+</ul>
+<p>Cache management</p>
+<ul>
+<li>partition storage into blocks, transfer blocks between levels, deal with hits and misses</li>
+<li>compiler -- register file</li>
+<li>hardware logic -- L1, L2, L3 caches</li>
+<li>OS + Address Translation hardware -- main memory</li>
+<li>AFS client process -- disk</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<h4>6.4 Cache Memories</h4>
+<p>Main memory: $ M = 2^m $</p>
+<p>cache: $ C = S * E * B $</p>
+<ul>
+<li>$ S = 2^s $ cache sets, $ E $  = cache lines, $ B = 2^b $  = bytes per block</li>
+</ul>
+<p>Address:</p>
+<ul>
+<li>set index = $ log_2S $  -- Sets</li>
+<li>tag = $ m - ( s + b ) $ -- Lines</li>
+<li>block offset = $ log_2B $  -- blocks</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140715231707062" alt=""></p>
+<p><strong>Process that cache determine hit or miss</strong></p>
+<ol>
+<li>Set Selection</li>
+<li>Line matching: search each line, find tag bits in cache match tag bits in address</li>
+<li>Word Extraction: block offset provide first byte of desired word</li>
+<li>Line Replacement: random / least frequently used / least recently used</li>
+</ol>
+<p>&lt;br/&gt;</p>
+<p><strong>Direct-Mapped Caches</strong></p>
+<p>one line per set ( E = 1 )</p>
+<p><strong>Set Associative Caches</strong></p>
+<p>a E-way set</p>
+<p>$ 1 &lt; E &lt; C/B $</p>
+<p><strong>Fully Associative Caches</strong></p>
+<p>S = 1</p>
+<p>$ E = C/B $</p>
+<p>&lt;br/&gt;</p>
+<p>Issues with writes</p>
+<ul>
+<li>write-through ( immediately write to next lower level when hit )</li>
+<li>no-write-allocate ( write directly to next lower level when miss )</li>
+<li>write-back ( defers the update until it is evicted when hit )</li>
+<li>write-allocate ( load the block into cache and update it when miss )</li>
+</ul>
+<p>&lt;br/&gt;</p>
+<p>Anatomy of real cache hierarchy</p>
+<ul>
+<li>Instruction cache ( i-cache )</li>
+<li>Data cache ( d-cache )</li>
+<li>both ( unified cache )</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20140716145031067" alt=""></p>
+<h4>6.5 Writing Cache-Friendly Code</h4>
+<h4>6.6 Putting It Together: The Impact of Caches on Program Performance</h4>
+<p>smaller size -- better temporal locality</p>
+<p>smaller stride -- better spatial locality</p>
+<p>The memory mountain</p>
+<p><img src="http://yubinbai.com/images/csapp.png" alt=""></p>
+
+          
         
       
     </div>
@@ -1912,9 +3507,10 @@ we change the weights and biases</li>
 
       
         
-          <h2 id="csapp-ch4-processor-architecture"><a class="markdownIt-Anchor" href="#csapp-ch4-processor-architecture"></a> CS:APP-ch4 Processor Architecture</h2>
+          
+            <h2>CS:APP-ch4 Processor Architecture</h2>
 <p>ISA --&gt; SEQ --&gt; PIPE</p>
-<h4 id="41-the-y86-64-instruction-set-architecture-isa"><a class="markdownIt-Anchor" href="#41-the-y86-64-instruction-set-architecture-isa"></a> 4.1 The Y86-64 Instruction Set Architecture (ISA)</h4>
+<h4>4.1 The Y86-64 Instruction Set Architecture (ISA)</h4>
 <p>Programmer-Visible State</p>
 <ul>
 <li>Program registers</li>
@@ -1923,13 +3519,91 @@ we change the weights and biases</li>
 <li>Memory</li>
 <li>Status code</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/25/CSAPP/ch4/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>&lt;!-- more --&gt;
+<img src="http://p.blog.csdn.net/images/p_blog_csdn_net/RichardYSteven/EntryImages/20100104/y86%20visible.JPG" alt=""></p>
+<p>Y86-64 Instructions</p>
+<ol>
+<li>type: code function</li>
+<li>register specifier bytes: rA rB</li>
+<li>additional 8-byte constant word: immediate data, displacement, destination</li>
+</ol>
+<p><img src="https://y86tutoring.files.wordpress.com/2012/10/y86-instructions-linked1.png" alt=""></p>
+<p>Aside RISC &amp; CISC</p>
+<ul>
+<li>Y86-64 include both</li>
+</ul>
+<ul>
+<li>CISC: condition codes, variable length instructions, stack to store return address</li>
+<li>RISC: use load/store architecture and regular instruction encoding, pass argument through registers</li>
+</ul>
+<h4>4.2 Logical Design and the Hardware Control Language HCL</h4>
+<h4>4.3 Sequential Y86-64 Implementations</h4>
+<p><strong>Organizing processing into stages</strong></p>
+<ul>
+<li>Fetch: icode, ifun, valC = 8-byte constant, valP = next PC</li>
+<li>Decode: register valA = rA valB = rB</li>
+<li>Execute: valE = valA OP valB, CC</li>
+<li>Memory: valM = read/write from memory</li>
+<li>Write back: two result to register file</li>
+<li>PC Update: PC = valP</li>
+</ul>
+<p><strong>SEQ Hardware Structure</strong></p>
+<p><img src="http://slideplayer.com/slide/8881654/26/images/52/SEQ+Hardware+Key+Blue+boxes:+predesigned+hardware+blocks.jpg" alt=""></p>
+<p><strong>SEQ Timing</strong></p>
+<p>SEQ:</p>
+<ul>
+<li>combinational logic</li>
+<li>two memory devices
+<ol>
+<li>clocked register ( PC, CC reg )</li>
+<li>random access memory ( register file, instruction memory, data memory )</li>
+</ol>
+</li>
+</ul>
+<p>Combinational logic does not require sequencing or control</p>
+<p>Instruction memory read only therefore also not required</p>
+<p>Required explicit control over sequencing</p>
+<ul>
+<li>Program Counter: loaded with new instruction address every clock cycle</li>
+<li>Condition Code register: loaded when integer operation</li>
+<li>register file: two ports, allow two program registers be updated on every cycle</li>
+<li>data memory: written only when rmmovq, pushq, call is executed</li>
+</ul>
+<p>PRINCIPLE</p>
+<p>never need to read back the state updated by an instruction in order to complete this instruction</p>
+<p>states are loaded during the start of next cycle</p>
+<p><img src="http://oohcode.com/assets/img/csapp/fig4.25.png" alt=""></p>
+<h4>4.4 General Principle of Pipelining</h4>
+<p>Throughput: number of instructions served per unit time</p>
+<p>Latency: Total time required to perform a single instruction from beginning to end</p>
+<p><img src="http://oohcode.com/assets/img/csapp/fig4.33.png" alt=""></p>
+<p><strong>Limitations</strong></p>
+<ul>
+<li>Nonuniform partitioning ( 每个part的执行时间不同造成delay )</li>
+<li>Diminishing Returns of Deep Pipelining (分太多了)</li>
+<li>Feedback (下一条指令要等上一条执行完)</li>
+</ul>
+<h4>4.5 Pipelined Y86-64 Implementations</h4>
+<p>SEQ+</p>
+<ul>
+<li>PC update stage comes at the beginning</li>
+</ul>
+<p>PIPE-</p>
+<ul>
+<li>insert registers</li>
+</ul>
+<p>Rearranging and Relabeling Signals</p>
+<p>Next PC Prediction</p>
+<p><strong>Pipeline Hazard</strong></p>
+<ul>
+<li>stalling</li>
+<li>forwarding</li>
+<li>load/use data hazard</li>
+<li>control hazard</li>
+<li>exception</li>
+</ul>
+
+          
         
       
     </div>

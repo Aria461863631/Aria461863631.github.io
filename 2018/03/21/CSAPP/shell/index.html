@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch8] Shell Lab">
 <meta property="og:url" content="http://yoursite.com/2018/03/21/CSAPP/shell/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-05-25T12:27:11.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch8] Shell Lab">
-<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
 
 
 
@@ -405,25 +405,25 @@
       
 
       
-        <h2 id="csapp-ch8-shell-lab"><a class="markdownIt-Anchor" href="#csapp-ch8-shell-lab"></a> [CS:APP-ch8] Shell Lab</h2>
-<p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
-<p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
-<p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
-<br>
-<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
+        <h2>[CS:APP-ch8] Shell Lab</h2>
+<p>http://csapp.cs.cmu.edu/3e/labs.html</p>
+<p>http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</p>
+<p>https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</p>
+<p>&lt;br/&gt;</p>
+<h3>Target</h3>
 <p>implement</p>
 <ul>
 <li>eval, builtin_cmd, do_bgfg, waitfg</li>
 <li>sigchld_handler, sigint_handler, sigtstp_handler</li>
 </ul>
-<br>
-<a id="more"></a>
-<h3 id="0-preparation"><a class="markdownIt-Anchor" href="#0-preparation"></a> 0. Preparation</h3>
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
+<h3>0. Preparation</h3>
 <p><code>tshref</code>: 正确的参考shell，要求自己实现后的shell和它的结果一样</p>
 <p><code>make test01</code>用trace01.txt来验证结果，可以参考<code>make rtest01</code>的结果</p>
 <p><code>gdb</code> makefile去掉参数O2,加上-g</p>
-<br>
-<h3 id="1-void-eval-charcmdline"><a class="markdownIt-Anchor" href="#1-void-eval-charcmdline"></a> 1. void eval ( char*cmdline )</h3>
+<p>&lt;br/&gt;</p>
+<h3>1. void eval ( char*cmdline )</h3>
 <p>原型：p755</p>
 <ul>
 <li>If command is a built-in command, the shell program handles it immediately.</li>
@@ -436,7 +436,7 @@
 <li>The <strong>parent</strong> needs to <strong>block</strong> the <code>SIGCHLD</code> signals in this way in order to avoid the <strong>race</strong> condition where the child is reaped by <code>sigchld_handler</code> (and thus removed from the job list) before the parent calls addjob.</li>
 <li>After the <code>fork</code>, but before the <code>execve</code>, the child process should call <code>setpgid(0, 0)</code>, which puts the child in a <strong>new</strong> process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the <strong>foreground process group</strong>. When you type <code>ctrl-c</code>, the shell should catch the resulting <code>SIGINT</code> and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<pre><code class="language-c++">/*
  * eval - Evaluate the command line that the user has just typed in
  *
  * If the user has requested a built-in command (quit, jobs, bg or fg)
@@ -446,83 +446,83 @@
  * each child process must have a unique process group ID so that our
  * background children don't receive SIGINT (SIGTSTP) from the kernel
  * when we type ctrl-c (ctrl-z) at the keyboard.
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">eval</span> <span class="params">( <span class="keyword">char</span> *cmdline )</span> </span>{
+ */
+void eval ( char *cmdline ) {
 
-    <span class="keyword">pid_t</span> pid;
-    <span class="keyword">sigset_t</span> mask;
-    <span class="keyword">char</span> *argv[ MAXARGS ];
-    <span class="comment">//Parse the command line and build the argv array</span>
-    <span class="keyword">int</span> bg = parseline ( cmdline, argv );
+    pid_t pid;
+    sigset_t mask;
+    char *argv[ MAXARGS ];
+    //Parse the command line and build the argv array
+    int bg = parseline ( cmdline, argv );
 
-    <span class="keyword">if</span> ( !builtin_cmd ( argv ) ) {
+    if ( !builtin_cmd ( argv ) ) {
 
-        <span class="comment">// blocking SIGCHLD, race</span>
+        // blocking SIGCHLD, race
         sigemptyset ( &amp;mask );
         sigaddset ( &amp;mask, SIGCHLD );
-        sigprocmask ( SIG_BLOCK, &amp;mask, <span class="literal">NULL</span> );
+        sigprocmask ( SIG_BLOCK, &amp;mask, NULL );
 
-        <span class="comment">// fork new process</span>
-        <span class="keyword">if</span> ( ( pid = fork () ) &lt; <span class="number">0</span> )
-            unix_error ( <span class="string">"fork error"</span> );
+        // fork new process
+        if ( ( pid = fork () ) &lt; 0 )
+            unix_error ( &quot;fork error&quot; );
 
-        <span class="comment">// child process</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> ( pid == <span class="number">0</span> ) {
-            <span class="comment">// unblock SIGCHLD in child process</span>
-            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );
-            <span class="comment">// ensures that there will be only one process</span>
-            setpgid ( <span class="number">0</span>, <span class="number">0</span> );
-            <span class="comment">// execute command</span>
-            <span class="keyword">if</span> ( execvp ( argv[ <span class="number">0</span> ], argv ) &lt; <span class="number">0</span> ) {
-                <span class="built_in">printf</span> ( <span class="string">"%s: Command not found\n"</span>, argv[ <span class="number">0</span> ] );
-                <span class="built_in">exit</span> ( <span class="number">1</span> );
+        // child process
+        else if ( pid == 0 ) {
+            // unblock SIGCHLD in child process
+            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );
+            // ensures that there will be only one process
+            setpgid ( 0, 0 );
+            // execute command
+            if ( execvp ( argv[ 0 ], argv ) &lt; 0 ) {
+                printf ( &quot;%s: Command not found\n&quot;, argv[ 0 ] );
+                exit ( 1 );
             }
 
-        <span class="comment">// parent</span>
-        } <span class="keyword">else</span> {
+        // parent
+        } else {
 
             addjob ( jobs, pid, bg ? BG : FG, cmdline );
-            <span class="comment">// get SIGCHLD back after add job</span>
-            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );
+            // get SIGCHLD back after add job
+            sigprocmask ( SIG_UNBLOCK, &amp;mask, NULL );
 
-            <span class="keyword">if</span> ( !bg ) {
-                <span class="comment">// reap when job terminated ( send signal SIGCHILD )</span>
+            if ( !bg ) {
+                // reap when job terminated ( send signal SIGCHILD )
                 waitfg ( pid );
-            } <span class="keyword">else</span> {
-                <span class="comment">//[1] (6325) ./myspin 1 &amp;</span>
-                <span class="built_in">printf</span> ( <span class="string">"[%d] (%d) %s"</span>, pid2jid ( pid ), pid, cmdline );
+            } else {
+                //[1] (6325) ./myspin 1 &amp;
+                printf ( &quot;[%d] (%d) %s&quot;, pid2jid ( pid ), pid, cmdline );
             }
         }
     }
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
-<br>
-<h3 id="2int-builtin_cmd-char-argv"><a class="markdownIt-Anchor" href="#2int-builtin_cmd-char-argv"></a> 2.int builtin_cmd( char **argv)</h3>
+<p>&lt;br/&gt;</p>
+<h3>2.int builtin_cmd( char **argv)</h3>
 <ul>
 <li>Four commands are to be built-in in the shell</li>
 <li>quit: exit the shell.</li>
 <li>jobs: List the running and stopped background jobs.</li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<pre><code class="language-c++">/*
  * builtin_cmd - If the user has typed a built-in command then execute
  *    it immediately.
- */</span> 
-<span class="function"><span class="keyword">int</span> <span class="title">builtin_cmd</span> <span class="params">( <span class="keyword">char</span> **argv )</span> </span>{
-    <span class="keyword">if</span> ( <span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"quit"</span> ) == <span class="number">0</span> ) {
-        <span class="built_in">exit</span> ( <span class="number">0</span> );
-    } <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"jobs"</span> ) == <span class="number">0</span> ) {
+ */ 
+int builtin_cmd ( char **argv ) {
+    if ( strcmp ( argv[ 0 ], &quot;quit&quot; ) == 0 ) {
+        exit ( 0 );
+    } else if ( strcmp ( argv[ 0 ], &quot;jobs&quot; ) == 0 ) {
         listjobs ( jobs );
-        <span class="keyword">return</span> <span class="number">1</span>;
-    } <span class="keyword">else</span> <span class="keyword">if</span> ( !<span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"fg"</span> ) || !<span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"bg"</span> ) ) {
+        return 1;
+    } else if ( !strcmp ( argv[ 0 ], &quot;fg&quot; ) || !strcmp ( argv[ 0 ], &quot;bg&quot; ) ) {
         do_bgfg ( argv );
-        <span class="keyword">return</span> <span class="number">1</span>;
+        return 1;
     }
-    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">/* not a builtin command */</span>
+    return 0; /* not a builtin command */
 }
 </code></pre>
-<br>
-<h3 id="3-void-waitfg-pid_t-pid"><a class="markdownIt-Anchor" href="#3-void-waitfg-pid_t-pid"></a> 3. void waitfg( pid_t pid )</h3>
+<p>&lt;br/&gt;</p>
+<h3>3. void waitfg( pid_t pid )</h3>
 <ul>
 <li>shell should wait for foreground process</li>
 <li>This function should wait by sleeping for 1 second repeatedly until the specified process is no longer the foreground process (state = FG)</li>
@@ -531,185 +531,179 @@
 <ul>
 <li>In <code>waitfg</code>, use a busy loop around the sleep function.</li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<pre><code class="language-c++">/*
  * waitfg - Block until process pid is no longer the foreground process
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">waitfg</span> <span class="params">( <span class="keyword">pid_t</span> pid )</span> </span>{
-    <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span> = <span class="title">getjobpid</span> ( <span class="title">jobs</span>, <span class="title">pid</span> );</span>
-    <span class="keyword">if</span> ( pid == <span class="number">0</span> )
-        <span class="keyword">return</span>;
+ */
+void waitfg ( pid_t pid ) {
+    struct job_t *job = getjobpid ( jobs, pid );
+    if ( pid == 0 )
+        return;
 
-    <span class="keyword">if</span> ( job != <span class="literal">NULL</span> ) {
-        <span class="comment">// sleep</span>
-        <span class="keyword">while</span> ( pid == fgpid ( jobs ) ) {
+    if ( job != NULL ) {
+        // sleep
+        while ( pid == fgpid ( jobs ) ) {
         }
     }
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
-<br>
-<h3 id="4-void-do_bgfg-char-argv"><a class="markdownIt-Anchor" href="#4-void-do_bgfg-char-argv"></a> 4. void do_bgfg( char **argv )</h3>
+<p>&lt;br/&gt;</p>
+<h3>4. void do_bgfg( char **argv )</h3>
 <ul>
-<li>
-<p><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</p>
-</li>
-<li>
-<p><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</p>
-</li>
-<li>
-<p>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</p>
-</li>
-<li>
-<p>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</p>
-</li>
+<li><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</li>
+<li><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</li>
+<li>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<ul>
+<li>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</li>
+</ul>
+<pre><code class="language-c++">/*
  * do_bgfg - Execute the builtin bg and fg commands
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">do_bgfg</span> <span class="params">( <span class="keyword">char</span> **argv )</span> </span>{
-    <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span>;</span>
-    <span class="keyword">char</span> *tmp;
-    <span class="keyword">int</span> jid;
-    <span class="keyword">pid_t</span> pid;
+ */
+void do_bgfg ( char **argv ) {
+    struct job_t *job;
+    char *tmp;
+    int jid;
+    pid_t pid;
 
-    tmp = argv[ <span class="number">1</span> ];
+    tmp = argv[ 1 ];
 
-    <span class="comment">// unvalid id</span>
-    <span class="keyword">if</span> ( tmp == <span class="literal">NULL</span> ) {
-        <span class="built_in">printf</span> ( <span class="string">"%s command requires PID or %%jobid argument\n"</span>, argv[ <span class="number">0</span> ] );
-        <span class="keyword">return</span>;
+    // unvalid id
+    if ( tmp == NULL ) {
+        printf ( &quot;%s command requires PID or %%jobid argument\n&quot;, argv[ 0 ] );
+        return;
     }
 
-    <span class="comment">// jid</span>
-    <span class="keyword">if</span> ( tmp[ <span class="number">0</span> ] == <span class="string">'%'</span> ) {
-        <span class="comment">// string to integer</span>
-        jid = atoi ( &amp;tmp[ <span class="number">1</span> ] );
+    // jid
+    if ( tmp[ 0 ] == '%' ) {
+        // string to integer
+        jid = atoi ( &amp;tmp[ 1 ] );
         job = getjobjid ( jobs, jid );
 
-        <span class="comment">// unvalid jid</span>
-        <span class="keyword">if</span> ( job == <span class="literal">NULL</span> ) {
-            <span class="comment">//%2: No such job</span>
-            <span class="built_in">printf</span> ( <span class="string">"%s: No such job\n"</span>, tmp );
-            <span class="keyword">return</span>;
-        } <span class="keyword">else</span> {
+        // unvalid jid
+        if ( job == NULL ) {
+            //%2: No such job
+            printf ( &quot;%s: No such job\n&quot;, tmp );
+            return;
+        } else {
             pid = job-&gt;pid;
         }
     }
 
-    <span class="comment">// pid</span>
-    <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">isdigit</span> ( tmp[ <span class="number">0</span> ] ) ) {
+    // pid
+    else if ( isdigit ( tmp[ 0 ] ) ) {
         pid = atoi ( tmp );
         job = getjobpid ( jobs, pid );
 
-        <span class="comment">// unvalid pid</span>
-        <span class="keyword">if</span> ( job == <span class="literal">NULL</span> ) {
-            <span class="comment">//(2): No such process</span>
-            <span class="built_in">printf</span> ( <span class="string">"(%d): No such process\n"</span>, pid );
-            <span class="keyword">return</span>;
+        // unvalid pid
+        if ( job == NULL ) {
+            //(2): No such process
+            printf ( &quot;(%d): No such process\n&quot;, pid );
+            return;
         }
-    } <span class="keyword">else</span> {
-        <span class="built_in">printf</span> ( <span class="string">"%s: argument must be a PID or %%jobid\n"</span>, argv[ <span class="number">0</span> ] );
-        <span class="keyword">return</span>;
+    } else {
+        printf ( &quot;%s: argument must be a PID or %%jobid\n&quot;, argv[ 0 ] );
+        return;
     }
-    <span class="comment">// awakened by the receipt of a SIGCONT signal.</span>
+    // awakened by the receipt of a SIGCONT signal.
     kill ( -pid, SIGCONT );
 
-    <span class="keyword">if</span> ( !<span class="built_in">strcmp</span> ( <span class="string">"fg"</span>, argv[ <span class="number">0</span> ] ) ) {
-        <span class="comment">// foreground, shell wait for it</span>
+    if ( !strcmp ( &quot;fg&quot;, argv[ 0 ] ) ) {
+        // foreground, shell wait for it
         job-&gt;state = FG;
         waitfg ( job-&gt;pid );
-    } <span class="keyword">else</span> {
+    } else {
         job-&gt;state = BG;
-        <span class="comment">// print</span>
-        <span class="built_in">printf</span> ( <span class="string">"[%d] (%d) %s"</span>, job-&gt;jid, job-&gt;pid, job-&gt;cmdline );
+        // print
+        printf ( &quot;[%d] (%d) %s&quot;, job-&gt;jid, job-&gt;pid, job-&gt;cmdline );
     }
 
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
-<br>
-<h3 id="5void-sigchld_handler-int-sig"><a class="markdownIt-Anchor" href="#5void-sigchld_handler-int-sig"></a> 5.void sigchld_handler( int sig )</h3>
-<p>This is the shell’s handler for the<code>SIGCHLD</code> signal.</p>
+<p>&lt;br/&gt;</p>
+<h3>5.void sigchld_handler( int sig )</h3>
+<p>This is the shell's handler for the<code>SIGCHLD</code> signal.</p>
 <p>Hints</p>
 <ul>
 <li>In <code>sigchld_handler</code>, use exactly one call to <code>waitpid</code></li>
 </ul>
-<pre class="highlight"><code class="c++">
-<span class="comment">/*
+<pre><code class="language-c++">
+/*
  * sigchld_handler - The kernel sends a SIGCHLD to the shell whenever
  *     a child job terminates (becomes a zombie), or stops because it
  *     received a SIGSTOP or SIGTSTP signal. The handler reaps all
  *     available zombie children, but doesn't wait for any other
  *     currently running children to terminate.
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">sigchld_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>{
-    <span class="keyword">pid_t</span> pid;
-    <span class="keyword">int</span> status;
+ */
+void sigchld_handler ( int sig ) {
+    pid_t pid;
+    int status;
 
-    <span class="comment">// wait for all child to end</span>
-    <span class="keyword">while</span> ( ( pid = waitpid ( <span class="number">-1</span>, &amp;status, WNOHANG | WUNTRACED ) ) &gt; <span class="number">0</span> ) {
-        <span class="comment">// child currently stopped</span>
-        <span class="keyword">if</span> ( WIFSTOPPED ( status ) ) {
-            <span class="comment">// change state</span>
-            <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span> = <span class="title">getjobpid</span> ( <span class="title">jobs</span>, <span class="title">pid</span> );</span>
+    // wait for all child to end
+    while ( ( pid = waitpid ( -1, &amp;status, WNOHANG | WUNTRACED ) ) &gt; 0 ) {
+        // child currently stopped
+        if ( WIFSTOPPED ( status ) ) {
+            // change state
+            struct job_t *job = getjobpid ( jobs, pid );
             job-&gt;state = ST;
 
-            <span class="keyword">int</span> jid = pid2jid ( pid );
-            <span class="comment">// Job [2] (14171) stopped by signal 20</span>
-            <span class="built_in">printf</span> ( <span class="string">"Job [%d] (%d) stopped by signal %d\n"</span>, jid, pid, WSTOPSIG ( status ) );
+            int jid = pid2jid ( pid );
+            // Job [2] (14171) stopped by signal 20
+            printf ( &quot;Job [%d] (%d) stopped by signal %d\n&quot;, jid, pid, WSTOPSIG ( status ) );
 
         }
-        <span class="comment">// child terminated because of a signal</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> ( WIFSIGNALED ( status ) ) {
-            <span class="keyword">int</span> jid = pid2jid ( pid );
-            <span class="comment">// INT</span>
-            <span class="comment">// Job [1] (13253) terminated by signal 2</span>
-            <span class="built_in">printf</span> ( <span class="string">"Job [%d] (%d) terminated by signal %d\n"</span>, jid, pid, WTERMSIG ( status ) );
+        // child terminated because of a signal
+        else if ( WIFSIGNALED ( status ) ) {
+            int jid = pid2jid ( pid );
+            // INT
+            // Job [1] (13253) terminated by signal 2
+            printf ( &quot;Job [%d] (%d) terminated by signal %d\n&quot;, jid, pid, WTERMSIG ( status ) );
             deletejob ( jobs, pid );
         }
-        <span class="comment">// child terminated normally</span>
-        <span class="keyword">else</span> <span class="keyword">if</span> ( WIFEXITED ( status ) ) {
+        // child terminated normally
+        else if ( WIFEXITED ( status ) ) {
             deletejob ( jobs, pid );
         }
     }
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
-<br>
-<h3 id="6-void-sigint_handler-int-sig"><a class="markdownIt-Anchor" href="#6-void-sigint_handler-int-sig"></a> 6. void sigint_handler ( int sig )</h3>
+<p>&lt;br/&gt;</p>
+<h3>6. void sigint_handler ( int sig )</h3>
 <p>Hints</p>
 <ul>
-<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.<br>
+<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.
 The <code>sdriver.pl</code> program tests for this error.</li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<pre><code class="language-c++">/*
  * sigint_handler - The kernel sends a SIGINT to the shell whenver the
  *    user types ctrl-c at the keyboard.  Catch it and send it along
  *    to the foreground job.
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">sigint_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>{
-    <span class="keyword">pid_t</span> pid = fgpid ( jobs );
+ */
+void sigint_handler ( int sig ) {
+    pid_t pid = fgpid ( jobs );
 
-    <span class="keyword">if</span> ( pid != <span class="number">0</span> ) {
+    if ( pid != 0 ) {
         kill ( -pid, sig );
     }
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
-<br>
-<h3 id="7void-sigtstp_handler-int-sig"><a class="markdownIt-Anchor" href="#7void-sigtstp_handler-int-sig"></a> 7.void sigtstp_handler ( int sig )</h3>
-<pre class="highlight"><code class="c++"><span class="comment">/*
+<p>&lt;br/&gt;</p>
+<h3>7.void sigtstp_handler ( int sig )</h3>
+<pre><code class="language-c++">/*
  * sigtstp_handler - The kernel sends a SIGTSTP to the shell whenever
  *     the user types ctrl-z at the keyboard. Catch it and suspend the
  *     foreground job by sending it a SIGTSTP.
- */</span>
-<span class="function"><span class="keyword">void</span> <span class="title">sigtstp_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>{
-    <span class="keyword">pid_t</span> pid = fgpid ( jobs );
+ */
+void sigtstp_handler ( int sig ) {
+    pid_t pid = fgpid ( jobs );
 
-    <span class="keyword">if</span> ( pid != <span class="number">0</span> ) {
+    if ( pid != 0 ) {
         kill ( -pid, sig );
     }
-    <span class="keyword">return</span>;
+    return;
 }
 </code></pre>
 
@@ -916,7 +910,7 @@ The <code>sdriver.pl</code> program tests for this error.</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch8-shell-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">1.1.</span> <span class="nav-text"> Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-preparation"><span class="nav-number">1.2.</span> <span class="nav-text"> 0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-void-eval-charcmdline"><span class="nav-number">1.3.</span> <span class="nav-text"> 1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2int-builtin_cmd-char-argv"><span class="nav-number">1.4.</span> <span class="nav-text"> 2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-void-waitfg-pid_t-pid"><span class="nav-number">1.5.</span> <span class="nav-text"> 3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-void-do_bgfg-char-argv"><span class="nav-number">1.6.</span> <span class="nav-text"> 4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5void-sigchld_handler-int-sig"><span class="nav-number">1.7.</span> <span class="nav-text"> 5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-void-sigint_handler-int-sig"><span class="nav-number">1.8.</span> <span class="nav-text"> 6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7void-sigtstp_handler-int-sig"><span class="nav-number">1.9.</span> <span class="nav-text"> 7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">[CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.</span> <span class="nav-text">6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.9.</span> <span class="nav-text">7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
             
 
           </div>
