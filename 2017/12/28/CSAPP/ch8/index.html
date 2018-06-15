@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occur">
+<meta name="description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch8] Exceptional Control Flow">
 <meta property="og:url" content="http://yoursite.com/2017/12/28/CSAPP/ch8/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occur">
+<meta property="og:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.blog.csdn.net/20140725235855886">
 <meta property="og:image" content="http://img.blog.csdn.net/20140726000658286">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2018-05-25T12:27:28.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch8] Exceptional Control Flow">
-<meta name="twitter:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occur">
+<meta name="twitter:description" content="CS:APP ch-8 Exceptional Control Flow control flow  sequence of control transfers ( from the address of instruction to the next )  Exceptional Control Flow ( ECF )  Abrupt changes in control flow Occu">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20140725235855886">
 
 
@@ -412,7 +412,7 @@
       
 
       
-        <h2>CS:APP ch-8 Exceptional Control Flow</h2>
+        <h2 id="csapp-ch-8-exceptional-control-flow"><a class="markdownIt-Anchor" href="#csapp-ch-8-exceptional-control-flow"></a> CS:APP ch-8 Exceptional Control Flow</h2>
 <p>control flow</p>
 <ul>
 <li>sequence of control transfers ( from the address of instruction to the next )</li>
@@ -429,12 +429,12 @@
 </ol>
 </li>
 </ul>
-<p>&lt;!-- more --&gt;
-&lt;br/&gt;</p>
-<h4>8.1 Exceptions</h4>
+<a id="more"></a>
+<br>
+<h4 id="81-exceptions"><a class="markdownIt-Anchor" href="#81-exceptions"></a> 8.1 Exceptions</h4>
 <p>DEF</p>
 <ul>
-<li>Abrupt change in control flow in response to some change in the processor's state</li>
+<li>Abrupt change in control flow in response to some change in the processor’s state</li>
 </ul>
 <p>event</p>
 <ul>
@@ -473,7 +473,7 @@
 <li>Abort: unrecoverable ( machine check )</li>
 </ul>
 <p><img src="http://img.blog.csdn.net/20140726001053046" alt=""></p>
-<h4>8.2 Processes</h4>
+<h4 id="82-processes"><a class="markdownIt-Anchor" href="#82-processes"></a> 8.2 Processes</h4>
 <p>DEF: An instance of program in execution</p>
 <p>program run in context of process</p>
 <p><strong>Logical Control Flow</strong></p>
@@ -494,22 +494,24 @@
 <ul>
 <li>subset of concurrent flow that run on different cores</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Private Address Space</strong></p>
 <ul>
 <li>
-<p>provide an illusion that program has exclusive use of the system address's space</p>
+<p>provide an illusion that program has exclusive use of the system address’s space</p>
 <p><img src="http://img.blog.csdn.net/20140726011912515" alt=""></p>
 </li>
 </ul>
 <p>User and kernel mode: mode bit</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>context</p>
 <ul>
-<li>the state that kernel needs to restart the preempted process</li>
-</ul>
-<ul>
-<li>( general-purpose registers, floating point registers, program counter, user's stack, status register, kernel's stack, page table, process table, file table )</li>
+<li>
+<p>the state that kernel needs to restart the preempted process</p>
+</li>
+<li>
+<p>( general-purpose registers, floating point registers, program counter, user’s stack, status register, kernel’s stack, page table, process table, file table )</p>
+</li>
 </ul>
 <p>scheduling</p>
 <ul>
@@ -521,15 +523,15 @@
 <li>Restores the saved context of previous process</li>
 <li>Passes control to newly restored process</li>
 </ol>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Example when execute read system call ( disk )</p>
 <p>Kernel switch process until disk sends an interrupt signal</p>
 <p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
-<h4>8.4 Process Control</h4>
+<h4 id="84-process-control"><a class="markdownIt-Anchor" href="#84-process-control"></a> 8.4 Process Control</h4>
 <p><strong>Obtaining Process ID</strong></p>
-<pre><code class="language-cpp">pid_t getpid ( void );
+<pre class="highlight"><code class="cpp"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );
 </code></pre>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Create and Terminating process</strong></p>
 <p>Three states</p>
 <ol>
@@ -537,10 +539,10 @@
 <li>Stopped</li>
 <li>Terminated</li>
 </ol>
-<pre><code class="language-cpp">void exit ( int status );
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;
 </code></pre>
-<pre><code class="language-cpp">//return 0 to child, PID of chile to parent
-pid_t fork ( void );
+<pre class="highlight"><code class="cpp"><span class="comment">//return 0 to child, PID of chile to parent</span>
+<span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );
 </code></pre>
 <ul>
 <li>Call Once Return Twice</li>
@@ -554,19 +556,19 @@ pid_t fork ( void );
 <blockquote>
 <p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
 </blockquote>
-<pre><code class="language-cpp">// return PID of terminated child and reap it
-pid_t waitpid(pid_t pid, int *statud, int options)
+<pre class="highlight"><code class="cpp"><span class="comment">// return PID of terminated child and reap it</span>
+<span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)
 </code></pre>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Putting Process to Sleep</strong></p>
-<pre><code class="language-cpp">unsigned int sleep(unsigned int secs);
-int pause(void); // 一直休眠，直到收到一个信号
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;
+<span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span>
 </code></pre>
 <p><strong>Loading and Running Programs</strong></p>
-<pre><code class="language-cpp">int execve(const char *filename, const char *argv[], const char *envp[]);
+<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;
 </code></pre>
-<p>&lt;br/&gt;</p>
-<h4>8.5 Signals</h4>
+<br>
+<h4 id="85-signals"><a class="markdownIt-Anchor" href="#85-signals"></a> 8.5 Signals</h4>
 <p>The transfer of a signal to a destination process occurs in two distinct steps</p>
 <p>Sending a signal</p>
 <ul>
@@ -583,8 +585,8 @@ int pause(void); // 一直休眠，直到收到一个信号
 <li>At any point in time, there can be at most one pending signal of a particular type.</li>
 <li>Received at most once: The kernel sets bit k in pending whenever a signal of type k is delivered and clears bit k in pending whenever a signal of type k is received.</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h4>8.6 Nonlocal Jumps</h4>
+<br>
+<h4 id="86-nonlocal-jumps"><a class="markdownIt-Anchor" href="#86-nonlocal-jumps"></a> 8.6 Nonlocal Jumps</h4>
 
       
     </div>
@@ -789,7 +791,7 @@ int pause(void); // 一直休眠，直到收到一个信号
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CS:APP ch-8 Exceptional Control Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">8.1 Exceptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">8.2 Processes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">8.4 Process Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">8.5 Signals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">8.6 Nonlocal Jumps</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-8-exceptional-control-flow"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-8 Exceptional Control Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#81-exceptions"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 8.1 Exceptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#82-processes"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 8.2 Processes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#84-process-control"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 8.4 Process Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#85-signals"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 8.5 Signals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#86-nonlocal-jumps"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 8.6 Nonlocal Jumps</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecid">
+<meta name="description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
 <meta name="keywords" content="ITOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ITOC-ch5] REDUCIBILITY">
 <meta property="og:url" content="http://yoursite.com/2018/05/31/ITOC/5/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecid">
+<meta property="og:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2018-05-31T14:11:05.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch5] REDUCIBILITY">
-<meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecid">
+<meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png">
 
 
@@ -419,7 +419,7 @@
       
 
       
-        <h2>[ITOC-ch5] REDUCIBILITY</h2>
+        <h2 id="itoc-ch5-reducibility"><a class="markdownIt-Anchor" href="#itoc-ch5-reducibility"></a> [ITOC-ch5] REDUCIBILITY</h2>
 <p>If A reduces to B</p>
 <ul>
 <li>we can use a solution to B to solve A</li>
@@ -427,8 +427,8 @@
 </ul>
 <p>$ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
 <p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<p>&lt;br/&gt;</p>
-<h3>5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3>
+<br>
+<h3 id="51-undecidable-problems-from-language-theory"><a class="markdownIt-Anchor" href="#51-undecidable-problems-from-language-theory"></a> 5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3>
 <p><strong>General Idea</strong></p>
 <ul>
 <li>
@@ -444,8 +444,8 @@
 <p>thus obtain a contradiction.</p>
 </li>
 </ul>
-<p>&lt;!-- more --&gt;</p>
-<p>&lt;br/&gt;</p>
+<a id="more"></a>
+<br>
 <p>$ A_ {TM} ≤_m HALT_{TM} $</p>
 <p>$ HALT_{TM} = \{ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
 <p><strong>Proof</strong></p>
@@ -457,8 +457,8 @@
 <li>If R accepts, simulate M on w until it halts.</li>
 <li>If M has accepted, accept ; if M has rejected, reject .”</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p>$ A_ {TM} ≤_m E_{TM} $</p>
 <p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
@@ -471,8 +471,8 @@
 <li>Run R on input $ &lt; M_1 &gt; $.</li>
 <li>If R accepts, reject ; if R rejects, accept .”</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p>$ A_ {TM} ≤_m REGULAR_{TM} $</p>
 <p>$ REGULAR_{TM} = \{ &lt; M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
 <p><strong>Proof</strong></p>
@@ -485,10 +485,10 @@
 <ul>
 <li>$ M_2 $ 	recognize all strings $ Σ^ * $ ( including $ 0^n 1^n $) which is regular</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>S = “On input $ &lt;M, w&gt; $, where M is a TM and w is a string:</p>
 <ol>
-<li>Construct the following TM $ M_2 $ .
+<li>Construct the following TM $ M_2 $ .<br>
 $ M_2 $ = “On input x:</li>
 </ol>
 <ul>
@@ -499,19 +499,19 @@ $ M_2 $ = “On input x:</li>
 <li>Run R on input $ &lt;M_2 &gt; $.</li>
 <li>If R accepts, accept; if R rejects, reject .”</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<p>Rice's theorem</p>
+<br>
+<p>Rice’s theorem</p>
 <ul>
 <li>determining any property of the languages recognized by Turing machines is undecidable.</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p>$ E_ {TM} ≤_m EQ_{TM} $</p>
 <p>$ EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
 <p><strong>Proof</strong></p>
 <p>$ M_1 $ is a TM that rejects all inputs.</p>
 <p><em>If $ L(M) = L(M_1) $, than $ L(M) = ∅ $</em></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>REDUCTIONS VIA COMPUTATION HISTORIES</strong></p>
 <p><strong>computation history</strong></p>
 <ul>
@@ -519,17 +519,17 @@ $ M_2 $ = “On input x:</li>
 <li>Finite sequences. If M doesn’t halt on w, no accepting or rejecting computation history exists for M on w.</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Linear bounded automaton</strong></p>
 <ul>
 <li>the amount of memory is limited and linear in input size n</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png" alt=""></p>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p><em>decidable</em></p>
 <p>$ A_{LBA} = \{ &lt;M, w&gt;| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>LEMMA 5.8</strong></p>
 <ul>
 <li>If a LBA has q states and g symbols with tape length n.</li>
@@ -539,8 +539,8 @@ $ M_2 $ = “On input x:</li>
 <ul>
 <li>reject after $ qng^n $ steps because M is looping</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p>$ A_ {TM} ≤_m E_{LBA} $</p>
 <p>$ E_{LBA} = \{&lt; M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
@@ -551,8 +551,8 @@ $ M_2 $ = “On input x:</li>
 <li>$ C_l $ is an accepting configuration for M .</li>
 <li>Each $ C_{i+1} $ legally follows from $ C_i $ .</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<p>&lt;br/&gt;</p>
+<br>
+<br>
 <p>$ A_ {TM} ≤_m ALL_{LBA} $</p>
 <p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
 <p><strong>Proof</strong></p>
@@ -563,16 +563,16 @@ $ M_2 $ = “On input x:</li>
 <li>do not end with an accepting configuration</li>
 <li>some $ C_i $ does not properly yield $ C_{i+1} $ under the rules of M</li>
 </ol>
-<p>&lt;br/&gt;</p>
-<h3>5.2 A SIMPLE UNDECIDABLE PROBLEM</h3>
+<br>
+<h3 id="52-a-simple-undecidable-problem"><a class="markdownIt-Anchor" href="#52-a-simple-undecidable-problem"></a> 5.2 A SIMPLE UNDECIDABLE PROBLEM</h3>
 <p><em>an example of an undecidable problem not concerning automaton</em></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Post Correspondence Problem</strong></p>
 <ul>
 <li>determine that a collection of dominos has a match (repetitions permitted).</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-09-49.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+ <br>
 <p>$ A_ {TM} ≤_m PCP $</p>
 <p>$ PCP = \{&lt; P &gt;| \ P \ is \ an \ instance \ of \ the \ Post \ Correspondence \ Problem \ with \ a \ match\}. $</p>
 <p><strong>Proof</strong></p>
@@ -613,42 +613,42 @@ $ M_2 $ = “On input x:</li>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-31-40.png" alt=""></p>
 </li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h3>5.3 MAPPING REDUCIBILITY</h3>
+<br>
+<h3 id="53-mapping-reducibility"><a class="markdownIt-Anchor" href="#53-mapping-reducibility"></a> 5.3 MAPPING REDUCIBILITY</h3>
 <p><em>formalize the notion of mapping reducibility</em></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>COMPUTABLE FUNCTIONS</strong></p>
 <p><em>f == TM</em></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>FORMAL DEFINITION OF MAPPING REDUCIBILITY</strong></p>
 <p><strong>mapping reducibility</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>If $ A ≤_m B $ and B is decidable, then A is decidable.</strong></p>
 <p>Proof</p>
-<p>construct A's decider N = “On input w:</p>
+<p>construct A’s decider N = “On input w:</p>
 <ol>
 <li>Compute f (w).</li>
 <li>Run M on input f (w) and output whatever M outputs.”</li>
 </ol>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>If $ A ≤_m B $ and A is undecidable, then B is undecidable.</strong></p>
 <p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Example of computable function</p>
 <ul>
-<li>Input $ &lt; M,w &gt; $ while output $ &lt;M',w'&gt; $</li>
-<li>$ &lt; M, w &gt; ∈ A_{TM} $ if and only if $ &lt;M' , w' &gt; ∈ HALT_{TM} $.</li>
+<li>Input $ &lt; M,w &gt; $ while output $ &lt;M’,w’&gt; $</li>
+<li>$ &lt; M, w &gt; ∈ A_{TM} $ if and only if $ &lt;M’ , w’ &gt; ∈ HALT_{TM} $.</li>
 </ul>
 <p>(5.1中,在每个S里构造的机器就是这里的reduce function)</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>If  $ A ≤_m B $ and B is Turing-recognizable, then A is Turing-recognizable.</strong></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>If $ A ≤_m B $ and A is not Turing-recognizable, then B is not Turing-recognizable.</strong></p>
-<p>if $ A_{TM} ≤_m \overline{B} $ then $ \overline{A_{TM}} ≤_m B $ therefore B isn't recognizable.</p>
-<p>&lt;br/&gt;</p>
+<p>if $ A_{TM} ≤_m \overline{B} $ then $ \overline{A_{TM}} ≤_m B $ therefore B isn’t recognizable.</p>
+<br>
 <p>$ EQ_{TM} $ is neither Turing-recognizable nor co-Turing-recognizable.</p>
 <p>Proofed by corollary above.</p>
 
@@ -855,7 +855,7 @@ $ M_2 $ = “On input x:</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">[ITOC-ch5] REDUCIBILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">5.2 A SIMPLE UNDECIDABLE PROBLEM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">5.3 MAPPING REDUCIBILITY</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#itoc-ch5-reducibility"><span class="nav-number">1.</span> <span class="nav-text"> [ITOC-ch5] REDUCIBILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#51-undecidable-problems-from-language-theory"><span class="nav-number">1.1.</span> <span class="nav-text"> 5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52-a-simple-undecidable-problem"><span class="nav-number">1.2.</span> <span class="nav-text"> 5.2 A SIMPLE UNDECIDABLE PROBLEM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53-mapping-reducibility"><span class="nav-number">1.3.</span> <span class="nav-text"> 5.3 MAPPING REDUCIBILITY</span></a></li></ol></li></ol></div>
             
 
           </div>
