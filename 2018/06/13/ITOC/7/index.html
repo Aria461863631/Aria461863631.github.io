@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-15-48.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-16-26.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-19-04.png">
-<meta property="og:updated_time" content="2018-06-15T01:15:47.928Z">
+<meta property="og:updated_time" content="2018-06-15T02:05:54.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch7] TIME COMPLEXITY">
 <meta name="twitter:description" content="[ITOC-ch7] TIME COMPLEXITY   7.1 MEASURING COMPLEXITY BIG-O AND SMALL-O NOTATION $ f(n) = O(g(n)) \  \Longleftrightarrow f(n) \  \le cg(n) $ $ f(n) = o(g(n)) \  \Longleftrightarrow f(n) \  \lt cg(n)">
@@ -525,6 +525,11 @@ $ A = \{w| \ V \ accepts \ &lt;w, c&gt; \  for \ some \ string \ c\} $</li>
 <li>$ SUBSET-SUM = \{&lt;S, t&gt;| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ \{x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</li>
 </ul>
 <br>
+<p><strong>co-NP</strong></p>
+<ul>
+<li>languages that are complements of languages in NP</li>
+<li>Verifying that something is <strong>not</strong> present seems to be more <strong>difficult</strong> than verifying that it is present.</li>
+</ul>
 <p><strong>THE P VERSUS NP QUESTION</strong></p>
 <p>$ P \subset NP $ or $ P = NP $</p>
 <br>
@@ -559,18 +564,19 @@ $ A = \{w| \ V \ accepts \ &lt;w, c&gt; \  for \ some \ string \ c\} $</li>
 <ul>
 <li>By DEF: show that <strong>every</strong> language $ A $ in NP is polynomial time reducible to SAT</li>
 <li>Reduction function: takes a string w and produces a Boolean formula φ that simulates the NP machine for A on input w, while w is in A iff φ is satisfiable</li>
-<li>将每个configuration里的每个symbol都设为一个变量, 按照A accept w的过程来模拟布尔表达式</li>
+<li>the problem of determining whether N accepts w <strong>is equivalent to</strong> the problem of determining whether an <strong>accepting tableau</strong> for N on w exists.</li>
+<li>将每个configuration里的每个symbol都设为一个变量, 按照A accept w的过程来模拟布尔表达式, 构造的表达式只保证符合TM的计算过程(对应的表格是合法的), 只有当accept的时候表达式才有真的赋值</li>
 </ul>
 <p>Proof</p>
 <ul>
 <li>
-<p><strong>variable</strong>: For each $ i $ and $ j $ between 1 and  $ n^k $ and for each $ s $ in $ C = Q ∪ Γ ∪ _{ # _} $, we have a variable, $ x_{i,j,s} $, If $ x_{i,j,s} $ takes on the value 1, it means that $ cell [i, j] $ in the tableau contains an s</p>
+<p><strong>variable</strong>: For each $ i $ and $ j $ between 1 and  $ n^k $ and for each $ s $ in $ C = Q ∪ Γ ∪ \{ \# \} $, we have a variable, $ x_{i,j,s} $, If $ x_{i,j,s} $ takes on the value 1, it means that $ cell [i, j] $ in the tableau contains an s</p>
 </li>
 <li>
 <p><strong>formula φ</strong>: $ φ_{cell} ∧ φ_{start} ∧ φ_{move} ∧ φ_{accept} $</p>
 <ul>
 <li>
-<p>$ φ_{cell} $: ensure that there must have exactly one variable on for every cell (tableau is valid)</p>
+<p>$ φ_{cell} ​$: ensure that there must have exactly one variable on for every cell (tableau is valid)</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-13-34.png" alt=""></p>
 </li>
 <li>
