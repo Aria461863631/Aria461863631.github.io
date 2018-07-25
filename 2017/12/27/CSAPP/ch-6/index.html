@@ -87,22 +87,22 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="CS:APP ch-6 The Memory Hierarchy  6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive    DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w cells -">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704131022875">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704131344546">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704134951375">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704150817828">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704152101593">
-<meta property="og:image" content="http://img.blog.csdn.net/20140704152111687">
-<meta property="og:image" content="http://img.blog.csdn.net/20140715185732354">
-<meta property="og:image" content="http://img.blog.csdn.net/20140715191154022">
-<meta property="og:image" content="http://img.blog.csdn.net/20140715231707062">
-<meta property="og:image" content="http://img.blog.csdn.net/20140716145031067">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-03-41.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-03-54.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-04-12.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-04-37.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-05-25.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-05-45.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527682/Screenshot_from_2018-07-25_22-06-11.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-06-24.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527682/Screenshot_from_2018-07-25_22-06-51.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-07-14.png">
 <meta property="og:image" content="http://yubinbai.com/images/csapp.png">
-<meta property="og:updated_time" content="2018-07-25T04:52:22.110Z">
+<meta property="og:updated_time" content="2018-07-25T14:10:41.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch6] The Memory Hierarchy">
 <meta name="twitter:description" content="CS:APP ch-6 The Memory Hierarchy  6.1 Storage Technologies SRAM  cache, transistor, stable, fast, expensive    DRAM  main memory,  capacitor, sensitive( periodically refresh every bit ) d * w cells -">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20140704131022875">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-03-41.png">
 
 
 
@@ -430,11 +430,10 @@
 <li>d * w cells --&gt; d supercells  == r rows * c columns ( two dimension array )</li>
 <li>data pins ( w bits ) &amp; addr pins ( row addr i, column addr j )</li>
 <li>Memory modules: Each supercell stores 11 byte. Each address represent by 8 supercells</li>
-<li>Enhanced DRAM</li>
+<li>Enhanced DRAM<a id="more"></a>
+<img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-03-41.png" alt=""></li>
 </ul>
-<a id="more"></a>
-<p><img src="http://img.blog.csdn.net/20140704131022875" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20140704131344546" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-03-54.png" alt=""></p>
 <br>
 <p>Nonvolatile Memory ( ROM )</p>
 <ul>
@@ -458,7 +457,7 @@
 <ul>
 <li>
 <p>platter --&gt; surface --&gt; track --&gt; sectors</p>
-<p><img src="http://img.blog.csdn.net/20140704134951375" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-04-12.png" alt=""></p>
 </li>
 <li>
 <p>Logical Disk Blocks: hide complexity from OS</p>
@@ -473,7 +472,7 @@
 <p>I/O bus: connect disks to CPU and main memory, independent under CPU</p>
 </li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20140704150817828" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-04-37.png" alt=""></p>
 <p>Accessing Disk</p>
 <ul>
 <li>Memory mapped I/O: a block of addresses in the address space is reserved for communicating with I/O devices. Each of these address is known as an I/O <strong>port</strong>. Each device associated with one or more ports.</li>
@@ -495,8 +494,8 @@
 </li>
 <li>CPU returns control to the point where interrupted</li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20140704152101593" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20140704152111687" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527680/Screenshot_from_2018-07-25_22-05-25.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-05-45.png" alt=""></p>
 <p>Solid State Disk</p>
 <ul>
 <li>A page can be written only after the entire block it belongs to has erased</li>
@@ -512,9 +511,9 @@
 <p>k increase, spatial decrease</p>
 <br>
 <h4 id="63-the-memory-hierarchy"><a class="markdownIt-Anchor" href="#63-the-memory-hierarchy"></a> 6.3 The Memory Hierarchy</h4>
-<p><img src="http://img.blog.csdn.net/20140715185732354" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527682/Screenshot_from_2018-07-25_22-06-11.png" alt=""></p>
 <p>Caching in memory hierarchy</p>
-<p><img src="http://img.blog.csdn.net/20140715191154022" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-06-24.png" alt=""></p>
 <p>Cache hits</p>
 <p>Cache misses</p>
 <ul>
@@ -547,7 +546,7 @@
 <li>tag = $ m - ( s + b ) $ – Lines</li>
 <li>block offset = $ log_2B $  – blocks</li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20140715231707062" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527682/Screenshot_from_2018-07-25_22-06-51.png" alt=""></p>
 <p><strong>Process that cache determine hit or miss</strong></p>
 <ol>
 <li>Set Selection</li>
@@ -579,7 +578,7 @@
 <li>Data cache ( d-cache )</li>
 <li>both ( unified cache )</li>
 </ul>
-<p><img src="http://img.blog.csdn.net/20140716145031067" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527681/Screenshot_from_2018-07-25_22-07-14.png" alt=""></p>
 <h4 id="65-writing-cache-friendly-code"><a class="markdownIt-Anchor" href="#65-writing-cache-friendly-code"></a> 6.5 Writing Cache-Friendly Code</h4>
 <h4 id="66-putting-it-together-the-impact-of-caches-on-program-performance"><a class="markdownIt-Anchor" href="#66-putting-it-together-the-impact-of-caches-on-program-performance"></a> 6.6 Putting It Together: The Impact of Caches on Program Performance</h4>
 <p>smaller size – better temporal locality</p>
@@ -719,7 +718,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

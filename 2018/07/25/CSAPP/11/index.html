@@ -79,18 +79,25 @@
 
 
 
-<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta name="description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[CS:APP-ch8] Shell Lab">
-<meta property="og:url" content="http://yoursite.com/2018/03/21/CSAPP/shell/index.html">
+<meta property="og:title" content="[CS:APP-ch11] Network Programming">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/CSAPP/11/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta property="og:description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T04:52:14.174Z">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-54.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-27-02.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-35-20.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_18-56-49.png">
+<meta property="og:image" content="https://slideplayer.com/13098399/79/images/37/Linked+List+Returned+by+getaddrinfo.jpg">
+<meta property="og:updated_time" content="2018-07-25T13:51:14.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[CS:APP-ch8] Shell Lab">
-<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
+<meta name="twitter:title" content="[CS:APP-ch11] Network Programming">
+<meta name="twitter:description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/21/CSAPP/shell/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/25/CSAPP/11/"/>
 
 
 
 
 
-  <title>[CS:APP-ch8] Shell Lab | Aria</title>
+  <title>[CS:APP-ch11] Network Programming | Aria</title>
   
 
 
@@ -300,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/CSAPP/shell/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/CSAPP/11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -317,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[CS:APP-ch8] Shell Lab</h1>
+          <h1 class="post-title" itemprop="name headline">[CS:APP-ch11] Network Programming</h1>
         
 
         <div class="post-meta">
@@ -329,8 +336,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T13:27:51+08:00">
-                2018-03-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-25T21:50:51+08:00">
+                2018-07-25
               </time>
             
 
@@ -370,9 +377,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/21/CSAPP/shell/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/25/CSAPP/11/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/21/CSAPP/shell/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/25/CSAPP/11/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -405,38 +412,177 @@
       
 
       
-        <h2 id="csapp-ch8-shell-lab"><a class="markdownIt-Anchor" href="#csapp-ch8-shell-lab"></a> [CS:APP-ch8] Shell Lab</h2>
-<p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
-<p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
-<p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
-<br>
-<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
-<p>implement</p>
-<ul>
-<li>eval, builtin_cmd, do_bgfg, waitfg</li>
-<li>sigchld_handler, sigint_handler, sigtstp_handler</li>
-</ul>
-<br>
+        <h2 id="csapp-ch11-network-programming"><a class="markdownIt-Anchor" href="#csapp-ch11-network-programming"></a> CS:APP-ch11 Network Programming</h2>
+<h3 id="111-the-client-server-programming-model"><a class="markdownIt-Anchor" href="#111-the-client-server-programming-model"></a> 11.1 The Client-Server Programming Model</h3>
+<p>4 steps of client-server transaction</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png" alt=""></p>
 <a id="more"></a>
-<h3 id="0-preparation"><a class="markdownIt-Anchor" href="#0-preparation"></a> 0. Preparation</h3>
-<p><code>tshref</code>: 正确的参考shell，要求自己实现后的shell和它的结果一样</p>
-<p><code>make test01</code>用trace01.txt来验证结果，可以参考<code>make rtest01</code>的结果</p>
-<p><code>gdb</code> makefile去掉参数O2,加上-g</p>
+<h3 id="112-networks"><a class="markdownIt-Anchor" href="#112-networks"></a> 11.2 Networks</h3>
+<p>a hierarchical system that is organized by geographical proximity.</p>
+<p>lowest level: LAN (Ethernet)</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-54.png" alt=""></p>
+<p>higher level: WAN</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-27-02.png" alt=""></p>
+<p>internet</p>
+<p>consist of different LANs and WANs with radically different and incompatible technologies.</p>
+<p>a layer of protocol software running on each host and router that smoothes out the differences between the different networks. (network layer)</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-35-20.png" alt=""></p>
+<p>step 5 : router strips off the old LAN1 frame header and prepends a new LAN2 frame header.</p>
+<h3 id="113-the-global-ip-internet"><a class="markdownIt-Anchor" href="#113-the-global-ip-internet"></a> 11.3 The Global IP Internet</h3>
+<p><strong>11.3.1 IP Addresses</strong></p>
+<p>an unsigned 32-bit integer</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* Internet address structure */</span></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span> &#123;</span></span>
+<span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> s_addr; <span class="comment">/* Network byte order (big-endian) */</span></span>
+<span class="line">&#125;;</span>
+</pre></td></tr></table></figure>
+<p>Addresses in IP address structures are always stored in (<strong>big-endian</strong>) network byte order, even if the host byte order is little-endian.</p>
+<p>convert between network and host byte order</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span>
+<span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">htonl</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> hostlong )</span></span>;</span>
+<span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> <span class="title">htons</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> hostshort )</span></span>;</span>
+<span class="line">										<span class="comment">// Returns : value in network byte order</span></span>
+<span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">ntohl</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> netlong )</span></span>;</span>
+<span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> <span class="title">ntohs</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> netshort )</span></span>;</span>
+<span class="line">										<span class="comment">// Returns : value in host byte order</span></span>
+</pre></td></tr></table></figure>
+<p>convert between IP addresses and dotted- decimal strings</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inet_pton</span> <span class="params">( AF_INET, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">void</span> *dst )</span></span>;<span class="comment">// dst = struct in_addr</span></span>
+<span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">inet_ntop</span><span class="params">( AF_INET, <span class="keyword">const</span> <span class="keyword">void</span> *src, <span class="keyword">char</span> *dst, <span class="keyword">socklen_t</span> size )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p><strong>11.3.2 Internet Domain names</strong></p>
+<p><code>nslookup</code></p>
+<p><strong>11.3.3 Internet Connections</strong></p>
+<p>socket address: ip addr : port</p>
 <br>
-<h3 id="1-void-eval-charcmdline"><a class="markdownIt-Anchor" href="#1-void-eval-charcmdline"></a> 1. void eval ( char*cmdline )</h3>
-<p>原型：p755</p>
-<ul>
-<li>If command is a built-in command, the shell program handles it immediately.</li>
-<li>Otherwise, the shell creates a child process to load and execute the program for command.</li>
-</ul>
-<p>Hint</p>
-<ul>
-<li>In <code>eval</code>, the <strong>parent</strong> must use <code>sigprocmask</code>to <strong>block</strong> <code>SIGCHLD</code> signals before it forks the child, then <strong>unblock</strong> these signals, again using <code>sigprocmask</code> after it adds the child to the job list by calling <code>addjob</code>.</li>
-<li>Since children inherit the blocked vectors of their parents, the <strong>child</strong> must be sure to then <strong>unblock</strong> <code>SIGCHLD</code> signals before it <code>execs</code> the new program.</li>
-<li>The <strong>parent</strong> needs to <strong>block</strong> the <code>SIGCHLD</code> signals in this way in order to avoid the <strong>race</strong> condition where the child is reaped by <code>sigchld_handler</code> (and thus removed from the job list) before the parent calls addjob.</li>
-<li>After the <code>fork</code>, but before the <code>execve</code>, the child process should call <code>setpgid(0, 0)</code>, which puts the child in a <strong>new</strong> process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the <strong>foreground process group</strong>. When you type <code>ctrl-c</code>, the shell should catch the resulting <code>SIGINT</code> and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="114-the-sockets-interface"><a class="markdownIt-Anchor" href="#114-the-sockets-interface"></a> 11.4 The Sockets Interface</h3>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_18-56-49.png" alt=""></p>
+<p>socket address structure</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* IP socket address structure */</span></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> &#123;</span></span>
+<span class="line">    <span class="keyword">uint16_t</span> sin_family;         <span class="comment">/* Protocol family (always AF_INET) */</span></span>
+<span class="line">    <span class="keyword">uint16_t</span> sin_port;           <span class="comment">/* Port number in network byte order */</span></span>
+<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span> <span class="title">sin_addr</span>;</span>     <span class="comment">/* IP address in network byte order */</span></span>
+<span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> sin_zero[ <span class="number">8</span> ]; <span class="comment">/* Pad to sizeof ( struct sockaddr ) */</span></span>
+<span class="line">&#125;;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/* Generic socket address structure (for connect, bind, and accept) */</span></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr</span> &#123;</span></span>
+<span class="line">    <span class="keyword">uint16_t</span> sa_family; <span class="comment">/* Protocol family */</span></span>
+<span class="line">    <span class="keyword">char</span> sa_data[ <span class="number">14</span> ]; <span class="comment">/* Address data. */</span></span>
+<span class="line">&#125;;</span>
+</pre></td></tr></table></figure>
+<p>socket</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span>
+<span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">( <span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p>connect</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">( <span class="keyword">int</span> clientfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p>bind: associate server’s socket address with socketfd</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">( <span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p>listen: convert to listening socket that accept connections</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">( <span class="keyword">int</span> sockfd, <span class="keyword">int</span> backlog )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p>accept</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span> <span class="params">( <span class="keyword">int</span> listenfd, struct sockaddr *addr, <span class="keyword">int</span> *addrlen )</span></span>;</span>
+</pre></td></tr></table></figure>
+<br>
+<p>struct addrinfo</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">addrinfo</span> &#123;</span></span>
+<span class="line">    <span class="keyword">int</span> ai_flags;             <span class="comment">/*hints argument flags*/</span></span>
+<span class="line">    <span class="keyword">int</span> ai_family;            <span class="comment">/*first arg to socket fun*/</span></span>
+<span class="line">    <span class="keyword">int</span> ai_socktype;          <span class="comment">/*second arg*/</span></span>
+<span class="line">    <span class="keyword">int</span> ai_protocol;          <span class="comment">/*third arg*/</span></span>
+<span class="line">    <span class="keyword">char</span> *ai_canonname;       <span class="comment">/*canonical host name*/</span></span>
+<span class="line">    <span class="keyword">size_t</span> ai_addrlen;        <span class="comment">/*size of ai_addr struct*/</span></span>
+<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr</span> *<span class="title">ai_addr</span>;</span> <span class="comment">/*ptr to socket address structure*/</span></span>
+<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">adrinfo</span> *<span class="title">ai_netx</span>;</span>  <span class="comment">/*ptr to next item in linked list*/</span></span>
+<span class="line">&#125;;</span>
+</pre></td></tr></table></figure>
+<p><img src="https://slideplayer.com/13098399/79/images/37/Linked+List+Returned+by+getaddrinfo.jpg" alt=""></p>
+<p>convert between binary socket address structures and hostname strings</p>
+<p>getaddrinfo</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span>
+<span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span>
+<span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netdb.h&gt;</span></span></span>
+<span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getaddrinfo</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> *host, <span class="keyword">const</span> <span class="keyword">char</span> *service, </span></span></span>
+<span class="line"><span class="function"><span class="params">				<span class="keyword">const</span> struct addrinfo *hints, struct addrinfo **result )</span></span>;</span>
+<span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">freeaddrinfo</span><span class="params">( struct addrinfo *result )</span></span>;</span>
+<span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">gai_strerror</span><span class="params">( <span class="keyword">int</span> errcode )</span></span>;</span>
+</pre></td></tr></table></figure>
+<p>getnameinfo</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnameinfo</span><span class="params">( <span class="keyword">const</span> struct sockaddr *sa, <span class="keyword">socklen_t</span> salen, </span></span></span>
+<span class="line"><span class="function"><span class="params">				<span class="keyword">char</span> *host, <span class="keyword">size_t</span> hostlen,</span></span></span>
+<span class="line"><span class="function"><span class="params">				<span class="keyword">char</span> *service, <span class="keyword">size_t</span> servlen, <span class="keyword">int</span> flags )</span></span>;</span>
+</pre></td></tr></table></figure>
+<br>
+<p>usage: combine all</p>
+<p>open_clientfd ( getaddrinfo, socket, connect, freeaddrinfo )</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -484,177 +630,57 @@
 <span class="line">46</span>
 <span class="line">47</span>
 <span class="line">48</span>
-<span class="line">49</span>
-<span class="line">50</span>
-<span class="line">51</span>
-<span class="line">52</span>
-<span class="line">53</span>
-<span class="line">54</span>
-<span class="line">55</span>
-<span class="line">56</span>
-<span class="line">57</span>
-<span class="line">58</span>
-<span class="line">59</span>
-<span class="line">60</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * eval - Evaluate the command line that the user has just typed in</span></span>
+<span class="line"><span class="comment"> * open_clientfd - Open connection to server at &lt;hostname, port&gt; and</span></span>
+<span class="line"><span class="comment"> *     return a socket descriptor ready for reading and writing. This</span></span>
+<span class="line"><span class="comment"> *     function is reentrant and protocol-independent.</span></span>
 <span class="line"><span class="comment"> *</span></span>
-<span class="line"><span class="comment"> * If the user has requested a built-in command (quit, jobs, bg or fg)</span></span>
-<span class="line"><span class="comment"> * then execute it immediately. Otherwise, fork a child process and</span></span>
-<span class="line"><span class="comment"> * run the job in the context of the child. If the job is running in</span></span>
-<span class="line"><span class="comment"> * the foreground, wait for it to terminate and then return.  Note:</span></span>
-<span class="line"><span class="comment"> * each child process must have a unique process group ID so that our</span></span>
-<span class="line"><span class="comment"> * background children don't receive SIGINT (SIGTSTP) from the kernel</span></span>
-<span class="line"><span class="comment"> * when we type ctrl-c (ctrl-z) at the keyboard.</span></span>
+<span class="line"><span class="comment"> *     On error, returns:</span></span>
+<span class="line"><span class="comment"> *       -2 for getaddrinfo error</span></span>
+<span class="line"><span class="comment"> *       -1 with errno set for other errors.</span></span>
 <span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">eval</span> <span class="params">( <span class="keyword">char</span> *cmdline )</span> </span>&#123;</span>
+<span class="line"><span class="comment">/* $begin open_clientfd */</span></span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open_clientfd</span> <span class="params">( <span class="keyword">char</span> *hostname, <span class="keyword">char</span> *port )</span> </span>&#123;</span>
+<span class="line">    <span class="keyword">int</span> clientfd, rc;</span>
+<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">addrinfo</span> <span class="title">hints</span>, *<span class="title">listp</span>, *<span class="title">p</span>;</span></span>
 <span class="line"></span>
-<span class="line">    <span class="keyword">pid_t</span> pid;</span>
-<span class="line">    <span class="keyword">sigset_t</span> mask;</span>
-<span class="line">    <span class="keyword">char</span> *argv[ MAXARGS ];</span>
-<span class="line">    <span class="comment">//Parse the command line and build the argv array</span></span>
-<span class="line">    <span class="keyword">int</span> bg = parseline ( cmdline, argv );</span>
+<span class="line">    <span class="comment">/* Get a list of potential server addresses */</span></span>
+<span class="line">    <span class="built_in">memset</span> ( &amp;hints, <span class="number">0</span>, <span class="keyword">sizeof</span> ( struct addrinfo ) );</span>
+<span class="line">    hints.ai_socktype = SOCK_STREAM; <span class="comment">/* Open a connection */</span></span>
+<span class="line">    hints.ai_flags = AI_NUMERICSERV; <span class="comment">/* ... using a numeric port arg. */</span></span>
+<span class="line">    hints.ai_flags |= AI_ADDRCONFIG; <span class="comment">/* Recommended for connections */</span></span>
+<span class="line">    <span class="keyword">if</span> ( ( rc = getaddrinfo ( hostname, port, &amp;hints, &amp;listp ) ) != <span class="number">0</span> ) &#123;</span>
+<span class="line">        <span class="built_in">fprintf</span> ( <span class="built_in">stderr</span>, <span class="string">"getaddrinfo failed (%s:%s): %s\n"</span>, hostname, port, gai_strerror ( rc ) );</span>
+<span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span>
+<span class="line">    &#125;</span>
 <span class="line"></span>
-<span class="line">    <span class="keyword">if</span> ( !builtin_cmd ( argv ) ) &#123;</span>
+<span class="line">    <span class="comment">/* Walk the list for one that we can successfully connect to */</span></span>
+<span class="line">    <span class="keyword">for</span> ( p = listp; p; p = p-&gt;ai_next ) &#123;</span>
+<span class="line">        <span class="comment">/* Create a socket descriptor */</span></span>
+<span class="line">        <span class="keyword">if</span> ( ( clientfd = socket ( p-&gt;ai_family, p-&gt;ai_socktype, p-&gt;ai_protocol ) ) &lt; <span class="number">0</span> )</span>
+<span class="line">            <span class="keyword">continue</span>; <span class="comment">/* Socket failed, try the next */</span></span>
 <span class="line"></span>
-<span class="line">        <span class="comment">// blocking SIGCHLD, race</span></span>
-<span class="line">        sigemptyset ( &amp;mask );</span>
-<span class="line">        sigaddset ( &amp;mask, SIGCHLD );</span>
-<span class="line">        sigprocmask ( SIG_BLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
-<span class="line"></span>
-<span class="line">        <span class="comment">// fork new process</span></span>
-<span class="line">        <span class="keyword">if</span> ( ( pid = fork () ) &lt; <span class="number">0</span> )</span>
-<span class="line">            unix_error ( <span class="string">"fork error"</span> );</span>
-<span class="line"></span>
-<span class="line">        <span class="comment">// child process</span></span>
-<span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( pid == <span class="number">0</span> ) &#123;</span>
-<span class="line">            <span class="comment">// unblock SIGCHLD in child process</span></span>
-<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
-<span class="line">            <span class="comment">// ensures that there will be only one process</span></span>
-<span class="line">            setpgid ( <span class="number">0</span>, <span class="number">0</span> );</span>
-<span class="line">            <span class="comment">// execute command</span></span>
-<span class="line">            <span class="keyword">if</span> ( execvp ( argv[ <span class="number">0</span> ], argv ) &lt; <span class="number">0</span> ) &#123;</span>
-<span class="line">                <span class="built_in">printf</span> ( <span class="string">"%s: Command not found\n"</span>, argv[ <span class="number">0</span> ] );</span>
-<span class="line">                <span class="built_in">exit</span> ( <span class="number">1</span> );</span>
-<span class="line">            &#125;</span>
-<span class="line"></span>
-<span class="line">        <span class="comment">// parent</span></span>
-<span class="line">        &#125; <span class="keyword">else</span> &#123;</span>
-<span class="line"></span>
-<span class="line">            addjob ( jobs, pid, bg ? BG : FG, cmdline );</span>
-<span class="line">            <span class="comment">// get SIGCHLD back after add job</span></span>
-<span class="line">            sigprocmask ( SIG_UNBLOCK, &amp;mask, <span class="literal">NULL</span> );</span>
-<span class="line"></span>
-<span class="line">            <span class="keyword">if</span> ( !bg ) &#123;</span>
-<span class="line">                <span class="comment">// reap when job terminated ( send signal SIGCHILD )</span></span>
-<span class="line">                waitfg ( pid );</span>
-<span class="line">            &#125; <span class="keyword">else</span> &#123;</span>
-<span class="line">                <span class="comment">//[1] (6325) ./myspin 1 &amp;</span></span>
-<span class="line">                <span class="built_in">printf</span> ( <span class="string">"[%d] (%d) %s"</span>, pid2jid ( pid ), pid, cmdline );</span>
-<span class="line">            &#125;</span>
+<span class="line">        <span class="comment">/* Connect to the server */</span></span>
+<span class="line">        <span class="keyword">if</span> ( connect ( clientfd, p-&gt;ai_addr, p-&gt;ai_addrlen ) != <span class="number">-1</span> )</span>
+<span class="line">            <span class="keyword">break</span>; <span class="comment">/* Success */</span></span>
+<span class="line">        <span class="keyword">if</span> ( close ( clientfd ) &lt;</span>
+<span class="line">             <span class="number">0</span> ) &#123; <span class="comment">/* Connect failed, try another */</span> <span class="comment">// line:netp:openclientfd:closefd</span></span>
+<span class="line">            <span class="built_in">fprintf</span> ( <span class="built_in">stderr</span>, <span class="string">"open_clientfd: close failed: %s\n"</span>, strerror ( errno ) );</span>
+<span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span>
 <span class="line">        &#125;</span>
 <span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span>;</span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="2int-builtin_cmd-char-argv"><a class="markdownIt-Anchor" href="#2int-builtin_cmd-char-argv"></a> 2.int builtin_cmd( char **argv)</h3>
-<ul>
-<li>Four commands are to be built-in in the shell</li>
-<li>quit: exit the shell.</li>
-<li>jobs: List the running and stopped background jobs.</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-<span class="line">15</span>
-<span class="line">16</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * builtin_cmd - If the user has typed a built-in command then execute</span></span>
-<span class="line"><span class="comment"> *    it immediately.</span></span>
-<span class="line"><span class="comment"> */</span> </span>
-<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">builtin_cmd</span> <span class="params">( <span class="keyword">char</span> **argv )</span> </span>&#123;</span>
-<span class="line">    <span class="keyword">if</span> ( <span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"quit"</span> ) == <span class="number">0</span> ) &#123;</span>
-<span class="line">        <span class="built_in">exit</span> ( <span class="number">0</span> );</span>
-<span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"jobs"</span> ) == <span class="number">0</span> ) &#123;</span>
-<span class="line">        listjobs ( jobs );</span>
-<span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span>
-<span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( !<span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"fg"</span> ) || !<span class="built_in">strcmp</span> ( argv[ <span class="number">0</span> ], <span class="string">"bg"</span> ) ) &#123;</span>
-<span class="line">        do_bgfg ( argv );</span>
-<span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span>
-<span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">/* not a builtin command */</span></span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="3-void-waitfg-pid_t-pid"><a class="markdownIt-Anchor" href="#3-void-waitfg-pid_t-pid"></a> 3. void waitfg( pid_t pid )</h3>
-<ul>
-<li>shell should wait for foreground process</li>
-<li>This function should wait by sleeping for 1 second repeatedly until the specified process is no longer the foreground process (state = FG)</li>
-</ul>
-<p>Hints</p>
-<ul>
-<li>In <code>waitfg</code>, use a busy loop around the sleep function.</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-<span class="line">15</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * waitfg - Block until process pid is no longer the foreground process</span></span>
-<span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">waitfg</span> <span class="params">( <span class="keyword">pid_t</span> pid )</span> </span>&#123;</span>
-<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span> = <span class="title">getjobpid</span> ( <span class="title">jobs</span>, <span class="title">pid</span> );</span></span>
-<span class="line">    <span class="keyword">if</span> ( pid == <span class="number">0</span> )</span>
-<span class="line">        <span class="keyword">return</span>;</span>
 <span class="line"></span>
-<span class="line">    <span class="keyword">if</span> ( job != <span class="literal">NULL</span> ) &#123;</span>
-<span class="line">        <span class="comment">// sleep</span></span>
-<span class="line">        <span class="keyword">while</span> ( pid == fgpid ( jobs ) ) &#123;</span>
-<span class="line">        &#125;</span>
-<span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">    <span class="comment">/* Clean up */</span></span>
+<span class="line">    freeaddrinfo ( listp );</span>
+<span class="line">    <span class="keyword">if</span> ( !p ) <span class="comment">/* All connects failed */</span></span>
+<span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span>
+<span class="line">    <span class="keyword">else</span> <span class="comment">/* The last connect succeeded */</span></span>
+<span class="line">        <span class="keyword">return</span> clientfd;</span>
 <span class="line">&#125;</span>
+<span class="line"><span class="comment">/* $end open_clientfd */</span></span>
 </pre></td></tr></table></figure>
-<br>
-<h3 id="4-void-do_bgfg-char-argv"><a class="markdownIt-Anchor" href="#4-void-do_bgfg-char-argv"></a> 4. void do_bgfg( char **argv )</h3>
-<ul>
-<li>
-<p><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</p>
-</li>
-<li>
-<p><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</p>
-</li>
-<li>
-<p>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</p>
-</li>
-<li>
-<p>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</p>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>open_listenfd (getaddrinfo, socket, bind, listen, freeaddrinfo)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -709,229 +735,129 @@
 <span class="line">53</span>
 <span class="line">54</span>
 <span class="line">55</span>
-<span class="line">56</span>
-<span class="line">57</span>
-<span class="line">58</span>
-<span class="line">59</span>
-<span class="line">60</span>
-<span class="line">61</span>
-<span class="line">62</span>
-<span class="line">63</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * do_bgfg - Execute the builtin bg and fg commands</span></span>
+<span class="line"><span class="comment"> * open_listenfd - Open and return a listening socket on port. This</span></span>
+<span class="line"><span class="comment"> *     function is reentrant and protocol-independent.</span></span>
+<span class="line"><span class="comment"> *</span></span>
+<span class="line"><span class="comment"> *     On error, returns:</span></span>
+<span class="line"><span class="comment"> *       -2 for getaddrinfo error</span></span>
+<span class="line"><span class="comment"> *       -1 with errno set for other errors.</span></span>
 <span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">do_bgfg</span> <span class="params">( <span class="keyword">char</span> **argv )</span> </span>&#123;</span>
-<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span>;</span></span>
-<span class="line">    <span class="keyword">char</span> *tmp;</span>
-<span class="line">    <span class="keyword">int</span> jid;</span>
-<span class="line">    <span class="keyword">pid_t</span> pid;</span>
+<span class="line"><span class="comment">/* $begin open_listenfd */</span></span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">open_listenfd</span> <span class="params">( <span class="keyword">char</span> *port )</span> </span>&#123;</span>
+<span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">addrinfo</span> <span class="title">hints</span>, *<span class="title">listp</span>, *<span class="title">p</span>;</span></span>
+<span class="line">    <span class="keyword">int</span> listenfd, rc, optval = <span class="number">1</span>;</span>
 <span class="line"></span>
-<span class="line">    tmp = argv[ <span class="number">1</span> ];</span>
-<span class="line"></span>
-<span class="line">    <span class="comment">// unvalid id</span></span>
-<span class="line">    <span class="keyword">if</span> ( tmp == <span class="literal">NULL</span> ) &#123;</span>
-<span class="line">        <span class="built_in">printf</span> ( <span class="string">"%s command requires PID or %%jobid argument\n"</span>, argv[ <span class="number">0</span> ] );</span>
-<span class="line">        <span class="keyword">return</span>;</span>
+<span class="line">    <span class="comment">/* Get a list of potential server addresses */</span></span>
+<span class="line">    <span class="built_in">memset</span> ( &amp;hints, <span class="number">0</span>, <span class="keyword">sizeof</span> ( struct addrinfo ) );</span>
+<span class="line">    hints.ai_socktype = SOCK_STREAM;             <span class="comment">/* Accept connections */</span></span>
+<span class="line">    hints.ai_flags = AI_PASSIVE | AI_ADDRCONFIG; <span class="comment">/* ... on any IP address */</span></span>
+<span class="line">    hints.ai_flags |= AI_NUMERICSERV;            <span class="comment">/* ... using port number */</span></span>
+<span class="line">    <span class="keyword">if</span> ( ( rc = getaddrinfo ( <span class="literal">NULL</span>, port, &amp;hints, &amp;listp ) ) != <span class="number">0</span> ) &#123;</span>
+<span class="line">        <span class="built_in">fprintf</span> ( <span class="built_in">stderr</span>, <span class="string">"getaddrinfo failed (port %s): %s\n"</span>, port, gai_strerror ( rc ) );</span>
+<span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span>
 <span class="line">    &#125;</span>
 <span class="line"></span>
-<span class="line">    <span class="comment">// jid</span></span>
-<span class="line">    <span class="keyword">if</span> ( tmp[ <span class="number">0</span> ] == <span class="string">'%'</span> ) &#123;</span>
-<span class="line">        <span class="comment">// string to integer</span></span>
-<span class="line">        jid = atoi ( &amp;tmp[ <span class="number">1</span> ] );</span>
-<span class="line">        job = getjobjid ( jobs, jid );</span>
+<span class="line">    <span class="comment">/* Walk the list for one that we can bind to */</span></span>
+<span class="line">    <span class="keyword">for</span> ( p = listp; p; p = p-&gt;ai_next ) &#123;</span>
+<span class="line">        <span class="comment">/* Create a socket descriptor */</span></span>
+<span class="line">        <span class="keyword">if</span> ( ( listenfd = socket ( p-&gt;ai_family, p-&gt;ai_socktype, p-&gt;ai_protocol ) ) &lt; <span class="number">0</span> )</span>
+<span class="line">            <span class="keyword">continue</span>; <span class="comment">/* Socket failed, try the next */</span></span>
 <span class="line"></span>
-<span class="line">        <span class="comment">// unvalid jid</span></span>
-<span class="line">        <span class="keyword">if</span> ( job == <span class="literal">NULL</span> ) &#123;</span>
-<span class="line">            <span class="comment">//%2: No such job</span></span>
-<span class="line">            <span class="built_in">printf</span> ( <span class="string">"%s: No such job\n"</span>, tmp );</span>
-<span class="line">            <span class="keyword">return</span>;</span>
-<span class="line">        &#125; <span class="keyword">else</span> &#123;</span>
-<span class="line">            pid = job-&gt;pid;</span>
+<span class="line">        <span class="comment">/* Eliminates "Address already in use" error from bind */</span></span>
+<span class="line">        setsockopt ( listenfd, SOL_SOCKET, SO_REUSEADDR, <span class="comment">// line:netp:csapp:setsockopt</span></span>
+<span class="line">                     (<span class="keyword">const</span> <span class="keyword">void</span> *)&amp;optval, <span class="keyword">sizeof</span> ( <span class="keyword">int</span> ) );</span>
+<span class="line"></span>
+<span class="line">        <span class="comment">/* Bind the descriptor to the address */</span></span>
+<span class="line">        <span class="keyword">if</span> ( bind ( listenfd, p-&gt;ai_addr, p-&gt;ai_addrlen ) == <span class="number">0</span> )</span>
+<span class="line">            <span class="keyword">break</span>;                      <span class="comment">/* Success */</span></span>
+<span class="line">        <span class="keyword">if</span> ( close ( listenfd ) &lt; <span class="number">0</span> ) &#123; <span class="comment">/* Bind failed, try the next */</span></span>
+<span class="line">            <span class="built_in">fprintf</span> ( <span class="built_in">stderr</span>, <span class="string">"open_listenfd close failed: %s\n"</span>, strerror ( errno ) );</span>
+<span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span>
 <span class="line">        &#125;</span>
 <span class="line">    &#125;</span>
 <span class="line"></span>
-<span class="line">    <span class="comment">// pid</span></span>
-<span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( <span class="built_in">isdigit</span> ( tmp[ <span class="number">0</span> ] ) ) &#123;</span>
-<span class="line">        pid = atoi ( tmp );</span>
-<span class="line">        job = getjobpid ( jobs, pid );</span>
+<span class="line">    <span class="comment">/* Clean up */</span></span>
+<span class="line">    freeaddrinfo ( listp );</span>
+<span class="line">    <span class="keyword">if</span> ( !p ) <span class="comment">/* No address worked */</span></span>
+<span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span>
 <span class="line"></span>
-<span class="line">        <span class="comment">// unvalid pid</span></span>
-<span class="line">        <span class="keyword">if</span> ( job == <span class="literal">NULL</span> ) &#123;</span>
-<span class="line">            <span class="comment">//(2): No such process</span></span>
-<span class="line">            <span class="built_in">printf</span> ( <span class="string">"(%d): No such process\n"</span>, pid );</span>
-<span class="line">            <span class="keyword">return</span>;</span>
-<span class="line">        &#125;</span>
-<span class="line">    &#125; <span class="keyword">else</span> &#123;</span>
-<span class="line">        <span class="built_in">printf</span> ( <span class="string">"%s: argument must be a PID or %%jobid\n"</span>, argv[ <span class="number">0</span> ] );</span>
-<span class="line">        <span class="keyword">return</span>;</span>
+<span class="line">    <span class="comment">/* Make it a listening socket ready to accept connection requests */</span></span>
+<span class="line">    <span class="keyword">if</span> ( listen ( listenfd, LISTENQ ) &lt; <span class="number">0</span> ) &#123;</span>
+<span class="line">        close ( listenfd );</span>
+<span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span>
 <span class="line">    &#125;</span>
-<span class="line">    <span class="comment">// awakened by the receipt of a SIGCONT signal.</span></span>
-<span class="line">    kill ( -pid, SIGCONT );</span>
-<span class="line"></span>
-<span class="line">    <span class="keyword">if</span> ( !<span class="built_in">strcmp</span> ( <span class="string">"fg"</span>, argv[ <span class="number">0</span> ] ) ) &#123;</span>
-<span class="line">        <span class="comment">// foreground, shell wait for it</span></span>
-<span class="line">        job-&gt;state = FG;</span>
-<span class="line">        waitfg ( job-&gt;pid );</span>
-<span class="line">    &#125; <span class="keyword">else</span> &#123;</span>
-<span class="line">        job-&gt;state = BG;</span>
-<span class="line">        <span class="comment">// print</span></span>
-<span class="line">        <span class="built_in">printf</span> ( <span class="string">"[%d] (%d) %s"</span>, job-&gt;jid, job-&gt;pid, job-&gt;cmdline );</span>
-<span class="line">    &#125;</span>
-<span class="line"></span>
-<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">    <span class="keyword">return</span> listenfd;</span>
 <span class="line">&#125;</span>
+<span class="line"><span class="comment">/* $end open_listenfd */</span></span>
+</pre></td></tr></table></figure>
+<p>client routine (close)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">clientfd = Open_clientfd ( host, port );</span>
+<span class="line">Rio_readinitb ( &amp;rio, clientfd );</span>
+<span class="line"><span class="keyword">while</span> ( Fgets ( buf, MAXLINE, <span class="built_in">stdin</span> ) != <span class="literal">NULL</span> ) &#123; <span class="comment">// read from std input</span></span>
+<span class="line">    Rio_writen ( clientfd, buf, <span class="built_in">strlen</span> ( buf ) ); <span class="comment">// write to server</span></span>
+<span class="line">    Rio_readlineb ( &amp;rio, buf, MAXLINE );         <span class="comment">// read from server</span></span>
+<span class="line">    Fputs ( buf, <span class="built_in">stdout</span> );</span>
+<span class="line">&#125;</span>
+<span class="line">Close ( clientfd );</span>
+<span class="line"><span class="built_in">exit</span> ( <span class="number">0</span> );</span>
+</pre></td></tr></table></figure>
+<p>server routine (accept, close)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">listenfd = Open_listenfd ( argv[ <span class="number">1</span> ] );</span>
+<span class="line"><span class="keyword">while</span> ( <span class="number">1</span> ) &#123;</span>
+<span class="line">    <span class="comment">// protocol independent socket address structure rather than sockaddr_in</span></span>
+<span class="line">    clientlen = <span class="keyword">sizeof</span> ( struct sockaddr_storage ); </span>
+<span class="line">    connfd = Accept ( listenfd, (SA *)&amp;clientaddr, &amp;clientlen ); <span class="comment">// SA = sockaddr</span></span>
+<span class="line">    </span>
+<span class="line">    echo ( connfd );</span>
+<span class="line">    Close ( connfd );</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="built_in">exit</span> ( <span class="number">0</span> );</span>
 </pre></td></tr></table></figure>
 <br>
-<h3 id="5void-sigchld_handler-int-sig"><a class="markdownIt-Anchor" href="#5void-sigchld_handler-int-sig"></a> 5.void sigchld_handler( int sig )</h3>
-<p>This is the shell’s handler for the<code>SIGCHLD</code> signal.</p>
-<p>Hints</p>
+<h3 id="115-web-servers"><a class="markdownIt-Anchor" href="#115-web-servers"></a> 11.5 Web Servers</h3>
+<p>Web clients and servers interact using a text-based application-level protocol known as HTTP (Hypertext Transfer Protocol).</p>
+<p>web content: static  &amp; dynamic, disk file &amp; output of an executable file</p>
+<p>URL: server : port / filename ? arg1 &amp; arg2</p>
 <ul>
-<li>In <code>sigchld_handler</code>, use exactly one call to <code>waitpid</code></li>
+<li><code>http://bluefish.ics.cs.cmu.edu:8000/cgi-bin/adder?15000&amp;213</code></li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-<span class="line">14</span>
-<span class="line">15</span>
-<span class="line">16</span>
-<span class="line">17</span>
-<span class="line">18</span>
-<span class="line">19</span>
-<span class="line">20</span>
-<span class="line">21</span>
-<span class="line">22</span>
-<span class="line">23</span>
-<span class="line">24</span>
-<span class="line">25</span>
-<span class="line">26</span>
-<span class="line">27</span>
-<span class="line">28</span>
-<span class="line">29</span>
-<span class="line">30</span>
-<span class="line">31</span>
-<span class="line">32</span>
-<span class="line">33</span>
-<span class="line">34</span>
-<span class="line">35</span>
-<span class="line">36</span>
-<span class="line">37</span>
-<span class="line">38</span>
-<span class="line">39</span>
-<span class="line">40</span>
-</pre></td><td class="code"><pre><span class="line"></span>
-<span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * sigchld_handler - The kernel sends a SIGCHLD to the shell whenever</span></span>
-<span class="line"><span class="comment"> *     a child job terminates (becomes a zombie), or stops because it</span></span>
-<span class="line"><span class="comment"> *     received a SIGSTOP or SIGTSTP signal. The handler reaps all</span></span>
-<span class="line"><span class="comment"> *     available zombie children, but doesn't wait for any other</span></span>
-<span class="line"><span class="comment"> *     currently running children to terminate.</span></span>
-<span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sigchld_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>&#123;</span>
-<span class="line">    <span class="keyword">pid_t</span> pid;</span>
-<span class="line">    <span class="keyword">int</span> status;</span>
-<span class="line"></span>
-<span class="line">    <span class="comment">// wait for all child to end</span></span>
-<span class="line">    <span class="keyword">while</span> ( ( pid = waitpid ( <span class="number">-1</span>, &amp;status, WNOHANG | WUNTRACED ) ) &gt; <span class="number">0</span> ) &#123;</span>
-<span class="line">        <span class="comment">// child currently stopped</span></span>
-<span class="line">        <span class="keyword">if</span> ( WIFSTOPPED ( status ) ) &#123;</span>
-<span class="line">            <span class="comment">// change state</span></span>
-<span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">job_t</span> *<span class="title">job</span> = <span class="title">getjobpid</span> ( <span class="title">jobs</span>, <span class="title">pid</span> );</span></span>
-<span class="line">            job-&gt;state = ST;</span>
-<span class="line"></span>
-<span class="line">            <span class="keyword">int</span> jid = pid2jid ( pid );</span>
-<span class="line">            <span class="comment">// Job [2] (14171) stopped by signal 20</span></span>
-<span class="line">            <span class="built_in">printf</span> ( <span class="string">"Job [%d] (%d) stopped by signal %d\n"</span>, jid, pid, WSTOPSIG ( status ) );</span>
-<span class="line"></span>
-<span class="line">        &#125;</span>
-<span class="line">        <span class="comment">// child terminated because of a signal</span></span>
-<span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( WIFSIGNALED ( status ) ) &#123;</span>
-<span class="line">            <span class="keyword">int</span> jid = pid2jid ( pid );</span>
-<span class="line">            <span class="comment">// INT</span></span>
-<span class="line">            <span class="comment">// Job [1] (13253) terminated by signal 2</span></span>
-<span class="line">            <span class="built_in">printf</span> ( <span class="string">"Job [%d] (%d) terminated by signal %d\n"</span>, jid, pid, WTERMSIG ( status ) );</span>
-<span class="line">            deletejob ( jobs, pid );</span>
-<span class="line">        &#125;</span>
-<span class="line">        <span class="comment">// child terminated normally</span></span>
-<span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ( WIFEXITED ( status ) ) &#123;</span>
-<span class="line">            deletejob ( jobs, pid );</span>
-<span class="line">        &#125;</span>
-<span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span>;</span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="6-void-sigint_handler-int-sig"><a class="markdownIt-Anchor" href="#6-void-sigint_handler-int-sig"></a> 6. void sigint_handler ( int sig )</h3>
-<p>Hints</p>
+<p>http transaction</p>
 <ul>
-<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.<br>
-The <code>sdriver.pl</code> program tests for this error.</li>
+<li>use telnet to conduce transactions with any web server</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * sigint_handler - The kernel sends a SIGINT to the shell whenver the</span></span>
-<span class="line"><span class="comment"> *    user types ctrl-c at the keyboard.  Catch it and send it along</span></span>
-<span class="line"><span class="comment"> *    to the foreground job.</span></span>
-<span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sigint_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>&#123;</span>
-<span class="line">    <span class="keyword">pid_t</span> pid = fgpid ( jobs );</span>
-<span class="line"></span>
-<span class="line">    <span class="keyword">if</span> ( pid != <span class="number">0</span> ) &#123;</span>
-<span class="line">        kill ( -pid, sig );</span>
-<span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span>;</span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="7void-sigtstp_handler-int-sig"><a class="markdownIt-Anchor" href="#7void-sigtstp_handler-int-sig"></a> 7.void sigtstp_handler ( int sig )</h3>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-<span class="line">6</span>
-<span class="line">7</span>
-<span class="line">8</span>
-<span class="line">9</span>
-<span class="line">10</span>
-<span class="line">11</span>
-<span class="line">12</span>
-<span class="line">13</span>
-</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
-<span class="line"><span class="comment"> * sigtstp_handler - The kernel sends a SIGTSTP to the shell whenever</span></span>
-<span class="line"><span class="comment"> *     the user types ctrl-z at the keyboard. Catch it and suspend the</span></span>
-<span class="line"><span class="comment"> *     foreground job by sending it a SIGTSTP.</span></span>
-<span class="line"><span class="comment"> */</span></span>
-<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sigtstp_handler</span> <span class="params">( <span class="keyword">int</span> sig )</span> </span>&#123;</span>
-<span class="line">    <span class="keyword">pid_t</span> pid = fgpid ( jobs );</span>
-<span class="line"></span>
-<span class="line">    <span class="keyword">if</span> ( pid != <span class="number">0</span> ) &#123;</span>
-<span class="line">        kill ( -pid, sig );</span>
-<span class="line">    &#125;</span>
-<span class="line">    <span class="keyword">return</span>;</span>
-<span class="line">&#125;</span>
-</pre></td></tr></table></figure>
+<p>http request: method URI version</p>
+<ul>
+<li><code>GET /index.html HTTP/1.0</code></li>
+</ul>
+<p>http response: version status-code status-message</p>
+<ul>
+<li>HTTP/1.0 404 Not found</li>
+</ul>
+<p>dynamic content</p>
+<ul>
+<li>fork and execute a child process , redirect stdout to client</li>
+</ul>
+<h3 id="116-putting-it-together-the-tiny-web-server"><a class="markdownIt-Anchor" href="#116-putting-it-together-the-tiny-web-server"></a> 11.6 Putting It Together: The Tiny Web Server</h3>
 
       
     </div>
@@ -962,8 +888,8 @@ The <code>sdriver.pl</code> program tests for this error.</li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/10/SICP/sicp2/" rel="next" title="[SICP-ch2] Building Abstractions with Data">
-                <i class="fa fa-chevron-left"></i> [SICP-ch2] Building Abstractions with Data
+              <a href="/2018/06/13/ITOC/7/" rel="next" title="[ITOC-ch7] TIME COMPLEXITY">
+                <i class="fa fa-chevron-left"></i> [ITOC-ch7] TIME COMPLEXITY
               </a>
             
           </div>
@@ -971,10 +897,6 @@ The <code>sdriver.pl</code> program tests for this error.</li>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/13/NeuralNet/nndlch1/" rel="prev" title="[NN&DL-ch1] Using neural nets to recognize handwritten digits">
-                [NN&DL-ch1] Using neural nets to recognize handwritten digits <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1136,7 +1058,7 @@ The <code>sdriver.pl</code> program tests for this error.</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch8-shell-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">1.1.</span> <span class="nav-text"> Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-preparation"><span class="nav-number">1.2.</span> <span class="nav-text"> 0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-void-eval-charcmdline"><span class="nav-number">1.3.</span> <span class="nav-text"> 1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2int-builtin_cmd-char-argv"><span class="nav-number">1.4.</span> <span class="nav-text"> 2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-void-waitfg-pid_t-pid"><span class="nav-number">1.5.</span> <span class="nav-text"> 3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-void-do_bgfg-char-argv"><span class="nav-number">1.6.</span> <span class="nav-text"> 4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5void-sigchld_handler-int-sig"><span class="nav-number">1.7.</span> <span class="nav-text"> 5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-void-sigint_handler-int-sig"><span class="nav-number">1.8.</span> <span class="nav-text"> 6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7void-sigtstp_handler-int-sig"><span class="nav-number">1.9.</span> <span class="nav-text"> 7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch11-network-programming"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP-ch11 Network Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111-the-client-server-programming-model"><span class="nav-number">1.1.</span> <span class="nav-text"> 11.1 The Client-Server Programming Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112-networks"><span class="nav-number">1.2.</span> <span class="nav-text"> 11.2 Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113-the-global-ip-internet"><span class="nav-number">1.3.</span> <span class="nav-text"> 11.3 The Global IP Internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#114-the-sockets-interface"><span class="nav-number">1.4.</span> <span class="nav-text"> 11.4 The Sockets Interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#115-web-servers"><span class="nav-number">1.5.</span> <span class="nav-text"> 11.5 Web Servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#116-putting-it-together-the-tiny-web-server"><span class="nav-number">1.6.</span> <span class="nav-text"> 11.6 Putting It Together: The Tiny Web Server</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1383,9 +1305,9 @@ The <code>sdriver.pl</code> program tests for this error.</li>
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/03/21/CSAPP/shell/';
-          this.page.identifier = '2018/03/21/CSAPP/shell/';
-          this.page.title = '[CS:APP-ch8] Shell Lab';
+          this.page.url = 'http://yoursite.com/2018/07/25/CSAPP/11/';
+          this.page.identifier = '2018/07/25/CSAPP/11/';
+          this.page.title = '[CS:APP-ch11] Network Programming';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://aria-3.disqus.com/embed.js';
