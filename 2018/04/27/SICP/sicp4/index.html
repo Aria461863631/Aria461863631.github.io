@@ -438,47 +438,85 @@ value</li>
 <br>
 <p><strong>4.1.1 The Core of the Evaluator</strong></p>
 <p><code>eval</code> and <code>apply</code></p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">eval</span> exp env)
-    	<span class="comment">;primitive</span>
-   (<span class="name">cond</span> ((<span class="name">self-evaluating</span>? exp) exp)
-		((<span class="name">variable</span>? exp) (<span class="name">lookup-variable-value</span> exp env))
-       	<span class="comment">;special form</span>
-		((<span class="name">quoted</span>? exp) (<span class="name">text-of-quotation</span> exp))
-		((<span class="name">assignment</span>? exp) (<span class="name">eval-assignment</span> exp env))
-		((<span class="name">definition</span>? exp) (<span class="name">eval-definition</span> exp env))
-		((<span class="name">if</span>? exp) (<span class="name">eval-if</span> exp env))
-		((<span class="name">lambda</span>? exp) (<span class="name">make-procedure</span> (<span class="name">lambda-parameters</span> exp)
-									(<span class="name">lambda-body</span> exp)
-									env))
-		((<span class="name">begin</span>? exp)
-		     (<span class="name">eval-sequence</span> (<span class="name">begin-actions</span> exp) env))
-		((<span class="name">cond</span>? exp) (<span class="name">eval</span> (<span class="name">cond-&gt;if</span> exp) env))
-       		<span class="comment">;combinations</span>
-		((<span class="name">application</span>? exp)
-         	<span class="comment">;apply</span>
-			(<span class="name">apply</span> (<span class="name">eval</span> (<span class="name">operator</span> exp) env)
-				   (<span class="name">list-of-values</span> (<span class="name">operands</span> exp) env)))
-		(<span class="name">else</span>
-		      (<span class="name">error</span> <span class="string">"Unknown expression type: EVAL"</span> exp))))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">eval</span> exp env)</span>
+<span class="line">    	<span class="comment">;primitive</span></span>
+<span class="line">   (<span class="name">cond</span> ((<span class="name">self-evaluating</span>? exp) exp)</span>
+<span class="line">		((<span class="name">variable</span>? exp) (<span class="name">lookup-variable-value</span> exp env))</span>
+<span class="line">       	<span class="comment">;special form</span></span>
+<span class="line">		((<span class="name">quoted</span>? exp) (<span class="name">text-of-quotation</span> exp))</span>
+<span class="line">		((<span class="name">assignment</span>? exp) (<span class="name">eval-assignment</span> exp env))</span>
+<span class="line">		((<span class="name">definition</span>? exp) (<span class="name">eval-definition</span> exp env))</span>
+<span class="line">		((<span class="name">if</span>? exp) (<span class="name">eval-if</span> exp env))</span>
+<span class="line">		((<span class="name">lambda</span>? exp) (<span class="name">make-procedure</span> (<span class="name">lambda-parameters</span> exp)</span>
+<span class="line">									(<span class="name">lambda-body</span> exp)</span>
+<span class="line">									env))</span>
+<span class="line">		((<span class="name">begin</span>? exp)</span>
+<span class="line">		     (<span class="name">eval-sequence</span> (<span class="name">begin-actions</span> exp) env))</span>
+<span class="line">		((<span class="name">cond</span>? exp) (<span class="name">eval</span> (<span class="name">cond-&gt;if</span> exp) env))</span>
+<span class="line">       		<span class="comment">;combinations</span></span>
+<span class="line">		((<span class="name">application</span>? exp)</span>
+<span class="line">         	<span class="comment">;apply</span></span>
+<span class="line">			(<span class="name">apply</span> (<span class="name">eval</span> (<span class="name">operator</span> exp) env)</span>
+<span class="line">				   (<span class="name">list-of-values</span> (<span class="name">operands</span> exp) env)))</span>
+<span class="line">		(<span class="name">else</span></span>
+<span class="line">		      (<span class="name">error</span> <span class="string">"Unknown expression type: EVAL"</span> exp))))</span>
+</pre></td></tr></table></figure>
 <br>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">apply</span> procedure arguments)
-    		<span class="comment">;primitive</span>
-	(<span class="name">cond</span> ((<span class="name">primitive-procedure</span>? procedure)
-		   (<span class="name">apply-primitive-procedure</span> procedure arguments))
-        	<span class="comment">;compound</span>
-		  ((<span class="name">compound-procedure</span>? procedure)
-           <span class="comment">;eval</span>
-		   (<span class="name">eval-sequence</span>
-				(<span class="name">procedure-body</span> procedure)
-				(<span class="name">extend-environment</span>
-					(<span class="name">procedure-parameters</span> procedure)
-					arguments
-					(<span class="name">procedure-environment</span> procedure))))
-		(<span class="name">else</span>
-			(<span class="name">error</span>
-				<span class="string">"Unknown procedure type: APPLY"</span> procedure))))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">apply</span> procedure arguments)</span>
+<span class="line">    		<span class="comment">;primitive</span></span>
+<span class="line">	(<span class="name">cond</span> ((<span class="name">primitive-procedure</span>? procedure)</span>
+<span class="line">		   (<span class="name">apply-primitive-procedure</span> procedure arguments))</span>
+<span class="line">        	<span class="comment">;compound</span></span>
+<span class="line">		  ((<span class="name">compound-procedure</span>? procedure)</span>
+<span class="line">           <span class="comment">;eval</span></span>
+<span class="line">		   (<span class="name">eval-sequence</span></span>
+<span class="line">				(<span class="name">procedure-body</span> procedure)</span>
+<span class="line">				(<span class="name">extend-environment</span></span>
+<span class="line">					(<span class="name">procedure-parameters</span> procedure)</span>
+<span class="line">					arguments</span>
+<span class="line">					(<span class="name">procedure-environment</span> procedure))))</span>
+<span class="line">		(<span class="name">else</span></span>
+<span class="line">			(<span class="name">error</span></span>
+<span class="line">				<span class="string">"Unknown procedure type: APPLY"</span> procedure))))</span>
+</pre></td></tr></table></figure>
 <p>Conditionals <code>eval-if</code></p>
 <p>Sequences <code>eval-sequence</code></p>
 <p>Assignments <code>eval-assignment</code></p>
@@ -523,16 +561,25 @@ value</li>
 <li>set up a global environment</li>
 <li>provide a <strong>driver loop that models the read-eval-print loop</strong></li>
 </ul>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">driver-loop</span>)
-	(<span class="name">prompt-for-input</span> input-prompt)
-    <span class="comment">;input</span>
-	(<span class="name">let</span> ((<span class="name">input</span> (<span class="name">read</span>)))
-         <span class="comment">;evaluate output</span>
-		(<span class="name">let</span> ((<span class="name">output</span> (<span class="name">eval</span> input the-global-environment)))
-			(<span class="name">announce-output</span> output-prompt)
-			(<span class="name">user-print</span> output)))
-(<span class="name">driver-loop</span>))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">driver-loop</span>)</span>
+<span class="line">	(<span class="name">prompt-for-input</span> input-prompt)</span>
+<span class="line">    <span class="comment">;input</span></span>
+<span class="line">	(<span class="name">let</span> ((<span class="name">input</span> (<span class="name">read</span>)))</span>
+<span class="line">         <span class="comment">;evaluate output</span></span>
+<span class="line">		(<span class="name">let</span> ((<span class="name">output</span> (<span class="name">eval</span> input the-global-environment)))</span>
+<span class="line">			(<span class="name">announce-output</span> output-prompt)</span>
+<span class="line">			(<span class="name">user-print</span> output)))</span>
+<span class="line">(<span class="name">driver-loop</span>))</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>4.1.5 Data as Programs</strong></p>
 <p>One operational view of the meaning of a program is that a program is a description of an abstract (perhaps infinitely large) <strong>machine</strong>.</p>
@@ -552,15 +599,18 @@ value</li>
 <br>
 <p><strong>4.1.7 Separating Syntactic Analysis from Execution</strong></p>
 <p>separate <code>eval</code> into <strong>analysis</strong> and <strong>execution</strong></p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">eval</span> exp env) ((<span class="name">analyze</span> exp) env))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">eval</span> exp env) ((<span class="name">analyze</span> exp) env))</span>
+</pre></td></tr></table></figure>
 <p>syntactic of analysis procedure</p>
 <ul>
 <li>returns an <strong>execution procedure</strong> that ignores its environment argument</li>
 </ul>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">analyze-self-evaluating</span> exp)
-	(<span class="name">lambda</span> (<span class="name">env</span>) exp))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">analyze-self-evaluating</span> exp)</span>
+<span class="line">	(<span class="name">lambda</span> (<span class="name">env</span>) exp))</span>
+</pre></td></tr></table></figure>
 <p><code>analyze-quoted</code>, <code>analyze-variable</code>, <code>analyze-assignment</code>, <code>analyze-definition</code>, <code>analyze-if</code></p>
 <p><code>analyze-lambda</code>, <code>analyze-sequence</code>, <code>analyze-application</code></p>
 <br>
@@ -591,9 +641,11 @@ value</li>
 <p>primitive: strict</p>
 <p>compound: non-strict</p>
 <p>change <code>eval</code> into <code>actual-value</code></p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">actual-value</span> exp env)
-	(<span class="name">force-it</span> (<span class="name">eval</span> exp env)))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">actual-value</span> exp env)</span>
+<span class="line">	(<span class="name">force-it</span> (<span class="name">eval</span> exp env)))</span>
+</pre></td></tr></table></figure>
 <br>
 <p>Representing thunks</p>
 <br>
@@ -619,15 +671,21 @@ value</li>
 <br>
 <p><strong>4.3.1 Amb and Search</strong></p>
 <p>amb</p>
-<pre class="highlight"><code class="lisp">(<span class="name">list</span> (<span class="name">amb</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>) (<span class="name">amb</span> 'a 'b))
-
-can have six possible values:
-
-(<span class="number">1</span> a) (<span class="number">1</span> b) (<span class="number">2</span> a) (<span class="number">2</span> b) (<span class="number">3</span> a) (<span class="number">3</span> b)
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">list</span> (<span class="name">amb</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>) (<span class="name">amb</span> 'a 'b))</span>
+<span class="line"></span>
+<span class="line">can have six possible values:</span>
+<span class="line"></span>
+<span class="line">(<span class="number">1</span> a) (<span class="number">1</span> b) (<span class="number">2</span> a) (<span class="number">2</span> b) (<span class="number">3</span> a) (<span class="number">3</span> b)</span>
+</pre></td></tr></table></figure>
 <p>require</p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">require</span> p) (<span class="name">if</span> (<span class="name">not</span> p) (<span class="name">amb</span>)))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">require</span> p) (<span class="name">if</span> (<span class="name">not</span> p) (<span class="name">amb</span>)))</span>
+</pre></td></tr></table></figure>
 <br>
 <p>evaluate amb causes time to split into branches</p>
 <ul>
@@ -689,32 +747,51 @@ can have six possible values:
 <br>
 <p><strong>Structure of the evaluator</strong></p>
 <p>amb evaluator</p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">ambeval</span> exp env succeed fail)
-	((<span class="name">analyze</span> exp) env succeed fail))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">ambeval</span> exp env succeed fail)</span>
+<span class="line">	((<span class="name">analyze</span> exp) env succeed fail))</span>
+</pre></td></tr></table></figure>
 <p>general form of an execution procedure</p>
-<pre class="highlight"><code class="lisp">(<span class="name">lambda</span> (<span class="name">env</span> succeed fail)
-	<span class="comment">;; succeed is (lambda (value fail) . . . )</span>
-	<span class="comment">;; fail is (lambda () . . . )</span>
-	. . . )
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">lambda</span> (<span class="name">env</span> succeed fail)</span>
+<span class="line">	<span class="comment">;; succeed is (lambda (value fail) . . . )</span></span>
+<span class="line">	<span class="comment">;; fail is (lambda () . . . )</span></span>
+<span class="line">	. . . )</span>
+</pre></td></tr></table></figure>
 <br>
 <p>example: <code>amb</code></p>
 <p>neo analyze ( return execution procedure )</p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">analyze-amb</span> exp)
-	(<span class="name">let</span> ((<span class="name">cprocs</span> (<span class="name">map</span> analyze (<span class="name">amb-choices</span> exp))))
-		(<span class="name">lambda</span> (<span class="name">env</span> succeed fail)
-			(<span class="name">define</span> (<span class="name">try-next</span> choices)
-				(<span class="name">if</span> (<span class="name">null</span>? choices)
-					(<span class="name">fail</span>)
-					((<span class="name">car</span> choices)
-					  env
-                     <span class="comment">;success continuation</span>
-					  succeed
-                     <span class="comment">;failure continuation</span>
-					  (<span class="name">lambda</span> () (<span class="name">try-next</span> (<span class="name">cdr</span> choices))))))
-			(<span class="name">try-next</span> cprocs))))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">analyze-amb</span> exp)</span>
+<span class="line">	(<span class="name">let</span> ((<span class="name">cprocs</span> (<span class="name">map</span> analyze (<span class="name">amb-choices</span> exp))))</span>
+<span class="line">		(<span class="name">lambda</span> (<span class="name">env</span> succeed fail)</span>
+<span class="line">			(<span class="name">define</span> (<span class="name">try-next</span> choices)</span>
+<span class="line">				(<span class="name">if</span> (<span class="name">null</span>? choices)</span>
+<span class="line">					(<span class="name">fail</span>)</span>
+<span class="line">					((<span class="name">car</span> choices)</span>
+<span class="line">					  env</span>
+<span class="line">                     <span class="comment">;success continuation</span></span>
+<span class="line">					  succeed</span>
+<span class="line">                     <span class="comment">;failure continuation</span></span>
+<span class="line">					  (<span class="name">lambda</span> () (<span class="name">try-next</span> (<span class="name">cdr</span> choices))))))</span>
+<span class="line">			(<span class="name">try-next</span> cprocs))))</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>Driver loop</strong></p>
 <p>either calls <code>try-again</code> in response to the user typing try-again at the driver loop</p>
@@ -730,13 +807,17 @@ can have six possible values:
 </ul>
 <br>
 <p>Example of logical programming</p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">append</span> x y)
-	(<span class="name">if</span> (<span class="name">null</span>? x) y (<span class="name">cons</span> (<span class="name">car</span> x) (<span class="name">append</span> (<span class="name">cdr</span> x) y))))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">append</span> x y)</span>
+<span class="line">	(<span class="name">if</span> (<span class="name">null</span>? x) y (<span class="name">cons</span> (<span class="name">car</span> x) (<span class="name">append</span> (<span class="name">cdr</span> x) y))))</span>
+</pre></td></tr></table></figure>
 <p><code>append</code> procedure can be regard as two <strong>rules</strong> translate into lisp</p>
-<pre class="highlight"><code class="lisp">y = y append '()
-( <span class="name">cons</span> u v ) append y = ( <span class="name">cons</span> u z ) IF v appedn y = z
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">y = y append '()</span>
+<span class="line">( <span class="name">cons</span> u v ) append y = ( <span class="name">cons</span> u z ) IF v appedn y = z</span>
+</pre></td></tr></table></figure>
 <p>In a logic programming language, the programmer writes an append<br>
 “procedure” by stating the <strong>two rules ( What is append )</strong> about append given above.</p>
 <p><strong>“How to”</strong> knowledge is provided automatically by the interpreter</p>
@@ -751,26 +832,39 @@ can have six possible values:
 <br>
 <p><strong>4.4.1 Deductive Information Retrieval</strong></p>
 <p>Simple queries</p>
-<pre class="highlight"><code class="lisp"><span class="comment">;;; Query input:</span>
-(<span class="name">job</span> ?x (<span class="name">computer</span> programmer))
-<span class="comment">;;; Query results:</span>
-(<span class="name">job</span> (<span class="name">Hacker</span> Alyssa P) (<span class="name">computer</span> programmer))
-(<span class="name">job</span> (<span class="name">Fect</span> Cy D) (<span class="name">computer</span> programmer))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;;; Query input:</span></span>
+<span class="line">(<span class="name">job</span> ?x (<span class="name">computer</span> programmer))</span>
+<span class="line"><span class="comment">;;; Query results:</span></span>
+<span class="line">(<span class="name">job</span> (<span class="name">Hacker</span> Alyssa P) (<span class="name">computer</span> programmer))</span>
+<span class="line">(<span class="name">job</span> (<span class="name">Fect</span> Cy D) (<span class="name">computer</span> programmer))</span>
+</pre></td></tr></table></figure>
 <p>Compound queries</p>
-<pre class="highlight"><code class="lisp">(<span class="name">and</span> (<span class="name">job</span> ?person (<span class="name">computer</span> programmer))
-	(<span class="name">address</span> ?person ?where))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">and</span> (<span class="name">job</span> ?person (<span class="name">computer</span> programmer))</span>
+<span class="line">	(<span class="name">address</span> ?person ?where))</span>
+</pre></td></tr></table></figure>
 <p>Rules</p>
-<pre class="highlight"><code class="lisp"><span class="comment">;⟨ conclusion ⟩ is a pattern and ⟨ body ⟩ is any query.</span>
-<span class="comment">; ?first satisfy conclusion than apply body</span>
-(<span class="name">rule</span> ⟨ conclusion ⟩ ⟨ body ⟩ )
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;⟨ conclusion ⟩ is a pattern and ⟨ body ⟩ is any query.</span></span>
+<span class="line"><span class="comment">; ?first satisfy conclusion than apply body</span></span>
+<span class="line">(<span class="name">rule</span> ⟨ conclusion ⟩ ⟨ body ⟩ )</span>
+</pre></td></tr></table></figure>
 <p>Logic as programs ( implement our append in logical language )</p>
-<pre class="highlight"><code class="lisp">(<span class="name">rule</span> (<span class="name">append-to-form</span> () ?y ?y))
-(<span class="name">rule</span> (<span class="name">append-to-form</span> (?u . ?v) ?y (?u . ?z))
-	  (<span class="name">append-to-form</span> ?v ?y ?z))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">rule</span> (<span class="name">append-to-form</span> () ?y ?y))</span>
+<span class="line">(<span class="name">rule</span> (<span class="name">append-to-form</span> (?u . ?v) ?y (?u . ?z))</span>
+<span class="line">	  (<span class="name">append-to-form</span> ?v ?y ?z))</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>4.4.2 How the Query System Works</strong></p>
 <p><em>Implement query evaluator</em></p>
@@ -817,29 +911,39 @@ can have six possible values:
 <ul>
 <li>Take advantage in efficiency</li>
 </ul>
-<pre class="highlight"><code class="lisp"><span class="comment">;while less supervisor than programmers</span>
-(<span class="name">and</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)) (<span class="name">supervisor</span> ?x ?y))
-(<span class="name">and</span> (<span class="name">supervisor</span> ?x ?y) (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;while less supervisor than programmers</span></span>
+<span class="line">(<span class="name">and</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)) (<span class="name">supervisor</span> ?x ?y))</span>
+<span class="line">(<span class="name">and</span> (<span class="name">supervisor</span> ?x ?y) (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))</span>
+</pre></td></tr></table></figure>
 <br>
 <ul>
 <li>Infinite loops</li>
 </ul>
 <p>whether the system will find the simple answer (married Minnie Mickey) <strong>before</strong> it goes into the loop depends on implementation details concerning <strong>the order in which the system checks</strong> the items in the data base.</p>
-<pre class="highlight"><code class="lisp"><span class="comment">;assert rules</span>
-(<span class="name">assert!</span> (<span class="name">rule</span> (<span class="name">married</span> ?x ?y) (<span class="name">married</span> ?y ?x)))
-<span class="comment">;query</span>
-(<span class="name">married</span> Mickey ?who)
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;assert rules</span></span>
+<span class="line">(<span class="name">assert!</span> (<span class="name">rule</span> (<span class="name">married</span> ?x ?y) (<span class="name">married</span> ?y ?x)))</span>
+<span class="line"><span class="comment">;query</span></span>
+<span class="line">(<span class="name">married</span> Mickey ?who)</span>
+</pre></td></tr></table></figure>
 <br>
 <ul>
 <li>Problems with not</li>
 </ul>
 <p>not</p>
-<pre class="highlight"><code class="lisp"><span class="comment">;input empty frame where x unbound, \not filters out frames, return empty stream </span>
-(<span class="name">and</span> (<span class="name">not</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))
-	 (<span class="name">supervisor</span> ?x ?y))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">;input empty frame where x unbound, \not filters out frames, return empty stream </span></span>
+<span class="line">(<span class="name">and</span> (<span class="name">not</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))</span>
+<span class="line">	 (<span class="name">supervisor</span> ?x ?y))</span>
+</pre></td></tr></table></figure>
 <p>not of logic programming languages reflects the so-called <em>closed world assumption</em> that all relevant information has been included in the data base.（见脚注)</p>
 <br>
 <p><strong>4.4.4 Implementing the Query System</strong></p>

@@ -529,8 +529,9 @@
 <p><img src="http://img.blog.csdn.net/20140726012538578" alt=""></p>
 <h4 id="84-process-control"><a class="markdownIt-Anchor" href="#84-process-control"></a> 8.4 Process Control</h4>
 <p><strong>Obtaining Process ID</strong></p>
-<pre class="highlight"><code class="cpp"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">pid_t</span> getpid ( <span class="keyword">void</span> );</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>Create and Terminating process</strong></p>
 <p>Three states</p>
@@ -539,11 +540,14 @@
 <li>Stopped</li>
 <li>Terminated</li>
 </ol>
-<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;
-</code></pre>
-<pre class="highlight"><code class="cpp"><span class="comment">//return 0 to child, PID of chile to parent</span>
-<span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span> <span class="params">( <span class="keyword">int</span> status )</span></span>;</span>
+</pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//return 0 to child, PID of chile to parent</span></span>
+<span class="line"><span class="keyword">pid_t</span> fork ( <span class="keyword">void</span> );</span>
+</pre></td></tr></table></figure>
 <ul>
 <li>Call Once Return Twice</li>
 <li>Concurrent execution</li>
@@ -556,17 +560,22 @@
 <blockquote>
 <p>父进程进行回收的函数，也是一个等待子进程执行结束的函数就是waitpid。这在 APUE（advanced programming in unix enviroment）中很早就提过这个函数</p>
 </blockquote>
-<pre class="highlight"><code class="cpp"><span class="comment">// return PID of terminated child and reap it</span>
-<span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">// return PID of terminated child and reap it</span></span>
+<span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statud, <span class="keyword">int</span> options)</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>Putting Process to Sleep</strong></p>
-<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;
-<span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span>
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;</span>
+<span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 一直休眠，直到收到一个信号</span></span>
+</pre></td></tr></table></figure>
 <p><strong>Loading and Running Programs</strong></p>
-<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span> <span class="keyword">char</span> *argv[], <span class="keyword">const</span> <span class="keyword">char</span> *envp[])</span></span>;</span>
+</pre></td></tr></table></figure>
 <br>
 <h4 id="85-signals"><a class="markdownIt-Anchor" href="#85-signals"></a> 8.5 Signals</h4>
 <p>The transfer of a signal to a destination process occurs in two distinct steps</p>

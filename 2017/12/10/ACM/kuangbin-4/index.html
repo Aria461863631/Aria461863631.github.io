@@ -412,186 +412,354 @@
 <h4 id="dijkstra"><a class="markdownIt-Anchor" href="#dijkstra"></a> Dijkstra</h4>
 <p>​	$ O(V^2 + E) $</p>
 <a id="more"></a>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> edg[ N ][ N ]; <span class="comment">// weight of each edge</span>
-<span class="keyword">int</span> dis[ N ];      <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ];     <span class="comment">// SET S represent for nodes already visited</span>
-
-<span class="comment">// CLRS 24.3</span>
-<span class="comment">// s:start point,  n: total number of nodes</span>
-<span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>{
-    <span class="comment">// INITIALIZE-SINGLE-SOURCE</span>
-    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );
-    vis[ s ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-        dis[ i ] = edg[ s ][ i ];
-    dis[ s ] = <span class="number">0</span>;
-
-    <span class="comment">// Extract Min</span>
-    <span class="comment">// u for the node, mi for dis[ u ]</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) {
-        <span class="keyword">int</span> u = <span class="number">-1</span>, mi = INF;
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )
-                mi = dis[ u = j ];
-
-        vis[ u ] = <span class="literal">true</span>;
-
-        <span class="comment">// Relax edges adjacent to u</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-            <span class="keyword">if</span> ( !vis[ j ] )
-                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );
-    }
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> edg[ N ][ N ]; <span class="comment">// weight of each edge</span></span>
+<span class="line"><span class="keyword">int</span> dis[ N ];      <span class="comment">// distance of each node from source</span></span>
+<span class="line"><span class="keyword">bool</span> vis[ N ];     <span class="comment">// SET S represent for nodes already visited</span></span>
+<span class="line"></span>
+<span class="line"><span class="comment">// CLRS 24.3</span></span>
+<span class="line"><span class="comment">// s:start point,  n: total number of nodes</span></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>&#123;</span>
+<span class="line">    <span class="comment">// INITIALIZE-SINGLE-SOURCE</span></span>
+<span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span>
+<span class="line">    vis[ s ] = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
+<span class="line">        dis[ i ] = edg[ s ][ i ];</span>
+<span class="line">    dis[ s ] = <span class="number">0</span>;</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">// Extract Min</span></span>
+<span class="line">    <span class="comment">// u for the node, mi for dis[ u ]</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i ) &#123;</span>
+<span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, mi = INF;</span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span>
+<span class="line">            <span class="keyword">if</span> ( !vis[ j ] &amp;&amp; dis[ j ] &lt; mi )</span>
+<span class="line">                mi = dis[ u = j ];</span>
+<span class="line"></span>
+<span class="line">        vis[ u ] = <span class="literal">true</span>;</span>
+<span class="line"></span>
+<span class="line">        <span class="comment">// Relax edges adjacent to u</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span>
+<span class="line">            <span class="keyword">if</span> ( !vis[ j ] )</span>
+<span class="line">                dis[ j ] = min ( dis[ j ], dis[ u ] + edg[ u ][ j ] );</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="dijkstra-stl-priority_queue"><a class="markdownIt-Anchor" href="#dijkstra-stl-priority_queue"></a> Dijkstra + STL priority_queue</h4>
 <p>​	$ O((V+E)lgV) $</p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星建图</span>
-<span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
-
-<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> {</span>
-    <span class="keyword">int</span> u, d; <span class="comment">// id, dis</span>
-    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; ( <span class="keyword">const</span> Node &amp;rhs ) <span class="keyword">const</span> { <span class="keyword">return</span> d &gt; rhs.d; }
-};
-
-<span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> {</span>
-    <span class="keyword">int</span> u, v, w, nex;
-} edg[ N ];
-
-<span class="comment">// CLRS 24.3</span>
-<span class="comment">// s:start point</span>
-<span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s )</span> </span>{
-    priority_queue&lt;Node&gt; Q;
-    dis[ s ] = <span class="number">0</span>;
-    Q.push ( ( Node ){s, dis[ s ]} );
-    <span class="keyword">while</span> ( !Q.empty () ) {
-        <span class="comment">// u = Extract_Min( Q )</span>
-        Node x = Q.top ();
-        Q.pop ();
-        <span class="keyword">int</span> u = x.u;
-
-        <span class="keyword">if</span> ( vis[ u ] )
-            <span class="keyword">continue</span>;
-        vis[ u ] = <span class="literal">true</span>;
-
-        <span class="comment">// for each vertex v in G.adj[ u ]</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-            <span class="keyword">int</span> v = edg[ i ].v;
-            <span class="keyword">int</span> w = edg[ i ].w;
-            <span class="comment">// relax</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + w ) {
-                dis[ v ] = dis[ u ] + w;
-                Q.push ( ( Node ){v, dis[ v ]} );
-            }
-        }
-    }
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星建图</span></span>
+<span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span>
+<span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span>
+<span class="line">    <span class="keyword">int</span> u, d; <span class="comment">// id, dis</span></span>
+<span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; ( <span class="keyword">const</span> Node &amp;rhs ) <span class="keyword">const</span> &#123; <span class="keyword">return</span> d &gt; rhs.d; &#125;</span>
+<span class="line">&#125;;</span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span>
+<span class="line">    <span class="keyword">int</span> u, v, w, nex;</span>
+<span class="line">&#125; edg[ N ];</span>
+<span class="line"></span>
+<span class="line"><span class="comment">// CLRS 24.3</span></span>
+<span class="line"><span class="comment">// s:start point</span></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span> <span class="params">( <span class="keyword">int</span> s )</span> </span>&#123;</span>
+<span class="line">    priority_queue&lt;Node&gt; Q;</span>
+<span class="line">    dis[ s ] = <span class="number">0</span>;</span>
+<span class="line">    Q.push ( ( Node )&#123;s, dis[ s ]&#125; );</span>
+<span class="line">    <span class="keyword">while</span> ( !Q.empty () ) &#123;</span>
+<span class="line">        <span class="comment">// u = Extract_Min( Q )</span></span>
+<span class="line">        Node x = Q.top ();</span>
+<span class="line">        Q.pop ();</span>
+<span class="line">        <span class="keyword">int</span> u = x.u;</span>
+<span class="line"></span>
+<span class="line">        <span class="keyword">if</span> ( vis[ u ] )</span>
+<span class="line">            <span class="keyword">continue</span>;</span>
+<span class="line">        vis[ u ] = <span class="literal">true</span>;</span>
+<span class="line"></span>
+<span class="line">        <span class="comment">// for each vertex v in G.adj[ u ]</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span>
+<span class="line">            <span class="keyword">int</span> v = edg[ i ].v;</span>
+<span class="line">            <span class="keyword">int</span> w = edg[ i ].w;</span>
+<span class="line">            <span class="comment">// relax</span></span>
+<span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + w ) &#123;</span>
+<span class="line">                dis[ v ] = dis[ u ] + w;</span>
+<span class="line">                Q.push ( ( Node )&#123;v, dis[ v ]&#125; );</span>
+<span class="line">            &#125;</span>
+<span class="line">        &#125;</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="spfa-shortest-path-faster-algorithm"><a class="markdownIt-Anchor" href="#spfa-shortest-path-faster-algorithm"></a> SPFA (Shortest Path Faster Algorithm)</h4>
 <p>​	$ O(kE) $ ( k &lt; 2 )</p>
-<pre class="highlight"><code class="cpp">
-<span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
-<span class="keyword">int</span> cnt[ N ];  <span class="comment">//入列次数超过n，有负环</span>
-<span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星</span>
-
-<span class="class"><span class="keyword">struct</span> <span class="title">edg</span> {</span>
-    <span class="keyword">int</span> u, v, w, nex;
-} edg[ N ];
-
-<span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>{
-    <span class="comment">// INIT</span>
-    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );
-    vis[ s ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-        dis[ i ] = INF;
-    dis[ s ] = <span class="number">0</span>;
-    <span class="built_in">memset</span> ( cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> ( cnt ) );
-    cnt[ s ] = <span class="number">1</span>;
-
-    <span class="comment">// BFS方式的spfa</span>
-    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;
-    Q.push ( s );
-
-    <span class="keyword">while</span> ( !Q.empty () ) {
-        <span class="keyword">int</span> u = Q.front ();
-        Q.pop ();
-        vis[ u ] = <span class="literal">false</span>; <span class="comment">// 出队要取消标记</span>
-
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-            <span class="keyword">int</span> v = edg[ i ].v;
-            <span class="comment">// Relax所有出边</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) {
-                dis[ v ] = dis[ u ] + edg[ i ].w;
-                <span class="comment">//没入队的标记并入队</span>
-                <span class="keyword">if</span> ( !vis[ v ] ) {
-                    vis[ v ] = <span class="literal">true</span>;
-                    Q.push ( v );
-                    <span class="comment">// 判断负环</span>
-                    <span class="keyword">if</span> ( ++cnt[ v ] &gt; n )
-                        <span class="keyword">return</span> <span class="literal">false</span>;
-                }
-            }
-        }
-    }
-
-    <span class="keyword">return</span> <span class="literal">true</span>;
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+</pre></td><td class="code"><pre><span class="line"></span>
+<span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span>
+<span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span>
+<span class="line"><span class="keyword">int</span> cnt[ N ];  <span class="comment">//入列次数超过n，有负环</span></span>
+<span class="line"><span class="keyword">int</span> head[ N ]; <span class="comment">//链式前向星</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edg</span> &#123;</span></span>
+<span class="line">    <span class="keyword">int</span> u, v, w, nex;</span>
+<span class="line">&#125; edg[ N ];</span>
+<span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span> <span class="params">( <span class="keyword">int</span> s, <span class="keyword">int</span> n )</span> </span>&#123;</span>
+<span class="line">    <span class="comment">// INIT</span></span>
+<span class="line">    <span class="built_in">memset</span> ( vis, <span class="literal">false</span>, <span class="keyword">sizeof</span> ( vis ) );</span>
+<span class="line">    vis[ s ] = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
+<span class="line">        dis[ i ] = INF;</span>
+<span class="line">    dis[ s ] = <span class="number">0</span>;</span>
+<span class="line">    <span class="built_in">memset</span> ( cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> ( cnt ) );</span>
+<span class="line">    cnt[ s ] = <span class="number">1</span>;</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">// BFS方式的spfa</span></span>
+<span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span>
+<span class="line">    Q.push ( s );</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">while</span> ( !Q.empty () ) &#123;</span>
+<span class="line">        <span class="keyword">int</span> u = Q.front ();</span>
+<span class="line">        Q.pop ();</span>
+<span class="line">        vis[ u ] = <span class="literal">false</span>; <span class="comment">// 出队要取消标记</span></span>
+<span class="line"></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span>
+<span class="line">            <span class="keyword">int</span> v = edg[ i ].v;</span>
+<span class="line">            <span class="comment">// Relax所有出边</span></span>
+<span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ i ].w ) &#123;</span>
+<span class="line">                dis[ v ] = dis[ u ] + edg[ i ].w;</span>
+<span class="line">                <span class="comment">//没入队的标记并入队</span></span>
+<span class="line">                <span class="keyword">if</span> ( !vis[ v ] ) &#123;</span>
+<span class="line">                    vis[ v ] = <span class="literal">true</span>;</span>
+<span class="line">                    Q.push ( v );</span>
+<span class="line">                    <span class="comment">// 判断负环</span></span>
+<span class="line">                    <span class="keyword">if</span> ( ++cnt[ v ] &gt; n )</span>
+<span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span>
+<span class="line">                &#125;</span>
+<span class="line">            &#125;</span>
+<span class="line">        &#125;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <p>贴一个dfs的，自己没写过，感觉dijkstra+heap最好</p>
-<pre class="highlight"><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">spfa_dfs</span> <span class="params">( <span class="keyword">int</span> u )</span> </span>{
-    vis[ u ] = <span class="literal">true</span>;
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) {
-        <span class="keyword">int</span> v = edg[ i ].v, w = edg[ i ].w;
-        <span class="keyword">if</span> ( dis[ u ] + w &lt; dis[ v ] ) {
-            dis[ v ] = dis[ u ] + w;
-            <span class="keyword">if</span> ( !vis[ v ] ) {
-                <span class="keyword">if</span> ( spfa_dfs ( v ) )
-                    <span class="keyword">return</span> <span class="number">1</span>;
-            } <span class="keyword">else</span>
-                <span class="keyword">return</span> <span class="number">1</span>;
-        }
-    }
-    vis[ u ] = <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">spfa_dfs</span> <span class="params">( <span class="keyword">int</span> u )</span> </span>&#123;</span>
+<span class="line">    vis[ u ] = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[ u ]; i != <span class="number">-1</span>; i = edg[ i ].nex ) &#123;</span>
+<span class="line">        <span class="keyword">int</span> v = edg[ i ].v, w = edg[ i ].w;</span>
+<span class="line">        <span class="keyword">if</span> ( dis[ u ] + w &lt; dis[ v ] ) &#123;</span>
+<span class="line">            dis[ v ] = dis[ u ] + w;</span>
+<span class="line">            <span class="keyword">if</span> ( !vis[ v ] ) &#123;</span>
+<span class="line">                <span class="keyword">if</span> ( spfa_dfs ( v ) )</span>
+<span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span>
+<span class="line">            &#125; <span class="keyword">else</span></span>
+<span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span>
+<span class="line">        &#125;</span>
+<span class="line">    &#125;</span>
+<span class="line">    vis[ u ] = <span class="literal">false</span>;</span>
+<span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="bellman-ford"><a class="markdownIt-Anchor" href="#bellman-ford"></a> Bellman-Ford</h4>
 <p>​	$ O(VE) $</p>
-<pre class="highlight"><code class="cpp"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span>
-<span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span>
-
-<span class="class"><span class="keyword">struct</span> <span class="title">edg</span> {</span>
-    <span class="keyword">int</span> u, v, w;
-} edg[ N ];
-
-<span class="comment">//CLRS 24.1</span>
-<span class="comment">//对每个点，relax所有的边</span>
-<span class="function"><span class="keyword">bool</span> <span class="title">Bellman_Ford</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> e, <span class="keyword">int</span> s, <span class="keyword">double</span> num )</span> </span>{
-    <span class="comment">// Initialize Single Sorce( G,s )</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-        dis[ i ] = <span class="number">0</span>;
-    dis[ s ] = num;
-
-    <span class="comment">// for i = 1 to |G.V|-1</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i ) {
-        <span class="comment">// for each edg ( u,v ) in G.E</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; e; ++j ) {
-            <span class="keyword">int</span> u = edg[ j ].u;
-            <span class="keyword">int</span> v = edg[ j ].v;
-            <span class="comment">// Relax</span>
-            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) {
-                dis[ v ] = dis[ u ] + edg[ u ].w;
-            }
-        }
-    }
-    <span class="comment">// 存在负环</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; ++i )
-        <span class="keyword">if</span> ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )
-            <span class="keyword">return</span> <span class="literal">false</span>;
-    <span class="keyword">return</span> <span class="literal">true</span>;
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dis[ N ];  <span class="comment">// distance of each node from source</span></span>
+<span class="line"><span class="keyword">bool</span> vis[ N ]; <span class="comment">// SET S represent for nodes already visited</span></span>
+<span class="line"></span>
+<span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edg</span> &#123;</span></span>
+<span class="line">    <span class="keyword">int</span> u, v, w;</span>
+<span class="line">&#125; edg[ N ];</span>
+<span class="line"></span>
+<span class="line"><span class="comment">//CLRS 24.1</span></span>
+<span class="line"><span class="comment">//对每个点，relax所有的边</span></span>
+<span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bellman_Ford</span> <span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> e, <span class="keyword">int</span> s, <span class="keyword">double</span> num )</span> </span>&#123;</span>
+<span class="line">    <span class="comment">// Initialize Single Sorce( G,s )</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
+<span class="line">        dis[ i ] = <span class="number">0</span>;</span>
+<span class="line">    dis[ s ] = num;</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">// for i = 1 to |G.V|-1</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i ) &#123;</span>
+<span class="line">        <span class="comment">// for each edg ( u,v ) in G.E</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; e; ++j ) &#123;</span>
+<span class="line">            <span class="keyword">int</span> u = edg[ j ].u;</span>
+<span class="line">            <span class="keyword">int</span> v = edg[ j ].v;</span>
+<span class="line">            <span class="comment">// Relax</span></span>
+<span class="line">            <span class="keyword">if</span> ( dis[ v ] &gt; dis[ u ] + edg[ j ].w ) &#123;</span>
+<span class="line">                dis[ v ] = dis[ u ] + edg[ u ].w;</span>
+<span class="line">            &#125;</span>
+<span class="line">        &#125;</span>
+<span class="line">    &#125;</span>
+<span class="line">    <span class="comment">// 存在负环</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; e; ++i )</span>
+<span class="line">        <span class="keyword">if</span> ( dis[ edg[ i ].v ] &gt; ( dis[ edg[ i ].u ] - edg[ i ].w ) )</span>
+<span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span>
+<span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
 <p>如果是稠密图，Dijkstra+heap比SPFA快。稀疏图则SPFA更快。再就是SPFA可以判断负环</p>
 <p>对于极端的链状图，SPFA无疑是最合适的了。每个结只进队一次，标准的O(E)。</p>
@@ -599,110 +767,211 @@
 <p>​</p>
 <h4 id="多源最短路"><a class="markdownIt-Anchor" href="#多源最短路"></a> 多源最短路</h4>
 <h4 id="floyd"><a class="markdownIt-Anchor" href="#floyd"></a> Floyd</h4>
-<pre class="highlight"><code class="cpp">
-<span class="function"><span class="keyword">void</span> <span class="title">init</span> <span class="params">()</span> </span>{
-    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i )
-        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; ++j ) {
-            <span class="comment">//有向图</span>
-            w[ i ][ j ] = INF;
-            <span class="comment">//记录路径段内的后一点</span>
-            <span class="comment">//也可以改成前一点path[i][j] = i,就要反向输出;</span>
-            path[ i ][ j ] = j;
-        }
-}
-
-<span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span>
-<span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>{
-    <span class="comment">// Dp</span>
-    <span class="comment">// 表示所有点只经过集合{ 1..k }内的点时的最短路径</span>
-    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k )
-        <span class="comment">//选取每一个起点</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-            <span class="comment">//选取每一个终点</span>
-            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )
-                <span class="comment">// i -- j的路径存在</span>
-                <span class="keyword">if</span> ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) {
-
-                    <span class="keyword">int</span> tmp = w[ i ][ k ] + w[ k ][ j ];
-                    <span class="comment">// d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }</span>
-                    <span class="keyword">if</span> ( w[ i ][ j ] &gt; tmp ) {
-                        w[ i ][ j ] = tmp;
-                        <span class="comment">//记录后继路径</span>
-                        <span class="comment">//前驱path[ i ][ j ] = path[ k ][ j ];</span>
-                        path[ i ][ j ] = path[ i ][ k ];
-                    }
-                }
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+</pre></td><td class="code"><pre><span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span> <span class="params">()</span> </span>&#123;</span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i )</span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; ++j ) &#123;</span>
+<span class="line">            <span class="comment">//有向图</span></span>
+<span class="line">            w[ i ][ j ] = INF;</span>
+<span class="line">            <span class="comment">//记录路径段内的后一点</span></span>
+<span class="line">            <span class="comment">//也可以改成前一点path[i][j] = i,就要反向输出;</span></span>
+<span class="line">            path[ i ][ j ] = j;</span>
+<span class="line">        &#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>&#123;</span>
+<span class="line">    <span class="comment">// Dp</span></span>
+<span class="line">    <span class="comment">// 表示所有点只经过集合&#123; 1..k &#125;内的点时的最短路径</span></span>
+<span class="line">    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k )</span>
+<span class="line">        <span class="comment">//选取每一个起点</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
+<span class="line">            <span class="comment">//选取每一个终点</span></span>
+<span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j )</span>
+<span class="line">                <span class="comment">// i -- j的路径存在</span></span>
+<span class="line">                <span class="keyword">if</span> ( w[ i ][ k ] != INF &amp;&amp; w[ k ][ j ] != INF ) &#123;</span>
+<span class="line"></span>
+<span class="line">                    <span class="keyword">int</span> tmp = w[ i ][ k ] + w[ k ][ j ];</span>
+<span class="line">                    <span class="comment">// d(ij)^k = min &#123; d(ik)^(k-1) + d(kj)^(k-1) &#125;</span></span>
+<span class="line">                    <span class="keyword">if</span> ( w[ i ][ j ] &gt; tmp ) &#123;</span>
+<span class="line">                        w[ i ][ j ] = tmp;</span>
+<span class="line">                        <span class="comment">//记录后继路径</span></span>
+<span class="line">                        <span class="comment">//前驱path[ i ][ j ] = path[ k ][ j ];</span></span>
+<span class="line">                        path[ i ][ j ] = path[ i ][ k ];</span>
+<span class="line">                    &#125;</span>
+<span class="line">                &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="floyd-最小环-输出"><a class="markdownIt-Anchor" href="#floyd-最小环-输出"></a> FLoyd 最小环 + 输出</h4>
-<pre class="highlight"><code class="c++"><span class="comment">//!!!三个INF相加,INF不能太大,否则会爆掉</span>
-<span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0xffffff</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span> + <span class="number">10</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">10000</span> + <span class="number">10</span>;
-
-<span class="comment">// floyd</span>
-<span class="keyword">int</span> n, m;
-<span class="keyword">int</span> dis[ maxn ][ maxm ];
-<span class="keyword">int</span> pre[ maxn ][ maxm ];
-<span class="comment">// loop</span>
-<span class="keyword">int</span> min_loop, num;
-<span class="keyword">int</span> mp[ maxn ][ maxm ];
-<span class="keyword">int</span> path[ maxn ]; <span class="comment">//存输出的节点,输出的时候遍历就行了</span>
-
-<span class="function"><span class="keyword">void</span> <span class="title">dfs</span> <span class="params">( <span class="keyword">int</span> i, <span class="keyword">int</span> j )</span> </span>{
-    <span class="keyword">int</span> k = pre[ i ][ j ];
-    <span class="keyword">if</span> ( k == <span class="number">0</span> ) {
-        path[ num++ ] = j;
-        <span class="keyword">return</span>;
-    }
-    dfs ( i, k );
-    dfs ( k, j );
-}
-
-<span class="comment">/*算法思想;
- *Floyd算法是按照顶点的编号增加的顺序更新最短路径的;
- *如果存在最小环,则会在这个环中的点编号最大的那个点u更新最短路径之前发现这个环;
- *即当点u被拿来更新i到j的最短路径的时候,可以发现这个闭合环路;
- *发现的方法是,更新最短路径前,遍历i,j点对,一定会发现某对i到j的最短路径长度:
- *dist[i][j]+mp[j][u]+mp[u][i]!=INF,这时s的i和j是当前环中挨着点u的两个点;
- *因为在之前的最短路径更新过程中,u没有参与更新,所以dist[i][j]所表示的路径中不会有点u,即一定为一个环;
- *
- *如果在每个新的点拿来更新最短路径之前遍历i和j验证上面的式子,虽然不能遍历到所有的环;
- *但是由于dist[i][j]是i到j点的最短路径m所以肯定可以遍历到最小的环;
- *
- *如果有负权环,则该算法失效,因为包含负环的图上,dist[i][j]已经不能保证i到j的路径上不会经过同一个点多次了;
- */</span>
-<span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span>
-<span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>{
-    <span class="comment">// Dp</span>
-    <span class="comment">// 表示所有点只经过集合{ 1..k }内的点时的最短路径</span>
-    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span>
-    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k ) {
-        <span class="comment">////最小环</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; ++i )
-            <span class="keyword">for</span> ( <span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; k; ++j )
-                <span class="keyword">if</span> ( dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ] &lt; min_loop ) {
-                    min_loop = dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ];
-                    num = <span class="number">0</span>;
-                    path[ num++ ] = i;
-                    dfs ( i, j );
-                    path[ num++ ] = k;
-                }
-
-        <span class="comment">////floyd</span>
-        <span class="comment">//选取每一个起点</span>
-        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
-            <span class="comment">//选取每一个终点</span>
-            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j ) {
-                <span class="comment">// d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }</span>
-                <span class="keyword">int</span> d = dis[ i ][ k ] + dis[ k ][ j ];
-                <span class="keyword">if</span> ( d &lt; dis[ i ][ j ] )
-                    dis[ i ][ j ] = d, pre[ i ][ j ] = k;
-            }
-    }
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//!!!三个INF相加,INF不能太大,否则会爆掉</span></span>
+<span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0xffffff</span>;</span>
+<span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span> + <span class="number">10</span>;</span>
+<span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">10000</span> + <span class="number">10</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">// floyd</span></span>
+<span class="line"><span class="keyword">int</span> n, m;</span>
+<span class="line"><span class="keyword">int</span> dis[ maxn ][ maxm ];</span>
+<span class="line"><span class="keyword">int</span> pre[ maxn ][ maxm ];</span>
+<span class="line"><span class="comment">// loop</span></span>
+<span class="line"><span class="keyword">int</span> min_loop, num;</span>
+<span class="line"><span class="keyword">int</span> mp[ maxn ][ maxm ];</span>
+<span class="line"><span class="keyword">int</span> path[ maxn ]; <span class="comment">//存输出的节点,输出的时候遍历就行了</span></span>
+<span class="line"></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span> <span class="params">( <span class="keyword">int</span> i, <span class="keyword">int</span> j )</span> </span>&#123;</span>
+<span class="line">    <span class="keyword">int</span> k = pre[ i ][ j ];</span>
+<span class="line">    <span class="keyword">if</span> ( k == <span class="number">0</span> ) &#123;</span>
+<span class="line">        path[ num++ ] = j;</span>
+<span class="line">        <span class="keyword">return</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line">    dfs ( i, k );</span>
+<span class="line">    dfs ( k, j );</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*算法思想;</span></span>
+<span class="line"><span class="comment"> *Floyd算法是按照顶点的编号增加的顺序更新最短路径的;</span></span>
+<span class="line"><span class="comment"> *如果存在最小环,则会在这个环中的点编号最大的那个点u更新最短路径之前发现这个环;</span></span>
+<span class="line"><span class="comment"> *即当点u被拿来更新i到j的最短路径的时候,可以发现这个闭合环路;</span></span>
+<span class="line"><span class="comment"> *发现的方法是,更新最短路径前,遍历i,j点对,一定会发现某对i到j的最短路径长度:</span></span>
+<span class="line"><span class="comment"> *dist[i][j]+mp[j][u]+mp[u][i]!=INF,这时s的i和j是当前环中挨着点u的两个点;</span></span>
+<span class="line"><span class="comment"> *因为在之前的最短路径更新过程中,u没有参与更新,所以dist[i][j]所表示的路径中不会有点u,即一定为一个环;</span></span>
+<span class="line"><span class="comment"> *</span></span>
+<span class="line"><span class="comment"> *如果在每个新的点拿来更新最短路径之前遍历i和j验证上面的式子,虽然不能遍历到所有的环;</span></span>
+<span class="line"><span class="comment"> *但是由于dist[i][j]是i到j点的最短路径m所以肯定可以遍历到最小的环;</span></span>
+<span class="line"><span class="comment"> *</span></span>
+<span class="line"><span class="comment"> *如果有负权环,则该算法失效,因为包含负环的图上,dist[i][j]已经不能保证i到j的路径上不会经过同一个点多次了;</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span></span>
+<span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>&#123;</span>
+<span class="line">    <span class="comment">// Dp</span></span>
+<span class="line">    <span class="comment">// 表示所有点只经过集合&#123; 1..k &#125;内的点时的最短路径</span></span>
+<span class="line">    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span></span>
+<span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k ) &#123;</span>
+<span class="line">        <span class="comment">////最小环</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; ++i )</span>
+<span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; k; ++j )</span>
+<span class="line">                <span class="keyword">if</span> ( dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ] &lt; min_loop ) &#123;</span>
+<span class="line">                    min_loop = dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ];</span>
+<span class="line">                    num = <span class="number">0</span>;</span>
+<span class="line">                    path[ num++ ] = i;</span>
+<span class="line">                    dfs ( i, j );</span>
+<span class="line">                    path[ num++ ] = k;</span>
+<span class="line">                &#125;</span>
+<span class="line"></span>
+<span class="line">        <span class="comment">////floyd</span></span>
+<span class="line">        <span class="comment">//选取每一个起点</span></span>
+<span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span>
+<span class="line">            <span class="comment">//选取每一个终点</span></span>
+<span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j ) &#123;</span>
+<span class="line">                <span class="comment">// d(ij)^k = min &#123; d(ik)^(k-1) + d(kj)^(k-1) &#125;</span></span>
+<span class="line">                <span class="keyword">int</span> d = dis[ i ][ k ] + dis[ k ][ j ];</span>
+<span class="line">                <span class="keyword">if</span> ( d &lt; dis[ i ][ j ] )</span>
+<span class="line">                    dis[ i ][ j ] = d, pre[ i ][ j ] = k;</span>
+<span class="line">            &#125;</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
 <h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
 <p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
 <blockquote>

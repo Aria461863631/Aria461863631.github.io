@@ -1780,13 +1780,19 @@
 <br>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)
-	(<span class="name">lambda</span> (<span class="name">amount</span>)
-		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)
-			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))
-				   balance)
-			<span class="string">"Insufficient funds"</span>)))
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">make-withdraw</span> balance)</span>
+<span class="line">	(<span class="name">lambda</span> (<span class="name">amount</span>)</span>
+<span class="line">		(<span class="name">if</span> (<span class="name">&gt;=</span> balance amount)</span>
+<span class="line">			(<span class="name">begin</span> (<span class="name">set!</span> balance (<span class="name">-</span> balance amount))</span>
+<span class="line">				   balance)</span>
+<span class="line">			<span class="string">"Insufficient funds"</span>)))</span>
+</pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/18/SICP/sicp3/#more" rel="contents">

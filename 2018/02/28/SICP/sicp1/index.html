@@ -456,9 +456,11 @@
 <br>
 <p><strong>1.1.4 Compound Procedures</strong></p>
 <p>Procedure definitions</p>
-<pre class="highlight"><code class="lisp">(<span class="name">define</span> (<span class="name">&lt;name&gt;</span> &lt;formal parameters&gt;)
-  &lt;body&gt;)
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">&lt;name&gt;</span> &lt;formal parameters&gt;)</span>
+<span class="line">  &lt;body&gt;)</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>1.1.5 The Substitution Model for Procedure Application</strong></p>
 <p>Evaluate a combination</p>
@@ -484,19 +486,31 @@
 <ul>
 <li>an expression whose value is interpreted as either true or false.</li>
 </ul>
-<pre class="highlight"><code class="lisp">(<span class="name">cond</span> (<span class="name">&lt;p1&gt;</span> &lt;e1&gt;)
-      (<span class="name">&lt;p2&gt;</span> &lt;e2&gt;)
-      ...
-      (<span class="name">&lt;pn&gt;</span> &lt;en&gt;))
-
-(<span class="name">if</span> &lt;predicate&gt;
-    &lt;consequent&gt;
-    &lt;alternative&gt;)
-
-(<span class="name">and</span> &lt;e1&gt; ... &lt;en&gt;)
-(<span class="name">or</span> &lt;e1&gt; ... &lt;en&gt;)
-(<span class="name">not</span> &lt;e&gt;)
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">cond</span> (<span class="name">&lt;p1&gt;</span> &lt;e1&gt;)</span>
+<span class="line">      (<span class="name">&lt;p2&gt;</span> &lt;e2&gt;)</span>
+<span class="line">      ...</span>
+<span class="line">      (<span class="name">&lt;pn&gt;</span> &lt;en&gt;))</span>
+<span class="line"></span>
+<span class="line">(<span class="name">if</span> &lt;predicate&gt;</span>
+<span class="line">    &lt;consequent&gt;</span>
+<span class="line">    &lt;alternative&gt;)</span>
+<span class="line"></span>
+<span class="line">(<span class="name">and</span> &lt;e1&gt; ... &lt;en&gt;)</span>
+<span class="line">(<span class="name">or</span> &lt;e1&gt; ... &lt;en&gt;)</span>
+<span class="line">(<span class="name">not</span> &lt;e&gt;)</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>1.1.7 Example: Square Roots by Newton’s Method</strong></p>
 <p><strong>1.1.8 Procedures are Black-Box Abstractions</strong></p>
@@ -544,16 +558,23 @@
 <p><strong>1.3.2 Constructing Procedures Using lambda</strong></p>
 <p>In general, lambda is used to create procedures in the same way as<br>
 define , except that <strong>no name</strong> is specified for the procedure</p>
-<pre class="highlight"><code class="commonlisp">(lambda (&lt;formal parameters&gt;)
-  &lt;body&gt;)
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">(lambda (&lt;formal parameters&gt;)</span>
+<span class="line">  &lt;body&gt;)</span>
+</pre></td></tr></table></figure>
 <p>using lambda creating local variables</p>
-<pre class="highlight"><code class="lisp">(<span class="name">let</span> ((<span class="name">&lt;var1&gt;</span> &lt;exp1&gt;)
-      (<span class="name">&lt;var2&gt;</span> &lt;exp2&gt;)
-      ...
-      (<span class="name">&lt;varn&gt;</span> &lt;expn&gt;))
-  &lt;body&gt;)
-</code></pre>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">(<span class="name">let</span> ((<span class="name">&lt;var1&gt;</span> &lt;exp1&gt;)</span>
+<span class="line">      (<span class="name">&lt;var2&gt;</span> &lt;exp2&gt;)</span>
+<span class="line">      ...</span>
+<span class="line">      (<span class="name">&lt;varn&gt;</span> &lt;expn&gt;))</span>
+<span class="line">  &lt;body&gt;)</span>
+</pre></td></tr></table></figure>
 <br>
 <p><strong>1.3.3 Procedures as General Methods</strong></p>
 <p>finding roots</p>
