@@ -87,21 +87,21 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="CS:APP ch-9 Virtual Memory Virtual Memory  modern systems provide an abstraction of main memory  three important capabilities  It uses main memory efficiently by treating it as a cache for an address">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726024101287">
-<meta property="og:image" content="http://img.blog.csdn.net/20140726024435296">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727083649381">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727084524775">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727085405051">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727090642531">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727120229642">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727120529090">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727132255390">
-<meta property="og:image" content="http://img.blog.csdn.net/20140727133211948">
-<meta property="og:updated_time" content="2018-07-25T04:52:22.144Z">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-22-22.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-22-50.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-23-09.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-23-16.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-23-33.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-01.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-11.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-27.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-24-54.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-25-01.png">
+<meta property="og:updated_time" content="2018-07-25T14:28:46.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch9] Virtual Memory">
 <meta name="twitter:description" content="CS:APP ch-9 Virtual Memory Virtual Memory  modern systems provide an abstraction of main memory  three important capabilities  It uses main memory efficiently by treating it as a cache for an address">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20140726024101287">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-22-22.png">
 
 
 
@@ -434,7 +434,7 @@
 <p>Physical Addressing: use physical address ( PA ) to access memory</p>
 <p>Virtual Addressing: use virtual address ( VA ) and translate to physical address</p>
 <p>Addressing Translation: converting a virtual address to a physical one</p>
-<p><img src="http://img.blog.csdn.net/20140726024101287" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-22-22.png" alt=""></p>
 <h4 id="92-address-spaces"><a class="markdownIt-Anchor" href="#92-address-spaces"></a> 9.2 Address Spaces</h4>
 <p>Virtual Address Space</p>
 <ul>
@@ -449,7 +449,7 @@
 <p>A virtual memory is organized as an array of N contiguous byte-sized cells stored on <strong>disk</strong>. Each byte has a unique virtual address that serves as an index into the array.</p>
 <p>VM systems partition the virtual memory into fixed-size blocks call <strong>Virtual Pages ( VP )</strong> as transfer units between <strong>disk</strong> and <strong>main memory</strong>.</p>
 <p>Three sets of VP: Unallocated, Cached, Uncached</p>
-<p><img src="http://img.blog.csdn.net/20140726024435296" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-22-50.png" alt=""></p>
 <p>DRAM cache organization</p>
 <ol>
 <li>large virtual pages ( cache block )( 4 KB to 2 MB )</li>
@@ -459,10 +459,10 @@
 </ol>
 <p><strong>Page Tables</strong></p>
 <p>A data structure stored in physical memory that maps virtual pages to physical pages.</p>
-<p><img src="http://img.blog.csdn.net/20140727083649381" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-23-09.png" alt=""></p>
 <p>Page Hit</p>
 <p>Check valid bit, uses the physical memory address in the PTE (which points to the start of the cached page in PP 1) to construct the physical address of the word.</p>
-<p><img src="http://img.blog.csdn.net/20140727084524775" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528723/Screenshot_from_2018-07-25_22-23-16.png" alt=""></p>
 <p>Page Faults</p>
 <p>The page fault exception invokes a <strong>page fault exception handler</strong> in the kernel</p>
 <ol>
@@ -472,7 +472,7 @@
 <li>restarts the faulting instruction and page hit</li>
 <li>The strategy of waiting until the last moment to swap in a page, when a miss occurs, is known as <strong>demand paging</strong></li>
 </ol>
-<p><img src="http://img.blog.csdn.net/20140727085405051" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-23-33.png" alt=""></p>
 <h4 id="94-vm-as-a-tool-for-memory-management"><a class="markdownIt-Anchor" href="#94-vm-as-a-tool-for-memory-management"></a> 9.4 VM as a Tool for Memory Management</h4>
 <p>Operating systems provide a <strong>separate page table</strong>, and thus a separate virtual address space, for each <strong>process</strong>.</p>
 <ol>
@@ -487,10 +487,8 @@
 </li>
 <li>
 <p>Memory Allocation</p>
-<p><img src="http://img.blog.csdn.net/20140727090642531" alt=""></p>
-<p>​</p>
-<h4 id=""><a class="markdownIt-Anchor" href="#"></a> </h4>
-<p>​</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-01.png" alt=""></p>
+<br>
 </li>
 </ol>
 <h4 id="95-vm-as-a-tool-for-memory-protection"><a class="markdownIt-Anchor" href="#95-vm-as-a-tool-for-memory-protection"></a> 9.5 VM as a Tool for Memory Protection</h4>
@@ -502,16 +500,16 @@
 <br>
 <h4 id="96-address-translation"><a class="markdownIt-Anchor" href="#96-address-translation"></a> 9.6 Address Translation</h4>
 <p>a mapping between an N-element virtual address space and M-element physical address space</p>
-<p><img src="http://img.blog.csdn.net/20140727120229642" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-11.png" alt=""></p>
 <p>Steps that the CPU hardware performs when there is a page hit / fault</p>
-<p><img src="http://img.blog.csdn.net/20140727120529090" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528724/Screenshot_from_2018-07-25_22-24-27.png" alt=""></p>
 <p>Speeding up Address Translation with a TLB</p>
 <ul>
 <li>a small cache of PTEs in the MMU called a translation look aside buffer (TLB)</li>
 </ul>
 <p>Multi-Level Page Tables</p>
-<p><img src="http://img.blog.csdn.net/20140727132255390" alt=""></p>
-<p><img src="http://img.blog.csdn.net/20140727133211948" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-24-54.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532528725/Screenshot_from_2018-07-25_22-25-01.png" alt=""></p>
 <p>つ…つづく！</p>
 
       
@@ -717,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-9-virtual-memory"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-9 Virtual Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#91-physical-and-virtual-addressing"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 9.1 Physical and Virtual Addressing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#92-address-spaces"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 9.2 Address Spaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#93-vm-as-a-tool-for-caching"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 9.3 VM as a Tool for Caching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#94-vm-as-a-tool-for-memory-management"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 9.4 VM as a Tool for Memory Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">1.0.5.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#95-vm-as-a-tool-for-memory-protection"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 9.5 VM as a Tool for Memory Protection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#96-address-translation"><span class="nav-number">1.0.7.</span> <span class="nav-text"> 9.6 Address Translation</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch-9-virtual-memory"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP ch-9 Virtual Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#91-physical-and-virtual-addressing"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 9.1 Physical and Virtual Addressing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#92-address-spaces"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 9.2 Address Spaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#93-vm-as-a-tool-for-caching"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 9.3 VM as a Tool for Caching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#94-vm-as-a-tool-for-memory-management"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 9.4 VM as a Tool for Memory Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#95-vm-as-a-tool-for-memory-protection"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 9.5 VM as a Tool for Memory Protection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#96-address-translation"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 9.6 Address Translation</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
