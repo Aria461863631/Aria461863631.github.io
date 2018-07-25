@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-16T12:48:33.818Z">
+<meta property="og:updated_time" content="2018-06-30T10:07:21.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin专题四 最短路">
 <meta name="twitter:description" content="kuangbin专题四 最短路 ACM图论存图方式 http://jzqt.github.io/2015/07/21/ACM图论之存图方式/  单源最短路  Dijkstra ​	$ O(V^2 + E) $">
@@ -635,6 +635,74 @@
                 }
 }
 </code></pre>
+<h4 id="floyd-最小环-输出"><a class="markdownIt-Anchor" href="#floyd-最小环-输出"></a> FLoyd 最小环 + 输出</h4>
+<pre class="highlight"><code class="c++"><span class="comment">//!!!三个INF相加,INF不能太大,否则会爆掉</span>
+<span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0xffffff</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span> + <span class="number">10</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">10000</span> + <span class="number">10</span>;
+
+<span class="comment">// floyd</span>
+<span class="keyword">int</span> n, m;
+<span class="keyword">int</span> dis[ maxn ][ maxm ];
+<span class="keyword">int</span> pre[ maxn ][ maxm ];
+<span class="comment">// loop</span>
+<span class="keyword">int</span> min_loop, num;
+<span class="keyword">int</span> mp[ maxn ][ maxm ];
+<span class="keyword">int</span> path[ maxn ]; <span class="comment">//存输出的节点,输出的时候遍历就行了</span>
+
+<span class="function"><span class="keyword">void</span> <span class="title">dfs</span> <span class="params">( <span class="keyword">int</span> i, <span class="keyword">int</span> j )</span> </span>{
+    <span class="keyword">int</span> k = pre[ i ][ j ];
+    <span class="keyword">if</span> ( k == <span class="number">0</span> ) {
+        path[ num++ ] = j;
+        <span class="keyword">return</span>;
+    }
+    dfs ( i, k );
+    dfs ( k, j );
+}
+
+<span class="comment">/*算法思想;
+ *Floyd算法是按照顶点的编号增加的顺序更新最短路径的;
+ *如果存在最小环,则会在这个环中的点编号最大的那个点u更新最短路径之前发现这个环;
+ *即当点u被拿来更新i到j的最短路径的时候,可以发现这个闭合环路;
+ *发现的方法是,更新最短路径前,遍历i,j点对,一定会发现某对i到j的最短路径长度:
+ *dist[i][j]+mp[j][u]+mp[u][i]!=INF,这时s的i和j是当前环中挨着点u的两个点;
+ *因为在之前的最短路径更新过程中,u没有参与更新,所以dist[i][j]所表示的路径中不会有点u,即一定为一个环;
+ *
+ *如果在每个新的点拿来更新最短路径之前遍历i和j验证上面的式子,虽然不能遍历到所有的环;
+ *但是由于dist[i][j]是i到j点的最短路径m所以肯定可以遍历到最小的环;
+ *
+ *如果有负权环,则该算法失效,因为包含负环的图上,dist[i][j]已经不能保证i到j的路径上不会经过同一个点多次了;
+ */</span>
+<span class="comment">// CLRS 25.2 All-Pairs-Shortest-Path</span>
+<span class="function"><span class="keyword">void</span> <span class="title">Floyd</span> <span class="params">()</span> </span>{
+    <span class="comment">// Dp</span>
+    <span class="comment">// 表示所有点只经过集合{ 1..k }内的点时的最短路径</span>
+    <span class="comment">// 只经过1的时候relax一次，在添加上经过2后的relax，最后一直到n</span>
+    <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k ) {
+        <span class="comment">////最小环</span>
+        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; ++i )
+            <span class="keyword">for</span> ( <span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; k; ++j )
+                <span class="keyword">if</span> ( dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ] &lt; min_loop ) {
+                    min_loop = dis[ i ][ j ] + mp[ i ][ k ] + mp[ k ][ j ];
+                    num = <span class="number">0</span>;
+                    path[ num++ ] = i;
+                    dfs ( i, j );
+                    path[ num++ ] = k;
+                }
+
+        <span class="comment">////floyd</span>
+        <span class="comment">//选取每一个起点</span>
+        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )
+            <span class="comment">//选取每一个终点</span>
+            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j ) {
+                <span class="comment">// d(ij)^k = min { d(ik)^(k-1) + d(kj)^(k-1) }</span>
+                <span class="keyword">int</span> d = dis[ i ][ k ] + dis[ k ][ j ];
+                <span class="keyword">if</span> ( d &lt; dis[ i ][ j ] )
+                    dis[ i ][ j ] = d, pre[ i ][ j ] = k;
+            }
+    }
+}
+</code></pre>
 <h4 id="题目列表"><a class="markdownIt-Anchor" href="#题目列表"></a> 题目列表</h4>
 <p><strong>A - Til the Cows Come Home POJ-2387</strong></p>
 <blockquote>
@@ -937,7 +1005,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kuangbin专题四-最短路"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路"><span class="nav-number">2.</span> <span class="nav-text"> 单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra"><span class="nav-number">2.1.</span> <span class="nav-text"> Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra-stl-priority_queue"><span class="nav-number">2.2.</span> <span class="nav-text"> Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spfa-shortest-path-faster-algorithm"><span class="nav-number">2.3.</span> <span class="nav-text"> SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bellman-ford"><span class="nav-number">2.4.</span> <span class="nav-text"> Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景"><span class="nav-number">2.5.</span> <span class="nav-text"> 适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多源最短路"><span class="nav-number">2.6.</span> <span class="nav-text"> 多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#floyd"><span class="nav-number">2.7.</span> <span class="nav-text"> Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目列表"><span class="nav-number">2.8.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#kuangbin专题四-最短路"><span class="nav-number">1.</span> <span class="nav-text"> kuangbin专题四 最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单源最短路"><span class="nav-number">2.</span> <span class="nav-text"> 单源最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra"><span class="nav-number">2.1.</span> <span class="nav-text"> Dijkstra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dijkstra-stl-priority_queue"><span class="nav-number">2.2.</span> <span class="nav-text"> Dijkstra + STL priority_queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spfa-shortest-path-faster-algorithm"><span class="nav-number">2.3.</span> <span class="nav-text"> SPFA (Shortest Path Faster Algorithm)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bellman-ford"><span class="nav-number">2.4.</span> <span class="nav-text"> Bellman-Ford</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景"><span class="nav-number">2.5.</span> <span class="nav-text"> 适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多源最短路"><span class="nav-number">2.6.</span> <span class="nav-text"> 多源最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#floyd"><span class="nav-number">2.7.</span> <span class="nav-text"> Floyd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#floyd-最小环-输出"><span class="nav-number">2.8.</span> <span class="nav-text"> FLoyd 最小环 + 输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目列表"><span class="nav-number">2.9.</span> <span class="nav-text"> 题目列表</span></a></li></ol></li></ol></div>
             
 
           </div>
