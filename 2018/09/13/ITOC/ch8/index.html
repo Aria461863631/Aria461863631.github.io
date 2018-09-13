@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806845/Screenshot_from_2018-09-13_10-03-23.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806845/Screenshot_from_2018-09-13_10-19-33.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806846/Screenshot_from_2018-09-13_10-43-58.png">
-<meta property="og:updated_time" content="2018-09-13T02:56:17.601Z">
+<meta property="og:updated_time" content="2018-09-13T03:04:38.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch8] SPACE COMPLEXITY">
 <meta name="twitter:description" content="[ITOC-ch8] SPACE COMPLEXITY Space somplexity  M is deterministic f(n) is the maximum number of tape cells that M scans on any input of length n.  nondeterministic Space complexity  M is nondeterminis">
@@ -482,7 +482,7 @@
 <p><strong>THE TQBF PROBLEM</strong></p>
 <p>quantified Boolean formulas</p>
 <ul>
-<li>$ \phi \ = \  \forall x \ \exist y \ [ ( x \or y ) \and ( \bar x \or \bar y)]  $</li>
+<li>$ \phi \ = \  \forall x \ ∃ y \ [ ( x \lor y ) \land ( \bar x \lor \bar y)]  $</li>
 </ul>
 <p>fully quantified / sentence</p>
 <ul>
@@ -518,8 +518,8 @@
 </li>
 <li>if t &gt; 1 construct recursively
 <ul>
-<li>$ \phi_{c_1,c_2,t} \ = \ \exist m_1 [ \phi_{c_1,m_1,\frac{t}{2}} \and \phi_{m_1,c_2,\frac{t}{2}}] $</li>
-<li>reduce size $ \phi_{c_1,c_2,t } \ = \ \exist m_1 \forall ( c_3,c_4) \in \{(c_1,m_1),(m_1,c_2)\} [ \phi_{c_3,c_4,\frac{t}{2}}] $</li>
+<li>$ \phi_{c_1,c_2,t} \ = \ ∃ m_1 [ \phi_{c_1,m_1,\frac{t}{2}} \land \phi_{m_1,c_2,\frac{t}{2}}] $</li>
+<li>reduce size $ \phi_{c_1,c_2,t } \ = \ ∃ m_1 \forall ( c_3,c_4) \in \{(c_1,m_1),(m_1,c_2)\} [ \phi_{c_3,c_4,\frac{t}{2}}] $</li>
 </ul>
 </li>
 </ul>
