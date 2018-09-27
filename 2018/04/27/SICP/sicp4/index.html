@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版)  evaluators ( interpreter )  a procedure that, when applied to an expr">
+<meta name="description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版) &amp;lt;br/&amp;gt; evaluators ( interpreter )  a procedure that, when applied">
 <meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SICP-ch4] Metalinguistic Abstraction">
 <meta property="og:url" content="http://yoursite.com/2018/04/27/SICP/sicp4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版)  evaluators ( interpreter )  a procedure that, when applied to an expr">
+<meta property="og:description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版) &amp;lt;br/&amp;gt; evaluators ( interpreter )  a procedure that, when applied">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817444/Screenshot_from_2018-04-27_16-21-11.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817445/Screenshot_from_2018-04-27_16-22-18.png">
@@ -93,7 +93,7 @@
 <meta property="og:updated_time" content="2018-05-25T12:32:59.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SICP-ch4] Metalinguistic Abstraction">
-<meta name="twitter:description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版)  evaluators ( interpreter )  a procedure that, when applied to an expr">
+<meta name="twitter:description" content="[SICP-ch4] Metalinguistic Abstraction establishing new languages and implement these languages by constructing evaluators. (极简版) &amp;lt;br/&amp;gt; evaluators ( interpreter )  a procedure that, when applied">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1524817444/Screenshot_from_2018-04-27_16-21-11.png">
 
 
@@ -409,24 +409,24 @@
       
 
       
-        <h2 id="sicp-ch4-metalinguistic-abstraction"><a class="markdownIt-Anchor" href="#sicp-ch4-metalinguistic-abstraction"></a> [SICP-ch4] Metalinguistic Abstraction</h2>
+        <h2>[SICP-ch4] Metalinguistic Abstraction</h2>
 <p>establishing new languages and implement these languages by constructing evaluators.</p>
 <p>(极简版)</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>evaluators ( interpreter )</p>
 <ul>
 <li>a procedure that, when applied to an expression of the language, performs the actions required to evaluate that expression.</li>
 </ul>
-<br>
-<h3 id="41-the-metacircular-evaluator"><a class="markdownIt-Anchor" href="#41-the-metacircular-evaluator"></a> 4.1 The Metacircular Evaluator</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.1 The Metacircular Evaluator</h3>
 <p>metacircular</p>
 <ul>
 <li>An evaluator that is written in the same language that it evaluates</li>
 </ul>
-<a id="more"></a>
+<p>&lt;!-- more --&gt;</p>
 <p>Recall environment model</p>
 <ul>
-<li>To <strong>evaluate</strong> a compound procedure, evaluate the subexpressions and then <strong>apply</strong> the<br>
+<li>To <strong>evaluate</strong> a compound procedure, evaluate the subexpressions and then <strong>apply</strong> the
 value</li>
 <li>To <strong>apply</strong> a compound procedure, <strong>evaluate</strong> the body of the procedure in a new environment.</li>
 </ul>
@@ -435,10 +435,10 @@ value</li>
 <ul>
 <li>make the evaluator independent of the representation of the language.</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.1 The Core of the Evaluator</strong></p>
 <p><code>eval</code> and <code>apply</code></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -482,9 +482,9 @@ value</li>
 <span class="line">				   (<span class="name">list-of-values</span> (<span class="name">operands</span> exp) env)))</span>
 <span class="line">		(<span class="name">else</span></span>
 <span class="line">		      (<span class="name">error</span> <span class="string">"Unknown expression type: EVAL"</span> exp))))</span>
-</pre></td></tr></table></figure>
-<br>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -516,15 +516,15 @@ value</li>
 <span class="line">		(<span class="name">else</span></span>
 <span class="line">			(<span class="name">error</span></span>
 <span class="line">				<span class="string">"Unknown procedure type: APPLY"</span> procedure))))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>Conditionals <code>eval-if</code></p>
 <p>Sequences <code>eval-sequence</code></p>
 <p>Assignments <code>eval-assignment</code></p>
 <p>Definitions <code>eval-definition</code></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.2 Representing Expressions</strong></p>
 <p>building constructor, selector and predeicate of our language</p>
-<br>
+<p>&lt;br/&gt;</p>
 <ul>
 <li>The only self-evaluating items are numbers and strings</li>
 <li>Variables are represented by symbols</li>
@@ -540,28 +540,24 @@ value</li>
 <ul>
 <li>cond</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.3 Evaluator Data Structures</strong></p>
 <p>representation of</p>
 <ul>
-<li>
-<p>true and false</p>
-</li>
-<li>
-<p>procedures</p>
-</li>
-<li>
-<p>environments  （a sequence of frams and each frame is a table of bindings）</p>
-</li>
+<li>true and false</li>
 </ul>
-<br>
+<ul>
+<li>procedures</li>
+<li>environments  （a sequence of frams and each frame is a table of bindings）</li>
+</ul>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.4 Running the Evaluator as a Program</strong></p>
 <ul>
 <li>model the application of primitive procedures.</li>
 <li>set up a global environment</li>
 <li>provide a <strong>driver loop that models the read-eval-print loop</strong></li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -579,42 +575,42 @@ value</li>
 <span class="line">			(<span class="name">announce-output</span> output-prompt)</span>
 <span class="line">			(<span class="name">user-print</span> output)))</span>
 <span class="line">(<span class="name">driver-loop</span>))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.5 Data as Programs</strong></p>
 <p>One operational view of the meaning of a program is that a program is a description of an abstract (perhaps infinitely large) <strong>machine</strong>.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Evaluator as a bridge between the <strong>data objects</strong> and the language</p>
 <ul>
 <li>From the perspective of the user, (* x x) is an expression in the programming language</li>
 <li>From the perspective of the evaluator,  (* x x) is simply a list to be manipulated.</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.6 Internal Definitions</strong></p>
 <p>evaluator execute definitions in sequence, resulting <strong>different scope</strong> for internal definition</p>
 <p>Ways providing simultaneous scope</p>
 <ul>
 <li>scan all definitions and create, and then set to their values by assignment.</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.1.7 Separating Syntactic Analysis from Execution</strong></p>
 <p>separate <code>eval</code> into <strong>analysis</strong> and <strong>execution</strong></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">eval</span> exp env) ((<span class="name">analyze</span> exp) env))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>syntactic of analysis procedure</p>
 <ul>
 <li>returns an <strong>execution procedure</strong> that ignores its environment argument</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">analyze-self-evaluating</span> exp)</span>
 <span class="line">	(<span class="name">lambda</span> (<span class="name">env</span>) exp))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><code>analyze-quoted</code>, <code>analyze-variable</code>, <code>analyze-assignment</code>, <code>analyze-definition</code>, <code>analyze-if</code></p>
 <p><code>analyze-lambda</code>, <code>analyze-sequence</code>, <code>analyze-application</code></p>
-<br>
-<h3 id="42-variations-on-a-scheme-lazy-evaluation"><a class="markdownIt-Anchor" href="#42-variations-on-a-scheme-lazy-evaluation"></a> 4.2 Variations on a Scheme — Lazy Evaluation</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.2 Variations on a Scheme — Lazy Evaluation</h3>
 <p><strong>4.2.1 Normal Order and Applicative Order</strong></p>
 <p>applicative-order</p>
 <ul>
@@ -626,39 +622,39 @@ value</li>
 <li>enter body procedure than evaluate arguments</li>
 <li>non-strict procedure</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.2.2 An Interpreter with Lazy Evaluation</strong></p>
 <p>implement a normal-order language</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>thunk</p>
 <ul>
 <li>delayed arguments</li>
 <li>contain the information for applying when needed</li>
 <li>forcing : evaluating expression in thunk</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Modifying the evaluator</p>
 <p>primitive: strict</p>
 <p>compound: non-strict</p>
 <p>change <code>eval</code> into <code>actual-value</code></p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">actual-value</span> exp env)</span>
 <span class="line">	(<span class="name">force-it</span> (<span class="name">eval</span> exp env)))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>Representing thunks</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.2.3 Streams as Lazy Lists</strong></p>
 <p>With lazy evaluation, streams and <strong>lists</strong> can be identical, so there is no need for special forms or for separate list and stream operations.</p>
 <p>Represent <code>car</code>,  <code>cdr</code> and <code>cons</code> as non-strict procedure</p>
 <p>List lazier than previous stream</p>
 <ul>
 <li>The <code>car</code> of the list, as well as the <code>cdr</code> , is delayed.</li>
-<li>won’t need explicit <code>delay</code> anymore ( ch-3 )</li>
+<li>won't need explicit <code>delay</code> anymore ( ch-3 )</li>
 </ul>
-<br>
-<h3 id="43-variations-on-a-scheme-nondeterministic-computing"><a class="markdownIt-Anchor" href="#43-variations-on-a-scheme-nondeterministic-computing"></a> 4.3 Variations on a Scheme — Nondeterministic Computing</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.3 Variations on a Scheme — Nondeterministic Computing</h3>
 <p>nondeterministic computing</p>
 <ul>
 <li>support automatic search</li>
@@ -668,10 +664,10 @@ value</li>
 <ul>
 <li>generate the sequence of all possible pairs and filter</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.3.1 Amb and Search</strong></p>
 <p>amb</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -681,48 +677,48 @@ value</li>
 <span class="line">can have six possible values:</span>
 <span class="line"></span>
 <span class="line">(<span class="number">1</span> a) (<span class="number">1</span> b) (<span class="number">2</span> a) (<span class="number">2</span> b) (<span class="number">3</span> a) (<span class="number">3</span> b)</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>require</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">require</span> p) (<span class="name">if</span> (<span class="name">not</span> p) (<span class="name">amb</span>)))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>evaluate amb causes time to split into branches</p>
 <ul>
 <li>machine with sufficient number of processors: parallel executions of choices</li>
 <li>machine with only one processor: dfs</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.3.2 Examples of Nondeterministic Programs</strong></p>
 <p>Logical puzzles</p>
 <p>Parsing natural language</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.3.3 Implementing the amb Evaluator</strong></p>
 <p>Nondeterministic evaluation</p>
 <ul>
 <li>result in the discovery of a dead end, must <strong>backtrack</strong> to a previous choice point</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Base on 4.1.7: analyzing evalutor ( analyze + execute )</p>
 <p>Difference</p>
 <ul>
 <li>entirely in the <strong>execution</strong> procedures</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Execution procedures and continuations</strong></p>
 <p>the execution procedures in the amb evaluator take three arguments</p>
 <ul>
 <li>Original: environment</li>
 <li>Additional: success continuation &amp; failure continuation</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>success continuation</p>
 <ul>
 <li>Arguments: value &amp; failure continuation</li>
 <li>recieve value and proceed with the computation</li>
 <li>call faliure continuation when value leads to a dead end</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>failure continuation</p>
 <ul>
 <li>try another branch of the nondeterministic process</li>
@@ -744,16 +740,16 @@ value</li>
 <li>When failure continuation created by an <em>assignment</em> finish undoing, it <strong>calls</strong> the failure continuation it intercepted,</li>
 <li>When failure continuation for an <em>amb</em> runs out of choices, it <strong>calls</strong> the failure continuation that was originally given to the amb</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Structure of the evaluator</strong></p>
 <p>amb evaluator</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">ambeval</span> exp env succeed fail)</span>
 <span class="line">	((<span class="name">analyze</span> exp) env succeed fail))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>general form of an execution procedure</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -761,11 +757,11 @@ value</li>
 <span class="line">	<span class="comment">;; succeed is (lambda (value fail) . . . )</span></span>
 <span class="line">	<span class="comment">;; fail is (lambda () . . . )</span></span>
 <span class="line">	. . . )</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p>example: <code>amb</code></p>
 <p>neo analyze ( return execution procedure )</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -791,37 +787,37 @@ value</li>
 <span class="line">                     <span class="comment">;failure continuation</span></span>
 <span class="line">					  (<span class="name">lambda</span> () (<span class="name">try-next</span> (<span class="name">cdr</span> choices))))))</span>
 <span class="line">			(<span class="name">try-next</span> cprocs))))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>Driver loop</strong></p>
 <p>either calls <code>try-again</code> in response to the user typing try-again at the driver loop</p>
 <p>or else starts a new evaluation by calling <code>ambeval</code>.</p>
-<br>
-<h3 id="44-logic-programming"><a class="markdownIt-Anchor" href="#44-logic-programming"></a> 4.4 Logic Programming</h3>
+<p>&lt;br/&gt;</p>
+<h3>4.4 Logic Programming</h3>
 <p>computer science deals with <strong>imperative</strong> (how to) knowledge, whereas</p>
 <p>mathematics deals with <strong>declarative</strong> (what is) knowledge.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Bias</p>
 <ul>
 <li>programming is about constructing algorithms for computing <strong>unidirectional functions</strong>  (computations with well-defined inputs and outputs)</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Example of logical programming</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">append</span> x y)</span>
 <span class="line">	(<span class="name">if</span> (<span class="name">null</span>? x) y (<span class="name">cons</span> (<span class="name">car</span> x) (<span class="name">append</span> (<span class="name">cdr</span> x) y))))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><code>append</code> procedure can be regard as two <strong>rules</strong> translate into lisp</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">y = y append '()</span>
 <span class="line">( <span class="name">cons</span> u v ) append y = ( <span class="name">cons</span> u z ) IF v appedn y = z</span>
-</pre></td></tr></table></figure>
-<p>In a logic programming language, the programmer writes an append<br>
+</pre></td></tr></table></figure></p>
+<p>In a logic programming language, the programmer writes an append
 “procedure” by stating the <strong>two rules ( What is append )</strong> about append given above.</p>
 <p><strong>“How to”</strong> knowledge is provided automatically by the interpreter</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>query language</strong></p>
 <ul>
 <li>our logic programming language</li>
@@ -829,10 +825,10 @@ value</li>
 <li>compound: and, or, not</li>
 <li>means of abstraction: rules</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.4.1 Deductive Information Retrieval</strong></p>
 <p>Simple queries</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -842,30 +838,30 @@ value</li>
 <span class="line"><span class="comment">;;; Query results:</span></span>
 <span class="line">(<span class="name">job</span> (<span class="name">Hacker</span> Alyssa P) (<span class="name">computer</span> programmer))</span>
 <span class="line">(<span class="name">job</span> (<span class="name">Fect</span> Cy D) (<span class="name">computer</span> programmer))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>Compound queries</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">and</span> (<span class="name">job</span> ?person (<span class="name">computer</span> programmer))</span>
 <span class="line">	(<span class="name">address</span> ?person ?where))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>Rules</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">;⟨ conclusion ⟩ is a pattern and ⟨ body ⟩ is any query.</span></span>
 <span class="line"><span class="comment">; ?first satisfy conclusion than apply body</span></span>
 <span class="line">(<span class="name">rule</span> ⟨ conclusion ⟩ ⟨ body ⟩ )</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>Logic as programs ( implement our append in logical language )</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">(<span class="name">rule</span> (<span class="name">append-to-form</span> () ?y ?y))</span>
 <span class="line">(<span class="name">rule</span> (<span class="name">append-to-form</span> (?u . ?v) ?y (?u . ?z))</span>
 <span class="line">	  (<span class="name">append-to-form</span> ?v ?y ?z))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <p><strong>4.4.2 How the Query System Works</strong></p>
 <p><em>Implement query evaluator</em></p>
 <ul>
@@ -876,7 +872,7 @@ value</li>
 <li>nondeterministic program</li>
 <li><strong>Search with the aid of streams</strong></li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Pattern matching</strong></p>
 <ul>
 <li>evaluate primitive and compound</li>
@@ -902,28 +898,28 @@ value</li>
 </ul>
 <p><strong>Applying rules</strong></p>
 <p>similar to applying a procedure in the eval / apply</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.4.3 Is Logic Programming Mathematical Logic?</strong></p>
 <p>No</p>
 <p>Query language provides a <strong>control structure</strong> that interprets the logical statements <strong>procedurally</strong>.</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Differences</p>
 <ul>
 <li>Take advantage in efficiency</li>
 </ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">;while less supervisor than programmers</span></span>
 <span class="line">(<span class="name">and</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)) (<span class="name">supervisor</span> ?x ?y))</span>
 <span class="line">(<span class="name">and</span> (<span class="name">supervisor</span> ?x ?y) (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <ul>
 <li>Infinite loops</li>
 </ul>
 <p>whether the system will find the simple answer (married Minnie Mickey) <strong>before</strong> it goes into the loop depends on implementation details concerning <strong>the order in which the system checks</strong> the items in the data base.</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -931,21 +927,21 @@ value</li>
 <span class="line">(<span class="name">assert!</span> (<span class="name">rule</span> (<span class="name">married</span> ?x ?y) (<span class="name">married</span> ?y ?x)))</span>
 <span class="line"><span class="comment">;query</span></span>
 <span class="line">(<span class="name">married</span> Mickey ?who)</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p>&lt;br/&gt;</p>
 <ul>
 <li>Problems with not</li>
 </ul>
 <p>not</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">;input empty frame where x unbound, \not filters out frames, return empty stream </span></span>
 <span class="line">(<span class="name">and</span> (<span class="name">not</span> (<span class="name">job</span> ?x (<span class="name">computer</span> programmer)))</span>
 <span class="line">	 (<span class="name">supervisor</span> ?x ?y))</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>not of logic programming languages reflects the so-called <em>closed world assumption</em> that all relevant information has been included in the data base.（见脚注)</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>4.4.4 Implementing the Query System</strong></p>
 <p>4.4.4.1 The Driver Loop and Instantiation</p>
 <p>4.4.4.2 The Evaluator</p>
@@ -955,8 +951,8 @@ value</li>
 <p>4.4.4.6 Stream Operations</p>
 <p>4.4.4.7 Query Syntax Procedures</p>
 <p>4.4.4.8 Frames and Bindings</p>
-<br>
-<p>もう…続けない…なわけないだろ！</p>
+<p>&lt;br/&gt;</p>
+<p>もう...続けない.....なわけないだろ！</p>
 
       
     </div>
@@ -1161,7 +1157,7 @@ value</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sicp-ch4-metalinguistic-abstraction"><span class="nav-number">1.</span> <span class="nav-text"> [SICP-ch4] Metalinguistic Abstraction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#41-the-metacircular-evaluator"><span class="nav-number">1.1.</span> <span class="nav-text"> 4.1 The Metacircular Evaluator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42-variations-on-a-scheme-lazy-evaluation"><span class="nav-number">1.2.</span> <span class="nav-text"> 4.2 Variations on a Scheme — Lazy Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43-variations-on-a-scheme-nondeterministic-computing"><span class="nav-number">1.3.</span> <span class="nav-text"> 4.3 Variations on a Scheme — Nondeterministic Computing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44-logic-programming"><span class="nav-number">1.4.</span> <span class="nav-text"> 4.4 Logic Programming</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">[SICP-ch4] Metalinguistic Abstraction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 The Metacircular Evaluator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 Variations on a Scheme — Lazy Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">4.3 Variations on a Scheme — Nondeterministic Computing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">4.4 Logic Programming</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
+<meta name="description" content="CLRS-ch34 NP-Completeness Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP 3">
 <meta name="keywords" content="CLRS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CLRS-ch34] NP-Completeness">
 <meta property="og:url" content="http://yoursite.com/2017/12/24/CLRS/34-np/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
+<meta property="og:description" content="CLRS-ch34 NP-Completeness Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP 3">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528207262/Screenshot_from_2018-06-05_22-00-45.png">
 <meta property="og:image" content="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2018-06-17T04:23:18.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CLRS-ch34] NP-Completeness">
-<meta name="twitter:description" content="CLRS-ch34 NP-Completeness  Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP">
+<meta name="twitter:description" content="CLRS-ch34 NP-Completeness Intro class P  problems are solvable in polynomial time  class NP  problems are verifiable in polynomial time  class NPC  problems in NP and is as hard as any problem in NP 3">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528207262/Screenshot_from_2018-06-05_22-00-45.png">
 
 
@@ -411,8 +411,8 @@
       
 
       
-        <h2 id="clrs-ch34-np-completeness"><a class="markdownIt-Anchor" href="#clrs-ch34-np-completeness"></a> CLRS-ch34 NP-Completeness</h2>
-<h4 id="intro"><a class="markdownIt-Anchor" href="#intro"></a> Intro</h4>
+        <h2>CLRS-ch34 NP-Completeness</h2>
+<h4>Intro</h4>
 <p>class P</p>
 <ul>
 <li>problems are <strong>solvable</strong> in polynomial time</li>
@@ -432,15 +432,15 @@
 </ol>
 </li>
 </ul>
-<br>
-<a id="more"></a>
+<p>&lt;br/&gt;</p>
+<p>&lt;!-- more --&gt;</p>
 <p>Decision problems vs. optimization problems</p>
 <ul>
 <li><strong>optimization</strong> <strong>problems :</strong> find a feasible solution with the best value.</li>
 <li><strong>decision problems :</strong> answer is simply “yes” or “no”</li>
 <li><strong>Relationship :</strong> decision is no harder</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Reductions</p>
 <ul>
 <li>$ A \longrightarrow B $</li>
@@ -448,8 +448,8 @@
 <li>If A polynomially unsolvable, than B unsolvable as well</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528207262/Screenshot_from_2018-06-05_22-00-45.png" alt=""></p>
-<br>
-<h4 id="341-polynomial-time"><a class="markdownIt-Anchor" href="#341-polynomial-time"></a> 34.1 Polynomial time</h4>
+<p>&lt;br/&gt;</p>
+<h4>34.1 Polynomial time</h4>
 <p>Abstract Problems</p>
 <ul>
 <li>a binary <strong>relation</strong> (function) on a set $ I $ of <strong>instances</strong> and a set $ S $ of <strong>solutions</strong></li>
@@ -462,7 +462,7 @@
 <ul>
 <li>exist an algorithm to solve a concrete problem in $ O(n^k) $</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Encodings</strong></p>
 <ul>
 <li>
@@ -487,7 +487,7 @@
 <p><strong>Only</strong> when two encodings $ e_1 $ and $ e_2 $ of an abstract problem are <strong>polynomially related</strong>, whether the problem is polynomial-time solvable or not <strong>can</strong> be <strong>independent</strong> of which encoding we use.</p>
 </li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Therefore</p>
 <p><strong>Assume reasonable/standard encoding</strong> $ &lt; G &gt; $</p>
 <ul>
@@ -496,27 +496,23 @@
 <li>derive encodings of other object</li>
 </ul>
 <p>so that the choice of encoding has no effect on whether the abstract problem is polynomial-time solvable.</p>
-<br>
-<br>
+<p>&lt;br/&gt;</p>
+<p>&lt;br/&gt;</p>
 <p>A formal language framework</p>
 <ul>
 <li>alphabet $ \Sigma $ a finite set of symbols $ \{ 0,1 \} $</li>
-<li>language $ L $ over $ Σ $ is any set of strings made up of symbols from $ Σ \ \{ 10, \ 11, \  101 … \} $</li>
+<li>language $ L $ over $ Σ $ is any set of strings made up of symbols from $ Σ \ \{ 10, \ 11, \  101 ... \} $</li>
 <li>$ \Sigma ^* $ the language of all strings over $ Σ $</li>
 </ul>
 <p>view instances for any decision problems Q as a language L over $ Σ = \{ 0 ,1 \} $</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p>Accepted</p>
 <ul>
-<li>
-<p>The language L accepted by an algorithm A $ L = \{ x \in \{0,1\}^* : A(x) = 1 \} $</p>
-</li>
-<li>
-<p>Reject : A(x) = 0</p>
-</li>
-<li>
-<p>may runs forever if doesn’t accept</p>
-</li>
+<li>The language L accepted by an algorithm A $ L = \{ x \in \{0,1\}^* : A(x) = 1 \} $</li>
+</ul>
+<ul>
+<li>Reject : A(x) = 0</li>
+<li>may runs forever if doesn't accept</li>
 </ul>
 <p>Decided</p>
 <ul>
@@ -524,21 +520,21 @@
 <li>if every binary string in L is accepted by A (output 1) and every binary string not in L is rejected ( output 0)</li>
 <li>$ x \in L $  --&gt;  A(x) = 1, $ x\notin L $  --&gt; A(x) = 0</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p>**Complexity class P **</p>
 <p>$ P = \{ L \subseteq \{ 0,1 \}^{*} $ : exists an algorithm A that decides L in polynomial time $ \}$</p>
-<br>
-<h4 id="342-polynomial-time-verification"><a class="markdownIt-Anchor" href="#342-polynomial-time-verification"></a> 34.2 Polynomial-time verification</h4>
+<p>&lt;br/&gt;</p>
+<h4>34.2 Polynomial-time verification</h4>
 <p>algorithms verify membership from a certificate in languages</p>
 <p>Verified</p>
 <ul>
 <li>The language L verified by an algorithm A $ L = \{ x \in \{ 0, 1 \}^* : $ there exist $ y \in \{ 0,1 \}^* $ such that A( x,y ) = 1 $ \} $</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Complexity class NP</strong></p>
 <p>$ NP = \{ L \subseteq \{ 0, 1 \}^*  : L = \{ x \in \{ 0,1\}^* $ : there exists a certificate y with |y| = $O(|x|^c) $ such that A(x,y) = 1 $ \} \} $</p>
 <p>$P \subseteq NP $</p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Complexity class co-NP</strong></p>
 <ul>
 <li>set of languages L such that $ \bar L \in NP $</li>
@@ -546,18 +542,18 @@
 </ul>
 <p>Four possibilities for relationship among complexity class</p>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/928_a.gif" alt=""></p>
-<br>
-<h4 id="343-np-completeness-and-reducibility"><a class="markdownIt-Anchor" href="#343-np-completeness-and-reducibility"></a> 34.3 NP-completeness and reducibility</h4>
+<p>&lt;br/&gt;</p>
+<h4>34.3 NP-completeness and reducibility</h4>
 <p><strong>Reducibility</strong></p>
 <ul>
-<li>if $ Q \longrightarrow \ reduce \ \longrightarrow Q’ $ , $ Q  $ is “no harder to solve” than $ Q’ $</li>
-<li>$ Q  \le_p Q’ $ ( no more than a polynomial factor harder )</li>
+<li>if $ Q \longrightarrow \ reduce \ \longrightarrow Q' $ , $ Q  $ is &quot;no harder to solve&quot; than $ Q' $</li>
+<li>$ Q  \le_p Q' $ ( no more than a polynomial factor harder )</li>
 </ul>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>NP-completeness</strong></p>
 <ol>
 <li>$ L  \in NP $</li>
-<li>$ L’ \le_p L $ for every $ L’ \in NP $. (hardest)</li>
+<li>$ L' \le_p L $ for every $ L' \in NP $. (hardest)</li>
 </ol>
 <p><strong>Theorem 34.4</strong></p>
 <ul>
@@ -565,7 +561,7 @@
 <li>If any problem in NP is not polynomial-time solvable, then all NP-complete problems are not polynomial-time solvable.</li>
 </ul>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/932_a.gif" alt=""></p>
-<br>
+<p>&lt;br/&gt;</p>
 <p><strong>Circuit satisfiability</strong></p>
 <p>Given a boolean combinational circuit composed of AND, OR, and NOT gates, is it satisfiable?</p>
 <p>34.5 belongs to NP</p>
@@ -576,8 +572,8 @@
 <li>The reduction algorithm F constructs a single combinational circuit that computes all configurations produced by a given initial configuration.</li>
 <li><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/936_a.gif" alt=""></li>
 </ul>
-<br>
-<h4 id="345-np-complete-problems"><a class="markdownIt-Anchor" href="#345-np-complete-problems"></a> 34.5 NP-complete problems</h4>
+<p>&lt;br/&gt;</p>
+<h4>34.5 NP-complete problems</h4>
 <p><img src="http://staff.ustc.edu.cn/~csli/graduate/algorithms/book6/947_a.gif" alt=""></p>
 
       
@@ -783,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clrs-ch34-np-completeness"><span class="nav-number">1.</span> <span class="nav-text"> CLRS-ch34 NP-Completeness</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#intro"><span class="nav-number">1.0.1.</span> <span class="nav-text"> Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#341-polynomial-time"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 34.1 Polynomial time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#342-polynomial-time-verification"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 34.2 Polynomial-time verification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#343-np-completeness-and-reducibility"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 34.3 NP-completeness and reducibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#345-np-complete-problems"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 34.5 NP-complete problems</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CLRS-ch34 NP-Completeness</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.2.</span> <span class="nav-text">34.1 Polynomial time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.3.</span> <span class="nav-text">34.2 Polynomial-time verification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.4.</span> <span class="nav-text">34.3 NP-completeness and reducibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.5.</span> <span class="nav-text">34.5 NP-complete problems</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
