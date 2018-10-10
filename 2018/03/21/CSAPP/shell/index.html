@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
+<meta name="description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch8] Shell Lab">
 <meta property="og:url" content="http://yoursite.com/2018/03/21/CSAPP/shell/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
+<meta property="og:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-07-25T04:52:14.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch8] Shell Lab">
-<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c &amp;lt;br/&amp;gt; Ta">
+<meta name="twitter:description" content="[CS:APP-ch8] Shell Lab http://csapp.cs.cmu.edu/3e/labs.html http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c   Target impl">
 
 
 
@@ -405,25 +405,25 @@
       
 
       
-        <h2>[CS:APP-ch8] Shell Lab</h2>
-<p>http://csapp.cs.cmu.edu/3e/labs.html</p>
-<p>http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</p>
-<p>https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</p>
-<p>&lt;br/&gt;</p>
-<h3>Target</h3>
+        <h2 id="csapp-ch8-shell-lab"><a class="markdownIt-Anchor" href="#csapp-ch8-shell-lab"></a> [CS:APP-ch8] Shell Lab</h2>
+<p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
+<p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
+<p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
+<br>
+<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
 <p>implement</p>
 <ul>
 <li>eval, builtin_cmd, do_bgfg, waitfg</li>
 <li>sigchld_handler, sigint_handler, sigtstp_handler</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<p>&lt;!-- more --&gt;</p>
-<h3>0. Preparation</h3>
+<br>
+<a id="more"></a>
+<h3 id="0-preparation"><a class="markdownIt-Anchor" href="#0-preparation"></a> 0. Preparation</h3>
 <p><code>tshref</code>: 正确的参考shell，要求自己实现后的shell和它的结果一样</p>
 <p><code>make test01</code>用trace01.txt来验证结果，可以参考<code>make rtest01</code>的结果</p>
 <p><code>gdb</code> makefile去掉参数O2,加上-g</p>
-<p>&lt;br/&gt;</p>
-<h3>1. void eval ( char*cmdline )</h3>
+<br>
+<h3 id="1-void-eval-charcmdline"><a class="markdownIt-Anchor" href="#1-void-eval-charcmdline"></a> 1. void eval ( char*cmdline )</h3>
 <p>原型：p755</p>
 <ul>
 <li>If command is a built-in command, the shell program handles it immediately.</li>
@@ -436,7 +436,7 @@
 <li>The <strong>parent</strong> needs to <strong>block</strong> the <code>SIGCHLD</code> signals in this way in order to avoid the <strong>race</strong> condition where the child is reaped by <code>sigchld_handler</code> (and thus removed from the job list) before the parent calls addjob.</li>
 <li>After the <code>fork</code>, but before the <code>execve</code>, the child process should call <code>setpgid(0, 0)</code>, which puts the child in a <strong>new</strong> process group whose group ID is identical to the child’s PID. This ensures that there will be only one process, your shell, in the <strong>foreground process group</strong>. When you type <code>ctrl-c</code>, the shell should catch the resulting <code>SIGINT</code> and then forward it to the appropriate foreground job (or more precisely, the process group that contains the foreground job).</li>
 </ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -556,15 +556,15 @@
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>2.int builtin_cmd( char **argv)</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="2int-builtin_cmd-char-argv"><a class="markdownIt-Anchor" href="#2int-builtin_cmd-char-argv"></a> 2.int builtin_cmd( char **argv)</h3>
 <ul>
 <li>Four commands are to be built-in in the shell</li>
 <li>quit: exit the shell.</li>
 <li>jobs: List the running and stopped background jobs.</li>
 </ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -596,9 +596,9 @@
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">/* not a builtin command */</span></span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>3. void waitfg( pid_t pid )</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="3-void-waitfg-pid_t-pid"><a class="markdownIt-Anchor" href="#3-void-waitfg-pid_t-pid"></a> 3. void waitfg( pid_t pid )</h3>
 <ul>
 <li>shell should wait for foreground process</li>
 <li>This function should wait by sleeping for 1 second repeatedly until the specified process is no longer the foreground process (state = FG)</li>
@@ -607,7 +607,7 @@
 <ul>
 <li>In <code>waitfg</code>, use a busy loop around the sleep function.</li>
 </ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -637,18 +637,24 @@
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>4. void do_bgfg( char **argv )</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="4-void-do_bgfg-char-argv"><a class="markdownIt-Anchor" href="#4-void-do_bgfg-char-argv"></a> 4. void do_bgfg( char **argv )</h3>
 <ul>
-<li><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</li>
-<li><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</li>
-<li>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</li>
+<li>
+<p><code>bg &lt;job&gt;</code>: Change a <strong>stopped</strong> background job to a <strong>running</strong> <strong>background</strong> job.</p>
+</li>
+<li>
+<p><code>fg &lt;job&gt;</code>: Change a <strong>stopped or running</strong> background job to a running in the <strong>foreground</strong>.</p>
+</li>
+<li>
+<p>The <code>bg &lt;job&gt;</code> command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the background. The &lt;job&gt; argument can be either a PID or a JID.</p>
+</li>
+<li>
+<p>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</p>
+</li>
 </ul>
-<ul>
-<li>The <code>fg &lt;job&gt;</code>command restarts &lt;job&gt; by sending it a <code>SIGCONT</code>signal, and then runs it in the foreground. The &lt;job&gt; argument can be either a PID or a JID.</li>
-</ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -774,15 +780,15 @@
 <span class="line"></span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>5.void sigchld_handler( int sig )</h3>
-<p>This is the shell's handler for the<code>SIGCHLD</code> signal.</p>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="5void-sigchld_handler-int-sig"><a class="markdownIt-Anchor" href="#5void-sigchld_handler-int-sig"></a> 5.void sigchld_handler( int sig )</h3>
+<p>This is the shell’s handler for the<code>SIGCHLD</code> signal.</p>
 <p>Hints</p>
 <ul>
 <li>In <code>sigchld_handler</code>, use exactly one call to <code>waitpid</code></li>
 </ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -862,15 +868,15 @@
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>6. void sigint_handler ( int sig )</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="6-void-sigint_handler-int-sig"><a class="markdownIt-Anchor" href="#6-void-sigint_handler-int-sig"></a> 6. void sigint_handler ( int sig )</h3>
 <p>Hints</p>
 <ul>
-<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.
+<li>When you implement your signal handlers, be sure to send <code>SIGINT</code> and <code>SIGTSTP</code> signals to the entire foreground process group, using <code>-pid</code> instead of <code>pid</code> in the argument to the kill function.<br>
 The <code>sdriver.pl</code> program tests for this error.</li>
 </ul>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -896,10 +902,10 @@ The <code>sdriver.pl</code> program tests for this error.</li>
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>7.void sigtstp_handler ( int sig )</h3>
-<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="7void-sigtstp_handler-int-sig"><a class="markdownIt-Anchor" href="#7void-sigtstp_handler-int-sig"></a> 7.void sigtstp_handler ( int sig )</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -925,7 +931,7 @@ The <code>sdriver.pl</code> program tests for this error.</li>
 <span class="line">    &#125;</span>
 <span class="line">    <span class="keyword">return</span>;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 
       
     </div>
@@ -1130,7 +1136,7 @@ The <code>sdriver.pl</code> program tests for this error.</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">[CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.7.</span> <span class="nav-text">5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.8.</span> <span class="nav-text">6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.9.</span> <span class="nav-text">7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch8-shell-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch8] Shell Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#target"><span class="nav-number">1.1.</span> <span class="nav-text"> Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-preparation"><span class="nav-number">1.2.</span> <span class="nav-text"> 0. Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-void-eval-charcmdline"><span class="nav-number">1.3.</span> <span class="nav-text"> 1. void eval ( char*cmdline )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2int-builtin_cmd-char-argv"><span class="nav-number">1.4.</span> <span class="nav-text"> 2.int builtin_cmd( char **argv)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-void-waitfg-pid_t-pid"><span class="nav-number">1.5.</span> <span class="nav-text"> 3. void waitfg( pid_t pid )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-void-do_bgfg-char-argv"><span class="nav-number">1.6.</span> <span class="nav-text"> 4. void do_bgfg( char **argv )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5void-sigchld_handler-int-sig"><span class="nav-number">1.7.</span> <span class="nav-text"> 5.void sigchld_handler( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-void-sigint_handler-int-sig"><span class="nav-number">1.8.</span> <span class="nav-text"> 6. void sigint_handler ( int sig )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7void-sigtstp_handler-int-sig"><span class="nav-number">1.9.</span> <span class="nav-text"> 7.void sigtstp_handler ( int sig )</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.  &amp;">
+<meta name="description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.">
 <meta name="keywords" content="ITOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ITOC-ch4] DECIDABILITY">
 <meta property="og:url" content="http://yoursite.com/2018/05/25/ITOC/4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.  &amp;">
+<meta property="og:description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_14-57-25.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-26-10.png">
@@ -98,7 +98,7 @@
 <meta property="og:updated_time" content="2018-05-25T13:40:11.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch4] DECIDABILITY">
-<meta name="twitter:description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.  &amp;">
+<meta name="twitter:description" content="[ITOC-ch4] DECIDABILITY Recall: Recognizer  if $ w∈L $, than M must accept w. if $ w∉L $, than M may loop when input w.  Decider  if $ w∈L $, than M must accept w. if $ w∉L $, than M must reject w.">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_14-57-25.png">
 
 
@@ -414,7 +414,7 @@
       
 
       
-        <h2>[ITOC-ch4] DECIDABILITY</h2>
+        <h2 id="itoc-ch4-decidability"><a class="markdownIt-Anchor" href="#itoc-ch4-decidability"></a> [ITOC-ch4] DECIDABILITY</h2>
 <p>Recall:</p>
 <p><strong>Recognizer</strong></p>
 <ul>
@@ -426,11 +426,11 @@
 <li>if $ w∈L $, than M must accept w.</li>
 <li>if $ w∉L $, than M must reject w.</li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h3>4.1 DECIDABLE LANGUAGES</h3>
+<br>
+<h3 id="41-decidable-languages"><a class="markdownIt-Anchor" href="#41-decidable-languages"></a> 4.1 DECIDABLE LANGUAGES</h3>
 <p><strong>DECIDABLE PROBLEMS CONCERNING REGULAR LANGUAGES</strong></p>
 <p>$ A_{DFA} =   \{ \ &lt;B,w&gt; \ | \ B \ is \ a \ DFA \ that \ accepts \ input \ string \ w \} $.</p>
-<p>Proof that it's a decidable language by designing a decider</p>
+<p>Proof that it’s a decidable language by designing a decider</p>
 <ul>
 <li>M = “On input &lt;B, w&gt;, where B is a DFA and w is a string:
 <ul>
@@ -439,32 +439,32 @@
 </ul>
 </li>
 </ul>
-<p>&lt;!-- more --&gt;
-&lt;br/&gt;</p>
+<a id="more"></a>
+<br>
 <p>$ A_{NFA} = \{ \ &lt;B, w&gt; \ | \ B \ is \ an \ NFA \ that \ accepts \ input \ string \ w \} $.</p>
 <p>Proof</p>
 <ul>
 <li>Convert NFA to DFA</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ A_{REX} = \{ \ &lt;R, w&gt; \ | \ R \ is \ a \ regular \ expression \ that \ generates \ string \ w \}$.</p>
 <p>Proof</p>
 <ul>
 <li>Convert RE to NFA</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ E_{DFA} = \{ \ &lt; A &gt; | \  A \ is \ a \ DFA \ and \ L(A) = ∅ \} $.</p>
 <p>Proof</p>
 <ul>
 <li>Mark all states reachable from start state. accept if no accept state is marked</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ EQ_{DFA} = \{ \ &lt;A, B&gt; \ | \ A \ and \ B \ are \ DFA \ s \ and \ L(A) = L(B) \} $.</p>
 <p>Proof</p>
 <ul>
 <li>Construct L( C ) = L( A ) xor L( B ),  test if L( C ) $ \in E_{DFA} $</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>DECIDABLE PROBLEMS CONCERNING CONTEXT-FREE LANGUAGES</strong></p>
 <p>$ A_{CFG} = \{ \ &lt;G, w&gt; \ | \ G \ is \ a \ CFG \ that \ generates \ string \ w \} $</p>
 <p><em>if G were in Chomsky normal form, any derivation of w has 2n − 1 steps, where n is the length of w.</em></p>
@@ -472,16 +472,16 @@
 <ul>
 <li>List all derivations with 2n − 1 steps, check if w is in them</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ E_{CFG} = \{ \ &lt; G &gt; | \ G \ is \ a \ CFG \ and \ L(G) = ∅ \} $.</p>
 <p>Proof</p>
 <ul>
 <li>Mark all terminal symbols and Mark all variables that can derive into marked symbols</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ EQ_{CFG} = \{ \ &lt;G, H&gt; \ | \ G \ and \ H \ are \ CFG \ s \ and \ L(G) = L(H) \} $.</p>
 <p>Not decidable (P226)</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>Every context-free language is decidable.</p>
 <p>Proof:</p>
 <ul>
@@ -495,26 +495,26 @@
 <p>Run S on &lt;G,w&gt;, if accept, means that $ w \in G $ therefore $ w \in A $, accept</p>
 </li>
 </ul>
-<p>&lt;br/&gt;</p>
-<h3>4.2 UNDECIDABILITY</h3>
+<br>
+<h3 id="42-undecidability"><a class="markdownIt-Anchor" href="#42-undecidability"></a> 4.2 UNDECIDABILITY</h3>
 <p>$ A_{TM} = \{ \ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ accepts \ w \} $.</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>THE DIAGONALIZATION METHOD</strong></p>
 <p><strong>same size</strong></p>
 <ul>
 <li>Set A and set B are the same size if there is a correspondence f : A→B.</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>countable</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_14-57-25.png" alt=""></p>
 <p>Ex: $ Q = \{ \frac{m}{n} | m, n ∈ N \} $ is countable</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>uncountable</strong></p>
 <p>Ex: the set of real numbers $ R $ is uncountable</p>
 <p><em>using diagonalization method</em></p>
 <p>ensure that $ x \neq f (n) $ for any n, therefore the correspondence to $ N $ failed</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-26-10.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>Some languages are not Turing-recognizable.</strong></p>
 <p>Proof</p>
 <ul>
@@ -554,16 +554,16 @@
 <p>therefore $ L $ is larger than $ L_{TM}$</p>
 </li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>AN UNDECIDABLE LANGUAGE</strong></p>
 <p>$ A_{TM} = \{ \ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ accepts \ w \} $.</p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ A_{TM} $ <strong>is Turing-recognizable</strong></p>
 <ul>
 <li>Simulate M on w</li>
 <li>If M ever enters its accept state, accept ; if M ever enters its reject state, reject ; If M loops, loop.</li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ A_{TM} $ <strong>is undecidable</strong></p>
 <p>Proof</p>
 <ul>
@@ -579,15 +579,15 @@
 <li>Contradiction when we run D with its own description &lt;D&gt; as input</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236508/Screenshot_from_2018-05-25_15-57-21.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p>diagnolization in the proof</p>
 <ul>
 <li>first list the table of whether $ M_i $ accepts $ &lt;M_j&gt; $</li>
-<li>construct $ H $ so that $ H $ reject when $ M_i $ doesn't accept $ &lt;M_j&gt; $</li>
+<li>construct $ H $ so that $ H $ reject when $ M_i $ doesn’t accept $ &lt;M_j&gt; $</li>
 <li>Finally the contradiction in $ D $</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527236509/Screenshot_from_2018-05-25_15-58-53.png" alt=""></p>
-<p>&lt;br/&gt;</p>
+<br>
 <p><strong>A TURING-UNRECOGNIZABLE LANGUAGE</strong></p>
 <p><strong>A language is decidable iff it is Turing-recognizable and co-Turing recognizable.</strong></p>
 <p>Proof</p>
@@ -600,7 +600,7 @@
 <p>Run their recognizer $ M_1 $ and $ M_2 $ simultaneously. If $ M_1 $ accepts, accept ; if $ M_2 $ accepts, reject.</p>
 </li>
 </ul>
-<p>&lt;br/&gt;</p>
+<br>
 <p>$ \overline { A_{TM} }  $ is not Turing-recognizable.</p>
 
       
@@ -806,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">[ITOC-ch4] DECIDABILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 DECIDABLE LANGUAGES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 UNDECIDABILITY</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#itoc-ch4-decidability"><span class="nav-number">1.</span> <span class="nav-text"> [ITOC-ch4] DECIDABILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#41-decidable-languages"><span class="nav-number">1.1.</span> <span class="nav-text"> 4.1 DECIDABLE LANGUAGES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42-undecidability"><span class="nav-number">1.2.</span> <span class="nav-text"> 4.2 UNDECIDABILITY</span></a></li></ol></li></ol></div>
             
 
           </div>

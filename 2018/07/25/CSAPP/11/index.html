@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CS:APP-ch11 Network Programming 11.1 The Client-Server Programming Model 4 steps of client-server transaction  &amp;lt;!-- more --&amp;gt; 11.2 Networks a hierarchical system that is organized by geographical">
+<meta name="description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch11] Network Programming">
 <meta property="og:url" content="http://yoursite.com/2018/07/25/CSAPP/11/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CS:APP-ch11 Network Programming 11.1 The Client-Server Programming Model 4 steps of client-server transaction  &amp;lt;!-- more --&amp;gt; 11.2 Networks a hierarchical system that is organized by geographical">
+<meta property="og:description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-54.png">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2018-09-13T03:05:24.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch11] Network Programming">
-<meta name="twitter:description" content="CS:APP-ch11 Network Programming 11.1 The Client-Server Programming Model 4 steps of client-server transaction  &amp;lt;!-- more --&amp;gt; 11.2 Networks a hierarchical system that is organized by geographical">
+<meta name="twitter:description" content="CS:APP-ch11 Network Programming  11.1 The Client-Server Programming Model 4 steps of client-server transaction">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png">
 
 
@@ -412,12 +412,12 @@
       
 
       
-        <h2>CS:APP-ch11 Network Programming</h2>
-<h3>11.1 The Client-Server Programming Model</h3>
+        <h2 id="csapp-ch11-network-programming"><a class="markdownIt-Anchor" href="#csapp-ch11-network-programming"></a> CS:APP-ch11 Network Programming</h2>
+<h3 id="111-the-client-server-programming-model"><a class="markdownIt-Anchor" href="#111-the-client-server-programming-model"></a> 11.1 The Client-Server Programming Model</h3>
 <p>4 steps of client-server transaction</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-42.png" alt=""></p>
-<p>&lt;!-- more --&gt;</p>
-<h3>11.2 Networks</h3>
+<a id="more"></a>
+<h3 id="112-networks"><a class="markdownIt-Anchor" href="#112-networks"></a> 11.2 Networks</h3>
 <p>a hierarchical system that is organized by geographical proximity.</p>
 <p>lowest level: LAN (Ethernet)</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-26-54.png" alt=""></p>
@@ -428,10 +428,10 @@
 <p>a layer of protocol software running on each host and router that smoothes out the differences between the different networks. (network layer)</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_13-35-20.png" alt=""></p>
 <p>step 5 : router strips off the old LAN1 frame header and prepends a new LAN2 frame header.</p>
-<h3>11.3 The Global IP Internet</h3>
+<h3 id="113-the-global-ip-internet"><a class="markdownIt-Anchor" href="#113-the-global-ip-internet"></a> 11.3 The Global IP Internet</h3>
 <p><strong>11.3.1 IP Addresses</strong></p>
 <p>an unsigned 32-bit integer</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -439,10 +439,10 @@
 <span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span> &#123;</span></span>
 <span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span> s_addr; <span class="comment">/* Network byte order (big-endian) */</span></span>
 <span class="line">&#125;;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>Addresses in IP address structures are always stored in (<strong>big-endian</strong>) network byte order, even if the host byte order is little-endian.</p>
 <p>convert between network and host byte order</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -456,24 +456,24 @@
 <span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">ntohl</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> netlong )</span></span>;</span>
 <span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> <span class="title">ntohs</span> <span class="params">( <span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="keyword">int</span> netshort )</span></span>;</span>
 <span class="line">										<span class="comment">// Returns : value in host byte order</span></span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>convert between IP addresses and dotted- decimal strings</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></span>
 <span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inet_pton</span> <span class="params">( AF_INET, <span class="keyword">const</span> <span class="keyword">char</span> *src, <span class="keyword">void</span> *dst )</span></span>;<span class="comment">// dst = struct in_addr</span></span>
 <span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">inet_ntop</span><span class="params">( AF_INET, <span class="keyword">const</span> <span class="keyword">void</span> *src, <span class="keyword">char</span> *dst, <span class="keyword">socklen_t</span> size )</span></span>;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p><strong>11.3.2 Internet Domain names</strong></p>
 <p><code>nslookup</code></p>
 <p><strong>11.3.3 Internet Connections</strong></p>
 <p>socket address: ip addr : port</p>
-<p>&lt;br/&gt;</p>
-<h3>11.4 The Sockets Interface</h3>
+<br>
+<h3 id="114-the-sockets-interface"><a class="markdownIt-Anchor" href="#114-the-sockets-interface"></a> 11.4 The Sockets Interface</h3>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532524435/Screenshot_from_2018-07-25_18-56-49.png" alt=""></p>
 <p>socket address structure</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -499,9 +499,9 @@
 <span class="line">    <span class="keyword">uint16_t</span> sa_family; <span class="comment">/* Protocol family */</span></span>
 <span class="line">    <span class="keyword">char</span> sa_data[ <span class="number">14</span> ]; <span class="comment">/* Address data. */</span></span>
 <span class="line">&#125;;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>socket</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -509,26 +509,26 @@
 <span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span>
 <span class="line"></span>
 <span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">( <span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol )</span></span>;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>connect</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">connect</span><span class="params">( <span class="keyword">int</span> clientfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen )</span></span>;</span>
-</pre></td></tr></table></figure></p>
-<p>bind: associate server's socket address with socketfd</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure>
+<p>bind: associate server’s socket address with socketfd</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bind</span><span class="params">( <span class="keyword">int</span> sockfd, <span class="keyword">const</span> struct sockaddr *addr, <span class="keyword">socklen_t</span> addrlen )</span></span>;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>listen: convert to listening socket that accept connections</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">listen</span><span class="params">( <span class="keyword">int</span> sockfd, <span class="keyword">int</span> backlog )</span></span>;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>accept</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">accept</span> <span class="params">( <span class="keyword">int</span> listenfd, struct sockaddr *addr, <span class="keyword">int</span> *addrlen )</span></span>;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>struct addrinfo</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -548,11 +548,11 @@
 <span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr</span> *<span class="title">ai_addr</span>;</span> <span class="comment">/*ptr to socket address structure*/</span></span>
 <span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">adrinfo</span> *<span class="title">ai_netx</span>;</span>  <span class="comment">/*ptr to next item in linked list*/</span></span>
 <span class="line">&#125;;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p><img src="https://slideplayer.com/13098399/79/images/37/Linked+List+Returned+by+getaddrinfo.jpg" alt=""></p>
 <p>convert between binary socket address structures and hostname strings</p>
 <p>getaddrinfo</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -570,19 +570,19 @@
 <span class="line"></span>
 <span class="line"><span class="function"><span class="keyword">void</span> <span class="title">freeaddrinfo</span><span class="params">( struct addrinfo *result )</span></span>;</span>
 <span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">gai_strerror</span><span class="params">( <span class="keyword">int</span> errcode )</span></span>;</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>getnameinfo</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getnameinfo</span><span class="params">( <span class="keyword">const</span> struct sockaddr *sa, <span class="keyword">socklen_t</span> salen, </span></span></span>
 <span class="line"><span class="function"><span class="params">				<span class="keyword">char</span> *host, <span class="keyword">size_t</span> hostlen,</span></span></span>
 <span class="line"><span class="function"><span class="params">				<span class="keyword">char</span> *service, <span class="keyword">size_t</span> servlen, <span class="keyword">int</span> flags )</span></span>;</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
+</pre></td></tr></table></figure>
+<br>
 <p>usage: combine all</p>
 <p>open_clientfd ( getaddrinfo, socket, connect, freeaddrinfo )</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -678,9 +678,9 @@
 <span class="line">        <span class="keyword">return</span> clientfd;</span>
 <span class="line">&#125;</span>
 <span class="line"><span class="comment">/* $end open_clientfd */</span></span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>open_listenfd (getaddrinfo, socket, bind, listen, freeaddrinfo)</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -790,9 +790,9 @@
 <span class="line">    <span class="keyword">return</span> listenfd;</span>
 <span class="line">&#125;</span>
 <span class="line"><span class="comment">/* $end open_listenfd */</span></span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>client routine (close)</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -810,9 +810,9 @@
 <span class="line">&#125;</span>
 <span class="line">Close ( clientfd );</span>
 <span class="line"><span class="built_in">exit</span> ( <span class="number">0</span> );</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>server routine (accept, close)</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -832,9 +832,9 @@
 <span class="line">    Close ( connfd );</span>
 <span class="line">&#125;</span>
 <span class="line"><span class="built_in">exit</span> ( <span class="number">0</span> );</span>
-</pre></td></tr></table></figure></p>
-<p>&lt;br/&gt;</p>
-<h3>11.5 Web Servers</h3>
+</pre></td></tr></table></figure>
+<br>
+<h3 id="115-web-servers"><a class="markdownIt-Anchor" href="#115-web-servers"></a> 11.5 Web Servers</h3>
 <p>Web clients and servers interact using a text-based application-level protocol known as HTTP (Hypertext Transfer Protocol).</p>
 <p>web content: static  &amp; dynamic, disk file &amp; output of an executable file</p>
 <p>URL: server : port / filename ? arg1 &amp; arg2</p>
@@ -857,7 +857,7 @@
 <ul>
 <li>fork and execute a child process , redirect stdout to client</li>
 </ul>
-<h3>11.6 Putting It Together: The Tiny Web Server</h3>
+<h3 id="116-putting-it-together-the-tiny-web-server"><a class="markdownIt-Anchor" href="#116-putting-it-together-the-tiny-web-server"></a> 11.6 Putting It Together: The Tiny Web Server</h3>
 
       
     </div>
@@ -1062,7 +1062,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">CS:APP-ch11 Network Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">11.1 The Client-Server Programming Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">11.2 Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">11.3 The Global IP Internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">11.4 The Sockets Interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">11.5 Web Servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">11.6 Putting It Together: The Tiny Web Server</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch11-network-programming"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP-ch11 Network Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111-the-client-server-programming-model"><span class="nav-number">1.1.</span> <span class="nav-text"> 11.1 The Client-Server Programming Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112-networks"><span class="nav-number">1.2.</span> <span class="nav-text"> 11.2 Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113-the-global-ip-internet"><span class="nav-number">1.3.</span> <span class="nav-text"> 11.3 The Global IP Internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#114-the-sockets-interface"><span class="nav-number">1.4.</span> <span class="nav-text"> 11.4 The Sockets Interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#115-web-servers"><span class="nav-number">1.5.</span> <span class="nav-text"> 11.5 Web Servers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#116-putting-it-together-the-tiny-web-server"><span class="nav-number">1.6.</span> <span class="nav-text"> 11.6 Putting It Together: The Tiny Web Server</span></a></li></ol></li></ol></div>
             
 
           </div>
