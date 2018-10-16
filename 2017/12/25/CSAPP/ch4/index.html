@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory">
+<meta name="description" content="CS:APP-ch4 Processor ArchitectureISA —&amp;gt; SEQ —&amp;gt; PIPE 4.1 The Y86-64 Instruction Set Architecture (ISA)Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory Status">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch4] Processor Architecture">
 <meta property="og:url" content="http://yoursite.com/2017/12/25/CSAPP/ch4/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory">
+<meta property="og:description" content="CS:APP-ch4 Processor ArchitectureISA —&amp;gt; SEQ —&amp;gt; PIPE 4.1 The Y86-64 Instruction Set Architecture (ISA)Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory Status">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527295/Screenshot_from_2018-07-25_21-54-29.png">
 <meta property="og:image" content="https://y86tutoring.files.wordpress.com/2012/10/y86-instructions-linked1.png">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2018-07-25T14:02:04.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch4] Processor Architecture">
-<meta name="twitter:description" content="CS:APP-ch4 Processor Architecture ISA --&amp;gt; SEQ --&amp;gt; PIPE  4.1 The Y86-64 Instruction Set Architecture (ISA) Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory">
+<meta name="twitter:description" content="CS:APP-ch4 Processor ArchitectureISA —&amp;gt; SEQ —&amp;gt; PIPE 4.1 The Y86-64 Instruction Set Architecture (ISA)Programmer-Visible State  Program registers Condition codes Program Counter(PC) Memory Status">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1532527295/Screenshot_from_2018-07-25_21-54-29.png">
 
 
@@ -411,10 +411,8 @@
       
 
       
-        <h2 id="csapp-ch4-processor-architecture"><a class="markdownIt-Anchor" href="#csapp-ch4-processor-architecture"></a> CS:APP-ch4 Processor Architecture</h2>
-<p>ISA --&gt; SEQ --&gt; PIPE</p>
-<h4 id="41-the-y86-64-instruction-set-architecture-isa"><a class="markdownIt-Anchor" href="#41-the-y86-64-instruction-set-architecture-isa"></a> 4.1 The Y86-64 Instruction Set Architecture (ISA)</h4>
-<p>Programmer-Visible State</p>
+        <h2 id="CS-APP-ch4-Processor-Architecture"><a href="#CS-APP-ch4-Processor-Architecture" class="headerlink" title="CS:APP-ch4 Processor Architecture"></a>CS:APP-ch4 Processor Architecture</h2><p>ISA —&gt; SEQ —&gt; PIPE</p>
+<h4 id="4-1-The-Y86-64-Instruction-Set-Architecture-ISA"><a href="#4-1-The-Y86-64-Instruction-Set-Architecture-ISA" class="headerlink" title="4.1 The Y86-64 Instruction Set Architecture (ISA)"></a>4.1 The Y86-64 Instruction Set Architecture (ISA)</h4><p>Programmer-Visible State</p>
 <ul>
 <li>Program registers</li>
 <li>Condition codes</li>
@@ -433,19 +431,13 @@
 <p><img src="https://y86tutoring.files.wordpress.com/2012/10/y86-instructions-linked1.png" alt=""></p>
 <p>Aside RISC &amp; CISC</p>
 <ul>
-<li>
-<p>Y86-64 include both</p>
-</li>
-<li>
-<p>CISC: condition codes, variable length instructions, stack to store return address</p>
-</li>
-<li>
-<p>RISC: use load/store architecture and regular instruction encoding, pass argument through registers</p>
-</li>
+<li>Y86-64 include both</li>
 </ul>
-<h4 id="42-logical-design-and-the-hardware-control-language-hcl"><a class="markdownIt-Anchor" href="#42-logical-design-and-the-hardware-control-language-hcl"></a> 4.2 Logical Design and the Hardware Control Language HCL</h4>
-<h4 id="43-sequential-y86-64-implementations"><a class="markdownIt-Anchor" href="#43-sequential-y86-64-implementations"></a> 4.3 Sequential Y86-64 Implementations</h4>
-<p><strong>Organizing processing into stages</strong></p>
+<ul>
+<li>CISC: condition codes, variable length instructions, stack to store return address</li>
+<li>RISC: use load/store architecture and regular instruction encoding, pass argument through registers</li>
+</ul>
+<h4 id="4-2-Logical-Design-and-the-Hardware-Control-Language-HCL"><a href="#4-2-Logical-Design-and-the-Hardware-Control-Language-HCL" class="headerlink" title="4.2 Logical Design and the Hardware Control Language HCL"></a>4.2 Logical Design and the Hardware Control Language HCL</h4><h4 id="4-3-Sequential-Y86-64-Implementations"><a href="#4-3-Sequential-Y86-64-Implementations" class="headerlink" title="4.3 Sequential Y86-64 Implementations"></a>4.3 Sequential Y86-64 Implementations</h4><p><strong>Organizing processing into stages</strong></p>
 <ul>
 <li>Fetch: icode, ifun, valC = 8-byte constant, valP = next PC</li>
 <li>Decode: register valA = rA valB = rB</li>
@@ -457,11 +449,10 @@
 <p><strong>SEQ Hardware Structure</strong></p>
 <p><img src="https://slideplayer.com/slide/8881654/26/images/52/SEQ+Hardware+Key+Blue+boxes:+predesigned+hardware+blocks.jpg" alt=""></p>
 <p><strong>SEQ Timing</strong></p>
-<p>SEQ:</p>
+<p>SEQ: </p>
 <ul>
-<li>combinational logic</li>
-<li>two memory devices
-<ol>
+<li>combinational logic </li>
+<li>two memory devices<ol>
 <li>clocked register ( PC, CC reg )</li>
 <li>random access memory ( register file, instruction memory, data memory )</li>
 </ol>
@@ -473,15 +464,14 @@
 <ul>
 <li>Program Counter: loaded with new instruction address every clock cycle</li>
 <li>Condition Code register: loaded when integer operation</li>
-<li>register file: two ports, allow two program registers be updated on every cycle</li>
+<li>register file: two ports, allow two program registers be updated on every cycle </li>
 <li>data memory: written only when rmmovq, pushq, call is executed</li>
 </ul>
 <p>PRINCIPLE</p>
 <p>never need to read back the state updated by an instruction in order to complete this instruction</p>
 <p>states are loaded during the start of next cycle</p>
 <p><img src="http://oohcode.com/assets/img/csapp/fig4.25.png" alt=""></p>
-<h4 id="44-general-principle-of-pipelining"><a class="markdownIt-Anchor" href="#44-general-principle-of-pipelining"></a> 4.4 General Principle of Pipelining</h4>
-<p>Throughput: number of instructions served per unit time</p>
+<h4 id="4-4-General-Principle-of-Pipelining"><a href="#4-4-General-Principle-of-Pipelining" class="headerlink" title="4.4 General Principle of Pipelining"></a>4.4 General Principle of Pipelining</h4><p>Throughput: number of instructions served per unit time</p>
 <p>Latency: Total time required to perform a single instruction from beginning to end</p>
 <p><img src="http://oohcode.com/assets/img/csapp/fig4.33.png" alt=""></p>
 <p><strong>Limitations</strong></p>
@@ -490,8 +480,7 @@
 <li>Diminishing Returns of Deep Pipelining (分太多了)</li>
 <li>Feedback (下一条指令要等上一条执行完)</li>
 </ul>
-<h4 id="45-pipelined-y86-64-implementations"><a class="markdownIt-Anchor" href="#45-pipelined-y86-64-implementations"></a> 4.5 Pipelined Y86-64 Implementations</h4>
-<p>SEQ+</p>
+<h4 id="4-5-Pipelined-Y86-64-Implementations"><a href="#4-5-Pipelined-Y86-64-Implementations" class="headerlink" title="4.5 Pipelined Y86-64 Implementations"></a>4.5 Pipelined Y86-64 Implementations</h4><p>SEQ+</p>
 <ul>
 <li>PC update stage comes at the beginning</li>
 </ul>
@@ -713,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch4-processor-architecture"><span class="nav-number">1.</span> <span class="nav-text"> CS:APP-ch4 Processor Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#41-the-y86-64-instruction-set-architecture-isa"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 4.1 The Y86-64 Instruction Set Architecture (ISA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#42-logical-design-and-the-hardware-control-language-hcl"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 4.2 Logical Design and the Hardware Control Language HCL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43-sequential-y86-64-implementations"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 4.3 Sequential Y86-64 Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#44-general-principle-of-pipelining"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 4.4 General Principle of Pipelining</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#45-pipelined-y86-64-implementations"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 4.5 Pipelined Y86-64 Implementations</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS-APP-ch4-Processor-Architecture"><span class="nav-number">1.</span> <span class="nav-text">CS:APP-ch4 Processor Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-The-Y86-64-Instruction-Set-Architecture-ISA"><span class="nav-number">1.0.1.</span> <span class="nav-text">4.1 The Y86-64 Instruction Set Architecture (ISA)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-Logical-Design-and-the-Hardware-Control-Language-HCL"><span class="nav-number">1.0.2.</span> <span class="nav-text">4.2 Logical Design and the Hardware Control Language HCL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-Sequential-Y86-64-Implementations"><span class="nav-number">1.0.3.</span> <span class="nav-text">4.3 Sequential Y86-64 Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-General-Principle-of-Pipelining"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.4 General Principle of Pipelining</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-Pipelined-Y86-64-Implementations"><span class="nav-number">1.0.5.</span> <span class="nav-text">4.5 Pipelined Y86-64 Implementations</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1306,7 +1295,7 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
 
 
@@ -1322,6 +1311,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

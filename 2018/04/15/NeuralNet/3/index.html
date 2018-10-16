@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta name="description" content="ch-3 Improving the way neural networks learnThe techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function;  four so-called “regularization” me">
 <meta name="keywords" content="NeuralNet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
 <meta property="og:url" content="http://yoursite.com/2018/04/15/NeuralNet/3/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta property="og:description" content="ch-3 Improving the way neural networks learnThe techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function;  four so-called “regularization” me">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png">
@@ -117,7 +117,7 @@
 <meta property="og:updated_time" content="2018-05-25T12:31:05.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
-<meta name="twitter:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta name="twitter:description" content="ch-3 Improving the way neural networks learnThe techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function;  four so-called “regularization” me">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
 
 
@@ -433,41 +433,39 @@
       
 
       
-        <h2 id="ch-3-improving-the-way-neural-networks-learn"><a class="markdownIt-Anchor" href="#ch-3-improving-the-way-neural-networks-learn"></a> ch-3 Improving the way neural networks learn</h2>
-<p>The techniques we’ll develop in this chapter include</p>
+        <h2 id="ch-3-Improving-the-way-neural-networks-learn"><a href="#ch-3-Improving-the-way-neural-networks-learn" class="headerlink" title="ch-3 Improving the way neural networks learn"></a>ch-3 Improving the way neural networks learn</h2><p>The techniques we’ll develop in this chapter include</p>
 <ul>
-<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function;</li>
-<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
-<li>a better method for <strong>initializing the weights</strong> in the network;</li>
+<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function; </li>
+<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data; </li>
+<li>a better method for <strong>initializing the weights</strong> in the network; </li>
 <li>a set of heuristics to help choose <strong>good hyper-parameters</strong> ;</li>
 </ul>
 <a id="more"></a>
-<br>
-<h3 id="the-cross-entropy-cost-function"><a class="markdownIt-Anchor" href="#the-cross-entropy-cost-function"></a> The cross-entropy cost function</h3>
-<p><strong>Problem of quadratic function</strong></p>
+<p><br></p>
+<h3 id="The-cross-entropy-cost-function"><a href="#The-cross-entropy-cost-function" class="headerlink" title="The cross-entropy cost function"></a>The cross-entropy cost function</h3><p><strong>Problem of quadratic function</strong></p>
 <p>Artificial neuron has a lot of difficulty learning when it’s badly wrong</p>
 <p>w = b = 2.0,  η = 0.15</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png" alt=""></p>
-<br>
+<p><br></p>
 <p>Quadratic cost function $ C = \frac { (y-a) ^ 2 }{ 2 }  $</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png" alt=""></p>
 <ul>
 <li>when the neuron’s output is close to 1  ( might be far away from the desired output )</li>
-<li>the curve gets very flat, so $ σ′(z) $ gets very small.</li>
-<li>so $ ∂C/∂w $ and $ ∂C/∂b $ get very small.</li>
+<li>the curve gets very flat, so $ σ′(z) $ gets very small. </li>
+<li>so $ ∂C/∂w $ and $ ∂C/∂b $ get very small. </li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Introducing cross-entropy</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png" alt=""></p>
 <p>where $ a = σ(z) $ and $ z= \Sigma_j w_jx_j + b $</p>
 <ol>
-<li>It’s a cost function :</li>
+<li>It’s a cost function : </li>
 </ol>
 <ul>
 <li>non-negative</li>
 <li>close to zero when a close to y</li>
 </ul>
-<ol start="2">
+<ol>
 <li>avoids the problem of learning slowing down</li>
 </ol>
 <ul>
@@ -475,65 +473,61 @@
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png" alt=""></p>
-<br>
+<p><br></p>
 <p>Using the <strong>quadratic cost</strong> when we have <strong>linear</strong> neurons in the output layer</p>
 <ul>
 <li>all the neurons in the final layer are <em>linear neurons</em></li>
 <li>outputs are simply $ a_j^L = y_j^L $, sigmoid not applied</li>
 <li>quadratic cost will not slowdown learning</li>
 </ul>
-<br>
-<h3 id="softmax"><a class="markdownIt-Anchor" href="#softmax"></a> Softmax</h3>
-<ul>
+<p><br></p>
+<h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><ul>
 <li>define a new type of <strong>output</strong> layer</li>
 <li>apply the so-called softmax function to z</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png" alt=""></p>
 <p>output is a set of <strong>positive</strong> numbers <strong>which sum up to 1</strong>, can be thought of as a <strong>probability distribution</strong></p>
-<br>
+<p><br></p>
 <p><strong>The learning slowdown problem</strong></p>
 <p><strong>log-likelihood</strong> cost function</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png" alt=""></p>
 <p>probability of $ a_y^L $ close to 1, cost close to 0</p>
 <p>$ δ_j ^L =  \partial C / \partial z_j^L $</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png" alt=""></p>
-<br>
-<h3 id="overfitting"><a class="markdownIt-Anchor" href="#overfitting"></a> Overfitting</h3>
-<p><strong>cost</strong> on the <strong>training data</strong> continue decrease while</p>
+<p><br></p>
+<h3 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h3><p><strong>cost</strong> on the <strong>training data</strong> continue decrease while </p>
 <p>classification <strong>accuracy</strong> on the <strong>test data</strong> stops</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png" alt=""></p>
 <p><strong>cost</strong> on the <strong>test data</strong> starts increase while</p>
 <p>classification <strong>accuracy</strong> on <strong>training data</strong> rises up to 100%</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png" alt=""></p>
 <p><em>It’s almost as though our network is <strong>merely memorizing</strong> the <strong>training</strong> set, without understanding digits well enough to generalize to the test set.</em></p>
-<br>
-<p>Detect overfitting</p>
+<p><br></p>
+<p>Detect overfitting </p>
 <ul>
 <li>keeping track of accuracy on the test data as our network trains.</li>
 <li>using validation data: we may find hyper-parameters which fit particular peculiarities of the test_data if using test_data for detection.</li>
 <li><em>early stopping</em>: stop training when accuracy no longer improving</li>
 <li><em>hold out method</em>: validation_data is kept apart or “held out” from the training_data</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Avoid overfitting</strong></p>
 <ul>
 <li>one of the <strong>best</strong> ways: increase the <strong>size</strong> of the training data</li>
 <li>regularization</li>
 </ul>
-<br>
-<h3 id="regularization"><a class="markdownIt-Anchor" href="#regularization"></a> Regularization</h3>
-<h4 id="l2-regularization-weight-decay"><a class="markdownIt-Anchor" href="#l2-regularization-weight-decay"></a> L2 regularization ( weight decay )</h4>
-<p>add an extra term on cost function</p>
+<p><br></p>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><h4 id="L2-regularization-weight-decay"><a href="#L2-regularization-weight-decay" class="headerlink" title="L2 regularization ( weight decay )"></a>L2 regularization ( weight decay )</h4><p>add an extra term on cost function</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png" alt=""></p>
 <ul>
 <li>Intuitively, the effect of regularization is to make it so the network <strong>prefers to learn small weights</strong></li>
 <li>λ : compromising between finding small weights and minimizing the original cost function</li>
-<li>$ -\frac{ηλ}{n}*w  $ weights shrink by an amount <strong>proportional</strong> to w</li>
+<li>$ -\frac{ηλ}{n}<em>w  $ weights shrink by an amount <em>*proportional</em></em> to w</li>
 </ul>
-<br>
-<p>Why does regularization help reduce overfitting?</p>
+<p><br></p>
+<p>Why does regularization help reduce overfitting? </p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png" alt=""></p>
 <p><em>the 9th order model is really just learning the effects of <strong>local noise</strong></em></p>
 <ul>
@@ -541,17 +535,15 @@
 <li>having a large <strong>bias</strong> doesn’t make a neuron sensitive to its inputs in the same way as having large weights</li>
 </ul>
 <p>We don’t have an entirely satisfactory systematic understanding of what’s going on, <strong>merely incomplete heuristics</strong> and rules of thumb.</p>
-<br>
-<h4 id="l1-regularization"><a class="markdownIt-Anchor" href="#l1-regularization"></a> L1 regularization</h4>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png" alt=""></p>
+<p><br></p>
+<h4 id="L1-regularization"><a href="#L1-regularization" class="headerlink" title="L1 regularization"></a>L1 regularization</h4><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png" alt=""></p>
 <ul>
-<li>$ -\frac{ηλ}{n} * sgn(w) $weights shrink by a <strong>constant</strong> amount toward 0</li>
+<li>$ -\frac{ηλ}{n} <em> sgn(w) $weights shrink by a <em>*constant</em></em> amount toward 0</li>
 <li>when $|w| $ is large, shrink less; when $ |w| $ is small, shrink more</li>
 </ul>
-<br>
-<h4 id="dropout"><a class="markdownIt-Anchor" href="#dropout"></a> Dropout</h4>
-<p><strong>modify the network itself</strong> rather than modifying the cost function</p>
+<p><br></p>
+<h4 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h4><p><strong>modify the network itself</strong> rather than modifying the cost function</p>
 <ul>
 <li>start by <strong>randomly deleting half the hidden neurons</strong></li>
 </ul>
@@ -561,21 +553,19 @@
 <li>choosing a new random subset,  repeat;</li>
 <li>Finally, run the full network by <strong>halving</strong> all weights.</li>
 </ul>
-<br>
+<p><br></p>
 <p>Heuristic</p>
 <ul>
 <li><strong>Averaging</strong> the effects of <strong>a large number of</strong> different networks</li>
 <li>a neuron cannot <strong>rely on</strong> particular other neurons, <strong>robust</strong> to losing any individual connection</li>
 </ul>
-<br>
-<h4 id="artificially-expanding-the-training-data"><a class="markdownIt-Anchor" href="#artificially-expanding-the-training-data"></a> Artificially expanding the training data</h4>
-<p>The general principle is to expand the training data by applying operations that <strong>reflect real-world variation</strong>.</p>
-<br>
+<p><br></p>
+<h4 id="Artificially-expanding-the-training-data"><a href="#Artificially-expanding-the-training-data" class="headerlink" title="Artificially expanding the training data"></a>Artificially expanding the training data</h4><p> The general principle is to expand the training data by applying operations that <strong>reflect real-world variation</strong>. </p>
+<p><br></p>
 <p><strong>An aside on big data and what it means to compare classification accuracies</strong></p>
 <p><strong>more training data</strong> can sometimes compensate for differences in the machine learning algorithm used</p>
-<br>
-<h3 id="weight-initialization"><a class="markdownIt-Anchor" href="#weight-initialization"></a> Weight initialization</h3>
-<p><em>Up to now</em></p>
+<p><br></p>
+<h3 id="Weight-initialization"><a href="#Weight-initialization" class="headerlink" title="Weight initialization"></a>Weight initialization</h3><p><em>Up to now</em></p>
 <ul>
 <li>choose w &amp; b using independent <em>Gaussian random variables</em></li>
 <li>mean 0 and standard deviation 1</li>
@@ -583,29 +573,27 @@
 <li>z will have a very broad Gaussian distribution</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png" alt=""></p>
-<br>
-<p>An easy way</p>
+<p><br></p>
+<p>An easy way </p>
 <ul>
 <li>initialize more sharply peak</li>
 <li>mean 0 and standard deviation $ 1 / \sqrt {n_{in}} $</li>
 <li>seems only speeds up learning, doesn’t change the final performance</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>Connection with Regularization</strong></p>
 <ul>
 <li>L2 regularization sometimes automatically gives us something similar to the new approach to weight initialization</li>
 </ul>
-<br>
-<h3 id="handwriting-recognition-revisited-the-code"><a class="markdownIt-Anchor" href="#handwriting-recognition-revisited-the-code"></a> Handwriting recognition revisited: the code</h3>
-<br>
-<br>
-<h3 id="how-to-choose-a-neural-networks-hyper-parameters"><a class="markdownIt-Anchor" href="#how-to-choose-a-neural-networks-hyper-parameters"></a> How to choose a neural network’s hyper-parameters?</h3>
-<p>Problem when choose η=10.0 and λ=1000.0</p>
+<p><br></p>
+<h3 id="Handwriting-recognition-revisited-the-code"><a href="#Handwriting-recognition-revisited-the-code" class="headerlink" title="Handwriting recognition revisited: the code"></a>Handwriting recognition revisited: the code</h3><p><br></p>
+<p><br></p>
+<h3 id="How-to-choose-a-neural-network’s-hyper-parameters"><a href="#How-to-choose-a-neural-network’s-hyper-parameters" class="headerlink" title="How to choose a neural network’s hyper-parameters?"></a>How to choose a neural network’s hyper-parameters?</h3><p>Problem when choose η=10.0 and λ=1000.0</p>
 <ul>
 <li>classification accuracies are no better than <strong>chance</strong></li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Broad strategy</strong></p>
 <ul>
 <li>examine network to achieve results better than chance</li>
@@ -617,49 +605,45 @@
 </ul>
 <p>When having a signal</p>
 <ul>
-<li>
-<p>gradually decrease the frequency of monitoring</p>
-</li>
-<li>
-<p>experiment with a more complex architecture, adjust  η and λ again</p>
-</li>
+<li>gradually decrease the frequency of monitoring</li>
 </ul>
-<br>
+<ul>
+<li>experiment with a more complex architecture, adjust  η and λ again</li>
+</ul>
+<p><br></p>
 <p><strong>Learning Rate</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png" alt=""></p>
 <ul>
 <li>First estimate the <strong>order of threshold</strong> for η so that <strong>training cost</strong> won’t oscillating or increasing</li>
 <li>control the step size in gradient descent, no need to monitor by accuracy</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Number of training Epochs</strong></p>
 <p>Early stopping</p>
 <ul>
 <li>terminate when classification on validation data stops improving</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Learning rate schedule</strong></p>
 <ul>
 <li>μ=0 there’s a lot of friction, the velocity can’t build upuse a large learning rate when weights are badly wrong</li>
 <li>later reduce as we make more fine-tuned adjustments</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>The regularization parameter, λ</strong></p>
 <ul>
-<li>starting initially λ=0.0 to determine 	η</li>
+<li>starting initially λ=0.0 to determine     η</li>
 <li>increase or decrease by factors of 10, get a fine-tune</li>
 <li>return and re-optimize η again</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Mini-batch size</strong></p>
 <ul>
 <li>it’s possible to use <strong>matrix techniques</strong> to compute the gradient update for <em>all</em> examples in a mini-batch simultaneously</li>
 <li>using the larger mini-batch would speed things up</li>
 </ul>
-<br>
-<h3 id="other-techniques"><a class="markdownIt-Anchor" href="#other-techniques"></a> Other techniques</h3>
-<p>####Variations on stochastic gradient descent</p>
-<p><strong>Hessian technique</strong></p>
+<p><br></p>
+<h3 id="Other-techniques"><a href="#Other-techniques" class="headerlink" title="Other techniques"></a>Other techniques</h3><h4 id="Variations-on-stochastic-gradient-descent"><a href="#Variations-on-stochastic-gradient-descent" class="headerlink" title="Variations on stochastic gradient descent"></a>Variations on stochastic gradient descent</h4><p><strong>Hessian technique</strong></p>
 <p>incorporates not just the gradient, but also information about <strong>how the gradient is changing</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png" alt=""></p>
 <p>$ H $ is a matrix known as the <em>Hessian matrix</em>, whose $ jkth $ entry is $ ∂^2C/∂w_j∂w_k $</p>
@@ -667,7 +651,7 @@
 <ul>
 <li>the sheer <strong>size</strong> of the Hessian matrix make it difficult to compute</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Momentum-based gradient descent</strong></p>
 <p>introduces a notion of “velocity” and “friction”</p>
 <ul>
@@ -675,19 +659,15 @@
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png" alt=""></p>
 <ul>
-<li>
-<p>the “force” ∇C is now modifying v, and the velocity is controlling the rate of change of w.</p>
-</li>
-<li>
-<p>1−μ as the amount of friction in the system.</p>
-</li>
-<li>
-<p>μ=1, there is no friction;  μ=0 there’s a lot of friction, the velocity can’t build up;</p>
-  <br>	
+<li>the “force” ∇C is now modifying v, and the velocity is controlling the rate of change of w.</li>
+</ul>
+<ul>
+<li>1−μ as the amount of friction in the system.</li>
+<li><p>μ=1, there is no friction;  μ=0 there’s a lot of friction, the velocity can’t build up;</p>
+<p>  <br>    </p>
 </li>
 </ul>
-<h4 id="other-models-of-artificial-neuron"><a class="markdownIt-Anchor" href="#other-models-of-artificial-neuron"></a> Other models of artificial neuron</h4>
-<p><strong>tanh neuron</strong></p>
+<h4 id="Other-models-of-artificial-neuron"><a href="#Other-models-of-artificial-neuron" class="headerlink" title="Other models of artificial neuron"></a>Other models of artificial neuron</h4><p><strong>tanh neuron</strong></p>
 <ul>
 <li>ranges from -1 to 1, not 0 to 1</li>
 <li>allows both positive and negative activations</li>
@@ -695,7 +675,7 @@
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>Rectified linear unit</strong></p>
 <ul>
 <li>never cause saturate, no corresponding learning slowdown</li>
@@ -906,7 +886,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-improving-the-way-neural-networks-learn"><span class="nav-number">1.</span> <span class="nav-text"> ch-3 Improving the way neural networks learn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-cross-entropy-cost-function"><span class="nav-number">1.1.</span> <span class="nav-text"> The cross-entropy cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">1.2.</span> <span class="nav-text"> Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overfitting"><span class="nav-number">1.3.</span> <span class="nav-text"> Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regularization"><span class="nav-number">1.4.</span> <span class="nav-text"> Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#l2-regularization-weight-decay"><span class="nav-number">1.4.1.</span> <span class="nav-text"> L2 regularization ( weight decay )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#l1-regularization"><span class="nav-number">1.4.2.</span> <span class="nav-text"> L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dropout"><span class="nav-number">1.4.3.</span> <span class="nav-text"> Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#artificially-expanding-the-training-data"><span class="nav-number">1.4.4.</span> <span class="nav-text"> Artificially expanding the training data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weight-initialization"><span class="nav-number">1.5.</span> <span class="nav-text"> Weight initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#handwriting-recognition-revisited-the-code"><span class="nav-number">1.6.</span> <span class="nav-text"> Handwriting recognition revisited: the code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-choose-a-neural-networks-hyper-parameters"><span class="nav-number">1.7.</span> <span class="nav-text"> How to choose a neural network’s hyper-parameters?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#other-techniques"><span class="nav-number">1.8.</span> <span class="nav-text"> Other techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#other-models-of-artificial-neuron"><span class="nav-number">1.8.1.</span> <span class="nav-text"> Other models of artificial neuron</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-Improving-the-way-neural-networks-learn"><span class="nav-number">1.</span> <span class="nav-text">ch-3 Improving the way neural networks learn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-cross-entropy-cost-function"><span class="nav-number">1.1.</span> <span class="nav-text">The cross-entropy cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax"><span class="nav-number">1.2.</span> <span class="nav-text">Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.3.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization"><span class="nav-number">1.4.</span> <span class="nav-text">Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2-regularization-weight-decay"><span class="nav-number">1.4.1.</span> <span class="nav-text">L2 regularization ( weight decay )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1-regularization"><span class="nav-number">1.4.2.</span> <span class="nav-text">L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout"><span class="nav-number">1.4.3.</span> <span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Artificially-expanding-the-training-data"><span class="nav-number">1.4.4.</span> <span class="nav-text">Artificially expanding the training data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Weight-initialization"><span class="nav-number">1.5.</span> <span class="nav-text">Weight initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handwriting-recognition-revisited-the-code"><span class="nav-number">1.6.</span> <span class="nav-text">Handwriting recognition revisited: the code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-choose-a-neural-network’s-hyper-parameters"><span class="nav-number">1.7.</span> <span class="nav-text">How to choose a neural network’s hyper-parameters?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-techniques"><span class="nav-number">1.8.</span> <span class="nav-text">Other techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Variations-on-stochastic-gradient-descent"><span class="nav-number">1.8.1.</span> <span class="nav-text">Variations on stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-models-of-artificial-neuron"><span class="nav-number">1.8.2.</span> <span class="nav-text">Other models of artificial neuron</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1499,7 +1479,7 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
 
 
@@ -1515,6 +1495,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

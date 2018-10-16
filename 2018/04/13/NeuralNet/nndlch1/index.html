@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="ch-1 Using neural nets to recognize handwritten digits  Perceptrons  a type of artificial neuron a device that makes decisions by weighing up evidence">
+<meta name="description" content="ch-1 Using neural nets to recognize handwritten digitsPerceptrons a type of artificial neuron a device that makes decisions by weighing up evidence">
 <meta name="keywords" content="NeuralNet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[NN&amp;DL-ch1] Using neural nets to recognize handwritten digits">
 <meta property="og:url" content="http://yoursite.com/2018/04/13/NeuralNet/nndlch1/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="ch-1 Using neural nets to recognize handwritten digits  Perceptrons  a type of artificial neuron a device that makes decisions by weighing up evidence">
+<meta property="og:description" content="ch-1 Using neural nets to recognize handwritten digitsPerceptrons a type of artificial neuron a device that makes decisions by weighing up evidence">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-31-57.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-33-44.png">
@@ -97,7 +97,7 @@
 <meta property="og:updated_time" content="2018-05-25T12:31:03.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NN&amp;DL-ch1] Using neural nets to recognize handwritten digits">
-<meta name="twitter:description" content="ch-1 Using neural nets to recognize handwritten digits  Perceptrons  a type of artificial neuron a device that makes decisions by weighing up evidence">
+<meta name="twitter:description" content="ch-1 Using neural nets to recognize handwritten digitsPerceptrons a type of artificial neuron a device that makes decisions by weighing up evidence">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-31-57.png">
 
 
@@ -413,15 +413,13 @@
       
 
       
-        <h2 id="ch-1-using-neural-nets-to-recognize-handwritten-digits"><a class="markdownIt-Anchor" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"></a> ch-1 Using neural nets to recognize handwritten digits</h2>
-<h3 id="perceptrons"><a class="markdownIt-Anchor" href="#perceptrons"></a> Perceptrons</h3>
-<ul>
+        <h2 id="ch-1-Using-neural-nets-to-recognize-handwritten-digits"><a href="#ch-1-Using-neural-nets-to-recognize-handwritten-digits" class="headerlink" title="ch-1 Using neural nets to recognize handwritten digits"></a>ch-1 Using neural nets to recognize handwritten digits</h2><h3 id="Perceptrons"><a href="#Perceptrons" class="headerlink" title="Perceptrons"></a>Perceptrons</h3><ul>
 <li>a type of artificial neuron</li>
 <li>a device that makes decisions by weighing up evidence</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-31-57.png" alt=""></p>
 <a id="more"></a>
-<br>
+<p><br></p>
 <p>perceptron in higher layer</p>
 <ul>
 <li>make a decision at a more complex and more <strong>abstract</strong> level</li>
@@ -430,7 +428,7 @@
 <ul>
 <li>engage in sophisticated decision making</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>weight</strong></p>
 <ul>
 <li>real numbers expressing the <strong>importance</strong> of the respective inputs to the output</li>
@@ -440,51 +438,43 @@
 <li>a measure of how <strong>easy</strong> it is to get the perceptron to fire</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-33-44.png" alt=""></p>
-<br>
+<p><br></p>
 <p>Use perceptrons to compute any logical function</p>
 <ul>
 <li>NAND gate is universal for computation</li>
 </ul>
-<br>
-<h3 id="sigmoid-neurons"><a class="markdownIt-Anchor" href="#sigmoid-neurons"></a> Sigmoid neurons</h3>
-<p><strong>Learning</strong></p>
+<p><br></p>
+<h3 id="Sigmoid-neurons"><a href="#Sigmoid-neurons" class="headerlink" title="Sigmoid neurons"></a>Sigmoid neurons</h3><p><strong>Learning</strong></p>
 <ul>
 <li>DEF: changing the weights and biases over and over to produce better and better output</li>
 </ul>
-<br>
+<p><br></p>
 <p>Problems  of Perceptron</p>
 <ul>
-<li>
-<p>step function</p>
-</li>
-<li>
-<p>a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1</p>
-</li>
+<li>step function</li>
+</ul>
+<ul>
+<li>a small change in the weights or bias of any single perceptron in the network can sometimes cause the output of that perceptron to completely flip, say from 0 to 1</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222646/Screenshot_from_2018-03-28_15-34-25.png" alt=""></p>
 <p><strong>sigmoid neuron</strong></p>
 <ul>
-<li>
-<p>Input take on values between 0 an 1</p>
-</li>
-<li>
-<p>Output also between 0 and 1 which is $ σ( wx + b ) $</p>
-</li>
+<li>Input take on values between 0 an 1</li>
+</ul>
+<ul>
+<li>Output also between 0 and 1 which is $ σ( wx + b ) $ </li>
 </ul>
 <p>$ σ(z) ≡ \frac { 1 }{ 1 + e ^ {-z } } $ where $ z = wx + b $</p>
-<p>$  σ’(z) =  σ(z)  (1- σ(z) ) $</p>
+<p>$  σ’(z) =  σ(z)  (1- σ(z) ) $  </p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222647/Screenshot_from_2018-03-28_15-34-35.png" alt=""></p>
 <ul>
-<li>
-<p>The smoothness of σ means that small changes Δw_j in the weights and Δb in the bias will produce a small change Δoutput in the output from the neuron.</p>
+<li><p>The smoothness of σ means that small changes $Δw_j$ in the weights and $Δb$ in the bias will produce a small change $Δoutput$ in the output from the neuron.</p>
 </li>
-<li>
-<p>$ \Delta output \approx  \Sigma _j \frac {\partial output}{ \partial w_j} \Delta w_j  + \frac {\partial output}{ \partial b} \Delta b  $</p>
+<li><p>$ \Delta output \approx  \Sigma _j \frac {\partial output}{ \partial w_j} \Delta w_j  + \frac {\partial output}{ \partial b} \Delta b  $</p>
 </li>
 </ul>
-<br>
-<h3 id="the-architecture-of-neural-networks"><a class="markdownIt-Anchor" href="#the-architecture-of-neural-networks"></a> The architecture of neural networks</h3>
-<ul>
+<p><br></p>
+<h3 id="The-architecture-of-neural-networks"><a href="#The-architecture-of-neural-networks" class="headerlink" title="The architecture of neural networks"></a>The architecture of neural networks</h3><ul>
 <li>input layer, output layer, hidden layer</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-05.png" alt=""></p>
@@ -497,15 +487,14 @@
 <li>feedback loops are possible</li>
 <li>have neurons which fire for some limited duration of <strong>time</strong>, before becoming quiescent</li>
 </ul>
-<br>
-<h3 id="a-simple-network-to-classify-handwritten-digits"><a class="markdownIt-Anchor" href="#a-simple-network-to-classify-handwritten-digits"></a> A simple network to classify handwritten digits</h3>
-<p>To recognize individual digits we will use a three-layer neural network</p>
+<p><br></p>
+<h3 id="A-simple-network-to-classify-handwritten-digits"><a href="#A-simple-network-to-classify-handwritten-digits" class="headerlink" title="A simple network to classify handwritten digits"></a>A simple network to classify handwritten digits</h3><p>To recognize individual digits we will use a three-layer neural network</p>
 <ul>
 <li>Input: 28 by 28 pixel = 784</li>
 <li>Output: 10 neurons represent for 0 to 9</li>
 <li>Hidden layer: n = 15 as an example</li>
 </ul>
-<br>
+<p><br></p>
 <p>Output layer: why use 10 numbers rather than 4 bits?</p>
 <ul>
 <li>there’s no easy way to relate that most significant bit to simple shapes</li>
@@ -514,31 +503,30 @@
 <ul>
 <li>weighting up evidence and produce an abstraction</li>
 </ul>
-<br>
-<h3 id="learning-with-gradient-descent"><a class="markdownIt-Anchor" href="#learning-with-gradient-descent"></a> Learning with gradient descent</h3>
-<p><strong>cost function</strong></p>
+<p><br></p>
+<h3 id="Learning-with-gradient-descent"><a href="#Learning-with-gradient-descent" class="headerlink" title="Learning with gradient descent"></a>Learning with gradient descent</h3><p><strong>cost function</strong></p>
 <ul>
 <li>DEF:  $ C( w,b ) ≡ \frac{1}{2n} ∑ ∥y(x) − a ∥^2 $</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><msup><mo>)</mo><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">y(x) = (0, 0, 0, 0, 0, 0, 1, 0, 0, 0)^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mopen">(</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mclose"><span class="mclose">)</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> : Desired output</li>
+<li>$y(x) = (0, 0, 0, 0, 0, 0, 1, 0, 0, 0)^T$ : Desired output</li>
 <li>a : Output from network</li>
 <li>x : input, n: number of inputs, w : weight, b : bias</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Aim of our training algorithm</strong></p>
 <ul>
 <li><strong>minimize</strong> the cost C (w, b) as a function of the weights and biases</li>
 </ul>
-<br>
+<p><br></p>
 <p>Why not try to maximize that number?</p>
 <ul>
 <li>the number of images correctly classified is not a smooth function of the weights and biases</li>
 </ul>
-<br>
+<p><br></p>
 <p><strong>Gradient Descent Algorithm</strong></p>
 <ul>
 <li>repeatedly compute the gradient ∇C , and then to move in the opposite direction</li>
 </ul>
-<br>
+<p><br></p>
 <p>$ ΔC ≈ \frac { ∂ C }{∂ w_k} Δ w_k + \frac{ ∂ C } {∂ b_l} Δ b_l  ≈ ∇C ⋅ Δv.$</p>
 <p>choose Δv so as to make ΔC <strong>negative</strong></p>
 <p>$Δv = −η∇C $</p>
@@ -546,7 +534,7 @@
 <p>$ w_k → w_k’ = w_k − η \frac{∂ C}{∂w_k }$</p>
 <p>$ b_l → b_l’ = b_l − η \frac{∂ C}{∂b_l }$</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522222648/Screenshot_from_2018-03-28_15-36-22.png" alt=""></p>
-<br>
+<p><br></p>
 <p>Problem</p>
 <ul>
 <li>In practical implementations, η is often varied so that it remains a good approximation, but the algorithm is too slow</li>
@@ -558,12 +546,11 @@
 </ul>
 <p>$ w_k → w_k’ = w_k − \frac{η}{m} \Sigma_j\frac{∂ C}{∂w_k }$</p>
 <p>$ b_l → b_l’ = b_l − \frac{η}{m}\Sigma_j \frac{∂ C}{∂b_l }$</p>
-<br>
-<h3 id="toward-deep-learning"><a class="markdownIt-Anchor" href="#toward-deep-learning"></a> Toward deep learning</h3>
-<p>The weights and biases in the network were discovered <strong>automatically</strong>.</p>
+<p><br></p>
+<h3 id="Toward-deep-learning"><a href="#Toward-deep-learning" class="headerlink" title="Toward deep learning"></a>Toward deep learning</h3><p>The weights and biases in the network were discovered <strong>automatically</strong>. </p>
 <p>And that means we don’t immediately have an <strong>explanation</strong> of how the network does what it does</p>
-<br>
-<p>A heuristic</p>
+<p><br></p>
+<p>A heuristic </p>
 <ul>
 <li>we could use is to decompose the problem into <strong>sub-problems</strong></li>
 <li>early layers answering very simple and specific questions about the input image</li>
@@ -774,7 +761,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"><span class="nav-number">1.</span> <span class="nav-text"> ch-1 Using neural nets to recognize handwritten digits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perceptrons"><span class="nav-number">1.1.</span> <span class="nav-text"> Perceptrons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-neurons"><span class="nav-number">1.2.</span> <span class="nav-text"> Sigmoid neurons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-architecture-of-neural-networks"><span class="nav-number">1.3.</span> <span class="nav-text"> The architecture of neural networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-simple-network-to-classify-handwritten-digits"><span class="nav-number">1.4.</span> <span class="nav-text"> A simple network to classify handwritten digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-with-gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text"> Learning with gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toward-deep-learning"><span class="nav-number">1.6.</span> <span class="nav-text"> Toward deep learning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-1-Using-neural-nets-to-recognize-handwritten-digits"><span class="nav-number">1.</span> <span class="nav-text">ch-1 Using neural nets to recognize handwritten digits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Perceptrons"><span class="nav-number">1.1.</span> <span class="nav-text">Perceptrons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sigmoid-neurons"><span class="nav-number">1.2.</span> <span class="nav-text">Sigmoid neurons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-architecture-of-neural-networks"><span class="nav-number">1.3.</span> <span class="nav-text">The architecture of neural networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-simple-network-to-classify-handwritten-digits"><span class="nav-number">1.4.</span> <span class="nav-text">A simple network to classify handwritten digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-with-gradient-descent"><span class="nav-number">1.5.</span> <span class="nav-text">Learning with gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Toward-deep-learning"><span class="nav-number">1.6.</span> <span class="nav-text">Toward deep learning</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1367,7 +1354,7 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
 
 
@@ -1383,6 +1370,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

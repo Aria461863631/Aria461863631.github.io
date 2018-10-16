@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
+<meta name="description" content="[ITOC-ch5] REDUCIBILITYIf A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecida">
 <meta name="keywords" content="ITOC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ITOC-ch5] REDUCIBILITY">
 <meta property="og:url" content="http://yoursite.com/2018/05/31/ITOC/5/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
+<meta property="og:description" content="[ITOC-ch5] REDUCIBILITYIf A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecida">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2018-05-31T14:11:05.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch5] REDUCIBILITY">
-<meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITY If A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undeci">
+<meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITYIf A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecida">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png">
 
 
@@ -419,99 +419,90 @@
       
 
       
-        <h2 id="itoc-ch5-reducibility"><a class="markdownIt-Anchor" href="#itoc-ch5-reducibility"></a> [ITOC-ch5] REDUCIBILITY</h2>
-<p>If A reduces to B</p>
+        <h2 id="ITOC-ch5-REDUCIBILITY"><a href="#ITOC-ch5-REDUCIBILITY" class="headerlink" title="[ITOC-ch5] REDUCIBILITY"></a>[ITOC-ch5] REDUCIBILITY</h2><p>If A reduces to B</p>
 <ul>
 <li>we can use a solution to B to solve A</li>
 <li>solving A is no harder than solving B</li>
 </ul>
 <p>$ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
 <p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<br>
-<h3 id="51-undecidable-problems-from-language-theory"><a class="markdownIt-Anchor" href="#51-undecidable-problems-from-language-theory"></a> 5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3>
-<p><strong>General Idea</strong></p>
+<p><br></p>
+<h3 id="5-1-UNDECIDABLE-PROBLEMS-FROM-LANGUAGE-THEORY"><a href="#5-1-UNDECIDABLE-PROBLEMS-FROM-LANGUAGE-THEORY" class="headerlink" title="5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY"></a>5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3><p><strong>General Idea</strong></p>
 <ul>
-<li>
-<p>Contradiction on $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
+<li><p>Contradiction on $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
 </li>
-<li>
-<p>If we have a TM R that decides $ HALT_{TM} $ ( or sth ).</p>
+<li><p>If we have a TM R that decides $ HALT_{TM} $ ( or sth ).</p>
 </li>
-<li>
-<p>Then we can use R to construct a TM S that decides $ A_{TM} $</p>
-</li>
-<li>
-<p>thus obtain a contradiction.</p>
-</li>
+<li>Then we can use R to construct a TM S that decides $ A_{TM} $</li>
+<li>thus obtain a contradiction.</li>
 </ul>
 <a id="more"></a>
-<br>
-<p>$ A_ {TM} ≤_m HALT_{TM} $</p>
-<p>$ HALT_{TM} = \{ &lt;M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
+<p><br></p>
+<p>$ A<em> {TM} ≤_m HALT</em>{TM} $</p>
+<p>$ HALT_{TM} = \{ <m, w=""> \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</m,></p>
 <p><strong>Proof</strong></p>
-<p><em>If M loop on w, we can use R to reject.</em></p>
-<p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
+<p><em>If M loop on w, we can use R to reject.</em> </p>
+<p>S = “On input $ <m, w=""> $, an encoding of a TM M and a string w:</m,></p>
 <ol>
-<li>Run TM R on input $ &lt;M, w&gt; $.</li>
+<li>Run TM R on input $ <m, w=""> $.</m,></li>
 <li>If R rejects, reject .</li>
 <li>If R accepts, simulate M on w until it halts.</li>
 <li>If M has accepted, accept ; if M has rejected, reject .”</li>
 </ol>
-<br>
-<br>
-<p>$ A_ {TM} ≤_m E_{TM} $</p>
+<p><br></p>
+<p><br></p>
+<p>$ A<em> {TM} ≤_m E</em>{TM} $</p>
 <p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
-<p><em>If $ L (M_1) $ is empty, than M accept w</em></p>
-<p>S = “On input $ &lt;M, w&gt; $, an encoding of a TM M and a string w:</p>
+<p><em>If $ L (M_1) $ is empty, than M accept w</em> </p>
+<p>S = “On input $ <m, w=""> $, an encoding of a TM M and a string w:</m,></p>
 <ol>
-<li>Construct $ M_1 $ = “On input x:</li>
+<li>Construct $ M_1 $ = “On input x:<ol>
 <li>If $ x \neq w $, reject .</li>
 <li>If $ x = w $, run M on input w and accept if M does.”</li>
+</ol>
+</li>
 <li>Run R on input $ &lt; M_1 &gt; $.</li>
 <li>If R accepts, reject ; if R rejects, accept .”</li>
 </ol>
-<br>
-<br>
-<p>$ A_ {TM} ≤_m REGULAR_{TM} $</p>
+<p><br></p>
+<p><br></p>
+<p>$ A<em> {TM} ≤_m REGULAR</em>{TM} $</p>
 <p>$ REGULAR_{TM} = \{ &lt; M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
 <p><strong>Proof</strong></p>
-<p><em>If $ L(M_2) $ is regular, than M accept w</em></p>
+<p><em>If $ L(M_2) $ is regular, than M accept w</em> </p>
 <p>If M does not accept w</p>
 <ul>
 <li>$ M_2 $ recognize  $ \{0^n 1^n \ | \ n ≥ 0 \} $ which is nonregular</li>
 </ul>
 <p>If M accepts w</p>
 <ul>
-<li>$ M_2 $ 	recognize all strings $ Σ^ * $ ( including $ 0^n 1^n $) which is regular</li>
+<li>$ M_2 $     recognize all strings $ Σ^ * $ ( including $ 0^n 1^n $) which is regular</li>
 </ul>
-<br>
-<p>S = “On input $ &lt;M, w&gt; $, where M is a TM and w is a string:</p>
+<p><br></p>
+<p>S = “On input $ <m, w=""> $, where M is a TM and w is a string:</m,></p>
 <ol>
-<li>Construct the following TM $ M_2 $ .<br>
-$ M_2 $ = “On input x:</li>
-</ol>
-<ul>
+<li>Construct the following TM $ M_2 $ .<br>$ M_2 $ = “On input x:<ul>
 <li>If x has the form $ 0^n 1^n $ , accept .</li>
 <li>If x does not have this form, run M on input w and accept if M accepts w.”</li>
 </ul>
-<ol start="2">
-<li>Run R on input $ &lt;M_2 &gt; $.</li>
+</li>
+<li>Run R on input $ <m_2> $.</m_2></li>
 <li>If R accepts, accept; if R rejects, reject .”</li>
 </ol>
-<br>
+<p><br></p>
 <p>Rice’s theorem</p>
 <ul>
 <li>determining any property of the languages recognized by Turing machines is undecidable.</li>
 </ul>
-<br>
-<br>
-<p>$ E_ {TM} ≤_m EQ_{TM} $</p>
-<p>$ EQ_{TM} = \{ &lt;M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
+<p><br></p>
+<p><br></p>
+<p>$ E<em> {TM} ≤_m EQ</em>{TM} $</p>
+<p>$ EQ_{TM} = \{ <m_1 ,="" m_2=""> | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</m_1></p>
 <p><strong>Proof</strong></p>
-<p>$ M_1 $ is a TM that rejects all inputs.</p>
+<p> $ M_1 $ is a TM that rejects all inputs.</p>
 <p><em>If $ L(M) = L(M_1) $, than $ L(M) = ∅ $</em></p>
-<br>
+<p><br></p>
 <p><strong>REDUCTIONS VIA COMPUTATION HISTORIES</strong></p>
 <p><strong>computation history</strong></p>
 <ul>
@@ -519,29 +510,29 @@ $ M_2 $ = “On input x:</li>
 <li>Finite sequences. If M doesn’t halt on w, no accepting or rejecting computation history exists for M on w.</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-10-27.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>Linear bounded automaton</strong></p>
 <ul>
 <li>the amount of memory is limited and linear in input size n</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_15-11-36.png" alt=""></p>
-<br>
-<br>
+<p><br></p>
+<p><br></p>
 <p><em>decidable</em></p>
-<p>$ A_{LBA} = \{ &lt;M, w&gt;| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</p>
-<br>
+<p>$ A_{LBA} = \{ <m, w="">| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</m,></p>
+<p><br></p>
 <p><strong>LEMMA 5.8</strong></p>
 <ul>
-<li>If a LBA has q states and g symbols with tape length n.</li>
+<li>If a LBA has q states and g symbols with tape length n. </li>
 <li>There are exactly $ qng^n $ distinct configurations.</li>
 </ul>
 <p><strong>Proof</strong></p>
 <ul>
-<li>reject after $ qng^n $ steps because M is looping</li>
+<li>reject after $ qng^n $ steps because M is looping </li>
 </ul>
-<br>
-<br>
-<p>$ A_ {TM} ≤_m E_{LBA} $</p>
+<p><br></p>
+<p><br></p>
+<p>$ A<em> {TM} ≤_m E</em>{LBA} $</p>
 <p>$ E_{LBA} = \{&lt; M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(B) \neq  ∅  $ = { all accepting computation histories for M on w }, than M accepts w.</em></p>
@@ -551,81 +542,71 @@ $ M_2 $ = “On input x:</li>
 <li>$ C_l $ is an accepting configuration for M .</li>
 <li>Each $ C_{i+1} $ legally follows from $ C_i $ .</li>
 </ol>
-<br>
-<br>
-<p>$ A_ {TM} ≤_m ALL_{LBA} $</p>
+<p><br></p>
+<p><br></p>
+<p>$ A<em> {TM} ≤_m ALL</em>{LBA} $</p>
 <p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(G) \neq Σ ^ ∗  $ = { all strings except all computation histories for M on w }, than M accepts w.</em></p>
 <p>Construct G to generate all strings that</p>
 <ol>
-<li>do not start with $ C_1 $</li>
+<li>do not start with $ C_1 $ </li>
 <li>do not end with an accepting configuration</li>
-<li>some $ C_i $ does not properly yield $ C_{i+1} $ under the rules of M</li>
+<li>some $ C<em>i $ does not properly yield $ C</em>{i+1} $ under the rules of M</li>
 </ol>
-<br>
-<h3 id="52-a-simple-undecidable-problem"><a class="markdownIt-Anchor" href="#52-a-simple-undecidable-problem"></a> 5.2 A SIMPLE UNDECIDABLE PROBLEM</h3>
-<p><em>an example of an undecidable problem not concerning automaton</em></p>
-<br>
+<p><br></p>
+<h3 id="5-2-A-SIMPLE-UNDECIDABLE-PROBLEM"><a href="#5-2-A-SIMPLE-UNDECIDABLE-PROBLEM" class="headerlink" title="5.2 A SIMPLE UNDECIDABLE PROBLEM"></a>5.2 A SIMPLE UNDECIDABLE PROBLEM</h3><p><em>an example of an undecidable problem not concerning automaton</em></p>
+<p><br></p>
 <p><strong>Post Correspondence Problem</strong></p>
 <ul>
 <li>determine that a collection of dominos has a match (repetitions permitted).</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-09-49.png" alt=""></p>
- <br>
+<p> <br></p>
 <p>$ A_ {TM} ≤_m PCP $</p>
 <p>$ PCP = \{&lt; P &gt;| \ P \ is \ an \ instance \ of \ the \ Post \ Correspondence \ Problem \ with \ a \ match\}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If the P we construct has a match, than M accepts w</em></p>
 <p>Construct P</p>
 <ul>
-<li>
-<p>let P be an instance of MPCP that starting matching with the first domino.</p>
+<li><p>let P be an instance of MPCP that starting matching with the first domino.</p>
 <ul>
-<li>
-<p>begins with configuration $ C_1 $</p>
+<li><p>begins with configuration $ C_1 $</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-22-52.png" alt=""></p>
 </li>
-<li>
-<p>Head motions to right and left</p>
+<li><p>Head motions to right and left</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-01.png" alt=""></p>
 </li>
-<li>
-<p>Other tape alphabet surrounded the head</p>
+<li><p>Other tape alphabet surrounded the head</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-10.png" alt=""></p>
 </li>
-<li>
-<p>Separation of the configuration</p>
+<li><p>Separation of the configuration</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-17.png" alt=""></p>
 </li>
-<li>
-<p>pseudo-steps after accept, head eat adjacent symbols.</p>
+<li><p>pseudo-steps after accept, head eat adjacent symbols. </p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-23-24.png" alt=""></p>
 </li>
-<li>
-<p>Final alignment</p>
+<li><p>Final alignment</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_21-13-27.png" alt=""></p>
 </li>
 </ul>
 </li>
-<li>
-<p>add * symbol so that the only possible match is start with the first domino. ( change MPCP into PCP )</p>
+<li><p>add * symbol so that the only possible match is start with the first domino. ( change MPCP into PCP )</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-31-40.png" alt=""></p>
 </li>
 </ul>
-<br>
-<h3 id="53-mapping-reducibility"><a class="markdownIt-Anchor" href="#53-mapping-reducibility"></a> 5.3 MAPPING REDUCIBILITY</h3>
-<p><em>formalize the notion of mapping reducibility</em></p>
-<br>
+<p><br></p>
+<h3 id="5-3-MAPPING-REDUCIBILITY"><a href="#5-3-MAPPING-REDUCIBILITY" class="headerlink" title="5.3 MAPPING REDUCIBILITY"></a>5.3 MAPPING REDUCIBILITY</h3><p><em>formalize the notion of mapping reducibility</em></p>
+<p><br></p>
 <p><strong>COMPUTABLE FUNCTIONS</strong></p>
 <p><em>f == TM</em></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>FORMAL DEFINITION OF MAPPING REDUCIBILITY</strong></p>
 <p><strong>mapping reducibility</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png" alt=""></p>
-<br>
+<p><br></p>
 <p><strong>If $ A ≤_m B $ and B is decidable, then A is decidable.</strong></p>
 <p>Proof</p>
 <p>construct A’s decider N = “On input w:</p>
@@ -633,23 +614,23 @@ $ M_2 $ = “On input x:</li>
 <li>Compute f (w).</li>
 <li>Run M on input f (w) and output whatever M outputs.”</li>
 </ol>
-<br>
+<p><br></p>
 <p><strong>If $ A ≤_m B $ and A is undecidable, then B is undecidable.</strong></p>
 <p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<br>
+<p><br></p>
 <p>Example of computable function</p>
 <ul>
-<li>Input $ &lt; M,w &gt; $ while output $ &lt;M’,w’&gt; $</li>
-<li>$ &lt; M, w &gt; ∈ A_{TM} $ if and only if $ &lt;M’ , w’ &gt; ∈ HALT_{TM} $.</li>
+<li>Input $ &lt; M,w &gt; $ while output $ <m',w'> $</m',w'></li>
+<li>$ &lt; M, w &gt; ∈ A<em>{TM} $ if and only if $ <m' ,="" w'=""> ∈ HALT</m'></em>{TM} $.</li>
 </ul>
 <p>(5.1中,在每个S里构造的机器就是这里的reduce function)</p>
-<br>
+<p><br></p>
 <p><strong>If  $ A ≤_m B $ and B is Turing-recognizable, then A is Turing-recognizable.</strong></p>
-<br>
+<p><br></p>
 <p><strong>If $ A ≤_m B $ and A is not Turing-recognizable, then B is not Turing-recognizable.</strong></p>
-<p>if $ A_{TM} ≤_m \overline{B} $ then $ \overline{A_{TM}} ≤_m B $ therefore B isn’t recognizable.</p>
-<br>
-<p>$ EQ_{TM} $ is neither Turing-recognizable nor co-Turing-recognizable.</p>
+<p> if $ A<em>{TM} ≤_m \overline{B} $ then $ \overline{A</em>{TM}} ≤_m B $ therefore B isn’t recognizable.</p>
+<p><br></p>
+<p>$ EQ_{TM} $ is neither Turing-recognizable nor co-Turing-recognizable.  </p>
 <p>Proofed by corollary above.</p>
 
       
@@ -855,7 +836,7 @@ $ M_2 $ = “On input x:</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#itoc-ch5-reducibility"><span class="nav-number">1.</span> <span class="nav-text"> [ITOC-ch5] REDUCIBILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#51-undecidable-problems-from-language-theory"><span class="nav-number">1.1.</span> <span class="nav-text"> 5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#52-a-simple-undecidable-problem"><span class="nav-number">1.2.</span> <span class="nav-text"> 5.2 A SIMPLE UNDECIDABLE PROBLEM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53-mapping-reducibility"><span class="nav-number">1.3.</span> <span class="nav-text"> 5.3 MAPPING REDUCIBILITY</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ITOC-ch5-REDUCIBILITY"><span class="nav-number">1.</span> <span class="nav-text">[ITOC-ch5] REDUCIBILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-UNDECIDABLE-PROBLEMS-FROM-LANGUAGE-THEORY"><span class="nav-number">1.1.</span> <span class="nav-text">5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-A-SIMPLE-UNDECIDABLE-PROBLEM"><span class="nav-number">1.2.</span> <span class="nav-text">5.2 A SIMPLE UNDECIDABLE PROBLEM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-MAPPING-REDUCIBILITY"><span class="nav-number">1.3.</span> <span class="nav-text">5.3 MAPPING REDUCIBILITY</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1448,7 +1429,7 @@ $ M_2 $ = “On input x:</li>
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
 
 
@@ -1464,6 +1445,28 @@ $ M_2 $ = “On input x:</li>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

