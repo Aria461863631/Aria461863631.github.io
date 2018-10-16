@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-40-15.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-40-42.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772478/Screenshot_from_2018-05-31_20-41-33.png">
-<meta property="og:updated_time" content="2018-05-31T14:11:05.195Z">
+<meta property="og:updated_time" content="2018-10-16T13:33:42.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch5] REDUCIBILITY">
 <meta name="twitter:description" content="[ITOC-ch5] REDUCIBILITYIf A reduces to B  we can use a solution to B to solve A solving A is no harder than solving B  $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $ $ A \ (undecida">
@@ -439,7 +439,7 @@
 <a id="more"></a>
 <p><br></p>
 <p>$ A<em> {TM} ≤_m HALT</em>{TM} $</p>
-<p>$ HALT_{TM} = \{ <m, w=""> \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</m,></p>
+<p>$ HALT_{TM} = \{ &lt; M, w&gt; \ | \ M \ is \ a \ TM \ and \ M \ halts \ on \ input \ w \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If M loop on w, we can use R to reject.</em> </p>
 <p>S = “On input $ <m, w=""> $, an encoding of a TM M and a string w:</m,></p>
@@ -452,7 +452,7 @@
 <p><br></p>
 <p><br></p>
 <p>$ A<em> {TM} ≤_m E</em>{TM} $</p>
-<p>$ E_{TM} = \{ &lt; M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
+<p>$ E_{TM} = \{ &lt;  M &gt;| \ M \ is \ a \ TM \ and \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L (M_1) $ is empty, than M accept w</em> </p>
 <p>S = “On input $ <m, w=""> $, an encoding of a TM M and a string w:</m,></p>
@@ -468,7 +468,7 @@
 <p><br></p>
 <p><br></p>
 <p>$ A<em> {TM} ≤_m REGULAR</em>{TM} $</p>
-<p>$ REGULAR_{TM} = \{ &lt; M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
+<p>$ REGULAR_{TM} = \{ &lt;  M &gt;| \ M  \ is \ a \ TM \ and \ L(M) \ is \ a \ regular \ language \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(M_2) $ is regular, than M accept w</em> </p>
 <p>If M does not accept w</p>
@@ -498,7 +498,7 @@
 <p><br></p>
 <p><br></p>
 <p>$ E<em> {TM} ≤_m EQ</em>{TM} $</p>
-<p>$ EQ_{TM} = \{ <m_1 ,="" m_2=""> | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</m_1></p>
+<p>$ EQ_{TM} = \{ &lt; M_1 , M_2 &gt; | \ M_1 \ and \ M_2 \ are \ TMs \ and \ L(M_1) = L(M_2) \}. $</p>
 <p><strong>Proof</strong></p>
 <p> $ M_1 $ is a TM that rejects all inputs.</p>
 <p><em>If $ L(M) = L(M_1) $, than $ L(M) = ∅ $</em></p>
@@ -519,7 +519,7 @@
 <p><br></p>
 <p><br></p>
 <p><em>decidable</em></p>
-<p>$ A_{LBA} = \{ <m, w="">| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</m,></p>
+<p>$ A_{LBA} = \{ &lt; M, w&gt;| \ M \ is \ an \ LBA \ that \ accepts \ string \ w \}. $</p>
 <p><br></p>
 <p><strong>LEMMA 5.8</strong></p>
 <ul>
@@ -533,7 +533,7 @@
 <p><br></p>
 <p><br></p>
 <p>$ A<em> {TM} ≤_m E</em>{LBA} $</p>
-<p>$ E_{LBA} = \{&lt; M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
+<p>$ E_{LBA} = \{ &lt;  M &gt;| \ M \ is \ an \ LBA \ where \ L(M) = ∅ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(B) \neq  ∅  $ = { all accepting computation histories for M on w }, than M accepts w.</em></p>
 <p>Construct B to generate all strings that</p>
@@ -545,7 +545,7 @@
 <p><br></p>
 <p><br></p>
 <p>$ A<em> {TM} ≤_m ALL</em>{LBA} $</p>
-<p>$ ALL_{CFG} = \{ &lt; G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
+<p>$ ALL_{CFG} = \{ &lt;  G &gt;| \ G \ is \ a \ CFG \ and \  L(G) = Σ ^ ∗ \}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If $ L(G) \neq Σ ^ ∗  $ = { all strings except all computation histories for M on w }, than M accepts w.</em></p>
 <p>Construct G to generate all strings that</p>
@@ -564,7 +564,7 @@
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1527772477/Screenshot_from_2018-05-31_20-09-49.png" alt=""></p>
 <p> <br></p>
 <p>$ A_ {TM} ≤_m PCP $</p>
-<p>$ PCP = \{&lt; P &gt;| \ P \ is \ an \ instance \ of \ the \ Post \ Correspondence \ Problem \ with \ a \ match\}. $</p>
+<p>$ PCP = \{ &lt;  P &gt;| \ P \ is \ an \ instance \ of \ the \ Post \ Correspondence \ Problem \ with \ a \ match\}. $</p>
 <p><strong>Proof</strong></p>
 <p><em>If the P we construct has a match, than M accepts w</em></p>
 <p>Construct P</p>
@@ -1464,7 +1464,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

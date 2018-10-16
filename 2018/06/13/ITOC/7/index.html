@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-15-48.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-16-26.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_22-19-04.png">
-<meta property="og:updated_time" content="2018-10-16T13:10:41.441Z">
+<meta property="og:updated_time" content="2018-10-16T13:47:00.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch7] TIME COMPLEXITY">
 <meta name="twitter:description" content="[ITOC-ch7] TIME COMPLEXITY 7.1 MEASURING COMPLEXITYBIG-O AND SMALL-O NOTATION $ f(n) = O(g(n)) \  \Longleftrightarrow f(n) \  \le cg(n) $ $ f(n) = o(g(n)) \  \Longleftrightarrow f(n) \  \lt cg(n) $ po">
@@ -477,8 +477,8 @@
 <p><br></p>
 <p>Examples</p>
 <ul>
-<li>$ PATH = \{ <g, s,="" t=""> | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\} $</g,></li>
-<li>$ RELPRIME = \{<x, y="">| \ x \ and \ y \ are \ relatively \ prime\} $</x,></li>
+<li>$ PATH = \{ &lt; G, s, t&gt; | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\} $</li>
+<li>$ RELPRIME = \{ &lt; x, y&gt;| \ x \ and \ y \ are \ relatively \ prime\} $</li>
 <li>Every context-free language is a member of P.</li>
 </ul>
 <p><br></p>
@@ -487,7 +487,7 @@
 <p><br></p>
 <p>Another equivalent definition</p>
 <ul>
-<li>A <strong>verifier</strong> for a language A is an algorithm V , where<br>$ A = \{w| \ V \ accepts \ <w, c=""> \  for \ some \ string \ c\} $</w,></li>
+<li>A <strong>verifier</strong> for a language A is an algorithm V , where<br>$ A = \{ w | \ V \ accepts \ &lt; w, c &gt; \  for \ some \ string \ c\} $</li>
 <li><strong>certificate</strong>: additional information $ c $ the verifier use</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1528900252/Screenshot_from_2018-06-13_16-50-38.png" alt=""></p>
@@ -511,10 +511,10 @@
 <p><br></p>
 <p>Examples</p>
 <ul>
-<li>$ HAMPATH = \{<g, s,="" t="">| \ G \ is \ a \ directed \ graph \ with \ a \ Hamiltonian \ path \ from \ s \ to \ t\} $</g,></li>
+<li>$ HAMPATH = \{ &lt; G, s, t &gt;| \ G \ is \ a \ directed \ graph \ with \ a \ Hamiltonian \ path \ from \ s \ to \ t\} $</li>
 <li>$ COMPOSITES = \{x| \  x = pq, \ for \  integers \ p, q &gt; 1 \} $</li>
-<li>$ CLIQUE = \{<g, k="">| \ G \ is \ an \ undirected \  graph \ with \ a \ k-clique \} $</g,></li>
-<li>$ SUBSET-SUM = \{<s, t="">| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ \{x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</s,></li>
+<li>$ CLIQUE = \{ &lt; G, k&gt;| \ G \ is \ an \ undirected \  graph \ with \ a \ k-clique \} $</li>
+<li>$ SUBSET-SUM = \{ &lt; S, t&gt;| \ S = \{x_1 , . . . , x_k \}, and \ for \ some \ \{y_1 , . . . , y_l \} ⊆ \{x_1 , . . . , x_k \}, \ we \ have \ Σy_i = t\} $</li>
 </ul>
 <p><br></p>
 <p><strong>co-NP</strong></p>
@@ -1419,7 +1419,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

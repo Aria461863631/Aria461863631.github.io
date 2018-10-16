@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806845/Screenshot_from_2018-09-13_10-03-23.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806845/Screenshot_from_2018-09-13_10-19-33.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1536806846/Screenshot_from_2018-09-13_10-43-58.png">
-<meta property="og:updated_time" content="2018-09-13T03:04:38.059Z">
+<meta property="og:updated_time" content="2018-10-16T13:37:37.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ITOC-ch8] SPACE COMPLEXITY">
 <meta name="twitter:description" content="[ITOC-ch8] SPACE COMPLEXITYSpace somplexity  M is deterministic f(n) is the maximum number of tape cells that M scans on any input of length n.  nondeterministic Space complexity  M is nondeterministi">
@@ -485,7 +485,7 @@
 <li><strong>always either true or false</strong></li>
 </ul>
 <p><br></p>
-<p>$ TQBF \ = \ \{ &lt;\phi&gt; | \ \phi \ is \ a \ true \ fully \ quantified \ Boolean \ formula \}$</p>
+<p>$ TQBF \ = \ \{ &lt; \phi&gt; | \ \phi \ is \ a \ true \ fully \ quantified \ Boolean \ formula \}$</p>
 <p>$ TQBF $ is $ PSPACE $-complete</p>
 <p>Idea</p>
 <ul>
@@ -494,7 +494,7 @@
 <li><p>Reduction function: takes a string w and produces a quantified Boolean formula φ that simulates the machine for A on input w, while A accept w iff φ is true</p>
 </li>
 <li>use a technique related to the proof of Savitch’s theorem to construct the formula</li>
-<li>用A accept w的过程来构造式子 $ \phi<em>{c</em>{start},{c_{accept}},t}$</li>
+<li>用A accept w的过程来构造式子 $ \phi<em>{c</em>{start},{c_{accept}},t} $</li>
 </ul>
 <p>Proof</p>
 <ul>
@@ -529,9 +529,9 @@
 <li>wins when both sides play optimally</li>
 </ul>
 <p>$ PSPACE$-complete</p>
-<p>$ FORMULA -GAME \ = \ \{ &lt;\phi&gt;|\ Player \ E \ has \ a \ winning \ strategy \ $ </p>
+<p>$ FORMULA -GAME \ = \ \{ &lt; \phi&gt;|\ Player \ E \ has \ a \ winning \ strategy \ $ </p>
 <p>​                                                                   $ in \ the \ formula \ game \ associated \ with \ \phi \} $</p>
-<p>$ GG \  = \ \{ <g,b>| \ Player \  I \  has \  a \  winning \  strategy \ for \ the \ generalized $ </g,b></p>
+<p>$ GG \  = \ \{ &lt; G,b&gt;| \ Player \  I \  has \  a \  winning \  strategy \ for \ the \ generalized $ </p>
 <p>​                                    $  \ geography \ game \ played \  on \  graph  \ G \ starting \ at \ node \ b\}$</p>
 <p>we can give some evidence for the difficulty of computing optimal play for many board games by generalizing them to an n × n board.</p>
 <p><br></p>
@@ -560,7 +560,7 @@
 </ul>
 <p><br></p>
 <p><strong>SEARCHING IN GRAPHS</strong></p>
-<p>$ PATH = \{ <g, s,="" t=""> | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\}$ </g,></p>
+<p>$ PATH = \{ &lt; G, s, t&gt; | \ G \ is \ a \ directed \ graph \ that \ has \ a \ directed \ path \ from \ s \ to \ t\}$ </p>
 <p>$ PATH $ is $ NL $-complete</p>
 <p>Idea</p>
 <ul>
@@ -1415,7 +1415,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
