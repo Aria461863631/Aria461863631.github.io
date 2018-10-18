@@ -402,15 +402,17 @@
 
       
         
-          <h2 id="SICP-ch4-Metalinguistic-Abstraction"><a href="#SICP-ch4-Metalinguistic-Abstraction" class="headerlink" title="[SICP-ch4] Metalinguistic Abstraction"></a>[SICP-ch4] Metalinguistic Abstraction</h2><p>establishing new languages and implement these languages by constructing evaluators.</p>
+          <h2 id="sicp-ch4-metalinguistic-abstraction"><a class="markdownIt-Anchor" href="#sicp-ch4-metalinguistic-abstraction"></a> [SICP-ch4] Metalinguistic Abstraction</h2>
+<p>establishing new languages and implement these languages by constructing evaluators.</p>
 <p>(极简版)</p>
-<p><br></p>
+<br>
 <p>evaluators ( interpreter )</p>
 <ul>
 <li>a procedure that, when applied to an expression of the language, performs the actions required to evaluate that expression.</li>
 </ul>
-<p><br></p>
-<h3 id="4-1-The-Metacircular-Evaluator"><a href="#4-1-The-Metacircular-Evaluator" class="headerlink" title="4.1 The Metacircular Evaluator"></a>4.1 The Metacircular Evaluator</h3><p>metacircular</p>
+<br>
+<h3 id="41-the-metacircular-evaluator"><a class="markdownIt-Anchor" href="#41-the-metacircular-evaluator"></a> 4.1 The Metacircular Evaluator</h3>
+<p>metacircular</p>
 <ul>
 <li>An evaluator that is written in the same language that it evaluates</li>
 </ul>
@@ -570,9 +572,11 @@
 
       
         
-          <h2 id="ch-3-Modularity-Objects-and-State"><a href="#ch-3-Modularity-Objects-and-State" class="headerlink" title="ch-3 Modularity, Objects, and State"></a>ch-3 Modularity, Objects, and State</h2><h3 id="3-1-Assignment-and-Local-State"><a href="#3-1-Assignment-and-Local-State" class="headerlink" title="3.1 Assignment and Local State"></a>3.1 Assignment and Local State</h3><p>System decomposed into <strong>computational objects</strong> with time-varying <strong>state</strong></p>
+          <h2 id="ch-3-modularity-objects-and-state"><a class="markdownIt-Anchor" href="#ch-3-modularity-objects-and-state"></a> ch-3 Modularity, Objects, and State</h2>
+<h3 id="31-assignment-and-local-state"><a class="markdownIt-Anchor" href="#31-assignment-and-local-state"></a> 3.1 Assignment and Local State</h3>
+<p>System decomposed into <strong>computational objects</strong> with time-varying <strong>state</strong></p>
 <p>language must provide an <strong>assignment</strong> operator to enable us to change the value</p>
-<p><br></p>
+<br>
 <p><strong>3.1.1 Local State Variables</strong></p>
 <p><em>model the situation of withdrawing money from a bank account</em></p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -744,11 +748,12 @@
 
       
         
-          <h2 id="ch-3-Improving-the-way-neural-networks-learn"><a href="#ch-3-Improving-the-way-neural-networks-learn" class="headerlink" title="ch-3 Improving the way neural networks learn"></a>ch-3 Improving the way neural networks learn</h2><p>The techniques we’ll develop in this chapter include</p>
+          <h2 id="ch-3-improving-the-way-neural-networks-learn"><a class="markdownIt-Anchor" href="#ch-3-improving-the-way-neural-networks-learn"></a> ch-3 Improving the way neural networks learn</h2>
+<p>The techniques we’ll develop in this chapter include</p>
 <ul>
-<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function; </li>
-<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data; </li>
-<li>a better method for <strong>initializing the weights</strong> in the network; </li>
+<li>a better choice of <strong>cost function</strong>, the cross-entropy cost function;</li>
+<li>four so-called <strong>“regularization”</strong> methods ( L1 and L2 regularization, dropout, and artificial expansion of the training data ), which make our networks better at generalizing beyond the training data;</li>
+<li>a better method for <strong>initializing the weights</strong> in the network;</li>
 <li>a set of heuristics to help choose <strong>good hyper-parameters</strong> ;</li>
 </ul>
           <!--noindex-->
@@ -907,11 +912,13 @@
 
       
         
-          <h2 id="ch-2-How-the-backpropagation-algorithm-works"><a href="#ch-2-How-the-backpropagation-algorithm-works" class="headerlink" title="ch-2 How the backpropagation algorithm works"></a>ch-2 How the backpropagation algorithm works</h2><p>discuss <strong>how to compute</strong> the gradient ( $\nabla C$ ) of the cost function</p>
-<p>Heart of backpropagation </p>
+          <h2 id="ch-2-how-the-backpropagation-algorithm-works"><a class="markdownIt-Anchor" href="#ch-2-how-the-backpropagation-algorithm-works"></a> ch-2 How the backpropagation algorithm works</h2>
+<p>discuss <strong>how to compute</strong> the gradient ( <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\nabla C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord">∇</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> ) of the cost function</p>
+<p>Heart of backpropagation</p>
 <ul>
-<li>an expression for the partial derivative $∂ C /∂ w$ of the cost function C with respect to any weight w ( or bias b ) in the network</li>
-<li>tells us <strong>how quickly</strong> the cost changes when<br>we change the weights and biases</li>
+<li>an expression for the partial derivative <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∂</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">∂</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">∂ C /∂ w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> of the cost function C with respect to any weight w ( or bias b ) in the network</li>
+<li>tells us <strong>how quickly</strong> the cost changes when<br>
+we change the weights and biases</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1069,7 +1076,9 @@
 
       
         
-          <h2 id="ch-1-Using-neural-nets-to-recognize-handwritten-digits"><a href="#ch-1-Using-neural-nets-to-recognize-handwritten-digits" class="headerlink" title="ch-1 Using neural nets to recognize handwritten digits"></a>ch-1 Using neural nets to recognize handwritten digits</h2><h3 id="Perceptrons"><a href="#Perceptrons" class="headerlink" title="Perceptrons"></a>Perceptrons</h3><ul>
+          <h2 id="ch-1-using-neural-nets-to-recognize-handwritten-digits"><a class="markdownIt-Anchor" href="#ch-1-using-neural-nets-to-recognize-handwritten-digits"></a> ch-1 Using neural nets to recognize handwritten digits</h2>
+<h3 id="perceptrons"><a class="markdownIt-Anchor" href="#perceptrons"></a> Perceptrons</h3>
+<ul>
 <li>a type of artificial neuron</li>
 <li>a device that makes decisions by weighing up evidence</li>
 </ul>
@@ -1230,16 +1239,18 @@
 
       
         
-          <h2 id="CS-APP-ch8-Shell-Lab"><a href="#CS-APP-ch8-Shell-Lab" class="headerlink" title="[CS:APP-ch8] Shell Lab"></a>[CS:APP-ch8] Shell Lab</h2><p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
+          <h2 id="csapp-ch8-shell-lab"><a class="markdownIt-Anchor" href="#csapp-ch8-shell-lab"></a> [CS:APP-ch8] Shell Lab</h2>
+<p><a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener">http://csapp.cs.cmu.edu/3e/labs.html</a></p>
 <p><a href="http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html" target="_blank" rel="noopener">http://condor.depaul.edu/glancast/374class/hw/shlab-readme.html</a></p>
 <p><a href="https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c" target="_blank" rel="noopener">https://github.com/zhoudiqiu/Shell-lab/blob/master/lab5/tsh.c</a></p>
-<p><br></p>
-<h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>implement </p>
+<br>
+<h3 id="target"><a class="markdownIt-Anchor" href="#target"></a> Target</h3>
+<p>implement</p>
 <ul>
 <li>eval, builtin_cmd, do_bgfg, waitfg</li>
 <li>sigchld_handler, sigint_handler, sigtstp_handler</li>
 </ul>
-<p><br></p>
+<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/21/CSAPP/shell/#more" rel="contents">
@@ -1396,8 +1407,9 @@
 
       
         
-          <h2 id="SICP-ch2-Building-Abstractions-with-Data"><a href="#SICP-ch2-Building-Abstractions-with-Data" class="headerlink" title="SICP-ch2 Building Abstractions with Data"></a>SICP-ch2 Building Abstractions with Data</h2><p>building abstractions by forming compound data</p>
-<p><br></p>
+          <h2 id="sicp-ch2-building-abstractions-with-data"><a class="markdownIt-Anchor" href="#sicp-ch2-building-abstractions-with-data"></a> SICP-ch2 Building Abstractions with Data</h2>
+<p>building abstractions by forming compound data</p>
+<br>
 <p>Intro</p>
 <ul>
 <li>2.1 data abstraction erect abstraction barriers</li>
@@ -1406,7 +1418,7 @@
 <li>2.4  generic operations, data directed programming, additivity</li>
 <li>2.5 implement a package</li>
 </ul>
-<p><br></p>
+<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/10/SICP/sicp2/#more" rel="contents">
@@ -1563,15 +1575,17 @@
 
       
         
-          <h2 id="SICP-ch-1-Building-Abstractions-with-Procedures"><a href="#SICP-ch-1-Building-Abstractions-with-Procedures" class="headerlink" title="SICP ch-1 Building Abstractions with Procedures"></a>SICP ch-1 Building Abstractions with Procedures</h2><p>We are about to study the idea of computational process</p>
-<p><br></p>
-<h3 id="1-1-The-Elements-of-Programming"><a href="#1-1-The-Elements-of-Programming" class="headerlink" title="1.1 The Elements of Programming"></a>1.1 The Elements of Programming</h3><p>Language combine simple ideas to form complex ideas by three mechanisms</p>
+          <h2 id="sicp-ch-1-building-abstractions-with-procedures"><a class="markdownIt-Anchor" href="#sicp-ch-1-building-abstractions-with-procedures"></a> SICP ch-1 Building Abstractions with Procedures</h2>
+<p>We are about to study the idea of computational process</p>
+<br>
+<h3 id="11-the-elements-of-programming"><a class="markdownIt-Anchor" href="#11-the-elements-of-programming"></a> 1.1 The Elements of Programming</h3>
+<p>Language combine simple ideas to form complex ideas by three mechanisms</p>
 <ol>
 <li>primitive expression</li>
 <li>means of combination</li>
 <li>means of abstraction</li>
 </ol>
-<p><br></p>
+<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/28/SICP/sicp1/#more" rel="contents">
@@ -1728,7 +1742,8 @@
 
       
         
-          <h2 id="CS-APP-ch-1-A-Tour-of-Computer-Sytems"><a href="#CS-APP-ch-1-A-Tour-of-Computer-Sytems" class="headerlink" title="CS:APP ch-1 A Tour of Computer Sytems"></a>CS:APP ch-1 A Tour of Computer Sytems</h2><p>A computer system consists of hardware and systems software that work together to run application programs.</p>
+          <h2 id="csapp-ch-1-a-tour-of-computer-sytems"><a class="markdownIt-Anchor" href="#csapp-ch-1-a-tour-of-computer-sytems"></a> CS:APP ch-1 A Tour of Computer Sytems</h2>
+<p>A computer system consists of hardware and systems software that work together to run application programs.</p>
 <p>Tracing the life time of hello program.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
@@ -1747,7 +1762,7 @@
 <span class="line">        <span class="keyword">return</span> <span class="number">0</span>;  </span>
 <span class="line">&#125;</span>
 </pre></td></tr></table></figure>
-<p><br></p>
+<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/01/CSAPP/ch-1/#more" rel="contents">
@@ -1904,7 +1919,8 @@
 
       
         
-          <h2 id="CS-APP-ch-9-Virtual-Memory"><a href="#CS-APP-ch-9-Virtual-Memory" class="headerlink" title="CS:APP ch-9 Virtual Memory"></a>CS:APP ch-9 Virtual Memory</h2><p>Virtual Memory</p>
+          <h2 id="csapp-ch-9-virtual-memory"><a class="markdownIt-Anchor" href="#csapp-ch-9-virtual-memory"></a> CS:APP ch-9 Virtual Memory</h2>
+<p>Virtual Memory</p>
 <ul>
 <li>modern systems provide an abstraction of main memory</li>
 </ul>
