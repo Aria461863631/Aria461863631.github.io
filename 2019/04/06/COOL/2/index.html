@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+<meta name="description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex 0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
 <meta name="keywords" content="COOL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS143-PA1] Lexer">
 <meta property="og:url" content="http://yoursite.com/2019/04/06/COOL/2/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+<meta property="og:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex 0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-06T08:33:32.873Z">
+<meta property="og:updated_time" content="2019-04-06T08:48:41.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS143-PA1] Lexer">
-<meta name="twitter:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+<meta name="twitter:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex 0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
 
 
 
@@ -401,7 +401,6 @@
 
       
         <h2 id="CS143-PA1-Lexer"><a href="#CS143-PA1-Lexer" class="headerlink" title="[CS143-PA1] Lexer"></a>[CS143-PA1] Lexer</h2><h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>write a cool lexer using <code>flex</code></p>
-<p><br></p>
 <h3 id="0-Preperation"><a href="#0-Preperation" class="headerlink" title="0. Preperation"></a>0. Preperation</h3><ul>
 <li><p>PA1 documentation</p>
 </li>
@@ -425,7 +424,6 @@
 <li><p>Note that not every token requires storing additional information; for example, only <strong>returning the token type</strong> is sufficient for some tokens like <strong>keywords</strong>.</p>
 </li>
 </ul>
-<p><br></p>
 <p>find all tokens definition in <code>cool-parse.h</code> , return corresponding token directly</p>
 <ul>
 <li><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -442,7 +440,6 @@
 </blockquote>
 </li>
 </ul>
-<p><br></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -535,7 +532,6 @@
 <li><p>For <strong>class</strong> identifiers, <strong>object</strong> identifiers, <strong>integers</strong>, and <strong>strings</strong>, the semantic value should be a <strong>Symbol</strong> stored in the field <code>cool_yylval.symbol</code>. For <strong>boolean</strong> constants, the semantic value is stored in the<br>field <code>cool_yylval.boolean</code>.</p>
 </li>
 </ul>
-<p><br></p>
 <p><strong>3 String Tables</strong></p>
 <p><em>cool-tour.pdf</em></p>
 <ul>
@@ -629,13 +625,11 @@
 <li><p>There is also a special default state called <code>INITIAL</code> which is active unless you explicitly indicate the<br><strong>beginning of a new state</strong>.</p>
 </li>
 </ul>
-<p><br></p>
 <p><strong>10.3 Comments</strong></p>
 <p><em>cool-manual.pdf</em></p>
 <ul>
 <li>There are two forms of comments in Cool. Any characters <strong>between two dashes “–”</strong> and the next newline (or EOF, if there is no next newline) are treated as comments. Comments may also be written by enclosing text in <strong>(∗ . . . ∗)</strong>.</li>
 </ul>
-<p><br></p>
 <p><strong>4.1 Error Handling</strong></p>
 <ul>
 <li>If a comment remains open when EOF is encountered, report this error with the message “EOF in comment”. Do not tokenize the comment’s contents simply because the terminator is missing. </li>
