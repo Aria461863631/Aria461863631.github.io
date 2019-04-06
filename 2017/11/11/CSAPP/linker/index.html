@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Linker  SUMMARY  1.链接器的任务  7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位   2.链接方式  7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库   3.PIC  7.12 Position Independe">
+<meta name="description" content="LinkerSUMMARY1.链接器的任务 7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位  2.链接方式 7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库  3.PIC 7.12 Position Independent Code -">
 <meta name="keywords" content="CSAPP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CS:APP-ch7] Linker">
 <meta property="og:url" content="http://yoursite.com/2017/11/11/CSAPP/linker/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="Linker  SUMMARY  1.链接器的任务  7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位   2.链接方式  7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库   3.PIC  7.12 Position Independe">
+<meta property="og:description" content="LinkerSUMMARY1.链接器的任务 7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位  2.链接方式 7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库  3.PIC 7.12 Position Independent Code -">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-16%2013-27-04.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1539953133/Screenshot_from_2018-10-19_20-41-23.png">
@@ -98,7 +98,7 @@
 <meta property="og:updated_time" content="2018-10-19T12:59:11.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch7] Linker">
-<meta name="twitter:description" content="Linker  SUMMARY  1.链接器的任务  7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位   2.链接方式  7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库   3.PIC  7.12 Position Independe">
+<meta name="twitter:description" content="LinkerSUMMARY1.链接器的任务 7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位  2.链接方式 7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库  3.PIC 7.12 Position Independent Code -">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-16%2013-27-04.png">
 
 
@@ -409,28 +409,22 @@
       
 
       
-        <h1 id="linker"><a class="markdownIt-Anchor" href="#linker"></a> Linker</h1>
-<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> SUMMARY</h3>
-<h4 id="1链接器的任务"><a class="markdownIt-Anchor" href="#1链接器的任务"></a> 1.链接器的任务</h4>
-<ul>
+        <h1 id="Linker"><a href="#Linker" class="headerlink" title="Linker"></a>Linker</h1><h3 id="SUMMARY"><a href="#SUMMARY" class="headerlink" title="SUMMARY"></a>SUMMARY</h3><h4 id="1-链接器的任务"><a href="#1-链接器的任务" class="headerlink" title="1.链接器的任务"></a>1.链接器的任务</h4><ul>
 <li><a href="#7.6">7.6 Symbol Resolution - 符号解析</a></li>
 <li><a href="#7.7">7.7 Relocation - 重定位</a></li>
 </ul>
-<h4 id="2链接方式"><a class="markdownIt-Anchor" href="#2链接方式"></a> 2.链接方式</h4>
-<ul>
+<h4 id="2-链接方式"><a href="#2-链接方式" class="headerlink" title="2.链接方式"></a>2.链接方式</h4><ul>
 <li><a href="#7.6.2">7.2 ～ 7.9 Static lib - 静态链接</a></li>
 <li><a href="#7.10">7.10 Shared lib - 链接时的共享库</a></li>
 <li><a href="#7.11">7.11 Shared lib - 运行时的共享库</a></li>
 </ul>
-<h4 id="3pic"><a class="markdownIt-Anchor" href="#3pic"></a> 3.PIC</h4>
-<ul>
+<h4 id="3-PIC"><a href="#3-PIC" class="headerlink" title="3.PIC"></a>3.PIC</h4><ul>
 <li><a href="#7.12">7.12 Position Independent Code - 位置无关</a></li>
 </ul>
 <a id="more"></a>
-<br> 
+<p><br> </p>
 <hr>
-<h3 id="71-complier-driver-编译器驱动"><a class="markdownIt-Anchor" href="#71-complier-driver-编译器驱动"></a> 7.1 Complier Driver - 编译器驱动</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="7-1-Complier-Driver-编译器驱动"><a href="#7-1-Complier-Driver-编译器驱动" class="headerlink" title="7.1 Complier Driver - 编译器驱动"></a>7.1 Complier Driver - 编译器驱动</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -493,16 +487,14 @@
 <ul>
 <li>将多个.o文件以及一些必要的系统目标文件组合起来，创建一个可执行目标文件</li>
 </ul>
-<p>(ps…链接出来的程序并不能正常运行）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>(ps……..链接出来的程序并不能正常运行）<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">ld: warning: cannot find entry symbol _start; defaulting to <span class="number">00000000004000e8</span></span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-16%2013-27-04.png" alt="Compiler Driver"></p>
-<br>
+<p><br></p>
 <p><span id="7.6.2"></span></p>
 <hr>
-<h3 id="72-static-library-静态链接"><a class="markdownIt-Anchor" href="#72-static-library-静态链接"></a> 7.2 Static Library - 静态链接</h3>
-<p><strong>为什么</strong>要使用链接器?</p>
+<h3 id="7-2-Static-Library-静态链接"><a href="#7-2-Static-Library-静态链接" class="headerlink" title="7.2 Static Library - 静态链接"></a>7.2 Static Library - 静态链接</h3><p><strong>为什么</strong>要使用链接器?</p>
 <p><strong>1.模块化角度考虑</strong></p>
 <ul>
 <li>我们可以把程序分散到不同的小的源代码中，而不是一个巨大的类中。这样带来的好处是可以复用常见的功能/库，比方说 Math library, standard C library.</li>
@@ -518,12 +510,11 @@
 </ul>
 <p><strong>2.Relocation 重定位</strong></p>
 <ul>
-<li>将每个符号的定义和一个内存地址相关联</li>
+<li>将每个符号的定义和一个内存地址相关联 </li>
 </ul>
-<br>
+<p><br></p>
 <hr>
-<h3 id="73-object-files-目标文件"><a class="markdownIt-Anchor" href="#73-object-files-目标文件"></a> 7.3 Object Files - 目标文件</h3>
-<p>3种目标文件</p>
+<h3 id="7-3-Object-Files-目标文件"><a href="#7-3-Object-Files-目标文件" class="headerlink" title="7.3 Object Files - 目标文件"></a>7.3 Object Files - 目标文件</h3><p>3种目标文件</p>
 <ul>
 <li>Relocatable 可重定位</li>
 </ul>
@@ -548,73 +539,9 @@
 </pre></td><td class="code"><pre><span class="line"><span class="comment">//gcc main.c 默认</span></span>
 <span class="line">  Type:                              DYN (Shared object file)</span>
 </pre></td></tr></table></figure>
-<p>目标文件的格式：这里主要讨论ELF格式<br>
-<br></p>
+<p>目标文件的格式：这里主要讨论ELF格式<br><br></p>
 <hr>
-<h3 id="74-relocatable-object-files-可重定位"><a class="markdownIt-Anchor" href="#74-relocatable-object-files-可重定位"></a> 7.4 Relocatable Object Files - 可重定位</h3>
-<p>格式：</p>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ELF header</td>
-<td>生成此文件的系统等</td>
-</tr>
-<tr>
-<td>.text</td>
-<td>已编译程序的机器码</td>
-</tr>
-<tr>
-<td>.radata</td>
-<td>只读数据</td>
-</tr>
-<tr>
-<td>.data</td>
-<td>已初始化的全局/静态变量</td>
-</tr>
-<tr>
-<td>.bss</td>
-<td>未初始化的静态，初始化为0的全局/静态</td>
-</tr>
-<tr>
-<td></td>
-<td>(未初始化全局是COM）</td>
-</tr>
-<tr>
-<td>.symtab</td>
-<td>所有 定义或引用 的 函数 和 全局变量</td>
-</tr>
-<tr>
-<td>.rel.text</td>
-<td>要重定位的函数在.text的位置</td>
-</tr>
-<tr>
-<td>.rel.data</td>
-<td>全局变量的重定位信息</td>
-</tr>
-<tr>
-<td>.debug</td>
-<td></td>
-</tr>
-<tr>
-<td>.line</td>
-<td></td>
-</tr>
-<tr>
-<td>.strtab</td>
-<td></td>
-</tr>
-<tr>
-<td>Section header table</td>
-<td>记录每个section的位置和大小</td>
-</tr>
-</tbody>
-</table>
+<h3 id="7-4-Relocatable-Object-Files-可重定位"><a href="#7-4-Relocatable-Object-Files-可重定位" class="headerlink" title="7.4 Relocatable Object Files - 可重定位"></a>7.4 Relocatable Object Files - 可重定位</h3><p>格式：<br>| 组成        | 解释   |<br>| ——–   | —– |<br>| ELF header | 生成此文件的系统等|<br>|.text|已编译程序的机器码|<br>|.radata|只读数据|<br>|.data|已初始化的全局/静态变量|<br>|.bss|未初始化的静态，初始化为0的全局/静态 |<br>||(未初始化全局是COM） |<br>|.symtab|所有 定义或引用 的 函数 和 全局变量|<br>|.rel.text|要重定位的函数在.text的位置|<br>|.rel.data|全局变量的重定位信息|<br>|.debug|<br>|.line|<br>|.strtab|<br>|Section header table|记录每个section的位置和大小|</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -656,7 +583,7 @@
 <span class="line">  Number of section headers:         <span class="number">13</span></span>
 <span class="line">  Section header <span class="built_in">string</span> table index: <span class="number">12</span></span>
 </pre></td></tr></table></figure>
-<br>
+<p><br></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -718,12 +645,10 @@
 <span class="line">  [<span class="number">12</span>] .shstrtab         STRTAB           <span class="number">0000000000000000</span>  <span class="number">00000410</span></span>
 <span class="line">       <span class="number">0000000000000061</span>  <span class="number">0000000000000000</span>           <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span></span>
 </pre></td></tr></table></figure>
-<br>
+<p><br></p>
 <hr>
-<h3 id="75-symbol-and-symbol-tables-符号和符号表"><a class="markdownIt-Anchor" href="#75-symbol-and-symbol-tables-符号和符号表"></a> 7.5 Symbol and Symbol Tables - 符号和符号表</h3>
-<p>每一个symbol都代表一个 函数 / 全局变量 / 静态变量</p>
-<h4 id="symbol的种类有3个"><a class="markdownIt-Anchor" href="#symbol的种类有3个"></a> symbol的种类有3个</h4>
-<p><strong>1.Global</strong></p>
+<h3 id="7-5-Symbol-and-Symbol-Tables-符号和符号表"><a href="#7-5-Symbol-and-Symbol-Tables-符号和符号表" class="headerlink" title="7.5 Symbol and Symbol Tables - 符号和符号表"></a>7.5 Symbol and Symbol Tables - 符号和符号表</h3><p>每一个symbol都代表一个 函数 / 全局变量 / 静态变量</p>
+<h4 id="symbol的种类有3个"><a href="#symbol的种类有3个" class="headerlink" title="symbol的种类有3个"></a>symbol的种类有3个</h4><p><strong>1.Global</strong></p>
 <ul>
 <li>本模块定义的符号。包括非静态的函数和全局变量</li>
 </ul>
@@ -738,16 +663,14 @@
 <p>其他</p>
 <ul>
 <li>1.普通的局部变量在运行时由栈管理</li>
-<li>2.静态属性的局部变量在.data/.bss中，且拥有唯一的名字<br>
-如书上的例子：</li>
+<li>2.静态属性的局部变量在.data/.bss中，且拥有唯一的名字<br>如书上的例子：</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line"><span class="number">5</span>: <span class="number">0000000000000000</span> <span class="number">4</span> OBJECT  LOCAL  DEFAULT    <span class="number">4</span> x<span class="number">.1794</span></span>
 <span class="line"><span class="number">6</span>: <span class="number">0000000000000000</span> <span class="number">4</span> OBJECT  LOCAL  DEFAULT    <span class="number">3</span> x<span class="number">.1797</span></span>
 </pre></td></tr></table></figure>
-<h4 id="每个symbol的结构"><a class="markdownIt-Anchor" href="#每个symbol的结构"></a> 每个symbol的结构</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h4 id="每个symbol的结构"><a href="#每个symbol的结构" class="headerlink" title="每个symbol的结构"></a>每个symbol的结构</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -766,13 +689,9 @@
 <span class="line">        <span class="keyword">long</span> size;            <span class="comment">//目标（符号）的大小（字节为单位）  </span></span>
 <span class="line">&#125; ELf64_Symbol;</span>
 </pre></td></tr></table></figure>
-<p>ABS: 不应被重定位的symbol<br>
-UNDEF: 未定义的<br>
-COMMON: 未初始化的全局</p>
-<br>
-<p>Num：.symtab表的标号，符号的个数。<br>
-一个SymbolTable的例子：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>ABS: 不应被重定位的symbol<br>UNDEF: 未定义的<br>COMMON: 未初始化的全局</p>
+<p><br></p>
+<p>Num：.symtab表的标号，符号的个数。<br>一个SymbolTable的例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -820,33 +739,21 @@ COMMON: 未初始化的全局</p>
 <span class="line">    <span class="number">19</span>: <span class="number">0000000000000000</span>     <span class="number">0</span> NOTYPE  GLOBAL DEFAULT  UND _GLOBAL_OFFSET_TABLE_</span>
 <span class="line">    <span class="number">20</span>: <span class="number">0000000000000000</span>     <span class="number">0</span> NOTYPE  GLOBAL DEFAULT  UND referenced_sum</span>
 <span class="line">    <span class="number">21</span>: <span class="number">0000000000000000</span>     <span class="number">0</span> NOTYPE  GLOBAL DEFAULT  UND <span class="built_in">puts</span></span>
-</pre></td></tr></table></figure>
-<p>rt<br>
-<code>.text</code> 里有 <code>defined_fun</code>,<code>main</code><br>
-<code>.data</code> 里有 <code>array</code>, <code>ini_static</code>, <code>ini_global</code><br>
-<code>.bss</code> 里有 <code>uninitialize_static</code>, <code>zero_static</code>, <code>zero_global</code><br>
-<code>.rodata</code> 里有 <code>const_string</code><br>
-<code>COM</code> 有 <code>uninitialize_global</code><br>
-<code>UNDF</code> 有 <code>referenced_sum</code> , <code>puts</code> , <code>GOT表</code></p>
-<p>Type:<br>
-<code>ini_static</code> , <code>uninitialize_static</code> , <code>zero_static</code> 都是 <strong>Local</strong><br>
-其他都是 <strong>Global</strong></p>
-<br>
+</pre></td></tr></table></figure></p>
+<p>rt<br><code>.text</code> 里有 <code>defined_fun</code>,<code>main</code><br><code>.data</code> 里有 <code>array</code>, <code>ini_static</code>, <code>ini_global</code><br><code>.bss</code> 里有 <code>uninitialize_static</code>, <code>zero_static</code>, <code>zero_global</code><br><code>.rodata</code> 里有 <code>const_string</code><br><code>COM</code> 有 <code>uninitialize_global</code><br><code>UNDF</code> 有 <code>referenced_sum</code> , <code>puts</code> , <code>GOT表</code></p>
+<p>Type:<br><code>ini_static</code> , <code>uninitialize_static</code> , <code>zero_static</code> 都是 <strong>Local</strong><br>其他都是 <strong>Global</strong></p>
+<p><br></p>
 <p><span id="7.6"></span></p>
 <hr>
-<h3 id="76-symbol-resolution-符号解析"><a class="markdownIt-Anchor" href="#76-symbol-resolution-符号解析"></a> 7.6 Symbol Resolution - 符号解析</h3>
-<p><strong>让所有的引用和符号表中唯一的符号定义相关联</strong></p>
+<h3 id="7-6-Symbol-Resolution-符号解析"><a href="#7-6-Symbol-Resolution-符号解析" class="headerlink" title="7.6 Symbol Resolution - 符号解析"></a>7.6 Symbol Resolution - 符号解析</h3><p><strong>让所有的引用和符号表中唯一的符号定义相关联</strong></p>
 <ol>
-<li>
-<p>Local Symbol: 给予唯一名字和定义</p>
+<li><p>Local Symbol: 给予唯一名字和定义</p>
 </li>
-<li>
-<p>Global Symbol: 非本模块定义，留给链接器处理</p>
+<li><p>Global Symbol: 非本模块定义，留给链接器处理</p>
 </li>
 </ol>
-<br>
-<h4 id="761-resolve-multiply-defined-global-symbols"><a class="markdownIt-Anchor" href="#761-resolve-multiply-defined-global-symbols"></a> 7.6.1 Resolve Multiply Defined Global Symbols</h4>
-<p>定义符号的强/弱</p>
+<p><br></p>
+<h4 id="7-6-1-Resolve-Multiply-Defined-Global-Symbols"><a href="#7-6-1-Resolve-Multiply-Defined-Global-Symbols" class="headerlink" title="7.6.1 Resolve Multiply Defined Global Symbols"></a>7.6.1 Resolve Multiply Defined Global Symbols</h4><p>定义符号的强/弱</p>
 <p><strong>强</strong></p>
 <ul>
 <li>函数/已初始化的变量</li>
@@ -861,14 +768,11 @@ COMMON: 未初始化的全局</p>
 <li>同名的强符号和弱符号，选择强的符号</li>
 <li>多个同名的弱符号任意选一个</li>
 </ol>
-<p>遇到多重定义的符号时警告</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>遇到多重定义的符号时警告<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">gcc -fno-common main.c func.c -o t</span>
-</pre></td></tr></table></figure>
-<br>
-<h4 id="762-linking-with-static-libraries-链接静态库"><a class="markdownIt-Anchor" href="#762-linking-with-static-libraries-链接静态库"></a> 7.6.2 Linking with Static Libraries - 链接静态库</h4>
-<p>静态库在程序链接的时候使用<br>
-链接器会将程序中使用到函数的代码从库文件中拷贝到应用程序中。</p>
+</pre></td></tr></table></figure></p>
+<p><br></p>
+<h4 id="7-6-2-Linking-with-Static-Libraries-链接静态库"><a href="#7-6-2-Linking-with-Static-Libraries-链接静态库" class="headerlink" title="7.6.2 Linking with Static Libraries - 链接静态库"></a>7.6.2 Linking with Static Libraries - 链接静态库</h4><p>静态库在程序链接的时候使用<br>链接器会将程序中使用到函数的代码从库文件中拷贝到应用程序中。</p>
 <p>静态库包含多个可重定位目标文件和描述各成员的头部，以archive存档的形式保存</p>
 <p><strong>优点</strong></p>
 <ul>
@@ -880,17 +784,14 @@ COMMON: 未初始化的全局</p>
 <li>静态函数库改变了，那么程序必须重新链接</li>
 <li>多个可执行文件链接在一个库上时，运行会使库里的代码重复复制到内存，造成浪费</li>
 </ol>
-<p>建立,链接方法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>建立,链接方法<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 </pre></td><td class="code"><pre><span class="line">ar rcs libvector.a addvec.o multvec.o</span>
 <span class="line">gcc -static -o prog2C main2.o ./libvector.a</span>
-</pre></td></tr></table></figure>
-<p>此外，链接的时候，拷贝到最终可执行文件的基本单位还是模块<br>
-比如只用到了addvec.o，就不会同时打包libvector.a里面的multvec.o</p>
-<br>
-<h4 id="763-use-static-library-resolve-reference"><a class="markdownIt-Anchor" href="#763-use-static-library-resolve-reference"></a> 7.6.3 Use static library resolve reference</h4>
-<p><strong>集合E</strong></p>
+</pre></td></tr></table></figure></p>
+<p>此外，链接的时候，拷贝到最终可执行文件的基本单位还是模块<br>比如只用到了addvec.o，就不会同时打包libvector.a里面的multvec.o</p>
+<p><br></p>
+<h4 id="7-6-3-Use-static-library-resolve-reference"><a href="#7-6-3-Use-static-library-resolve-reference" class="headerlink" title="7.6.3 Use static library resolve reference"></a>7.6.3 Use static library resolve reference</h4><p><strong>集合E</strong></p>
 <ul>
 <li>所有重定位的目标文件</li>
 </ul>
@@ -904,30 +805,19 @@ COMMON: 未初始化的全局</p>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1539953133/Screenshot_from_2018-10-19_20-41-23.png" alt=""></p>
 <p>最后U为空，则成功</p>
-<p>按顺序扫描，所以，一般将库放在命令行的结尾。<br>
-若是有特殊的需求，比如循环引用，也可以在命令行上重复导入某个库。<br>
-（出现这种情况，更好的办法应该是，这两个相互依赖的模块放在同一个.a存档文件中）。<br>
-<br></p>
+<p>按顺序扫描，所以，一般将库放在命令行的结尾。<br>若是有特殊的需求，比如循环引用，也可以在命令行上重复导入某个库。<br>（出现这种情况，更好的办法应该是，这两个相互依赖的模块放在同一个.a存档文件中）。<br><br></p>
 <p><span id="7.7"></span></p>
 <hr>
-<h3 id="77-relocation-重定位"><a class="markdownIt-Anchor" href="#77-relocation-重定位"></a> 7.7 Relocation - 重定位</h3>
-<p><strong>合并输入模块，为每个符号分配运行时地址</strong></p>
-<p>步骤<br>
-<strong>1.重定位（section）节和（symbol）符号定义</strong></p>
+<h3 id="7-7-Relocation-重定位"><a href="#7-7-Relocation-重定位" class="headerlink" title="7.7 Relocation - 重定位"></a>7.7 Relocation - 重定位</h3><p><strong>合并输入模块，为每个符号分配运行时地址</strong></p>
+<p>步骤<br><strong>1.重定位（section）节和（symbol）符号定义</strong></p>
 <ul>
-<li>合并各文件里同名的节，运行地址赋给每个指令<br>
-这一步完成时，程序中的每一个指令和全局变量都有唯一的运行时存储器地址了。</li>
+<li>合并各文件里同名的节，运行地址赋给每个指令<br>这一步完成时，程序中的每一个指令和全局变量都有唯一的运行时存储器地址了。</li>
 </ul>
 <p><strong>2.重定位符号引用</strong></p>
 <ul>
-<li>链接器修改引用指向运行时地址，依靠relocation entry（重定位条目）<br>
-<br></li>
+<li>链接器修改引用指向运行时地址，依靠relocation entry（重定位条目）<br><br></li>
 </ul>
-<p>重定位节（section）<br>
-可以看到Relocate里的ADDR是0<br>
-但Exec里的ADDR是4000e8<br>
-(动态链接又是相对的了，7.9）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>重定位节（section）<br>可以看到Relocate里的ADDR是0<br>但Exec里的ADDR是4000e8<br>(动态链接又是相对的了，7.9）<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -951,9 +841,8 @@ COMMON: 未初始化的全局</p>
 <span class="line"># Dynamic:</span>
 <span class="line">[<span class="number">11</span>] .text             PROGBITS         <span class="number">00000000000004f</span>0  <span class="number">000004f</span>0</span>
 <span class="line">       <span class="number">0000000000000202</span>  <span class="number">0000000000000000</span>  AX       <span class="number">0</span>     <span class="number">0</span>     <span class="number">16</span></span>
-</pre></td></tr></table></figure>
-<p>重定位符号（Symbol）<br>
-Value不同</p>
+</pre></td></tr></table></figure></p>
+<p>重定位符号（Symbol）<br>Value不同</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -971,13 +860,9 @@ Value不同</p>
 <span class="line"># Dynamic:</span>
 <span class="line">      <span class="number">50</span>: <span class="number">0000000000201034</span>     <span class="number">4</span> OBJECT  GLOBAL DEFAULT   <span class="number">21</span> ini_global</span>
 </pre></td></tr></table></figure>
-<br>
-<h4 id="771-relocation-entry-重定位条目"><a class="markdownIt-Anchor" href="#771-relocation-entry-重定位条目"></a> 7.7.1 Relocation Entry - 重定位条目</h4>
-<p>汇编器遇到未知的引用生成重定位条目<br>
-函数放到.rel.text<br>
-未初始化数据放到.rel.data</p>
-<p>每个条目的格式</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><br></p>
+<h4 id="7-7-1-Relocation-Entry-重定位条目"><a href="#7-7-1-Relocation-Entry-重定位条目" class="headerlink" title="7.7.1 Relocation Entry - 重定位条目"></a>7.7.1 Relocation Entry - 重定位条目</h4><p>汇编器遇到未知的引用生成重定位条目<br>函数放到.rel.text<br>未初始化数据放到.rel.data</p>
+<p>每个条目的格式<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -989,10 +874,8 @@ Value不同</p>
 <span class="line">         symbol: <span class="number">32</span>;      <span class="comment">//引用指向的symbol</span></span>
 <span class="line">    <span class="keyword">long</span> addend;          </span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<p>两种类型：<br>
-1.R_X86_64_PC32 相对寻址<br>
-2.R_X86_64_32   直接寻址</p>
+</pre></td></tr></table></figure></p>
+<p>两种类型：<br>1.R_X86_64_PC32 相对寻址<br>2.R_X86_64_32   直接寻址</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1004,10 +887,8 @@ Value不同</p>
 <span class="line"><span class="number">000000000021</span>  <span class="number">000</span>d00000002 R_X86_64_PC32     <span class="number">0000000000000000</span> <span class="built_in">array</span> - <span class="number">4</span></span>
 <span class="line"><span class="number">000000000026</span>  <span class="number">001400000004</span> R_X86_64_PLT32    <span class="number">0000000000000000</span> referenced_sum - <span class="number">4</span></span>
 </pre></td></tr></table></figure>
-<br>
-<h4 id="772-relocating-symbol-references"><a class="markdownIt-Anchor" href="#772-relocating-symbol-references"></a> 7.7.2 Relocating Symbol References</h4>
-<p>还是书上的例子比较详细…</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><br></p>
+<h4 id="7-7-2-Relocating-Symbol-References"><a href="#7-7-2-Relocating-Symbol-References" class="headerlink" title="7.7.2 Relocating Symbol References"></a>7.7.2 Relocating Symbol References</h4><p>还是书上的例子比较详细…….<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1039,15 +920,9 @@ Value不同</p>
 <span class="line">                &#125;</span>
 <span class="line">        &#125;</span>
 <span class="line">&#125;</span>
-</pre></td></tr></table></figure>
-<br>
-PC-relative
-相当于 s[r.offset] = r.symbol - ( s + r.offset ) + r.addend 
-r.symbol: symbol所在的地址（call发生时候的地址）
-s + r.offset: 函数真正的运行地址
-r.addend: 运行call时PC的变化 - 1
-<p>也就是说0x08 = 62c - 620 + (-4)</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td></tr></table></figure></p>
+<p><br><br>PC-relative<br>相当于 s[r.offset] = r.symbol - ( s + r.offset ) + r.addend<br>r.symbol: symbol所在的地址（call发生时候的地址）<br>s + r.offset: 函数真正的运行地址<br>r.addend: 运行call时PC的变化 - 1</p>
+<p>也就是说0x08 = 62c - 620 + (-4)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1061,80 +936,19 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"> <span class="number">61f</span>:	e8 <span class="number">08</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>       	callq  <span class="number">62</span>c &lt;referenced_sum&gt;</span>
 <span class="line"> </span>
 <span class="line"> <span class="number">000000000000062</span>c &lt;referenced_sum&gt;</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <p>然后运行时候的call的过程就是刚好相反：</p>
 <p>61f + 5(下一个指令的位置，也是为什么addend是-4）+ 8 = 62c</p>
-<br>
+<p><br></p>
 <p>Absolute</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line"><span class="number">4004</span>d9: bf <span class="number">18</span> <span class="number">10</span> <span class="number">60</span> <span class="number">00</span> mov $<span class="number">0x601018</span>, %edi = &amp;<span class="built_in">array</span></span>
 </pre></td></tr></table></figure>
-<p>array 就直接定位到了0x601018<br>
-（我这里没重定位绝对引用的就抄书了qwqqwqqwq）</p>
-<br>
+<p>array 就直接定位到了0x601018<br>（我这里没重定位绝对引用的就抄书了qwqqwqqwq）</p>
+<p><br></p>
 <hr>
-<h3 id="78-executable-object-file-可执行"><a class="markdownIt-Anchor" href="#78-executable-object-file-可执行"></a> 7.8 Executable Object File - 可执行</h3>
-<p>格式：</p>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ELF header</td>
-<td>只读</td>
-</tr>
-<tr>
-<td>segment header table</td>
-<td></td>
-</tr>
-<tr>
-<td>.init</td>
-<td></td>
-</tr>
-<tr>
-<td>.text</td>
-<td></td>
-</tr>
-<tr>
-<td>.radata</td>
-<td></td>
-</tr>
-<tr>
-<td>.data</td>
-<td>读写</td>
-</tr>
-<tr>
-<td>.bss</td>
-<td></td>
-</tr>
-<tr>
-<td>.symtab</td>
-<td>不加载进内存</td>
-</tr>
-<tr>
-<td>.debug</td>
-<td></td>
-</tr>
-<tr>
-<td>.line</td>
-<td></td>
-</tr>
-<tr>
-<td>.strtab</td>
-<td></td>
-</tr>
-<tr>
-<td>Section header table</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Program header table程序头部表描述了文件里的每一片映射到的连续内存段</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h3 id="7-8-Executable-Object-File-可执行"><a href="#7-8-Executable-Object-File-可执行" class="headerlink" title="7.8 Executable Object File - 可执行"></a>7.8 Executable Object File - 可执行</h3><p>格式：<br>| 组成        | 解释 |<br>| ——–   | —–|<br>| ELF header | 只读 |<br>|segment header table|<br>|.init|<br>|.text|<br>|.radata|<br>|.data|读写|<br>|.bss|<br>|.symtab|不加载进内存|<br>|.debug|<br>|.line|<br>|.strtab|<br>|Section header table|</p>
+<p>Program header table程序头部表描述了文件里的每一片映射到的连续内存段<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1168,11 +982,10 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">                 <span class="number">0x00000000000008d0</span> <span class="number">0x00000000000008d0</span>  R E    <span class="number">0x200000</span></span>
 <span class="line">  LOAD           <span class="number">0x0000000000000de0</span> <span class="number">0x0000000000200de0</span> <span class="number">0x0000000000200de0</span></span>
 <span class="line">                 <span class="number">0x0000000000000260</span> <span class="number">0x0000000000000270</span>  RW     <span class="number">0x200000</span></span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p><br></p>
 <hr>
-<h3 id="79-loading-加载可执行文件"><a class="markdownIt-Anchor" href="#79-loading-加载可执行文件"></a> 7.9 Loading - 加载可执行文件</h3>
-<p>输入./prog后</p>
+<h3 id="7-9-Loading-加载可执行文件"><a href="#7-9-Loading-加载可执行文件" class="headerlink" title="7.9 Loading - 加载可执行文件"></a>7.9 Loading - 加载可执行文件</h3><p>输入./prog后</p>
 <p>加载Load</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1539953133/Screenshot_from_2018-10-19_16-06-38.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2021-57-55.png" alt="elelelelel"></p>
@@ -1187,11 +1000,10 @@ r.addend: 运行call时PC的变化 - 1
 <p>最顶层的内核地址空间包括了与进程有关的数据结构，如页表、内核在进程的上下文结构task_struct和mm结构，内核栈</p>
 </blockquote>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1539953652/Screenshot_from_2018-10-19_20-53-40.png" alt="hahahahahallllll"></p>
-<br>
+<p><br></p>
 <p><span id="7.10"></span></p>
 <hr>
-<h3 id="710-shared-library-共享库"><a class="markdownIt-Anchor" href="#710-shared-library-共享库"></a> 7.10 Shared Library - 共享库</h3>
-<p><strong>加载时的链接</strong></p>
+<h3 id="7-10-Shared-Library-共享库"><a href="#7-10-Shared-Library-共享库" class="headerlink" title="7.10 Shared Library - 共享库"></a>7.10 Shared Library - 共享库</h3><p><strong>加载时的链接</strong></p>
 <p><strong>优点</strong></p>
 <ol>
 <li>与共享库连接的可执行文件只包含它需要的函数的引用表，而不是所有的函数代码，只有在程序执行时, 那些需要的函数代码才被拷贝到内存中。</li>
@@ -1208,20 +1020,17 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">gcc -o prog21 main2.c ./libvector.so                 #链接</span>
 </pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-05-27.png" alt="qaq"></p>
-<p>ppppps<br>
-没加-fpic会报错…</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>ppppps<br>没加-fpic会报错…….<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line">gcc -shared -o nofpicvec.so addvec.c multvec.c</span>
 <span class="line"></span>
 <span class="line">/usr/bin/ld: /tmp/ccasjaEP.o: relocation R_X86_64_PC32 against symbol `addcnt' can <span class="keyword">not</span> be used when making a shared object; recompile with -fPIC</span>
-</pre></td></tr></table></figure>
-<br>
+</pre></td></tr></table></figure></p>
+<p><br></p>
 <p><span id="7.11"></span></p>
 <hr>
-<h3 id="711-load-and-link-shared-library-from-applications-从程序中加载"><a class="markdownIt-Anchor" href="#711-load-and-link-shared-library-from-applications-从程序中加载"></a> 7.11 Load and Link Shared Library from Applications - 从程序中加载</h3>
-<p><strong>运行时的链接</strong></p>
+<h3 id="7-11-Load-and-Link-Shared-Library-from-Applications-从程序中加载"><a href="#7-11-Load-and-Link-Shared-Library-from-Applications-从程序中加载" class="headerlink" title="7.11 Load and Link Shared Library from Applications - 从程序中加载"></a>7.11 Load and Link Shared Library from Applications - 从程序中加载</h3><p><strong>运行时的链接</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1252,30 +1061,24 @@ r.addend: 运行call时PC的变化 - 1
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">gcc -rdynamic -o prog2r dll.c -ldl</span>
 </pre></td></tr></table></figure>
-<br>
+<p><br></p>
 <p><span id="7.12"></span></p>
 <hr>
-<h3 id="712-position-independent-code-位置无关"><a class="markdownIt-Anchor" href="#712-position-independent-code-位置无关"></a> 7.12 Position Independent Code - 位置无关</h3>
-<p><a href="http://blog.csdn.net/chenji001/article/details/5691690" target="_blank" rel="noopener">编译GNU/Linux共享库, 为什么要用PIC编译?(转)</a><br>
-<a href="https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html" target="_blank" rel="noopener">PLT and GOT - the key to code sharing and dynamic libraries</a></p>
+<h3 id="7-12-Position-Independent-Code-位置无关"><a href="#7-12-Position-Independent-Code-位置无关" class="headerlink" title="7.12 Position Independent Code - 位置无关"></a>7.12 Position Independent Code - 位置无关</h3><p><a href="http://blog.csdn.net/chenji001/article/details/5691690" target="_blank" rel="noopener">编译GNU/Linux共享库, 为什么要用PIC编译?(转)</a><br><a href="https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html" target="_blank" rel="noopener">PLT and GOT - the key to code sharing and dynamic libraries</a></p>
 <p>实现多进程共享内存中唯一一个的库代码的方法</p>
 <ul>
-<li>如果固定每个库分配到的内存片
-<ol>
+<li>如果固定每个库分配到的内存片<ol>
 <li>不使用的库也会被分配空间</li>
 <li>必须保证每个库更新之后片也不会重叠，就会变得很难管理</li>
 </ol>
 </li>
 </ul>
 <p>可以在任意位置加载而无需链接器进行修改，这样的代码被称作位置无关代码（PIC）</p>
-<br>
+<p><br></p>
 <p><strong>运行时数据段和代码段的偏移量不变</strong></p>
-<p>读写数据节总是放在到这个库代码节的一个已知的偏移位置<br>
-即 我希望对象的地址 = 当前地址 + 已知固定的偏移。</p>
+<p>读写数据节总是放在到这个库代码节的一个已知的偏移位置<br>即 我希望对象的地址 = 当前地址 + 已知固定的偏移。</p>
 <p>为了利用这一特点，编译器在数据段的开头创建了一个全局偏移表（GOT）。在GOT中，目标模块所引用的每个全局数据对象都对应一个表项。编译器同时为GOT中的每个表项生成了一个重定位记录。在加载时，动态链接器重定位GOT中的每个表项，使其包含正确的绝对地址。每个包含全局数据引用的目标模块都有其自己的GOT。</p>
-<h4 id="7121-数据"><a class="markdownIt-Anchor" href="#7121-数据"></a> 7.12.1 数据</h4>
-<p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-24-45.png" alt="此处输入图片的描述"></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<h4 id="7-12-1-数据"><a href="#7-12-1-数据" class="headerlink" title="7.12.1 数据"></a>7.12.1 数据</h4><p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-24-45.png" alt="此处输入图片的描述"><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1285,7 +1088,7 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"> 65d:	48 8b 05 84 09 20 00 	mov    0x200984(%rip),%rax        <span class="comment"># 200fe8 &lt;addcnt@@Base-0x3c&gt;</span></span>
 <span class="line"> 664:	8b 00                	mov    (%rax),%eax</span>
 <span class="line"> 666:	8d 50 01             	lea    0x1(%rax),%edx</span>
-</pre></td></tr></table></figure>
+</pre></td></tr></table></figure></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1295,11 +1098,9 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">  Offset          Info           Type           Sym. Value    Sym. Name + Addend</span>
 <span class="line">000000200fe8  000900000006 R_X86_64_GLOB_DAT 0000000000201024 addcnt + 0</span>
 </pre></td></tr></table></figure>
-<p>这里是%rip + 0x200984 = 0x200fe8 （ GOT 表里的位置 ）<br>
-这样，加载时候的重定位只需要找到addcnt的真实地址，然后放到GOT表里就行了，不需要修改代码的任何值</p>
-<br>
-<h4 id="7122-函数"><a class="markdownIt-Anchor" href="#7122-函数"></a> 7.12.2 函数</h4>
-<p>延迟绑定 lazy binding</p>
+<p>这里是%rip + 0x200984 = 0x200fe8 （ GOT 表里的位置 ）<br>这样，加载时候的重定位只需要找到addcnt的真实地址，然后放到GOT表里就行了，不需要修改代码的任何值</p>
+<p><br></p>
+<h4 id="7-12-2-函数"><a href="#7-12-2-函数" class="headerlink" title="7.12.2 函数"></a>7.12.2 函数</h4><p>延迟绑定 lazy binding</p>
 <p>在这里使用的间接性被称为一个过程连接表或PLT。代码不会直接调用一个外部函数，只会通过一个PLT存根。</p>
 <p><img src="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-25-42.png" alt="此处输入图片的描述"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
@@ -1310,9 +1111,7 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"><span class="number">778</span>:	e8 c3 fe ff ff       	callq  <span class="number">640</span> &lt;addvec@plt&gt;</span>
 </pre></td></tr></table></figure>
 <ul>
-<li>首先main函数跳到plt表里addvec的位置0x640</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<li>首先main函数跳到plt表里addvec的位置0x640<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1327,6 +1126,8 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"> <span class="number">646</span>:	<span class="number">68</span> <span class="number">01</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>       	pushq  $<span class="number">0x1</span></span>
 <span class="line"> <span class="number">64b</span>:	e9 d0 ff ff ff       	jmpq   <span class="number">620</span> &lt;.plt&gt;</span>
 </pre></td></tr></table></figure>
+</li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1369,9 +1170,8 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">	...</span>
 </pre></td></tr></table></figure>
 <ul>
-<li>初始状态下，可以看到上面0x201020的位置是…emmmm空的…</li>
-<li>所以返回去运行下一条指令 pushq 1， 然后跳去.plt</li>
-</ul>
+<li>初始状态下，可以看到上面0x201020的位置是…..emmmm空的……</li>
+<li><p>所以返回去运行下一条指令 pushq 1， 然后跳去.plt</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1381,22 +1181,19 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"> <span class="number">626</span>:	ff <span class="number">25</span> e4 <span class="number">09</span> <span class="number">20</span> <span class="number">00</span>    	jmpq   *<span class="number">0x2009e4</span>(%rip)        # <span class="number">201010</span> &lt;_GLOBAL_OFFSET_TABLE_+<span class="number">0x10</span>&gt;</span>
 <span class="line"> <span class="number">62</span>c:	<span class="number">0f</span> <span class="number">1f</span> <span class="number">40</span> <span class="number">00</span>          	nopl   <span class="number">0x0</span>(%rax)</span>
 </pre></td></tr></table></figure>
-<ul>
-<li>plt[0]就把GOT[1]（不知道是什么参数）push进栈</li>
+</li>
+<li><p>plt[0]就把GOT[1]（不知道是什么参数）push进栈</p>
+</li>
 <li>然后往下召唤GOT[2]里的动态链接器，确定addvec运行时的真正地址，再把地址赋给0x201020</li>
 <li>然后以后再找的时候就可以从GOT里取了</li>
 </ul>
-<p>这就是延迟绑定（lazy binding）<br>
-推迟解析实际用到的函数，避免不需要的重定位。</p>
-<br>
+<p>这就是延迟绑定（lazy binding）<br>推迟解析实际用到的函数，避免不需要的重定位。</p>
+<p><br></p>
 <hr>
-<h3 id="713-library-interpositioning-库打桩"><a class="markdownIt-Anchor" href="#713-library-interpositioning-库打桩"></a> 7.13 Library Interpositioning - 库打桩</h3>
-<p>用自己的代码取代库<br>
-编译，链接，运行三种</p>
+<h3 id="7-13-Library-Interpositioning-库打桩"><a href="#7-13-Library-Interpositioning-库打桩" class="headerlink" title="7.13 Library Interpositioning - 库打桩"></a>7.13 Library Interpositioning - 库打桩</h3><p>用自己的代码取代库<br>编译，链接，运行三种</p>
 <p>基本思想：给定一个目标函数，创建一个原型与目标函数完全一样的包装函数，使用某种特殊的打桩机制，欺骗系统调用包装函数而不是打桩函数。</p>
-<br>
-<h4 id="7131-编译时打桩-compile-time-interpositioning"><a class="markdownIt-Anchor" href="#7131-编译时打桩-compile-time-interpositioning"></a> 7.13.1 编译时打桩 (Compile-Time Interpositioning)</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><br></p>
+<h4 id="7-13-1-编译时打桩-Compile-Time-Interpositioning"><a href="#7-13-1-编译时打桩-Compile-Time-Interpositioning" class="headerlink" title="7.13.1 编译时打桩 (Compile-Time Interpositioning)"></a>7.13.1 编译时打桩 (Compile-Time Interpositioning)</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1485,9 +1282,8 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line"><span class="meta">#<span class="meta-keyword">define</span> free(ptr) myfree(ptr)</span></span>
 </pre></td></tr></table></figure>
 <p>指示预处理器用对相应包装函数的调用替换掉对目标函数的调用。</p>
-<br>
-<h4 id="7132-链接时打桩link-time-interpositioning"><a class="markdownIt-Anchor" href="#7132-链接时打桩link-time-interpositioning"></a> 7.13.2 链接时打桩(Link-Time Interpositioning)</h4>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p><br></p>
+<h4 id="7-13-2-链接时打桩-Link-Time-Interpositioning"><a href="#7-13-2-链接时打桩-Link-Time-Interpositioning" class="headerlink" title="7.13.2 链接时打桩(Link-Time Interpositioning)"></a>7.13.2 链接时打桩(Link-Time Interpositioning)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -1532,14 +1328,9 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">gcc -c <span class="keyword">int</span>.c</span>
 <span class="line">gcc -Wl,--wrap,<span class="built_in">malloc</span> -Wl,--wrap,<span class="built_in">free</span> -o intl <span class="keyword">int</span>.o mymalloc.o</span>
 </pre></td></tr></table></figure>
-<p><code>-Wl,option</code>标志把 <code>option</code>传递给链接器，并把 <code>option</code> 中的 <code>，</code> 替换成空格<br>
-<code>-Wl,--wrap,malloc</code> 把 <code>--wrap malloc</code>传递给链接器<br>
-<code>-Wl,--wrap,free</code> 把 <code>--wrap free</code>传递给链接器</p>
-<br>
-<h4 id="7133-运行时打桩-run-time-interpositioning"><a class="markdownIt-Anchor" href="#7133-运行时打桩-run-time-interpositioning"></a> 7.13.3 运行时打桩 (Run-Time Interpositioning)</h4>
-<p>编译时打桩需要能够访问程序的源代码<br>
-链接时打桩需要能够访问程序的可重定位文件<br>
-运行时打桩只需要能够访问可执行目标</p>
+<p><code>-Wl,option</code>标志把 <code>option</code>传递给链接器，并把 <code>option</code> 中的 <code>，</code> 替换成空格<br><code>-Wl,--wrap,malloc</code> 把 <code>--wrap malloc</code>传递给链接器<br><code>-Wl,--wrap,free</code> 把 <code>--wrap free</code>传递给链接器</p>
+<p><br></p>
+<h4 id="7-13-3-运行时打桩-Run-Time-Interpositioning"><a href="#7-13-3-运行时打桩-Run-Time-Interpositioning" class="headerlink" title="7.13.3 运行时打桩 (Run-Time Interpositioning)"></a>7.13.3 运行时打桩 (Run-Time Interpositioning)</h4><p>编译时打桩需要能够访问程序的源代码<br>链接时打桩需要能够访问程序的可重定位文件<br>运行时打桩只需要能够访问可执行目标</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1634,9 +1425,8 @@ r.addend: 运行call时PC的变化 - 1
 <span class="line">gcc -o intr <span class="keyword">int</span>.c</span>
 <span class="line">LD_PRELOAD=<span class="string">"./mymalloc.so"</span> ./intr</span>
 </pre></td></tr></table></figure>
-<p>如果 <code>LD_PRELOAD</code> 环境变量被设置为一个共享库路径名的列表（以空格键或分号分隔），那么当加载和执行一个程序，需要解析未定义的引用时，动态链接器（LD_LINUX.SO）会先搜索LD_PRELAOD库，然后才搜索其他库。</p>
-<p>​<br>
-​</p>
+<p>如果 <code>LD_PRELOAD</code> 环境变量被设置为一个共享库路径名的列表（以空格键或分号分隔），那么当加载和执行一个程序，需要解析未定义的引用时，动态链接器（LD_LINUX.SO）会先搜索LD_PRELAOD库，然后才搜索其他库。 </p>
+<p>​<br>​    </p>
 
       
     </div>
@@ -1770,7 +1560,7 @@ r.addend: 运行call时PC的变化 - 1
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1781,7 +1571,7 @@ r.addend: 运行call时PC的变化 - 1
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1792,7 +1582,7 @@ r.addend: 运行call时PC的变化 - 1
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1841,7 +1631,7 @@ r.addend: 运行call时PC的变化 - 1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linker"><span class="nav-number">1.</span> <span class="nav-text"> Linker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#summary"><span class="nav-number">1.0.1.</span> <span class="nav-text"> SUMMARY</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1链接器的任务"><span class="nav-number">1.0.1.1.</span> <span class="nav-text"> 1.链接器的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2链接方式"><span class="nav-number">1.0.1.2.</span> <span class="nav-text"> 2.链接方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3pic"><span class="nav-number">1.0.1.3.</span> <span class="nav-text"> 3.PIC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#71-complier-driver-编译器驱动"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 7.1 Complier Driver - 编译器驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#72-static-library-静态链接"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 7.2 Static Library - 静态链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#73-object-files-目标文件"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 7.3 Object Files - 目标文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#74-relocatable-object-files-可重定位"><span class="nav-number">1.0.5.</span> <span class="nav-text"> 7.4 Relocatable Object Files - 可重定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#75-symbol-and-symbol-tables-符号和符号表"><span class="nav-number">1.0.6.</span> <span class="nav-text"> 7.5 Symbol and Symbol Tables - 符号和符号表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#symbol的种类有3个"><span class="nav-number">1.0.6.1.</span> <span class="nav-text"> symbol的种类有3个</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每个symbol的结构"><span class="nav-number">1.0.6.2.</span> <span class="nav-text"> 每个symbol的结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#76-symbol-resolution-符号解析"><span class="nav-number">1.0.7.</span> <span class="nav-text"> 7.6 Symbol Resolution - 符号解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#761-resolve-multiply-defined-global-symbols"><span class="nav-number">1.0.7.1.</span> <span class="nav-text"> 7.6.1 Resolve Multiply Defined Global Symbols</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#762-linking-with-static-libraries-链接静态库"><span class="nav-number">1.0.7.2.</span> <span class="nav-text"> 7.6.2 Linking with Static Libraries - 链接静态库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#763-use-static-library-resolve-reference"><span class="nav-number">1.0.7.3.</span> <span class="nav-text"> 7.6.3 Use static library resolve reference</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#77-relocation-重定位"><span class="nav-number">1.0.8.</span> <span class="nav-text"> 7.7 Relocation - 重定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#771-relocation-entry-重定位条目"><span class="nav-number">1.0.8.1.</span> <span class="nav-text"> 7.7.1 Relocation Entry - 重定位条目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#772-relocating-symbol-references"><span class="nav-number">1.0.8.2.</span> <span class="nav-text"> 7.7.2 Relocating Symbol References</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#78-executable-object-file-可执行"><span class="nav-number">1.0.9.</span> <span class="nav-text"> 7.8 Executable Object File - 可执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#79-loading-加载可执行文件"><span class="nav-number">1.0.10.</span> <span class="nav-text"> 7.9 Loading - 加载可执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#710-shared-library-共享库"><span class="nav-number">1.0.11.</span> <span class="nav-text"> 7.10 Shared Library - 共享库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#711-load-and-link-shared-library-from-applications-从程序中加载"><span class="nav-number">1.0.12.</span> <span class="nav-text"> 7.11 Load and Link Shared Library from Applications - 从程序中加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#712-position-independent-code-位置无关"><span class="nav-number">1.0.13.</span> <span class="nav-text"> 7.12 Position Independent Code - 位置无关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7121-数据"><span class="nav-number">1.0.13.1.</span> <span class="nav-text"> 7.12.1 数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7122-函数"><span class="nav-number">1.0.13.2.</span> <span class="nav-text"> 7.12.2 函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#713-library-interpositioning-库打桩"><span class="nav-number">1.0.14.</span> <span class="nav-text"> 7.13 Library Interpositioning - 库打桩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7131-编译时打桩-compile-time-interpositioning"><span class="nav-number">1.0.14.1.</span> <span class="nav-text"> 7.13.1 编译时打桩 (Compile-Time Interpositioning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7132-链接时打桩link-time-interpositioning"><span class="nav-number">1.0.14.2.</span> <span class="nav-text"> 7.13.2 链接时打桩(Link-Time Interpositioning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7133-运行时打桩-run-time-interpositioning"><span class="nav-number">1.0.14.3.</span> <span class="nav-text"> 7.13.3 运行时打桩 (Run-Time Interpositioning)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linker"><span class="nav-number">1.</span> <span class="nav-text">Linker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SUMMARY"><span class="nav-number">1.0.1.</span> <span class="nav-text">SUMMARY</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-链接器的任务"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.链接器的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-链接方式"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2.链接方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-PIC"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3.PIC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-Complier-Driver-编译器驱动"><span class="nav-number">1.0.2.</span> <span class="nav-text">7.1 Complier Driver - 编译器驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-Static-Library-静态链接"><span class="nav-number">1.0.3.</span> <span class="nav-text">7.2 Static Library - 静态链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-Object-Files-目标文件"><span class="nav-number">1.0.4.</span> <span class="nav-text">7.3 Object Files - 目标文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-Relocatable-Object-Files-可重定位"><span class="nav-number">1.0.5.</span> <span class="nav-text">7.4 Relocatable Object Files - 可重定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-Symbol-and-Symbol-Tables-符号和符号表"><span class="nav-number">1.0.6.</span> <span class="nav-text">7.5 Symbol and Symbol Tables - 符号和符号表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#symbol的种类有3个"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">symbol的种类有3个</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每个symbol的结构"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">每个symbol的结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-Symbol-Resolution-符号解析"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.6 Symbol Resolution - 符号解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-1-Resolve-Multiply-Defined-Global-Symbols"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">7.6.1 Resolve Multiply Defined Global Symbols</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-2-Linking-with-Static-Libraries-链接静态库"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">7.6.2 Linking with Static Libraries - 链接静态库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-6-3-Use-static-library-resolve-reference"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">7.6.3 Use static library resolve reference</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-7-Relocation-重定位"><span class="nav-number">1.0.8.</span> <span class="nav-text">7.7 Relocation - 重定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-1-Relocation-Entry-重定位条目"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">7.7.1 Relocation Entry - 重定位条目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-7-2-Relocating-Symbol-References"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">7.7.2 Relocating Symbol References</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-8-Executable-Object-File-可执行"><span class="nav-number">1.0.9.</span> <span class="nav-text">7.8 Executable Object File - 可执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-Loading-加载可执行文件"><span class="nav-number">1.0.10.</span> <span class="nav-text">7.9 Loading - 加载可执行文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-10-Shared-Library-共享库"><span class="nav-number">1.0.11.</span> <span class="nav-text">7.10 Shared Library - 共享库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-11-Load-and-Link-Shared-Library-from-Applications-从程序中加载"><span class="nav-number">1.0.12.</span> <span class="nav-text">7.11 Load and Link Shared Library from Applications - 从程序中加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-12-Position-Independent-Code-位置无关"><span class="nav-number">1.0.13.</span> <span class="nav-text">7.12 Position Independent Code - 位置无关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-12-1-数据"><span class="nav-number">1.0.13.1.</span> <span class="nav-text">7.12.1 数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-12-2-函数"><span class="nav-number">1.0.13.2.</span> <span class="nav-text">7.12.2 函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-13-Library-Interpositioning-库打桩"><span class="nav-number">1.0.14.</span> <span class="nav-text">7.13 Library Interpositioning - 库打桩</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-13-1-编译时打桩-Compile-Time-Interpositioning"><span class="nav-number">1.0.14.1.</span> <span class="nav-text">7.13.1 编译时打桩 (Compile-Time Interpositioning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-13-2-链接时打桩-Link-Time-Interpositioning"><span class="nav-number">1.0.14.2.</span> <span class="nav-text">7.13.2 链接时打桩(Link-Time Interpositioning)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-13-3-运行时打桩-Run-Time-Interpositioning"><span class="nav-number">1.0.14.3.</span> <span class="nav-text">7.13.3 运行时打桩 (Run-Time Interpositioning)</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1862,7 +1652,7 @@ r.addend: 运行call时PC的变化 - 1
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

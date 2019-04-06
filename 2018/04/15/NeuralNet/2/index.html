@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="ch-2 How the backpropagation algorithm works discuss how to compute the gradient ( ∇C\nabla C∇C ) of the cost function Heart of backpropagation  an expression for the partial derivative ∂C/∂w∂ C /∂ w">
+<meta name="description" content="ch-2 How the backpropagation algorithm worksdiscuss how to compute the gradient ( $\nabla C$ ) of the cost function Heart of backpropagation   an expression for the partial derivative $∂ C /∂ w$ of th">
 <meta name="keywords" content="NeuralNet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[NN&amp;DL-ch2] How the backpropagation algorithm works">
 <meta property="og:url" content="http://yoursite.com/2018/04/15/NeuralNet/2/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="ch-2 How the backpropagation algorithm works discuss how to compute the gradient ( ∇C\nabla C∇C ) of the cost function Heart of backpropagation  an expression for the partial derivative ∂C/∂w∂ C /∂ w">
+<meta property="og:description" content="ch-2 How the backpropagation algorithm worksdiscuss how to compute the gradient ( $\nabla C$ ) of the cost function Heart of backpropagation   an expression for the partial derivative $∂ C /∂ w$ of th">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
 <meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png">
@@ -98,7 +98,7 @@
 <meta property="og:updated_time" content="2018-05-25T12:30:23.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[NN&amp;DL-ch2] How the backpropagation algorithm works">
-<meta name="twitter:description" content="ch-2 How the backpropagation algorithm works discuss how to compute the gradient ( ∇C\nabla C∇C ) of the cost function Heart of backpropagation  an expression for the partial derivative ∂C/∂w∂ C /∂ w">
+<meta name="twitter:description" content="ch-2 How the backpropagation algorithm worksdiscuss how to compute the gradient ( $\nabla C$ ) of the cost function Heart of backpropagation   an expression for the partial derivative $∂ C /∂ w$ of th">
 <meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png">
 
 
@@ -409,57 +409,49 @@
       
 
       
-        <h2 id="ch-2-how-the-backpropagation-algorithm-works"><a class="markdownIt-Anchor" href="#ch-2-how-the-backpropagation-algorithm-works"></a> ch-2 How the backpropagation algorithm works</h2>
-<p>discuss <strong>how to compute</strong> the gradient ( <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">\nabla C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord">∇</span><span class="mord mathit" style="margin-right:0.07153em;">C</span></span></span></span> ) of the cost function</p>
-<p>Heart of backpropagation</p>
+        <h2 id="ch-2-How-the-backpropagation-algorithm-works"><a href="#ch-2-How-the-backpropagation-algorithm-works" class="headerlink" title="ch-2 How the backpropagation algorithm works"></a>ch-2 How the backpropagation algorithm works</h2><p>discuss <strong>how to compute</strong> the gradient ( $\nabla C$ ) of the cost function</p>
+<p>Heart of backpropagation </p>
 <ul>
-<li>an expression for the partial derivative <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∂</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">∂</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">∂ C /∂ w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> of the cost function C with respect to any weight w ( or bias b ) in the network</li>
-<li>tells us <strong>how quickly</strong> the cost changes when<br>
-we change the weights and biases</li>
+<li>an expression for the partial derivative $∂ C /∂ w$ of the cost function C with respect to any weight w ( or bias b ) in the network</li>
+<li>tells us <strong>how quickly</strong> the cost changes when<br>we change the weights and biases</li>
 </ul>
 <a id="more"></a>
-<br>
-<h3 id="warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"><a class="markdownIt-Anchor" href="#warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"></a> Warm up: a fast matrix-based approach to computing the output from a neural network</h3>
-<p>Notation</p>
+<p><br></p>
+<h3 id="Warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"><a href="#Warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network" class="headerlink" title="Warm up: a fast matrix-based approach to computing the output from a neural network"></a>Warm up: a fast matrix-based approach to computing the output from a neural network</h3><p>Notation</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-07.png" alt=""></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-02-14.png" alt=""></p>
-<br>
+<p><br></p>
 <p>Vectorized form</p>
 <ul>
 <li>apply the weight matrix to the activations, then add the bias vector, and finally apply the σ function</li>
-<li><span class="katex-error" title="ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;−&#039; at position 14: a^l=σ(w^la^{l−̲1}+b^l) =σ(z^l)">a^l=σ(w^la^{l−1}+b^l) =σ(z^l)</span></li>
+<li>$a^l=σ(w^la^{l−1}+b^l) =σ(z^l)$</li>
 </ul>
-<br>
-<h3 id="the-two-assumptions-we-need-about-the-cost-function"><a class="markdownIt-Anchor" href="#the-two-assumptions-we-need-about-the-cost-function"></a> The two assumptions we need about the cost function</h3>
-<ol>
-<li>the cost function can be written as an average $ C=\frac{1}{n}∑_xC_x$ over cost functions <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>C</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">C_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> for individual training examples, x.</li>
-<li>the cost can be written as a <strong>function of the outputs</strong> from the neural network: <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>t</mi><mi>C</mi><mo>=</mo><mi>C</mi><mo>(</mo><msup><mi>a</mi><mi>L</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">cost C = C ( a^L )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">c</span><span class="mord mathit">o</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">L</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<p><br></p>
+<h3 id="The-two-assumptions-we-need-about-the-cost-function"><a href="#The-two-assumptions-we-need-about-the-cost-function" class="headerlink" title="The two assumptions we need about the cost function"></a>The two assumptions we need about the cost function</h3><ol>
+<li>the cost function can be written as an average $ C=\frac{1}{n}∑_xC_x$ over cost functions $C_x$ for individual training examples, x.</li>
+<li>the cost can be written as a <strong>function of the outputs</strong> from the neural network: $cost C = C ( a^L )$</li>
 </ol>
-<br>
-<h3 id="the-four-fundamental-equations-behind-backpropagation"><a class="markdownIt-Anchor" href="#the-four-fundamental-equations-behind-backpropagation"></a> The four fundamental equations behind backpropagation</h3>
-<p>**DEF error ** $ δ^l_j $</p>
+<p><br></p>
+<h3 id="The-four-fundamental-equations-behind-backpropagation"><a href="#The-four-fundamental-equations-behind-backpropagation" class="headerlink" title="The four fundamental equations behind backpropagation"></a>The four fundamental equations behind backpropagation</h3><p><strong>DEF error </strong> $ δ^l_j $ </p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-05.png" alt=""></p>
-<p><strong>Error in the output layer</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>δ</mi><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">δ^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>Error in the output layer</strong> $δ^l$</p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225569/Screenshot_from_2018-03-28_16-25-52.png" alt=""></p>
-<p><strong>Error <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>δ</mi><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">δ^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span> in terms of the error in the next layer, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>δ</mi><mi>l</mi></msup><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">δ^l+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03785em;">δ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span></strong></p>
+<p><strong>Error $δ^l$ in terms of the error in the next layer, $δ^l+1$</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-20.png" alt=""></p>
 <p><strong>Rate of change of the cost with respect to any bias</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225741/Screenshot_from_2018-03-28_16-28-27.png" alt=""></p>
 <p><strong>Rate of change of the cost with respect to any weight</strong></p>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522225396/Screenshot_from_2018-03-28_16-16-48.png" alt=""></p>
-<br>
-<h3 id="proof-of-the-four-fundamental-equations"><a class="markdownIt-Anchor" href="#proof-of-the-four-fundamental-equations"></a> Proof of the four fundamental equations</h3>
-<p>using chain rule</p>
-<br>
-<h3 id="the-backpropagation-algorithm"><a class="markdownIt-Anchor" href="#the-backpropagation-algorithm"></a> The backpropagation algorithm</h3>
-<ul>
-<li>correctness: because the cost is a function of outputs</li>
+<p><br></p>
+<h3 id="Proof-of-the-four-fundamental-equations"><a href="#Proof-of-the-four-fundamental-equations" class="headerlink" title="Proof of the four fundamental equations"></a>Proof of the four fundamental equations</h3><p>using chain rule</p>
+<p><br></p>
+<h3 id="The-backpropagation-algorithm"><a href="#The-backpropagation-algorithm" class="headerlink" title="The backpropagation algorithm"></a>The backpropagation algorithm</h3><ul>
+<li>correctness: because the cost is a function of outputs </li>
 <li>To understand how the cost varies with earlier weights and biases we need to repeatedly apply the chain rule, , working backward through the layers to obtain usable expressions</li>
 </ul>
 <p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1522226532/Screenshot_from_2018-03-28_16-36-52.png" alt=""></p>
-<br>
-<h3 id="backpropagation-the-big-picture"><a class="markdownIt-Anchor" href="#backpropagation-the-big-picture"></a> Backpropagation: the big picture</h3>
-<p>a clever way of keeping track of small perturbations to the weights (and biases) as they propagate through the network, reach the output, and then affect the cost</p>
+<p><br></p>
+<h3 id="Backpropagation-the-big-picture"><a href="#Backpropagation-the-big-picture" class="headerlink" title="Backpropagation: the big picture"></a>Backpropagation: the big picture</h3><p>a clever way of keeping track of small perturbations to the weights (and biases) as they propagate through the network, reach the output, and then affect the cost</p>
 
       
     </div>
@@ -593,7 +585,7 @@ we change the weights and biases</li>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -604,7 +596,7 @@ we change the weights and biases</li>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -615,7 +607,7 @@ we change the weights and biases</li>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -664,7 +656,7 @@ we change the weights and biases</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-2-how-the-backpropagation-algorithm-works"><span class="nav-number">1.</span> <span class="nav-text"> ch-2 How the backpropagation algorithm works</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"><span class="nav-number">1.1.</span> <span class="nav-text"> Warm up: a fast matrix-based approach to computing the output from a neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-two-assumptions-we-need-about-the-cost-function"><span class="nav-number">1.2.</span> <span class="nav-text"> The two assumptions we need about the cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-four-fundamental-equations-behind-backpropagation"><span class="nav-number">1.3.</span> <span class="nav-text"> The four fundamental equations behind backpropagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proof-of-the-four-fundamental-equations"><span class="nav-number">1.4.</span> <span class="nav-text"> Proof of the four fundamental equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-backpropagation-algorithm"><span class="nav-number">1.5.</span> <span class="nav-text"> The backpropagation algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backpropagation-the-big-picture"><span class="nav-number">1.6.</span> <span class="nav-text"> Backpropagation: the big picture</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ch-2-How-the-backpropagation-algorithm-works"><span class="nav-number">1.</span> <span class="nav-text">ch-2 How the backpropagation algorithm works</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Warm-up-a-fast-matrix-based-approach-to-computing-the-output-from-a-neural-network"><span class="nav-number">1.1.</span> <span class="nav-text">Warm up: a fast matrix-based approach to computing the output from a neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-two-assumptions-we-need-about-the-cost-function"><span class="nav-number">1.2.</span> <span class="nav-text">The two assumptions we need about the cost function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-four-fundamental-equations-behind-backpropagation"><span class="nav-number">1.3.</span> <span class="nav-text">The four fundamental equations behind backpropagation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-of-the-four-fundamental-equations"><span class="nav-number">1.4.</span> <span class="nav-text">Proof of the four fundamental equations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-backpropagation-algorithm"><span class="nav-number">1.5.</span> <span class="nav-text">The backpropagation algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backpropagation-the-big-picture"><span class="nav-number">1.6.</span> <span class="nav-text">Backpropagation: the big picture</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -685,7 +677,7 @@ we change the weights and biases</li>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

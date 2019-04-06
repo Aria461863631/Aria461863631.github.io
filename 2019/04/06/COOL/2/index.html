@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="COOL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+<meta name="keywords" content="COOL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CS143-PA1] Lexer">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/COOL/2/index.html">
+<meta property="og:site_name" content="Aria">
+<meta property="og:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-06T08:21:24.068Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CS143-PA1] Lexer">
+<meta name="twitter:description" content="[CS143-PA1] LexerTargetwrite a cool lexer using flex  0. Preperation PA1 documentation  The Cool Reference Manual  A Tour of the Cool Support Code  Flex Manual 2.6.3">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/COOL/2/"/>
+
+
+
+
+
+  <title>[CS143-PA1] Lexer | Aria</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4c0218a0351c2e89b660f64b588ff880";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aria</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">あなたには僕が見えるが?</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/COOL/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[CS143-PA1] Lexer</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T16:09:51+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Compilers-Principles-Techniques-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Compilers: Principles, Techniques & Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/06/COOL/2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/04/06/COOL/2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CS143-PA1-Lexer"><a href="#CS143-PA1-Lexer" class="headerlink" title="[CS143-PA1] Lexer"></a>[CS143-PA1] Lexer</h2><h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>write a cool lexer using <code>flex</code></p>
+<p><br></p>
+<h3 id="0-Preperation"><a href="#0-Preperation" class="headerlink" title="0. Preperation"></a>0. Preperation</h3><ul>
+<li><p>PA1 documentation</p>
+</li>
+<li><p><a href="https://lagunita.stanford.edu/assets/courseware/v1/27e1a38f1161e61d91c25a4b1805489b/c4x/Engineering/Compilers/asset/cool_manual.pdf" target="_blank" rel="noopener">The Cool Reference Manual</a></p>
+</li>
+<li><p><a href="https://lagunita.stanford.edu/assets/courseware/v1/115f9c1f48cffa3192f23dc37c3a4eee/c4x/Engineering/Compilers/asset/cool-tour.pdf" target="_blank" rel="noopener">A Tour of the Cool Support Code</a></p>
+</li>
+<li><p><a href="https://www.cs.virginia.edu/~cr4bd/flex-manual" target="_blank" rel="noopener">Flex Manual 2.6.3</a></p>
+</li>
+</ul>
+<p><br></p>
+<a id="more"></a>
+<h3 id="1-Basic-Keywords"><a href="#1-Basic-Keywords" class="headerlink" title="1. Basic Keywords"></a>1. Basic Keywords</h3><p><strong>4 Scanner Results</strong></p>
+<ul>
+<li><p>Your implementation needs to define Flex rules that match the regular expressions defining each token defined in <strong>cool-parse.h</strong> and perform the appropriate action for each matched token. </p>
+</li>
+<li><p>For example, if you match on a token BOOL_CONST, your lexer has to <strong>record whether its value is true or false;</strong> </p>
+</li>
+<li><p>similarly if you match on a TYPEID token, you need to record the <strong>name</strong> of the type. </p>
+</li>
+<li><p>Note that not every token requires storing additional information; for example, only <strong>returning the token type</strong> is sufficient for some tokens like <strong>keywords</strong>.</p>
+</li>
+</ul>
+<p><br></p>
+<p>find all tokens definition in <code>cool-parse.h</code> , return corresponding token directly</p>
+<ul>
+<li><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CLASS 258</span></span>
+<span class="line">...</span>
+</pre></td></tr></table></figure>
+</li>
+</ul>
+<p>grammar in flex for case-insensitive</p>
+<ul>
+<li><blockquote>
+<p><code>(?r-s:pattern)</code></p>
+<p>apply option <code>r</code> and omit option <code>s</code> while interpreting pattern. Options may be zero or more of the characters <code>i</code>, <code>s</code>, or <code>x</code>.</p>
+<p><code>i</code> means case-insensitive. <code>-i</code> means case-sensitive.</p>
+</blockquote>
+</li>
+</ul>
+<p><br></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="comment">/* =========</span></span>
+<span class="line"><span class="comment">  * operators</span></span>
+<span class="line"><span class="comment">  * =========</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"><span class="string">"=&gt;"</span>            &#123; <span class="keyword">return</span> (DARROW);      &#125;</span>
+<span class="line"><span class="string">"&lt;-"</span>            &#123; <span class="keyword">return</span> (ASSIGN);      &#125;</span>
+<span class="line"><span class="string">"&lt;="</span>            &#123; <span class="keyword">return</span> (LE);          &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* ========</span></span>
+<span class="line"><span class="comment">  * keywords</span></span>
+<span class="line"><span class="comment">  * ========</span></span>
+<span class="line"><span class="comment">  * Keywords are case-insensitive except for the values true and false,</span></span>
+<span class="line"><span class="comment">  * which must begin with a lower-case letter.</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* apply i option for case-insensitive */</span></span>
+<span class="line">(?i:class)      &#123; <span class="keyword">return</span> CLASS;     &#125;</span>
+<span class="line">(?i:<span class="keyword">else</span>)       &#123; <span class="keyword">return</span> ELSE;      &#125;</span>
+<span class="line">(?i:fi)         &#123; <span class="keyword">return</span> FI;        &#125;</span>
+<span class="line">(?i:<span class="keyword">if</span>)         &#123; <span class="keyword">return</span> IF;        &#125;</span>
+<span class="line">(?i:in)         &#123; <span class="keyword">return</span> IN;        &#125;</span>
+<span class="line">(?i:inherits)   &#123; <span class="keyword">return</span> INHERITS;  &#125;</span>
+<span class="line">(?i:let)        &#123; <span class="keyword">return</span> LET;       &#125;</span>
+<span class="line">(?i:loop)       &#123; <span class="keyword">return</span> LOOP;      &#125;</span>
+<span class="line">(?i:pool)       &#123; <span class="keyword">return</span> POOL;      &#125;</span>
+<span class="line">(?i:then)       &#123; <span class="keyword">return</span> THEN;      &#125;</span>
+<span class="line">(?i:<span class="keyword">while</span>)      &#123; <span class="keyword">return</span> WHILE;     &#125;</span>
+<span class="line">(?i:<span class="keyword">case</span>)       &#123; <span class="keyword">return</span> CASE;      &#125; </span>
+<span class="line">(?i:esac)       &#123; <span class="keyword">return</span> ESAC;      &#125;</span>
+<span class="line">(?i:of)         &#123; <span class="keyword">return</span> OF;        &#125;</span>
+<span class="line">(?i:<span class="keyword">new</span>)        &#123; <span class="keyword">return</span> NEW;       &#125;</span>
+<span class="line">(?i:isvoid)     &#123; <span class="keyword">return</span> ISVOID;    &#125;</span>
+<span class="line">(?i:<span class="keyword">not</span>)        &#123; <span class="keyword">return</span> NOT;       &#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>5 Implementation Notes</strong></p>
+<ul>
+<li><p>Each call on the scanner returns the next <strong>token</strong> and <strong>lexeme</strong> from the input. </p>
+</li>
+<li><p>The second component, the semantic value or lexeme, is placed in the global union cool yylval, which is of type <code>YYSTYPE</code>. The type <code>YYSTYPE</code> is also defined in <code>cool-parse.h</code>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> YYSTYPE</span>
+<span class="line">&#123;</span>
+<span class="line">  Boolean boolean;</span>
+<span class="line">  Symbol symbol;</span>
+<span class="line">  ...</span>
+<span class="line">&#125; YYSTYPE;</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>For <strong>class</strong> identifiers, <strong>object</strong> identifiers, <strong>integers</strong>, and <strong>strings</strong>, the semantic value should be a <strong>Symbol</strong> stored in the field <code>cool_yylval.symbol</code>. For <strong>boolean</strong> constants, the semantic value is stored in the<br>field <code>cool_yylval.boolean</code>.</p>
+</li>
+</ul>
+<p><br></p>
+<p><strong>3 String Tables</strong></p>
+<p><em>cool-tour.pdf</em></p>
+<ul>
+<li>An important point about the structure of the Cool compiler is that there are actually <strong>three</strong> distinct string tables: one for string constants (<strong>stringtable</strong>), one for integer constants (<strong>inttable</strong>), and one for identifiers (<strong>idtable</strong>).</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="comment">/* INT_CONST */</span></span>
+<span class="line">&#123;DIGIT&#125;+ &#123;</span>
+<span class="line">    cool_yylval.symbol = inttable.add_string(yytext);</span>
+<span class="line">    <span class="keyword">return</span> INT_CONST;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* BOOL_CONST */</span></span>
+<span class="line">t(?i:rue) &#123;</span>
+<span class="line">  cool_yylval.boolean = <span class="number">1</span>;</span>
+<span class="line">  <span class="keyword">return</span> BOOL_CONST;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">f(?i:alse) &#123;</span>
+<span class="line">  cool_yylval.boolean = <span class="number">0</span>;</span>
+<span class="line">  <span class="keyword">return</span> BOOL_CONST;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* only differences between type and object id is the leading char case */</span></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* TYPEID */</span></span>
+<span class="line"> <span class="comment">/* Class names begin with an uppercase letter. */</span></span>
+<span class="line">[A-Z][A-Za-z0<span class="number">-9</span>_]* &#123;</span>
+<span class="line">    cool_yylval.symbol = idtable.add_string(yytext);</span>
+<span class="line">    <span class="keyword">return</span> TYPEID;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* OBJECTID */</span></span>
+<span class="line">[a-z][A-Za-z0<span class="number">-9</span>_]* &#123;</span>
+<span class="line">  cool_yylval.symbol = idtable.add_string(yytext);</span>
+<span class="line">  <span class="keyword">return</span> OBJECTID;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="2-Comment"><a href="#2-Comment" class="headerlink" title="2. Comment"></a>2. Comment</h3><p><strong>2 Introduction to Flex</strong></p>
+<ul>
+<li><p>When writing rules in Flex, it may be necessary to perform different actions <strong>depending on previously</strong><br><strong>encountered tokens</strong>. </p>
+</li>
+<li><p>For example, when processing a closing comment token, you might be interested in knowing whether an opening comment was <strong>previously encountered</strong>. </p>
+</li>
+<li><p>One obvious way to track state is to declare global variables in your declaration section, which are <strong>set to true</strong> when certain tokens of interest are encountered. </p>
+</li>
+<li><p>Flex also provides syntactic sugar for achieving similar functionality by using state declarations such as:</p>
+<p><code>%Start COMMENT</code></p>
+<p>which can be set to true by writing <code>BEGIN(COMMENT)</code>. </p>
+</li>
+<li><p>To perform an action only if an opening comment was previously encountered, you can predicate your rule on <code>COMMENT</code> using the syntax:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">&lt;COMMENT&gt; &#123;</span>
+<span class="line"><span class="comment">// the rest of your rule ...</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>There is also a special default state called <code>INITIAL</code> which is active unless you explicitly indicate the<br><strong>beginning of a new state</strong>.</p>
+</li>
+</ul>
+<p><br></p>
+<p><strong>10.3 Comments</strong></p>
+<p><em>cool-manual.pdf</em></p>
+<ul>
+<li>There are two forms of comments in Cool. Any characters <strong>between two dashes “–”</strong> and the next newline (or EOF, if there is no next newline) are treated as comments. Comments may also be written by enclosing text in <strong>(∗ . . . ∗)</strong>.</li>
+</ul>
+<p><br></p>
+<p><strong>4.1 Error Handling</strong></p>
+<ul>
+<li>If a comment remains open when EOF is encountered, report this error with the message “EOF in comment”. Do not tokenize the comment’s contents simply because the terminator is missing. </li>
+<li>If you see <code>*)</code> outside a comment, report this error as “Unmatched <code>*)</code>“, rather than tokenizing it<br>as * and ).</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+</pre></td><td class="code"><pre><span class="line">...</span>
+<span class="line">%&#125;</span>
+<span class="line"></span>
+<span class="line">DIGIT           [<span class="number">0</span><span class="number">-9</span>]</span>
+<span class="line">%Start          COMMENT</span>
+<span class="line">%Start          INLINE_COMMENT</span>
+<span class="line"></span>
+<span class="line">%%</span>
+<span class="line"> <span class="comment">/* =================</span></span>
+<span class="line"><span class="comment">  *  Nested comments</span></span>
+<span class="line"><span class="comment">  * ================= </span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* begin a comment or nested comment */</span></span>
+<span class="line">&lt;INITIAL,COMMENT,INLINE_COMMENT&gt;<span class="string">"(*"</span> &#123;</span>
+<span class="line">  comment_layer++;</span>
+<span class="line">  BEGIN COMMENT;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* if we met *) in (the outermost) comment */</span></span>
+<span class="line">&lt;COMMENT&gt;<span class="string">"*)"</span> &#123;</span>
+<span class="line">  comment_layer--;</span>
+<span class="line">  <span class="keyword">if</span>(comment_layer == <span class="number">0</span>) &#123;</span>
+<span class="line">    BEGIN <span class="number">0</span>; &#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* any character other than '\n','(','*' is ok */</span> </span>
+<span class="line">&lt;COMMENT&gt;[^\n(*]* &#123;  &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* ( or ) or * that appears only once */</span></span>
+<span class="line">&lt;COMMENT&gt;[()*] &#123;  &#125;</span>
+<span class="line"></span>
+<span class="line">&lt;COMMENT&gt;\n &#123; curr_lineno++; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/*</span></span>
+<span class="line"><span class="comment">  * Error handling in comment </span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"><span class="string">"*)"</span> &#123;</span>
+<span class="line">    cool_yylval.error_msg = <span class="string">"Unmatched *)"</span>;</span>
+<span class="line">    <span class="keyword">return</span> ERROR;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">&lt;COMMENT&gt;&lt;&lt;EOF&gt;&gt; &#123;</span>
+<span class="line">    cool_yylval.error_msg = <span class="string">"EOF in comment"</span>;</span>
+<span class="line">    BEGIN <span class="number">0</span>;</span>
+<span class="line">    <span class="keyword">return</span> ERROR;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* ===============</span></span>
+<span class="line"><span class="comment">  * inline comments</span></span>
+<span class="line"><span class="comment">  * ===============</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* if seen "--", start inline comment */</span></span>
+<span class="line">&lt;INITIAL&gt;<span class="string">"--"</span> &#123; BEGIN INLINE_COMMENT; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* any character other than '\n' is a nop in inline comments */</span> </span>
+<span class="line">&lt;INLINE_COMMENT&gt;[^\n]* &#123; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* if seen '\n' in inline comment, the comment ends */</span></span>
+<span class="line">&lt;INLINE_COMMENT&gt;\n &#123;</span>
+<span class="line">    curr_lineno++;</span>
+<span class="line">    BEGIN <span class="number">0</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="3-Strings"><a href="#3-Strings" class="headerlink" title="3. Strings"></a>3. Strings</h3><p><strong>4.3 Strings</strong></p>
+<ul>
+<li>Your scanner should convert <strong>escape characters</strong> in string constants to their correct values</li>
+<li>return error for a string containing the literal null character.</li>
+</ul>
+<p><strong>4.1 Error Handling</strong></p>
+<ul>
+<li>String constant too long</li>
+<li>Unterminated string constant</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="comment">/* =========</span></span>
+<span class="line"><span class="comment">  * STR_CONST</span></span>
+<span class="line"><span class="comment">  * =========</span></span>
+<span class="line"><span class="comment">  *  String constants (C syntax)</span></span>
+<span class="line"><span class="comment">  *  Escape sequence \c is accepted for all characters c. Except for </span></span>
+<span class="line"><span class="comment">  *  \n \t \b \f, the result is c.</span></span>
+<span class="line"><span class="comment">  *</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* if seen '\"', start string */</span></span>
+<span class="line">&lt;INITIAL&gt;\<span class="string">" &#123;</span></span>
+<span class="line"><span class="string">    BEGIN STRING;</span></span>
+<span class="line"><span class="string">    yymore();</span></span>
+<span class="line"><span class="string">&#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* Cannot read '\\' '\"' '\n' */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;[^\\\"\n]* &#123; yymore(); &#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* normal escape characters, not \n */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;\\[^\n] &#123; yymore(); &#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* seen a '\\' at the end of a line, the string continues */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;\\\n &#123;</span></span>
+<span class="line"><span class="string">    curr_lineno++;</span></span>
+<span class="line"><span class="string">    yymore();</span></span>
+<span class="line"><span class="string">&#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* meet EOF in the middle of a string, error */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;&lt;&lt;EOF&gt;&gt; &#123;</span></span>
+<span class="line"><span class="string">    yylval.error_msg = "</span>EOF in <span class="built_in">string</span> constant<span class="string">";</span></span>
+<span class="line"><span class="string">    BEGIN 0;</span></span>
+<span class="line"><span class="string">    yyrestart(yyin);</span></span>
+<span class="line"><span class="string">    return ERROR;</span></span>
+<span class="line"><span class="string">&#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* meet a '\n' in the middle of a string without a '\\', error */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;\n &#123;</span></span>
+<span class="line"><span class="string">    yylval.error_msg = "</span>Unterminated <span class="built_in">string</span> constant<span class="string">";</span></span>
+<span class="line"><span class="string">    BEGIN 0;</span></span>
+<span class="line"><span class="string">    curr_lineno++;</span></span>
+<span class="line"><span class="string">    return ERROR;</span></span>
+<span class="line"><span class="string">&#125;</span></span>
+<span class="line"><span class="string"></span></span>
+<span class="line"><span class="string"> /* string ends, we need to deal with some escape characters */</span></span>
+<span class="line"><span class="string">&lt;STRING&gt;\" &#123;</span></span>
+<span class="line"><span class="string">   char* ptr = yytext; </span></span>
+<span class="line">   ptr++; /* delete the first '"' char */</span>
+<span class="line"></span>
+<span class="line">   string_buf_ptr = string_buf;</span>
+<span class="line">   <span class="keyword">int</span> string_len = <span class="number">0</span>;</span>
+<span class="line">   </span>
+<span class="line">   <span class="keyword">while</span>( *ptr != <span class="string">'"'</span> &amp;&amp; string_len &lt; MAX_STR_CONST ) &#123;</span>
+<span class="line">     <span class="keyword">if</span>( *ptr == <span class="string">'\0'</span> ) &#123;</span>
+<span class="line">         cool_yylval.error_msg = <span class="string">"String contains null character"</span>;</span>
+<span class="line">         BEGIN <span class="number">0</span>;</span>
+<span class="line">         <span class="keyword">return</span> ERROR;</span>
+<span class="line">     &#125;</span>
+<span class="line">     <span class="keyword">else</span> <span class="keyword">if</span>( *ptr == <span class="string">'\\'</span> )&#123;</span>
+<span class="line">         ptr++;</span>
+<span class="line">         <span class="keyword">switch</span>(*ptr)&#123;</span>
+<span class="line">           <span class="keyword">case</span> <span class="string">'b'</span>:</span>
+<span class="line">             *string_buf_ptr++ = <span class="string">'\b'</span>;</span>
+<span class="line">             <span class="keyword">break</span>;</span>
+<span class="line">           <span class="keyword">case</span> <span class="string">'t'</span>:</span>
+<span class="line">             *string_buf_ptr++ = <span class="string">'\t'</span>;</span>
+<span class="line">             <span class="keyword">break</span>;</span>
+<span class="line">           <span class="keyword">case</span> <span class="string">'f'</span>:</span>
+<span class="line">             *string_buf_ptr++ = <span class="string">'\f'</span>;</span>
+<span class="line">             <span class="keyword">break</span>;</span>
+<span class="line">           <span class="keyword">case</span> <span class="string">'n'</span>:</span>
+<span class="line">             *string_buf_ptr++ = <span class="string">'\n'</span>;</span>
+<span class="line">             <span class="keyword">break</span>;</span>
+<span class="line">           <span class="comment">/* null character escaped --&gt; error */</span></span>
+<span class="line">           <span class="keyword">case</span> <span class="string">'\0'</span>:</span>
+<span class="line">             cool_yylval.error_msg = <span class="string">"String contains null character"</span>;</span>
+<span class="line">             BEGIN <span class="number">0</span>;</span>
+<span class="line">             <span class="keyword">return</span> ERROR;</span>
+<span class="line">           <span class="keyword">default</span>:</span>
+<span class="line">             *string_buf_ptr++ = *ptr;</span>
+<span class="line">             <span class="keyword">break</span>;</span>
+<span class="line">         &#125;</span>
+<span class="line">         ptr++; string_len++;</span>
+<span class="line">     &#125;<span class="keyword">else</span>&#123;</span>
+<span class="line">        *string_buf_ptr++ = *ptr++;</span>
+<span class="line">        string_len++;</span>
+<span class="line">     &#125;</span>
+<span class="line">   &#125;</span>
+<span class="line">   <span class="keyword">if</span>( string_len &gt;= MAX_STR_CONST ) &#123;</span>
+<span class="line">     cool_yylval.error_msg = <span class="string">"String constant too long"</span>; </span>
+<span class="line">     BEGIN <span class="number">0</span>;</span>
+<span class="line">     <span class="keyword">return</span> ERROR;</span>
+<span class="line">   &#125;</span>
+<span class="line"></span>
+<span class="line">   *string_buf_ptr++ = <span class="string">'\0'</span>; <span class="comment">/* end string */</span></span>
+<span class="line">   cool_yylval.symbol = stringtable.add_string(string_buf);</span>
+<span class="line">   BEGIN <span class="number">0</span>;</span>
+<span class="line">   <span class="keyword">return</span> STR_CONST;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="4-Others-and-Error"><a href="#4-Others-and-Error" class="headerlink" title="4. Others and Error"></a>4. Others and Error</h3><p><strong>5 Implementation Notes</strong></p>
+<ul>
+<li><p>The tokens for single character symbols (e.g., “;” and “,”) are represented <strong>just by the integer</strong> (ASCII) value of the character itself.</p>
+<p>All of the single character tokens are listed in the grammar for Cool in the Cool manual.</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="comment">/* ========</span></span>
+<span class="line"><span class="comment">  * others </span></span>
+<span class="line"><span class="comment">  * ========</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* White Space */</span></span>
+<span class="line">[ \f\r\t\v]+ &#123; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* New Line */</span></span>
+<span class="line"><span class="string">"\n"</span> &#123; curr_lineno++; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* all allowed single character symbols */</span></span>
+<span class="line">[:;&#123;&#125;().+\-*/&lt;,~@=] &#123; <span class="keyword">return</span> *yytext; &#125;</span>
+<span class="line"></span>
+<span class="line"> <span class="comment">/* ========</span></span>
+<span class="line"><span class="comment">  * error</span></span>
+<span class="line"><span class="comment">  * ========</span></span>
+<span class="line"><span class="comment">  */</span></span>
+<span class="line">.               &#123;</span>
+<span class="line">    cool_yylval.error_msg = yytext;</span>
+<span class="line">    <span class="keyword">return</span> ERROR;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="5-problems-encountered"><a href="#5-problems-encountered" class="headerlink" title="5. problems encountered"></a>5. problems encountered</h3><p>line number</p>
+<p>be careful the order of the rules.. </p>
+<p>字符串真是匹配到自闭x想了好多种办法，还是一下子全输入进来再匹配比较优雅 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/COOL/" rel="tag"><i class="fa fa-tag"></i> COOL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/ITOC/9/" rel="next" title="[ITOC-ch9] INTRACTABILITY">
+                <i class="fa fa-chevron-left"></i> [ITOC-ch9] INTRACTABILITY
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Aria" />
+            
+              <p class="site-author-name" itemprop="name">Aria</p>
+              <p class="site-description motion-element" itemprop="description">This guy is so lazy that he left nothing</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS143-PA1-Lexer"><span class="nav-number">1.</span> <span class="nav-text">[CS143-PA1] Lexer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Target"><span class="nav-number">1.1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-Preperation"><span class="nav-number">1.2.</span> <span class="nav-text">0. Preperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Basic-Keywords"><span class="nav-number">1.3.</span> <span class="nav-text">1. Basic Keywords</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Comment"><span class="nav-number">1.4.</span> <span class="nav-text">2. Comment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Strings"><span class="nav-number">1.5.</span> <span class="nav-text">3. Strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Others-and-Error"><span class="nav-number">1.6.</span> <span class="nav-text">4. Others and Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-problems-encountered"><span class="nav-number">1.7.</span> <span class="nav-text">5. problems encountered</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aria</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+   
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://aria-3.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/04/06/COOL/2/';
+          this.page.identifier = '2019/04/06/COOL/2/';
+          this.page.title = '[CS143-PA1] Lexer';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://aria-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+
