@@ -82,7 +82,7 @@
 <meta name="description" content="This guy is so lazy that he left nothing">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aria">
-<meta property="og:url" content="http://yoursite.com/tags/ACM/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Aria">
 <meta property="og:description" content="This guy is so lazy that he left nothing">
 <meta property="og:locale" content="en">
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/ACM/"/>
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
 
 
 
 
 
-  <title>Tag: ACM | Aria</title>
+  <title>Aria</title>
   
 
 
@@ -156,7 +156,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,83 +284,190 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
 
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>ACM<small>Tag</small>
-        </h1>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/30/CSAPP/attack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/30/CSAPP/attack/" itemprop="url">[CS:APP-ch3] Attack Lab</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T13:27:51+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-System-a-Programmer-s-Perspective/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer System a Programmer's Perspective</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/30/CSAPP/attack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/30/CSAPP/attack/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/20/ACM/kuangbin-12/" itemprop="url">
-              
-                <span itemprop="name">kuangbin专题十二 基础DP</span>
-              
+          <h2 id="CS-APP-ch3-Attack-Lab"><a href="#CS-APP-ch3-Attack-Lab" class="headerlink" title="[CS:APP-ch3] Attack Lab"></a>[CS:APP-ch3] Attack Lab</h2><h2 id="Part-1：缓冲区溢出攻击"><a href="#Part-1：缓冲区溢出攻击" class="headerlink" title="Part 1：缓冲区溢出攻击"></a>Part 1：缓冲区溢出攻击</h2><h3 id="Phase-1"><a href="#Phase-1" class="headerlink" title="Phase  1"></a>Phase  1</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">[--------------------------code-----------------------]</span>
+<span class="line">   <span class="number">0x4017a5</span>:	nop</span>
+<span class="line">   <span class="number">0x4017a6</span>:	nop</span>
+<span class="line">   <span class="number">0x4017a7</span>:	nop</span>
+<span class="line">=&gt; <span class="number">0x4017a8</span> &lt;getbuf&gt;:	sub    $<span class="number">0x28</span>,%rsp</span>
+<span class="line">   <span class="number">0x4017ac</span> &lt;getbuf+<span class="number">4</span>&gt;:	mov    %rsp,%rdi</span>
+<span class="line">   <span class="number">0x4017af</span> &lt;getbuf+<span class="number">7</span>&gt;:	callq  <span class="number">0x401a40</span> &lt;Gets&gt;</span>
+<span class="line">   <span class="number">0x4017b4</span> &lt;getbuf+<span class="number">12</span>&gt;:	mov    $<span class="number">0x1</span>,%eax</span>
+<span class="line">   <span class="number">0x4017b9</span> &lt;getbuf+<span class="number">17</span>&gt;:	add    $<span class="number">0x28</span>,%rsp</span>
+</pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/30/CSAPP/attack/#more" rel="contents">
+              Read more &raquo;
             </a>
+          </div>
+          <!--/noindex-->
         
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-20T13:37:45+08:00"
-              content="2017-12-20" >
-          12-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/10/ACM/kuangbin-4/" itemprop="url">
-              
-                <span itemprop="name">kuangbin专题四 最短路</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-10T21:58:45+08:00"
-              content="2017-12-10" >
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
 
 
           </div>

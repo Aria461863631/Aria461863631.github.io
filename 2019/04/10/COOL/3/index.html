@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SICP," />
+  <meta name="keywords" content="COOL," />
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="SICP ch-1 Building Abstractions with ProceduresWe are about to study the idea of computational process  1.1 The Elements of ProgrammingLanguage combine simple ideas to form complex ideas by three mech">
-<meta name="keywords" content="SICP">
+<meta name="description" content="[CS143-PA2] ParserTargetwrite a cool parser using bison  0.Preparation PA3 documentation  The Cool Reference Manual   A Tour of the Cool Support Code : section 6 “Abstract Syntax Trees” bison manual /">
+<meta name="keywords" content="COOL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[SICP-ch1] Building Abstractions with Procedures">
-<meta property="og:url" content="http://yoursite.com/2018/02/28/SICP/sicp1/index.html">
+<meta property="og:title" content="[CS143-PA2] Parser">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/COOL/3/index.html">
 <meta property="og:site_name" content="Aria">
-<meta property="og:description" content="SICP ch-1 Building Abstractions with ProceduresWe are about to study the idea of computational process  1.1 The Elements of ProgrammingLanguage combine simple ideas to form complex ideas by three mech">
+<meta property="og:description" content="[CS143-PA2] ParserTargetwrite a cool parser using bison  0.Preparation PA3 documentation  The Cool Reference Manual   A Tour of the Cool Support Code : section 6 “Abstract Syntax Trees” bison manual /">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-25T12:33:02.084Z">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1554902590/2019-04-10_20-35.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1554902589/2019-04-10_20-59.png">
+<meta property="og:updated_time" content="2019-04-10T13:30:11.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[SICP-ch1] Building Abstractions with Procedures">
-<meta name="twitter:description" content="SICP ch-1 Building Abstractions with ProceduresWe are about to study the idea of computational process  1.1 The Elements of ProgrammingLanguage combine simple ideas to form complex ideas by three mech">
+<meta name="twitter:title" content="[CS143-PA2] Parser">
+<meta name="twitter:description" content="[CS143-PA2] ParserTargetwrite a cool parser using bison  0.Preparation PA3 documentation  The Cool Reference Manual   A Tour of the Cool Support Code : section 6 “Abstract Syntax Trees” bison manual /">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1554902590/2019-04-10_20-35.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/28/SICP/sicp1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/10/COOL/3/"/>
 
 
 
 
 
-  <title>[SICP-ch1] Building Abstractions with Procedures | Aria</title>
+  <title>[CS143-PA2] Parser | Aria</title>
   
 
 
@@ -300,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/SICP/sicp1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/COOL/3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aria">
@@ -317,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[SICP-ch1] Building Abstractions with Procedures</h1>
+          <h1 class="post-title" itemprop="name headline">[CS143-PA2] Parser</h1>
         
 
         <div class="post-meta">
@@ -329,8 +332,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T21:52:51+08:00">
-                2018-02-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T21:28:51+08:00">
+                2019-04-10
               </time>
             
 
@@ -352,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Structure-and-Interpretation-of-Computer-Programs/" itemprop="url" rel="index">
-                    <span itemprop="name">Structure and Interpretation of Computer Programs</span>
+                  <a href="/categories/Compilers-Principles-Techniques-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Compilers: Principles, Techniques & Tools</span>
                   </a>
                 </span>
 
@@ -370,9 +373,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/28/SICP/sicp1/#comments" itemprop="discussionUrl">
+                <a href="/2019/04/10/COOL/3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/28/SICP/sicp1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/04/10/COOL/3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,86 +403,23 @@
       
 
       
-        <h2 id="SICP-ch-1-Building-Abstractions-with-Procedures"><a href="#SICP-ch-1-Building-Abstractions-with-Procedures" class="headerlink" title="SICP ch-1 Building Abstractions with Procedures"></a>SICP ch-1 Building Abstractions with Procedures</h2><p>We are about to study the idea of computational process</p>
+        <h2 id="CS143-PA2-Parser"><a href="#CS143-PA2-Parser" class="headerlink" title="[CS143-PA2] Parser"></a>[CS143-PA2] Parser</h2><h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>write a cool parser using <code>bison</code></p>
 <p><br></p>
-<h3 id="1-1-The-Elements-of-Programming"><a href="#1-1-The-Elements-of-Programming" class="headerlink" title="1.1 The Elements of Programming"></a>1.1 The Elements of Programming</h3><p>Language combine simple ideas to form complex ideas by three mechanisms</p>
-<ol>
-<li>primitive expression</li>
-<li>means of combination</li>
-<li>means of abstraction</li>
-</ol>
-<p><br></p>
-<a id="more"></a>
-<p><strong>1.1.1 Expressions</strong></p>
-<ul>
-<li>you type an expression, the <strong>interpreter</strong> responds by displaying the result of its <strong>evaluating</strong> that expression ( 486 )</li>
+<h3 id="0-Preparation"><a href="#0-Preparation" class="headerlink" title="0.Preparation"></a>0.Preparation</h3><ul>
+<li><p>PA3 documentation</p>
+</li>
+<li><p><a href="https://lagunita.stanford.edu/assets/courseware/v1/27e1a38f1161e61d91c25a4b1805489b/c4x/Engineering/Compilers/asset/cool_manual.pdf" target="_blank" rel="noopener">The Cool Reference Manual </a></p>
+</li>
+<li><a href="https://lagunita.stanford.edu/assets/courseware/v1/115f9c1f48cffa3192f23dc37c3a4eee/c4x/Engineering/Compilers/asset/cool-tour.pdf" target="_blank" rel="noopener">A Tour of the Cool Support Code : section 6 “Abstract Syntax Trees”</a></li>
+<li>bison manual / Dragon book 4.9 Parser Generator</li>
 </ul>
-<p>Combinations</p>
+<p><br><br><a id="more"></a></p>
+<h3 id="1-Type-Declaration"><a href="#1-Type-Declaration" class="headerlink" title="1. Type Declaration"></a>1. Type Declaration</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1554902590/2019-04-10_20-35.png" alt=""></p>
+<p>temporary types</p>
 <ul>
-<li>Expressions formed by delimiting a list of expressions within parentheses ( + 137 349 )</li>
-<li>operator, operands</li>
+<li>class_list <em>(for program)</em> :                         <code>[[class;]]+</code><br>feature_list <em>(for class)</em> :                       <code>[[feature;]]*</code><br>method <em>(for feature)</em> :                         <code>ID( [ formal [[, formal]]* ] ) : TYPE { expr }</code><br>attribute <em>(for feature)</em> :                       <code>ID : TYPE [ &lt;- expr ]</code><br>formal_list <em>(for method in feature)</em> :              <code>[formal [[,formal]]* ]</code><br>expression_list <em>(for dispatch in expression)</em> :      <code>[expr [[,expr]]* ]</code><br>expression_blocks <em>(for blocks in expression)</em> :    <code>[[expr;]]+</code><br>let_expr <em>(for let in expression)</em> :                 <code>ID : TYPE [ &lt;- expr ] [[,ID : TYPE [ &lt;- expr ] ]]* in expr</code><br>branch <em>(for branch in case in expression)</em> :      <code>ID : TYPE =&gt; expr;</code><br>case_list <em>(for case in expression)</em> :                 <code>[[ID : TYPE =&gt; expr; ]]+</code></li>
 </ul>
-<p><br></p>
-<p><strong>1.1.2 Naming and the Environment</strong></p>
-<p>Naming</p>
-<ul>
-<li>language provides the means of using names ( variable ) to refer to computational objects ( value )</li>
-<li>Associating values with symbols</li>
-</ul>
-<p><strong>Environment</strong> </p>
-<ul>
-<li>The <strong>memory</strong> that interpreter must maintain to <strong>keeps track</strong> of the name-object pairs.  ( ch-3 )</li>
-<li>Determine the meaning of the symbols in expressions.</li>
-</ul>
-<p><br></p>
-<p><strong>1.1.3 Evaluating Combinations</strong></p>
-<p>Interpreter is itself following a procedure</p>
-<ol>
-<li><strong>Evaluate</strong> the <strong>subexpressions</strong> of the combination</li>
-<li><strong>Apply</strong> the procedure that is the value of the leftmost <strong>subexpression</strong> (the operator) to the arguments that are the values of the other <strong>subexpressions</strong> (the operands).</li>
-</ol>
-<p>Thus, the evaluation rule is <strong>recursive</strong> in nature.</p>
-<p><br></p>
-<p><strong>Special Forms</strong></p>
-<ul>
-<li>Exceptions to the general evaluation rule. ( apply operator to operands )</li>
-<li>Each special form has its own evaluation rule.</li>
-<li>define, cond, if, and, or, </li>
-</ul>
-<p><br></p>
-<p><strong>1.1.4 Compound Procedures</strong></p>
-<p>Procedure definitions</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">&lt;name&gt;</span> &lt;formal parameters&gt;)</span>
-<span class="line">  &lt;body&gt;)</span>
-</pre></td></tr></table></figure>
-<p><br></p>
-<p><strong>1.1.5 The Substitution Model for Procedure Application</strong></p>
-<p>Evaluate a combination</p>
-<ul>
-<li>evaluates the elements of the combination</li>
-<li>applies the procedure to the arguments</li>
-</ul>
-<p><br></p>
-<p><strong>Substitution Model</strong></p>
-<ul>
-<li>To <strong>apply</strong> a compound procedure to arguments, <strong>evaluate</strong> the body of he procedure with each formal parameter <strong>replaced</strong> by the corresponding argument.</li>
-<li>Typical interpreters <strong>do not</strong> evaluate procedure by substitute values, but using a <strong>local environment</strong> for the formal parameters ( ch-3 )</li>
-<li>This model breaks down when we address procedures with “mutable data” ( ch-3 set! ) </li>
-</ul>
-<p><br></p>
-<p>Normal Order</p>
-<p>fully expand and then reduce (x)</p>
-<p><strong>Applicative Order</strong></p>
-<p>evaluate the arguments and then apply</p>
-<p><br></p>
-<p><strong>1.1.6 Conditional Expressions and Predicates</strong></p>
-<p><strong>Predicate</strong></p>
-<ul>
-<li>an expression whose value is interpreted as either true or false.</li>
-</ul>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
@@ -491,98 +431,502 @@
 <span class="line">10</span>
 <span class="line">11</span>
 <span class="line">12</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">cond</span> (<span class="name">&lt;p1&gt;</span> &lt;e1&gt;)</span>
-<span class="line">      (<span class="name">&lt;p2&gt;</span> &lt;e2&gt;)</span>
-<span class="line">      ...</span>
-<span class="line">      (<span class="name">&lt;pn&gt;</span> &lt;en&gt;))</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+</pre></td><td class="code"><pre><span class="line">/* Declare types for the grammar&apos;s non-terminals. */</span>
+<span class="line">%type &lt;program&gt; program</span>
+<span class="line">%type &lt;classes&gt; class_list</span>
+<span class="line">%type &lt;class_&gt; class</span>
 <span class="line"></span>
-<span class="line">(<span class="name">if</span> &lt;predicate&gt;</span>
-<span class="line">    &lt;consequent&gt;</span>
-<span class="line">    &lt;alternative&gt;)</span>
+<span class="line">/* You will want to change the following line. */</span>
+<span class="line">%type &lt;feature&gt; feature</span>
+<span class="line">      %type &lt;features&gt; feature_list</span>
+<span class="line">      %type &lt;feature&gt; method</span>
+<span class="line">      %type &lt;feature&gt; attribute</span>
+<span class="line">%type &lt;formal&gt; formal</span>
+<span class="line">      %type &lt;formals&gt; formal_list</span>
+<span class="line">%type &lt;expression&gt; expression</span>
+<span class="line">      %type &lt;expressions&gt; expression_list</span>
+<span class="line">      %type &lt;expressions&gt; expression_blocks</span>
 <span class="line"></span>
-<span class="line">(<span class="name">and</span> &lt;e1&gt; ... &lt;en&gt;)</span>
-<span class="line">(<span class="name">or</span> &lt;e1&gt; ... &lt;en&gt;)</span>
-<span class="line">(<span class="name">not</span> &lt;e&gt;)</span>
+<span class="line">%type &lt;expression&gt; let_expr</span>
+<span class="line"></span>
+<span class="line">%type &lt;case_&gt; branch</span>
+<span class="line">%type &lt;cases&gt; case_list</span>
 </pre></td></tr></table></figure>
 <p><br></p>
-<p><strong>1.1.7 Example: Square Roots by Newton’s Method</strong></p>
-<p><strong>1.1.8 Procedures are Black-Box Abstractions</strong></p>
-<p>bound variables </p>
-<ul>
-<li>In procedure definition, it doesn’t matter what name the formal parameter has.</li>
-</ul>
-<p>free variables</p>
-<p>the scope of that name</p>
-<p><br></p>
-<h3 id="1-2-Procedures-and-the-Processes-They-Generate"><a href="#1-2-Procedures-and-the-Processes-They-Generate" class="headerlink" title="1.2 Procedures and the Processes They Generate"></a>1.2 Procedures and the Processes They Generate</h3><p><strong>Procedure</strong></p>
-<ul>
-<li>A <strong>procedure</strong> is a pattern for the local evolution of a computational <strong>process</strong>. </li>
-<li>It specifies how each stage of the process is built upon the previous stage.</li>
-</ul>
-<p><br></p>
-<p><strong>1.2.1 Linear Recursion and Iteration</strong></p>
-<p>Recursive procedure</p>
-<ul>
-<li>syntactic fact that the procedure definition refers to the procedure itself</li>
-</ul>
-<p>Recursive <strong>process</strong></p>
-<ul>
-<li>The process that characterized by a chain of <strong>deferred</strong> operations</li>
-<li>Requires <strong>interpreter</strong> keep track of operations to be performed later on.</li>
-</ul>
-<p>Iterative process</p>
-<ul>
-<li>one whose state can be summarized by a fixed number of <strong>state variables</strong>, together with a fixed rule that describes how the state variables should be <strong>updated</strong> as the process moves from state to state and an (optional) end test.</li>
-</ul>
-<p><strong>Tail Recursive</strong>  </p>
-<ul>
-<li>An implementation with the property of:  “An iterative process will be executed in <strong>constant space</strong>, even if it is described by a recursive procedure.”</li>
-</ul>
-<p><br></p>
-<h3 id="1-3-Formulating-Abstractions-with-Higher-Order-Procedures"><a href="#1-3-Formulating-Abstractions-with-Higher-Order-Procedures" class="headerlink" title="1.3 Formulating Abstractions with Higher-Order Procedures"></a>1.3 Formulating Abstractions with Higher-Order Procedures</h3><p>Procedures are <strong>abstractions</strong> that describe compound operations</p>
-<p>Higher-order procedures</p>
-<ul>
-<li>procedures that manipulate procedures</li>
-</ul>
-<p><br></p>
-<p><strong>1.3.1 Procedures as Arguments</strong></p>
-<p><strong>1.3.2 Constructing Procedures Using lambda</strong></p>
-<p>In general, lambda is used to create procedures in the same way as<br>define , except that <strong>no name</strong> is specified for the procedure</p>
+<h3 id="2-Precedence"><a href="#2-Precedence" class="headerlink" title="2. Precedence"></a>2. Precedence</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1554902589/2019-04-10_20-59.png" alt=""></p>
+<p>All binary operations are <strong>left</strong>-associative, with the exception of <strong>assignment</strong>, which is <strong>right</strong>-associative,<br>and the <strong>three comparison</strong> operations, which <strong>do not associate</strong>.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">(lambda (&lt;formal parameters&gt;)</span>
-<span class="line">  &lt;body&gt;)</span>
-</pre></td></tr></table></figure>
-<p>using lambda creating local variables</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 <span class="line">4</span>
 <span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line">(<span class="name">let</span> ((<span class="name">&lt;var1&gt;</span> &lt;exp1&gt;)</span>
-<span class="line">      (<span class="name">&lt;var2&gt;</span> &lt;exp2&gt;)</span>
-<span class="line">      ...</span>
-<span class="line">      (<span class="name">&lt;varn&gt;</span> &lt;expn&gt;))</span>
-<span class="line">  &lt;body&gt;)</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">/* Precedence declarations go here. */</span>
+<span class="line">%right ASSIGN</span>
+<span class="line">%left NOT</span>
+<span class="line">%nonassoc LE &apos;&lt;&apos; &apos;=&apos;</span>
+<span class="line">%left &apos;+&apos; &apos;-&apos;</span>
+<span class="line">%left &apos;*&apos; &apos;/&apos;</span>
+<span class="line">%left ISVOID</span>
+<span class="line">%left &apos;~&apos;</span>
+<span class="line">%left &apos;@&apos;</span>
+<span class="line">%left &apos;.&apos;</span>
 </pre></td></tr></table></figure>
 <p><br></p>
-<p><strong>1.3.3 Procedures as General Methods</strong></p>
-<p>finding roots</p>
-<p>finding fixed point</p>
-<p><strong>1.3.4 Procedures as Returned Values</strong></p>
-<p>return values are themselves procedures</p>
-<p><br></p>
-<p><strong>Abstractions and first-class procedures</strong></p>
-<p>programming languages impose restrictions on the ways in which computational elements can be manipulated</p>
-<p>First-class status</p>
+<h3 id="3-Write-rules-using-Tree-package"><a href="#3-Write-rules-using-Tree-package" class="headerlink" title="3. Write rules using Tree package"></a>3. Write rules using Tree package</h3><p><strong>6 Abstract Syntax Trees</strong></p>
+<p><em>cool-tour.pdf</em></p>
 <ul>
-<li>elements with fewest restrictions</li>
-<li>They may be named by variables.</li>
-<li>They may be passed as arguments to procedures.</li>
-<li>They may be returned as the results of procedures.</li>
-<li>They may be included in data structures.</li>
+<li><p>The AST data type provides, for each kind of Cool construct, a class for representing expressions of that kind. Objects of these <strong>classes</strong> are <strong>nodes</strong> in Cool abstract syntax trees.</p>
+</li>
+<li><p>Find constructor declarations in <code>cool-tree.aps</code> or  <code>include/cool-tree.h</code><br>See <em>6.5 The Constructors</em> for the usage</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function">Program <span class="title">program</span><span class="params">(Classes)</span></span>;</span>
+<span class="line"><span class="function">Class_ <span class="title">class_</span><span class="params">(Symbol, Symbol, Features, Symbol)</span></span>;</span>
+<span class="line"><span class="function">Feature <span class="title">method</span><span class="params">(Symbol, Formals, Symbol, Expression)</span></span>;</span>
+<span class="line"><span class="function">Feature <span class="title">attr</span><span class="params">(Symbol, Symbol, Expression)</span></span>;</span>
+<span class="line"><span class="function">Formal <span class="title">formal</span><span class="params">(Symbol, Symbol)</span></span>;</span>
+<span class="line"><span class="function">Case <span class="title">branch</span><span class="params">(Symbol, Symbol, Expression)</span></span>;</span>
+<span class="line"><span class="function">Expression <span class="title">assign</span><span class="params">(Symbol, Expression)</span></span>;</span>
+<span class="line"><span class="function">Expression <span class="title">static_dispatch</span><span class="params">(Expression, Symbol, Symbol, Expressions)</span></span>;</span>
+<span class="line"><span class="function">Expression <span class="title">dispatch</span><span class="params">(Expression, Symbol, Expressions)</span></span>;</span>
+<span class="line">...</span>
+</pre></td></tr></table></figure>
+<p>constructor of lists</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">// define the prototypes of the interface</span></span>
+<span class="line"><span class="function">Classes <span class="title">nil_Classes</span><span class="params">()</span></span>;</span>
+<span class="line"><span class="function">Classes <span class="title">single_Classes</span><span class="params">(Class_)</span></span>;</span>
+<span class="line"><span class="function">Classes <span class="title">append_Classes</span><span class="params">(Classes, Classes)</span></span>;</span>
+<span class="line"><span class="function">Features <span class="title">nil_Features</span><span class="params">()</span></span>;</span>
+<span class="line"><span class="function">Features <span class="title">single_Features</span><span class="params">(Feature)</span></span>;</span>
+<span class="line">...</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>self : use idtable to convert into Symbol, use object function to convert into Expression</p>
+</li>
 </ul>
-<p>Lisp awards <strong>procedures</strong> full first-class status, which poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+<span class="line">117</span>
+<span class="line">118</span>
+<span class="line">119</span>
+<span class="line">120</span>
+<span class="line">121</span>
+<span class="line">122</span>
+<span class="line">123</span>
+<span class="line">124</span>
+<span class="line">125</span>
+<span class="line">126</span>
+<span class="line">127</span>
+<span class="line">128</span>
+<span class="line">129</span>
+<span class="line">130</span>
+<span class="line">131</span>
+<span class="line">132</span>
+<span class="line">133</span>
+<span class="line">134</span>
+<span class="line">135</span>
+<span class="line">136</span>
+<span class="line">137</span>
+<span class="line">138</span>
+<span class="line">139</span>
+<span class="line">140</span>
+<span class="line">141</span>
+<span class="line">142</span>
+<span class="line">143</span>
+<span class="line">144</span>
+<span class="line">145</span>
+<span class="line">146</span>
+<span class="line">147</span>
+<span class="line">148</span>
+<span class="line">149</span>
+<span class="line">150</span>
+<span class="line">151</span>
+<span class="line">152</span>
+<span class="line">153</span>
+<span class="line">154</span>
+<span class="line">155</span>
+<span class="line">156</span>
+<span class="line">157</span>
+<span class="line">158</span>
+<span class="line">159</span>
+<span class="line">160</span>
+<span class="line">161</span>
+<span class="line">162</span>
+<span class="line">163</span>
+<span class="line">164</span>
+<span class="line">165</span>
+<span class="line">166</span>
+<span class="line">167</span>
+<span class="line">168</span>
+<span class="line">169</span>
+<span class="line">170</span>
+<span class="line">171</span>
+<span class="line">172</span>
+<span class="line">173</span>
+<span class="line">174</span>
+<span class="line">175</span>
+<span class="line">176</span>
+<span class="line">177</span>
+<span class="line">178</span>
+<span class="line">179</span>
+<span class="line">180</span>
+<span class="line">181</span>
+<span class="line">182</span>
+<span class="line">183</span>
+<span class="line">184</span>
+<span class="line">185</span>
+<span class="line">186</span>
+<span class="line">187</span>
+<span class="line">188</span>
+<span class="line">189</span>
+<span class="line">190</span>
+<span class="line">191</span>
+<span class="line">192</span>
+<span class="line">193</span>
+<span class="line">194</span>
+</pre></td><td class="code"><pre><span class="line">  /* </span>
+<span class="line">  Save the root of the abstract syntax tree in a global variable.</span>
+<span class="line">  */</span>
+<span class="line">program	: class_list	&#123; @$ = @1; ast_root = program($1); &#125;</span>
+<span class="line">    ;</span>
+<span class="line">    </span>
+<span class="line">class_list</span>
+<span class="line">    : class			/* single class */</span>
+<span class="line">        &#123; $$ = single_Classes($1); </span>
+<span class="line">        parse_results = $$; &#125;</span>
+<span class="line">    | class_list class	/* several classes */</span>
+<span class="line">        &#123; $$ = append_Classes($1,single_Classes($2)); </span>
+<span class="line">        parse_results = $$; &#125;</span>
+<span class="line">    ;</span>
+<span class="line">    </span>
+<span class="line">    /* If no parent is specified, the class inherits from the Object class. */</span>
+<span class="line">class	</span>
+<span class="line">    : CLASS TYPEID &apos;&#123;&apos; feature_list &apos;&#125;&apos; &apos;;&apos;</span>
+<span class="line">        &#123; $$ = class_($2,idtable.add_string(&quot;Object&quot;),$4,</span>
+<span class="line">            stringtable.add_string(curr_filename)); &#125;</span>
+<span class="line">    | CLASS TYPEID INHERITS TYPEID &apos;&#123;&apos; feature_list &apos;&#125;&apos; &apos;;&apos;</span>
+<span class="line">        &#123; $$ = class_($2,$4,$6,stringtable.add_string(curr_filename)); &#125;</span>
+<span class="line">    | error</span>
+<span class="line">    ;</span>
+<span class="line">    </span>
+<span class="line">    /* Feature list may be empty, but no empty features in list. */</span>
+<span class="line">feature_list</span>
+<span class="line">    :		/* empty */</span>
+<span class="line">        &#123;  $$ = nil_Features(); &#125;</span>
+<span class="line">    | feature &apos;;&apos;</span>
+<span class="line">        &#123; $$ = single_Features($1); &#125;</span>
+<span class="line">    | feature &apos;;&apos; feature_list</span>
+<span class="line">        &#123; $$ = append_Features( single_Features($1), $3 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">feature</span>
+<span class="line">    : method</span>
+<span class="line">        &#123; $$ = $1; &#125;</span>
+<span class="line">    | attribute</span>
+<span class="line">        &#123; $$ = $1; &#125;</span>
+<span class="line">    | error</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">method</span>
+<span class="line">    : OBJECTID &apos;(&apos; formal_list &apos;)&apos; &apos;:&apos; TYPEID &apos;&#123;&apos; expression &apos;&#125;&apos; </span>
+<span class="line">        &#123; $$ = method($1, $3, $6, $8); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">attribute </span>
+<span class="line">    : OBJECTID &apos;:&apos; TYPEID  </span>
+<span class="line">        &#123; $$ = attr($1, $3, no_expr()); &#125;</span>
+<span class="line">    | OBJECTID &apos;:&apos; TYPEID ASSIGN expression</span>
+<span class="line">        &#123; $$ = attr ( $1, $3, $5 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">formal_list</span>
+<span class="line">    :   /* empty */</span>
+<span class="line">        &#123; $$ = nil_Formals(); &#125;</span>
+<span class="line">    | formal</span>
+<span class="line">        &#123; $$ = single_Formals($1); &#125;</span>
+<span class="line">    | formal &apos;,&apos; formal_list</span>
+<span class="line">        &#123; $$ = append_Formals( single_Formals($1), $3);&#125;</span>
+<span class="line">    | error</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">formal </span>
+<span class="line">    : OBJECTID &apos;:&apos; TYPEID </span>
+<span class="line">        &#123; $$ = formal( $1, $3 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">expression_list</span>
+<span class="line">    :  /* empty */</span>
+<span class="line">        &#123; $$ = nil_Expressions(); &#125;</span>
+<span class="line">    | expression  </span>
+<span class="line">        &#123; $$ = single_Expressions( $1 ); &#125;</span>
+<span class="line">    | expression_list &apos;,&apos; expression</span>
+<span class="line">        &#123; $$ = append_Expressions( $1, single_Expressions($3)); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">expression_blocks</span>
+<span class="line">    : expression &apos;;&apos;</span>
+<span class="line">        &#123; $$ = single_Expressions($1); &#125;</span>
+<span class="line">    | expression &apos;;&apos; expression_blocks</span>
+<span class="line">        &#123; $$ = append_Expressions( single_Expressions($1), $3 ); &#125;</span>
+<span class="line">    | error </span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">expression</span>
+<span class="line">    /* assign */</span>
+<span class="line">    : OBJECTID ASSIGN expression </span>
+<span class="line">        &#123; $$ = assign( $1, $3 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* dispatch */</span>
+<span class="line">    | expression &apos;@&apos; TYPEID &apos;.&apos; OBJECTID &apos;(&apos; expression_list &apos;)&apos;</span>
+<span class="line">        &#123; $$ = static_dispatch ( $1, $3, $5, $7 ); &#125;</span>
+<span class="line">    | expression &apos;.&apos; OBJECTID &apos;(&apos; expression_list &apos;)&apos;</span>
+<span class="line">        &#123; $$ = dispatch( $1, $3, $5 ); &#125;</span>
+<span class="line">    | OBJECTID &apos;(&apos; expression_list &apos;)&apos;  /* call object to convert symbol into expression */</span>
+<span class="line">        &#123; $$ = dispatch( object(idtable.add_string(&quot;self&quot;)), $1, $3 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* if then else */</span>
+<span class="line">    | IF expression THEN expression ELSE expression FI</span>
+<span class="line">        &#123; $$ = cond( $2, $4, $6 );  &#125;</span>
+<span class="line">    | IF error </span>
+<span class="line">    | IF expression THEN error </span>
+<span class="line">    | IF expression THEN expression ELSE error </span>
+<span class="line"></span>
+<span class="line">    /* while loop */</span>
+<span class="line">    | WHILE expression LOOP expression POOL</span>
+<span class="line">        &#123; $$ = loop( $2, $4 ); &#125;</span>
+<span class="line">    | WHILE error </span>
+<span class="line">    | WHILE expression LOOP error </span>
+<span class="line"></span>
+<span class="line">    /* block */</span>
+<span class="line">    | &apos;&#123;&apos; expression_blocks &apos;&#125;&apos;</span>
+<span class="line">        &#123; $$ = block( $2 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* let */   </span>
+<span class="line">    | LET let_expr</span>
+<span class="line">        &#123; $$ = $2; &#125;</span>
+<span class="line"></span>
+<span class="line">    /* case */</span>
+<span class="line">    | CASE expression OF case_list ESAC</span>
+<span class="line">        &#123; $$ = typcase( $2, $4 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* new */</span>
+<span class="line">    | NEW TYPEID</span>
+<span class="line">        &#123; $$ = new_( $2 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* isvoid */</span>
+<span class="line">    | ISVOID expression</span>
+<span class="line">        &#123; $$ = isvoid( $2 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* + - * / ~ &lt; &lt;= = ! () */</span>
+<span class="line">    | expression &apos;+&apos; expression</span>
+<span class="line">        &#123; $$ = plus( $1, $3 ); &#125;</span>
+<span class="line">    | expression &apos;-&apos; expression</span>
+<span class="line">        &#123; $$ = sub( $1, $3 ); &#125;</span>
+<span class="line">    | expression &apos;*&apos; expression</span>
+<span class="line">        &#123; $$ = mul( $1, $3 ); &#125;</span>
+<span class="line">    | expression &apos;/&apos; expression</span>
+<span class="line">        &#123; $$ = divide( $1, $3 ); &#125;</span>
+<span class="line">    | &apos;~&apos; expression</span>
+<span class="line">        &#123; $$ = neg( $2 ); &#125;</span>
+<span class="line">    | expression &apos;&lt;&apos; expression</span>
+<span class="line">        &#123; $$ = lt( $1, $3 ); &#125;</span>
+<span class="line">    | expression LE expression</span>
+<span class="line">        &#123; $$ = leq( $1, $3 ); &#125;</span>
+<span class="line">    | expression &apos;=&apos; expression</span>
+<span class="line">        &#123; $$ = eq( $1, $3 ); &#125;</span>
+<span class="line">    | NOT expression</span>
+<span class="line">        &#123; $$ = comp( $2 ); &#125;</span>
+<span class="line">    | &apos;(&apos; expression &apos;)&apos;</span>
+<span class="line">        &#123; $$ = $2;  &#125;</span>
+<span class="line"></span>
+<span class="line">    /* object, constant */</span>
+<span class="line">    | OBJECTID</span>
+<span class="line">        &#123; $$ = object( $1 ); &#125;</span>
+<span class="line">    | INT_CONST</span>
+<span class="line">        &#123; $$ = int_const( $1 ); &#125;</span>
+<span class="line">    | STR_CONST</span>
+<span class="line">        &#123; $$ = string_const( $1 ); &#125;</span>
+<span class="line">    | BOOL_CONST</span>
+<span class="line">        &#123; $$ = bool_const( $1 ); &#125;</span>
+<span class="line"></span>
+<span class="line">    /* error */</span>
+<span class="line">    | error</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">let_expr</span>
+<span class="line">    : OBJECTID &apos;:&apos; TYPEID IN expression</span>
+<span class="line">        &#123; $$ = let( $1, $3, no_expr(), $5 ); &#125;</span>
+<span class="line">    | OBJECTID &apos;:&apos; TYPEID ASSIGN expression IN expression</span>
+<span class="line">        &#123; $$ = let( $1, $3, $5, $7 ); &#125;</span>
+<span class="line">    | OBJECTID &apos;:&apos; TYPEID &apos;,&apos; let_expr</span>
+<span class="line">        &#123; $$ = let( $1, $3, no_expr(), $5 ); &#125;</span>
+<span class="line">    | OBJECTID &apos;:&apos; TYPEID ASSIGN expression &apos;,&apos; let_expr</span>
+<span class="line">        &#123; $$ = let( $1, $3, $5, $7 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">branch</span>
+<span class="line">    : OBJECTID &apos;:&apos; TYPEID DARROW expression &apos;;&apos;</span>
+<span class="line">        &#123; $$ = branch( $1, $3, $5 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">case_list</span>
+<span class="line">    : branch     </span>
+<span class="line">        &#123; $$ = single_Cases( $1 ); &#125;</span>
+<span class="line">    | branch case_list</span>
+<span class="line">        &#123; $$ = append_Cases( single_Cases( $1 ), $2 ); &#125;</span>
+<span class="line">    ;</span>
+<span class="line"></span>
+<span class="line">    /* end of grammar */</span>
+</pre></td></tr></table></figure>
+<h3 id="3-Errors"><a href="#3-Errors" class="headerlink" title="3.Errors"></a>3.Errors</h3><p><strong>5 Error Handling</strong></p>
+<p><em>PA2.pdf</em></p>
+<ul>
+<li>If there is an error in a class definition but the class is terminated properly and the next class is syntactically correct, the parser should be able to restart at the next class definition.</li>
+<li>Similarly, the parser should recover from errors in features (going on to the next feature), a let binding (going on to the next variable), and an expression inside a {…} block.</li>
+</ul>
 
       
     </div>
@@ -600,7 +944,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SICP/" rel="tag"><i class="fa fa-tag"></i> SICP</a>
+            <a href="/tags/COOL/" rel="tag"><i class="fa fa-tag"></i> COOL</a>
           
         </div>
       
@@ -613,8 +957,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/01/CSAPP/ch-1/" rel="next" title="[CS:APP-ch1] A Tour of Computer Systems">
-                <i class="fa fa-chevron-left"></i> [CS:APP-ch1] A Tour of Computer Systems
+              <a href="/2019/04/06/COOL/2/" rel="next" title="[CS143-PA1] Lexer">
+                <i class="fa fa-chevron-left"></i> [CS143-PA1] Lexer
               </a>
             
           </div>
@@ -622,10 +966,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/10/SICP/sicp2/" rel="prev" title="[SICP-ch2] Building Abstractions with Data">
-                [SICP-ch2] Building Abstractions with Data <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -787,7 +1127,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SICP-ch-1-Building-Abstractions-with-Procedures"><span class="nav-number">1.</span> <span class="nav-text">SICP ch-1 Building Abstractions with Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-The-Elements-of-Programming"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 The Elements of Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Procedures-and-the-Processes-They-Generate"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Procedures and the Processes They Generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Formulating-Abstractions-with-Higher-Order-Procedures"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Formulating Abstractions with Higher-Order Procedures</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS143-PA2-Parser"><span class="nav-number">1.</span> <span class="nav-text">[CS143-PA2] Parser</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Target"><span class="nav-number">1.1.</span> <span class="nav-text">Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-Preparation"><span class="nav-number">1.2.</span> <span class="nav-text">0.Preparation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Type-Declaration"><span class="nav-number">1.3.</span> <span class="nav-text">1. Type Declaration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Precedence"><span class="nav-number">1.4.</span> <span class="nav-text">2. Precedence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Write-rules-using-Tree-package"><span class="nav-number">1.5.</span> <span class="nav-text">3. Write rules using Tree package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Errors"><span class="nav-number">1.6.</span> <span class="nav-text">3.Errors</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1014,9 +1354,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/02/28/SICP/sicp1/';
-          this.page.identifier = '2018/02/28/SICP/sicp1/';
-          this.page.title = '[SICP-ch1] Building Abstractions with Procedures';
+          this.page.url = 'http://yoursite.com/2019/04/10/COOL/3/';
+          this.page.identifier = '2019/04/10/COOL/3/';
+          this.page.title = '[CS143-PA2] Parser';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://aria-3.disqus.com/embed.js';
