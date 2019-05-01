@@ -299,6 +299,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/COOL/4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/01/COOL/4/" itemprop="url">[CS143-PA3] Semantic Analyzer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-01T19:12:51+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Compilers-Principles-Techniques-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Compilers: Principles, Techniques & Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/01/COOL/4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/01/COOL/4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="CS143-PA3-Semantic-Analyzer"><a href="#CS143-PA3-Semantic-Analyzer" class="headerlink" title="[CS143-PA3] Semantic Analyzer"></a>[CS143-PA3] Semantic Analyzer</h2><p>令和きれいだ</p>
+<p>full fille link <a href="https://github.com/Aria461863631/cs143/tree/master/PA4" target="_blank" rel="noopener">https://github.com/Aria461863631/cs143/tree/master/PA4</a></p>
+<p><br></p>
+<p><strong>used files</strong></p>
+<ul>
+<li><code>semant.c</code>: write semantic analysis in <code>semant()</code> function </li>
+<li><code>semant.h</code>: header file</li>
+<li><code>cool-tree.h</code> or <code>cool-tree.handcode.h</code>: add additional declarations</li>
+<li><code>symtab_example.cc</code>: example for using <code>SymbolTable</code></li>
+</ul>
+<p><br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> program_class::semant()&#123;</span>
+<span class="line">    initialize_constants();</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">/* ClassTable constructor may do some semantic analysis */</span></span>
+<span class="line">    ClassTable *classtable = <span class="keyword">new</span> ClassTable(classes);</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">/* some semantic analysis code may go here (3-passes total) */</span></span>
+<span class="line">    installMethods(Object);</span>
+<span class="line">    checkClassesType(Object);</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (classtable-&gt;errors()) &#123;</span>
+<span class="line">	<span class="built_in">cerr</span> &lt;&lt; <span class="string">"Compilation halted due to static semantic errors."</span> &lt;&lt; <span class="built_in">endl</span>;</span>
+<span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/01/COOL/4/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/COOL/3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1792,169 +1989,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/ITOC/3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/19/ITOC/3/" itemprop="url">[ITOC-ch3] THE CHURCH—TURING THESIS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-19T13:19:51+08:00">
-                2018-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Introduction-to-the-Theory-of-Computation/" itemprop="url" rel="index">
-                    <span itemprop="name">Introduction to the Theory of Computation</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/19/ITOC/3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/19/ITOC/3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="ITOC-ch3-THE-CHURCH—TURING-THESIS"><a href="#ITOC-ch3-THE-CHURCH—TURING-THESIS" class="headerlink" title="[ITOC-ch3] THE CHURCH—TURING THESIS"></a>[ITOC-ch3] THE CHURCH—TURING THESIS</h2><h3 id="3-1-TURING-MACHINES"><a href="#3-1-TURING-MACHINES" class="headerlink" title="3.1 TURING MACHINES"></a>3.1 TURING MACHINES</h3><p><em>unrestricted access to unlimited memory</em></p>
-<p><br></p>
-<p>The Turing machine model uses an <strong>infinite</strong> tape as its unlimited memory.</p>
-<p>It has a tape head that can <strong>read and write</strong> symbols and <strong>move both left and right</strong> on the tape.</p>
-<p>The outputs accept and reject are obtained by entering designated <strong>accepting and rejecting states</strong>. If it doesn’t enter an accepting or a rejecting state, it will go on forever, never <strong>halting</strong>.</p>
-<p><br></p>
-<p>DEF</p>
-<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1526697837/Screenshot_from_2018-05-18_14-52-08.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/ITOC/3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2009,7 +2043,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

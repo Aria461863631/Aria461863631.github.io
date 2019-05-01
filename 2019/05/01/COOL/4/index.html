@@ -1,0 +1,2450 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favico.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="COOL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[CS143-PA3] Semantic Analyzer令和きれいだ full fille link https://github.com/Aria461863631/cs143/tree/master/PA4  used files  semant.c: write semantic analysis in semant() function  semant.h: header file co">
+<meta name="keywords" content="COOL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CS143-PA3] Semantic Analyzer">
+<meta property="og:url" content="http://yoursite.com/2019/05/01/COOL/4/index.html">
+<meta property="og:site_name" content="Aria">
+<meta property="og:description" content="[CS143-PA3] Semantic Analyzer令和きれいだ full fille link https://github.com/Aria461863631/cs143/tree/master/PA4  used files  semant.c: write semantic analysis in semant() function  semant.h: header file co">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706346/2019-05-01_17-37.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706346/2019-05-01_17-38.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-45.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-50.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-52.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-49.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_18-17.png">
+<meta property="og:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_18-18.png">
+<meta property="og:updated_time" content="2019-05-01T11:20:37.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CS143-PA3] Semantic Analyzer">
+<meta name="twitter:description" content="[CS143-PA3] Semantic Analyzer令和きれいだ full fille link https://github.com/Aria461863631/cs143/tree/master/PA4  used files  semant.c: write semantic analysis in semant() function  semant.h: header file co">
+<meta name="twitter:image" content="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706346/2019-05-01_17-37.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/01/COOL/4/"/>
+
+
+
+
+
+  <title>[CS143-PA3] Semantic Analyzer | Aria</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4c0218a0351c2e89b660f64b588ff880";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.12.0/styles/atom-one-dark.min.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aria</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">あなたには僕が見えるが?</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/COOL/4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[CS143-PA3] Semantic Analyzer</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-01T19:12:51+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Compilers-Principles-Techniques-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Compilers: Principles, Techniques & Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/01/COOL/4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/01/COOL/4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CS143-PA3-Semantic-Analyzer"><a href="#CS143-PA3-Semantic-Analyzer" class="headerlink" title="[CS143-PA3] Semantic Analyzer"></a>[CS143-PA3] Semantic Analyzer</h2><p>令和きれいだ</p>
+<p>full fille link <a href="https://github.com/Aria461863631/cs143/tree/master/PA4" target="_blank" rel="noopener">https://github.com/Aria461863631/cs143/tree/master/PA4</a></p>
+<p><br></p>
+<p><strong>used files</strong></p>
+<ul>
+<li><code>semant.c</code>: write semantic analysis in <code>semant()</code> function </li>
+<li><code>semant.h</code>: header file</li>
+<li><code>cool-tree.h</code> or <code>cool-tree.handcode.h</code>: add additional declarations</li>
+<li><code>symtab_example.cc</code>: example for using <code>SymbolTable</code></li>
+</ul>
+<p><br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> program_class::semant()&#123;</span>
+<span class="line">    initialize_constants();</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">/* ClassTable constructor may do some semantic analysis */</span></span>
+<span class="line">    ClassTable *classtable = <span class="keyword">new</span> ClassTable(classes);</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">/* some semantic analysis code may go here (3-passes total) */</span></span>
+<span class="line">    installMethods(Object);</span>
+<span class="line">    checkClassesType(Object);</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (classtable-&gt;errors()) &#123;</span>
+<span class="line">	<span class="built_in">cerr</span> &lt;&lt; <span class="string">"Compilation halted due to static semantic errors."</span> &lt;&lt; <span class="built_in">endl</span>;</span>
+<span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>);</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<a id="more"></a>
+<p><br></p>
+<h3 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h3><p>start implementing <code>ClassTable</code> for representing the inheritance graph. </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line">ClassTable::ClassTable(Classes classes) : semant_errors(<span class="number">0</span>) , error_stream(<span class="built_in">cerr</span>) &#123;</span>
+<span class="line">    <span class="comment">/* check inheritance when building inheritance graph </span></span>
+<span class="line"><span class="comment">     * If the inheritance graph is not well-defined, </span></span>
+<span class="line"><span class="comment">     * it is acceptable to abort compilation</span></span>
+<span class="line"><span class="comment">     */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>requirements</p>
+<ul>
+<li><p>All class names are <strong>globally</strong> visible.</p>
+</li>
+<li><p>inheritance graph be <strong>acyclic</strong></p>
+</li>
+<li><strong>basic classes</strong><br>It is an error to inherit from or redefine Int, Str, Bool.<br>It is an error to redefine the IO class.<br>A class can make use of the methods in the IO class by inheriting from IO. </li>
+<li>It is also an error if class A inherits from class B but class B is <strong>not defined</strong>.</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+</pre></td><td class="code"><pre><span class="line">ClassTable::ClassTable(Classes classes) : semant_errors(<span class="number">0</span>), error_stream(<span class="built_in">cerr</span>) &#123;</span>
+<span class="line"></span>
+<span class="line">  install_basic_classes();</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">/*</span></span>
+<span class="line"><span class="comment">   * in semant.h</span></span>
+<span class="line"><span class="comment">   * std::map&lt;Symbol, Class_&gt; ClassTable::m_classes</span></span>
+<span class="line"><span class="comment">   * a map from Symbol to Class_</span></span>
+<span class="line"><span class="comment">   * ==============================================</span></span>
+<span class="line"><span class="comment">   * std::map&lt;Symbol, std::list&lt;Symbol&gt;&gt; edges;</span></span>
+<span class="line"><span class="comment">   * a map from Symbol to its child Symbols</span></span>
+<span class="line"><span class="comment">   * building inheritance tree</span></span>
+<span class="line"><span class="comment">   */</span></span>
+<span class="line"></span>
+<span class="line">  <span class="comment">// dfs use</span></span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">map</span>&lt;Class_, <span class="keyword">int</span>&gt; visited;</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"Start checking inheritance"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">/* Fill this in */</span></span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = classes-&gt;first(); classes-&gt;more(i); i = classes-&gt;next(i)) &#123;</span>
+<span class="line">    curclass = classes-&gt;nth(i);</span>
+<span class="line">    Symbol curname = curclass-&gt;get_name();</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (curname == SELF_TYPE || curname == Int || curname == IO ||</span>
+<span class="line">        curname == Bool || curname == Str || curname == Object) &#123;</span>
+<span class="line">      semant_error(curclass)</span>
+<span class="line">          &lt;&lt; <span class="string">"Error! Redefinition of basic class "</span> &lt;&lt; curname &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">      <span class="keyword">return</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (mp_class.find(curname) != mp_class.end()) &#123;</span>
+<span class="line">      semant_error(curclass)</span>
+<span class="line">          &lt;&lt; <span class="string">"Error! Class "</span> &lt;&lt; curname &lt;&lt; <span class="string">" was previously defined\n"</span>;</span>
+<span class="line">      <span class="keyword">return</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">// install map;</span></span>
+<span class="line">    mp_class.insert(<span class="built_in">std</span>::make_pair(curname, curclass));</span>
+<span class="line">    visited.insert(<span class="built_in">std</span>::make_pair(curclass, <span class="number">0</span>));</span>
+<span class="line">    edges[curclass-&gt;get_parent()].push_back(curname);</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (mp_class.find(Main) == mp_class.end()) &#123;</span>
+<span class="line">    semant_error() &lt;&lt; <span class="string">"Class Main is not defined.\n"</span>;</span>
+<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"DFS begin\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">// dfs for asyclic</span></span>
+<span class="line">  <span class="keyword">bool</span> err = <span class="literal">false</span>, cycle = <span class="literal">false</span>;</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = classes-&gt;first(); classes-&gt;more(i); i = classes-&gt;next(i)) &#123;</span>
+<span class="line">    curclass = classes-&gt;nth(i);</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (visited[curclass] == <span class="number">0</span>) &#123;</span>
+<span class="line">      DFS(curclass, classes, visited, err, cycle);</span>
+<span class="line">      <span class="keyword">if</span> (err)</span>
+<span class="line">        <span class="keyword">return</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line">  &#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * find cycles in inheritance path</span></span>
+<span class="line"><span class="comment"> * using dfs topologic sort</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="keyword">void</span> ClassTable::DFS(Class_ cur, Classes classes, <span class="built_in">std</span>::<span class="built_in">map</span>&lt;Class_, <span class="keyword">int</span>&gt; &amp;vis,</span>
+<span class="line">                     <span class="keyword">bool</span> &amp;err, <span class="keyword">bool</span> &amp;cycle) &#123;</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"DFS class "</span> &lt;&lt; cur-&gt;get_name() &lt;&lt; <span class="string">"\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (vis[cur] == <span class="number">1</span>) &#123;</span>
+<span class="line">    cycle = <span class="literal">true</span>;</span>
+<span class="line">    err = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  Symbol parent_name = cur-&gt;get_parent();</span>
+<span class="line">  <span class="keyword">if</span> (mp_class.find(parent_name) == mp_class.end()) &#123;</span>
+<span class="line">    semant_error(cur) &lt;&lt; <span class="string">"Error! Class "</span> &lt;&lt; cur-&gt;get_name()</span>
+<span class="line">                      &lt;&lt; <span class="string">" inherits from an undefined class "</span> &lt;&lt; parent_name</span>
+<span class="line">                      &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    err = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (parent_name == Int || parent_name == Str || parent_name == Bool ||</span>
+<span class="line">      parent_name == SELF_TYPE) &#123;</span>
+<span class="line">    semant_error(cur) &lt;&lt; <span class="string">"Error! Class "</span> &lt;&lt; cur-&gt;get_name()</span>
+<span class="line">                      &lt;&lt; <span class="string">" cannot inherit "</span> &lt;&lt; parent_name &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    err = <span class="literal">true</span>;</span>
+<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  vis[cur] = <span class="number">1</span>;</span>
+<span class="line">  <span class="keyword">if</span> (parent_name != Object)</span>
+<span class="line">    DFS(mp_class[parent_name], classes, vis, err, cycle);</span>
+<span class="line">  <span class="keyword">if</span> (cycle) &#123;</span>
+<span class="line">    <span class="comment">// print all classes involved in a cycle</span></span>
+<span class="line">    semant_error(cur) &lt;&lt; <span class="string">"Error! Class "</span> &lt;&lt; cur-&gt;get_name()</span>
+<span class="line">                      &lt;&lt; <span class="string">" is involved in an inheritance cycle\n"</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">if</span> (err)</span>
+<span class="line">    <span class="keyword">return</span>;</span>
+<span class="line">  vis[cur] = <span class="number">2</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Naming-and-Scoping"><a href="#Naming-and-Scoping" class="headerlink" title="Naming and Scoping"></a>Naming and Scoping</h3><p>The type environment consists of three parts: </p>
+<ul>
+<li><p>the name of the current class $ C $</p>
+</li>
+<li><p>an object environment $ O $ is a function of the form $$ O(v) = T $$which assigns the type $ T $ to object identifier $ v $.</p>
+</li>
+<li><p>a method environment $ M $ it is a function of the form $$ M (C, f ) = (T_1 , . . . , T _{n−1} , T _n ) $$</p>
+<ul>
+<li>$ C $ is a class name (a type), $ f $ is a method name, and $ t_1 , . . . , t_n $ are types. </li>
+<li>The tuple of types is the <strong>signature</strong> of the method. </li>
+<li>The interpretation of signatures is that<br>in class $ C $ the method $ f $ has formal parameters of types $ (t_1 , . . . , t_{n−1} ) $—in that order—and a return type $ t_n $ </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<p>using symbol table to represent type environment</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> Class_ curclass = <span class="literal">NULL</span>;</span>
+<span class="line"><span class="comment">// ObjectId to Class(Type)</span></span>
+<span class="line"><span class="keyword">static</span> SymbolTable&lt;Symbol, Symbol&gt; objectEnv;</span>
+<span class="line"><span class="comment">// methods map along inheritance path</span></span>
+<span class="line"><span class="keyword">static</span> SymbolTable&lt;Symbol, Feature_class&gt; inheritEnv;</span>
+<span class="line"><span class="comment">// ClassName to methodName to methods</span></span>
+<span class="line"><span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">map</span>&lt;Symbol, SymbolTable&lt;Symbol, Feature_class&gt;&gt; methodEnv;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>install symbol tables</strong></p>
+<p>In Cool all attributes have scope <strong>local</strong> to the class, and all methods have <strong>global</strong> scope.</p>
+<p>first install global method table</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * utils fuction for AddMethod</span></span>
+<span class="line"><span class="comment"> * compare two formal list of methods in different classes</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line">Symbol method_class::matchFormals(Formals actual) &#123;</span>
+<span class="line">  Symbol type = return_type;</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = actual-&gt;first(); actual-&gt;more(i); i = actual-&gt;next(i)) &#123;</span>
+<span class="line">    Symbol actual_type = actual-&gt;nth(i)-&gt;get_typedecl();</span>
+<span class="line">    <span class="keyword">if</span> (formals-&gt;more(i) == <span class="literal">false</span>) &#123;</span>
+<span class="line">      <span class="keyword">return</span> No_type;</span>
+<span class="line">    &#125;</span>
+<span class="line">    Symbol declar_type = formals-&gt;nth(i)-&gt;get_typedecl();</span>
+<span class="line">    <span class="keyword">if</span> (declar_type != actual_type) &#123;</span>
+<span class="line">      <span class="keyword">return</span> No_type;</span>
+<span class="line">    &#125;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * If a class C inherits a method f from an ancestor class P, then C may</span></span>
+<span class="line"><span class="comment"> * override the inherited definition of f provided the number of arguments, the</span></span>
+<span class="line"><span class="comment"> * types of the formal parameters, and the return type are exactly the same in</span></span>
+<span class="line"><span class="comment"> * both definitions.</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="keyword">void</span> method_class::AddMethod() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"addMethod: "</span> &lt;&lt; name &lt;&lt; <span class="string">" in class "</span> &lt;&lt; curclass-&gt;get_name()</span>
+<span class="line">      &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">  <span class="keyword">if</span> (inheritEnv.lookup(name) != <span class="literal">NULL</span>) &#123;</span>
+<span class="line">    Feature oldmethod = inheritEnv.lookup(name);</span>
+<span class="line">    Symbol oldret_type = oldmethod-&gt;matchFormals(formals);</span>
+<span class="line">    <span class="keyword">if</span> (oldret_type == No_type || oldret_type != return_type) &#123;</span>
+<span class="line">      classtable-&gt;semant_error(curclass) &lt;&lt; <span class="string">"Invalid override\n"</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  inheritEnv.addid(name, copy_Feature());</span>
+<span class="line">  methodEnv[curclass-&gt;get_name()].addid(name, copy_Feature());</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * DFS from Object to all child classes</span></span>
+<span class="line"><span class="comment"> * use inheritEnv to record methods along current inheritance path</span></span>
+<span class="line"><span class="comment"> * use methodEnv to record methods in each class (without parent methods)</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="keyword">void</span> program_class::installMethods(Symbol classname) &#123;</span>
+<span class="line"></span>
+<span class="line">  curclass = classtable-&gt;getClassByName(classname);</span>
+<span class="line">  inheritEnv.enterscope();</span>
+<span class="line">  methodEnv[classname].enterscope();</span>
+<span class="line">  Features fs = curclass-&gt;get_features();</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = fs-&gt;first(); fs-&gt;more(i); i = fs-&gt;next(i)) &#123;</span>
+<span class="line">    Feature curFeature = fs-&gt;nth(i);</span>
+<span class="line">    curFeature-&gt;AddMethod();</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//dfs to children</span></span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">list</span>&lt;Symbol&gt;::iterator iter;</span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">list</span>&lt;Symbol&gt; nexClass = classtable-&gt;getChildClasses(classname);</span>
+<span class="line">  <span class="keyword">for</span> (iter = nexClass.begin(); iter != nexClass.end(); ++iter)</span>
+<span class="line">    installMethods(*iter);</span>
+<span class="line"></span>
+<span class="line">  inheritEnv.exitscope();</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>then install object table</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> attr_class::AddAttribute() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"addAttribute: "</span> &lt;&lt; name &lt;&lt; <span class="string">" "</span> &lt;&lt; type_decl &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">  <span class="keyword">if</span> (name == self)</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"'self' cannot be the name of an attribute\n"</span>;</span>
+<span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (objectEnv.lookup(name) != <span class="literal">NULL</span>)</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Attribute "</span> &lt;&lt; name &lt;&lt; <span class="string">" is an attribute of an inherited class\n"</span></span>
+<span class="line">        &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">  objectEnv.addid(name, <span class="keyword">new</span> Symbol(type_decl));</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*</span></span>
+<span class="line"><span class="comment"> * DFS from Object as above</span></span>
+<span class="line"><span class="comment"> */</span></span>
+<span class="line"><span class="keyword">void</span> program_class::checkClassesType(Symbol classname) &#123;</span>
+<span class="line"></span>
+<span class="line">  curclass = classtable-&gt;getClassByName(classname);</span>
+<span class="line">  objectEnv.enterscope();</span>
+<span class="line">  objectEnv.addid(self, <span class="keyword">new</span> Symbol(SELF_TYPE));<span class="comment">//add self symbol</span></span>
+<span class="line">  Features fs = curclass-&gt;get_features();</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = fs-&gt;first(); fs-&gt;more(i); i = fs-&gt;next(i)) &#123;</span>
+<span class="line">    Feature curFeature = fs-&gt;nth(i);</span>
+<span class="line">    curFeature-&gt;AddAttribute();</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">/*</span></span>
+<span class="line"><span class="comment">   * start type checking under local object environment</span></span>
+<span class="line"><span class="comment">   */</span></span>
+<span class="line">  <span class="keyword">if</span> (!classtable-&gt;isBasicClass(classname)) &#123;</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = fs-&gt;first(); fs-&gt;more(i); i = fs-&gt;next(i)) &#123;</span>
+<span class="line">      Feature curFeature = fs-&gt;nth(i);</span>
+<span class="line">      curFeature-&gt;CheckFeatureType();<span class="comment">//type check in arrtibute and method</span></span>
+<span class="line">    &#125;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//dfs to child</span></span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">list</span>&lt;Symbol&gt;::iterator iter;</span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">list</span>&lt;Symbol&gt; nexClass = classtable-&gt;getChildClasses(classname);</span>
+<span class="line">  <span class="keyword">for</span> (iter = nexClass.begin(); iter != nexClass.end(); ++iter)</span>
+<span class="line">    checkClassesType(*iter);</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//close local environment</span></span>
+<span class="line">  objectEnv.exitscope();</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Type-Checking"><a href="#Type-Checking" class="headerlink" title="Type Checking"></a>Type Checking</h3><p>implemented in a single traversal over AST</p>
+<p>type environment is passed down the tree: from parent to child</p>
+<p>types are passed up the tree: from child to parent</p>
+<p><strong>method</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706346/2019-05-01_17-37.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> formal_class::AddFormal() &#123;</span>
+<span class="line">  <span class="keyword">if</span> (name == self) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"'self' cannot be the name of a formal parameter\n"</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">if</span> (type_decl == SELF_TYPE) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Formal parameter "</span> &lt;&lt; name &lt;&lt; <span class="string">" cannot have type SELF_TYPE\n"</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"addFormal: "</span> &lt;&lt; name &lt;&lt; <span class="string">" "</span> &lt;&lt; type_decl &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">  <span class="keyword">if</span> (objectEnv.probe(name) != <span class="literal">NULL</span>)</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Formal parameter "</span> &lt;&lt; name &lt;&lt; <span class="string">" is multiply defined\n"</span>;</span>
+<span class="line">  objectEnv.addid(name, <span class="keyword">new</span> Symbol(type_decl));</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">Symbol method_class::CheckFeatureType() &#123;</span>
+<span class="line">  objectEnv.enterscope();</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = formals-&gt;first(); formals-&gt;more(i); i = formals-&gt;next(i)) &#123;</span>
+<span class="line">    Formal f = formals-&gt;nth(i);</span>
+<span class="line">    f-&gt;AddFormal();</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  Symbol expr_type = expr-&gt;CheckExprType();</span>
+<span class="line">  Symbol type = expr_type;</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"check Method: "</span> &lt;&lt; name &lt;&lt; <span class="string">"  "</span> &lt;&lt; expr_type &lt;&lt; <span class="string">"  "</span> &lt;&lt; return_type</span>
+<span class="line">      &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (classtable-&gt;isSubtype(expr_type, return_type) == <span class="literal">false</span>) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Inferred return type "</span> &lt;&lt; expr_type &lt;&lt; <span class="string">" of method "</span> &lt;&lt; name</span>
+<span class="line">        &lt;&lt; <span class="string">" does not conform to declared return type "</span> &lt;&lt; return_type</span>
+<span class="line">        &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  objectEnv.exitscope();</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>attribute</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706346/2019-05-01_17-38.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+</pre></td><td class="code"><pre><span class="line">Symbol attr_class::CheckFeatureType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t attr_class \n"</span>;</span>
+<span class="line">  Symbol expr_type = init-&gt;CheckExprType();<span class="comment">//recursively check expressions type</span></span>
+<span class="line">  <span class="keyword">if</span> (expr_type == No_type)</span>
+<span class="line">    <span class="keyword">return</span> type_decl;</span>
+<span class="line"></span>
+<span class="line">  Symbol type = expr_type;</span>
+<span class="line">  <span class="keyword">if</span> (classtable-&gt;isSubtype(expr_type, type_decl) == <span class="literal">false</span>) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass) &lt;&lt; <span class="string">"Error! feature assign invalid\n"</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Code-Generator-Interface"><a href="#Code-Generator-Interface" class="headerlink" title="Code Generator Interface"></a>Code Generator Interface</h3><p>For every <strong>expression node</strong>, its <strong>type</strong> field must be set to the Symbol naming the type inferred by your type checker.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//in cool-tree.handcode.h</span></span>
+<span class="line"><span class="meta">#<span class="meta-keyword">define</span> Expression_EXTRAS                                                      \</span></span>
+<span class="line">  Symbol type;                                                                 \</span>
+<span class="line">  <span class="function">Symbol <span class="title">get_type</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> type; &#125;                                           \</span>
+<span class="line">  <span class="function">Expression <span class="title">set_type</span><span class="params">(Symbol s)</span> </span>&#123;                                              \</span>
+<span class="line">    type = s;                                                                  \</span>
+<span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;                                                               \</span>
+<span class="line">  &#125;                                                                            \</span>
+<span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">dump_with_types</span><span class="params">(ostream &amp;, <span class="keyword">int</span>)</span> </span>= <span class="number">0</span>;                            \</span>
+<span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">dump_type</span><span class="params">(ostream &amp;, <span class="keyword">int</span>)</span></span>;                                              \</span>
+<span class="line">  Expression_class() &#123; type = (Symbol)<span class="literal">NULL</span>; &#125;                                  \</span>
+<span class="line">  <span class="function"><span class="keyword">virtual</span> Symbol <span class="title">CheckExprType</span><span class="params">()</span> </span>= <span class="number">0</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="meta">#<span class="meta-keyword">define</span> Expression_SHARED_EXTRAS                                               \</span></span>
+<span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">dump_with_types</span><span class="params">(ostream &amp;, <span class="keyword">int</span>)</span></span>;                                        \</span>
+<span class="line">  <span class="function">Symbol <span class="title">CheckExprType</span><span class="params">()</span></span>;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>static vs dynamic</strong></p>
+<p>The dynamic type of an object is the class $ C $ that is used in the <code>new C</code> expression that created it</p>
+<p>Soundness theorem for Cool type system;</p>
+<p>$ \forall E, dynamic\_type(E) \le static\_type(E) $</p>
+<p>all operations that can be used on an object of type $ C $ can also be used on an object of type $ C^{‘} \le C $ </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span>...&#125;</span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="title">inherits</span> <span class="title">A</span> &#123;</span>...&#125;</span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span>&#123;</span></span>
+<span class="line">	<span class="comment">//x has static type A and dynamic type A</span></span>
+<span class="line">	x:A &lt;- <span class="keyword">new</span> A;</span>
+<span class="line">	<span class="comment">//x has static type A and dynamic type B</span></span>
+<span class="line">	x &lt;- <span class="keyword">new</span> B;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>static-dispatch</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-45.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+</pre></td><td class="code"><pre><span class="line">Symbol method_class::matchFormals(Expressions actual) &#123;</span>
+<span class="line"></span>
+<span class="line">  Symbol type = return_type;</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = actual-&gt;first(); actual-&gt;more(i); i = actual-&gt;next(i)) &#123;</span>
+<span class="line">    Symbol actual_type = actual-&gt;nth(i)-&gt;CheckExprType();</span>
+<span class="line">    <span class="keyword">if</span> (formals-&gt;more(i) == <span class="literal">false</span>) &#123;</span>
+<span class="line">      <span class="keyword">return</span> Object;</span>
+<span class="line">    &#125;</span>
+<span class="line">    Symbol declar_type = formals-&gt;nth(i)-&gt;get_typedecl();</span>
+<span class="line">    <span class="keyword">if</span> (classtable-&gt;isSubtype(actual_type, declar_type) == <span class="literal">false</span>) &#123;</span>
+<span class="line">      classtable-&gt;semant_error(curclass) &lt;&lt; <span class="string">"Error! unmatched formal type\n"</span>;</span>
+<span class="line">      type = Object;</span>
+<span class="line">    &#125;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">Symbol static_dispatch_class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t static dispatch\n"</span>;</span>
+<span class="line">  Symbol expr_type = expr-&gt;CheckExprType();<span class="comment">//check e0 type</span></span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//static dispatch to type T, so e0 must be a subtype</span></span>
+<span class="line">  <span class="keyword">if</span> (classtable-&gt;isSubtype(expr_type, type_name) == <span class="literal">false</span>) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Expression type "</span> &lt;&lt; expr_type</span>
+<span class="line">        &lt;&lt; <span class="string">" does not conform to declared static dispatch type "</span> &lt;&lt; type_name</span>
+<span class="line">        &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">    <span class="keyword">return</span> type;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//find method in class T's ancestor, return ancestor class name</span></span>
+<span class="line">  Symbol ancestor = classtable-&gt;findMethodInAncestor(type_name, name);</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (ancestor == No_class) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Error! cannot find method "</span> &lt;&lt; name &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">    <span class="keyword">return</span> type;</span>
+<span class="line">  &#125;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//return method from method table</span></span>
+<span class="line">  Feature_class *method = methodEnv[ancestor].lookup(name);</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">//match formals of expression types and formal types</span></span>
+<span class="line">  type = method-&gt;matchFormals(actual);</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (type == SELF_TYPE)</span>
+<span class="line">    type = expr_type;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>if</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-50.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line">Symbol cond_class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t cond(if else)\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  Symbol pred_type = pred-&gt;CheckExprType();</span>
+<span class="line">  <span class="keyword">if</span> (pred_type != Bool)</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Error! condition has non-bool predicate\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  Symbol then_type = then_exp-&gt;CheckExprType();</span>
+<span class="line">  Symbol else_type = else_exp-&gt;CheckExprType();</span>
+<span class="line">  type = then_type;</span>
+<span class="line">  <span class="comment">//return lca of types, because we don't know the predicate result now</span></span>
+<span class="line">  <span class="keyword">if</span> (else_type != No_type)</span>
+<span class="line">    type = classtable-&gt;CommonAncestor(then_type, else_type);<span class="comment">//return lca of types</span></span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>case</strong></p>
+<ul>
+<li>Case expressions provide runtime type tests on objects. </li>
+<li>First, $ e_0 $ is evaluated and its dynamic type C noted. </li>
+<li>Next, from among the branches the branch with the least type $ T_k $ such that $ C ≤  T_k $ is selected. The identifier $x_k$ is <strong>bound to the value</strong> of $ e_0 $ and the expression $ e_k $ is evaluated. </li>
+<li>The result of the case is the value of $ e_k $</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-52.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+</pre></td><td class="code"><pre><span class="line">Symbol typcase_class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t cases \n"</span>;</span>
+<span class="line"></span>
+<span class="line">  expr-&gt;CheckExprType();</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">std</span>::<span class="built_in">set</span>&lt;Symbol&gt; s;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">int</span> i = cases-&gt;first();</span>
+<span class="line">  type = cases-&gt;nth(i)-&gt;CheckBranchType();</span>
+<span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = cases-&gt;first(); cases-&gt;more(i); i = cases-&gt;next(i)) &#123;</span>
+<span class="line">    Case oneBranch = cases-&gt;nth(i);</span>
+<span class="line"></span>
+<span class="line">    <span class="keyword">if</span> (s.find(oneBranch-&gt;get_typedecl()) != s.end()) &#123;</span>
+<span class="line">      classtable-&gt;semant_error(curclass) &lt;&lt; <span class="string">"Error! branch has same type\n"</span>;</span>
+<span class="line">    &#125;</span>
+<span class="line">    s.insert(oneBranch-&gt;get_typedecl());</span>
+<span class="line"></span>
+<span class="line">    Symbol branch_type = oneBranch-&gt;CheckBranchType();</span>
+<span class="line">    type = classtable-&gt;CommonAncestor(type, branch_type);</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">Symbol branch_class::CheckBranchType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t branch\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  objectEnv.enterscope();</span>
+<span class="line">  objectEnv.addid(name, <span class="keyword">new</span> Symbol(type_decl));</span>
+<span class="line"></span>
+<span class="line">  Symbol type = expr-&gt;CheckExprType();</span>
+<span class="line"></span>
+<span class="line">  objectEnv.exitscope();</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>let-init</strong></p>
+<ul>
+<li>Typing a multiple let<br>let $ x_1 : T_1 [← e_1 ], x_2 : T_2 [← e_2], . . . , x_n : T_n [← e_n ] $ in $ e $<br>is defined to be the same as typing<br>let $ x_1 : T_1 [← e_1 ] $ in (let_expr…)</li>
+</ul>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_17-49.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+</pre></td><td class="code"><pre><span class="line">Symbol let_class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t let\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  objectEnv.enterscope();</span>
+<span class="line">  <span class="keyword">if</span> (identifier == self)</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"'self' cannot be bound in a 'let' expression\n"</span>;</span>
+<span class="line">  objectEnv.addid(identifier, <span class="keyword">new</span> Symbol(type_decl));<span class="comment">//add one symbol</span></span>
+<span class="line"></span>
+<span class="line">  Symbol ini_type = init-&gt;CheckExprType();</span>
+<span class="line">  type = body-&gt;CheckExprType();</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (ini_type != No_type)</span>
+<span class="line">    <span class="keyword">if</span> (classtable-&gt;isSubtype(ini_type, type_decl) == <span class="literal">false</span>)</span>
+<span class="line">      classtable-&gt;semant_error(curclass) &lt;&lt; <span class="string">"Error! let init val not child\n"</span>;</span>
+<span class="line">  objectEnv.exitscope();</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>new</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_18-17.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">Symbol new__class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t new_class \n"</span>;</span>
+<span class="line">  type = type_name;</span>
+<span class="line">  <span class="keyword">if</span> (type != SELF_TYPE &amp;&amp; classtable-&gt;getClassByName(type_name) == <span class="literal">NULL</span>) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">" Undefined return type "</span> &lt;&lt; type_name &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>var</strong></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1556706345/2019-05-01_18-18.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+</pre></td><td class="code"><pre><span class="line">Symbol object_class::CheckExprType() &#123;</span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t object class\n"</span>;</span>
+<span class="line"></span>
+<span class="line">  Symbol *found_type = objectEnv.lookup(name);</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (found_type == <span class="literal">NULL</span>) &#123;</span>
+<span class="line">    classtable-&gt;semant_error(curclass)</span>
+<span class="line">        &lt;&lt; <span class="string">"Undeclared identifier "</span> &lt;&lt; name &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span>
+<span class="line">    type = Object;</span>
+<span class="line">  &#125; <span class="keyword">else</span></span>
+<span class="line">    type = *found_type;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">return</span> type;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="SELF-TYPE"><a href="#SELF-TYPE" class="headerlink" title="SELF_TYPE"></a>SELF_TYPE</h3><p>The type <code>SELF_TYPE</code> is used to refer to the type of the self variable.</p>
+<p>Note that the meaning of <code>SELF_TYPE</code> is not fixed, but depends on the class in which it is used. </p>
+<ul>
+<li>$ SELF\_TYPE_C$ to refers to an occurrence of <code>SELF_TYPE</code> in the body of C</li>
+</ul>
+<p>cannot return self with a concrete type </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Count</span>&#123;</span></span>
+<span class="line">	i:Int &lt;- <span class="number">0</span>;</span>
+<span class="line">    <span class="comment">//must return SELF_TYPE, so that inc method works in child classes</span></span>
+<span class="line">	inc():Count&#123;&#123;i&lt;-i+<span class="number">1</span>;self;&#125;&#125;;</span>
+<span class="line">&#125;;</span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stock</span> <span class="title">inherits</span> <span class="title">Count</span>&#123;</span></span>
+<span class="line">	name:Str;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span>&#123;</span></span>
+<span class="line">	<span class="comment">//if inc return Count, than assignment failed</span></span>
+<span class="line">	Stock a &lt;- (<span class="keyword">new</span> Stock).inc();</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><br></p>
+<p><strong>inheritance rule</strong></p>
+<p> Let $ T $ and $T^{‘} $ be any types but <code>SELF_TYPE</code></p>
+<p>$ SELF\_TYPE_C \le SELF\_TYPE_C$ </p>
+<ul>
+<li>In Cool we never compare <code>SELF_TYPE</code> coming from different classes</li>
+</ul>
+<p>$ SELF\_TYPE_C \le T $ if $ C \le T $</p>
+<ul>
+<li>$ SELF\_TYPE_C $ can be any subtype of C, including C itself</li>
+</ul>
+<p>$ T \le SELF\_TYPE_C $ always false</p>
+<p><br></p>
+<p><strong>least upper bound rule</strong></p>
+<p>lub($ SELF\_TYPE_C $, $SELF\_TYPE_C$) = $ SELF\_TYPE_C $</p>
+<p>lub($ SELF\_TYPE_C $,$ T $) = lub($ C $, $ T $)</p>
+<p>lub($ T $,$ SELF\_TYPE_C $) = lub($ C $, $ T $)</p>
+<p><br></p>
+<p>Finally, SELF TYPE may be used in the following places: </p>
+<ul>
+<li><p><code>new SELF_TYPE</code></p>
+</li>
+<li><p>the return type of a method</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">m(x:T):SELF_TYPE&#123;...&#125;</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>the declared type of a let variable</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">let x:SELF_TYPE in E</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>the declared type of an attribute. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">x:SELF_TYPE</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>actual arguments of methods ( ≤ declared arguments type )</p>
+</li>
+<li><p>type of dispatch expression</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">e0 : SELF_TYPE</span>
+<span class="line">e0.f(e1,e2..en)</span>
+</pre></td></tr></table></figure>
+</li>
+</ul>
+<p><br></p>
+<p>No other uses of <code>SELF_TYPE</code> are permitted.</p>
+<ul>
+<li><p>classname</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//T, T' cannot be SELF_TYPE</span></span>
+<span class="line"><span class="class"><span class="keyword">class</span> <span class="title">T</span> <span class="title">inherits</span> <span class="title">T</span>' &#123;</span>...&#125;</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>static dispatch</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//T cannot be SELF_TYPE</span></span>
+<span class="line">m@T.f(E1,E2...En)</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p>formal parameters</p>
+</li>
+</ul>
+<p><br></p>
+<p>functions</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> ClassTable::isSubtype(Symbol child, Symbol father) &#123;</span>
+<span class="line">  <span class="keyword">if</span> (child == SELF_TYPE &amp;&amp; father == SELF_TYPE)</span>
+<span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
+<span class="line">  <span class="keyword">if</span> (father == SELF_TYPE)</span>
+<span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span>
+<span class="line">  <span class="keyword">if</span> (child == SELF_TYPE)</span>
+<span class="line">    child = curclass-&gt;get_name();</span>
+<span class="line"></span>
+<span class="line">  <span class="built_in">log</span> &lt;&lt; <span class="string">"\t\t\t isSubtype"</span>;</span>
+<span class="line">  <span class="keyword">while</span> (child != father &amp;&amp; child != No_class) &#123;</span>
+<span class="line">    child = mp_class[child]-&gt;get_parent();</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="keyword">if</span> (child == father)</span>
+<span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">Symbol ClassTable::findMethodInAncestor(Symbol classname, Symbol methodname) &#123;</span>
+<span class="line">  <span class="keyword">if</span> (classname == SELF_TYPE)</span>
+<span class="line">    classname = curclass-&gt;get_name();</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">if</span> (classname == No_class)</span>
+<span class="line">    <span class="keyword">return</span> No_class;</span>
+<span class="line">  <span class="keyword">if</span> (methodEnv[classname].lookup(methodname) != <span class="literal">NULL</span>)</span>
+<span class="line">    <span class="keyword">return</span> classname;</span>
+<span class="line"></span>
+<span class="line">  <span class="keyword">return</span> findMethodInAncestor(mp_class[classname]-&gt;get_parent(), methodname);</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/COOL/" rel="tag"><i class="fa fa-tag"></i> COOL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/COOL/3/" rel="next" title="[CS143-PA2] Parser">
+                <i class="fa fa-chevron-left"></i> [CS143-PA2] Parser
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Aria" />
+            
+              <p class="site-author-name" itemprop="name">Aria</p>
+              <p class="site-description motion-element" itemprop="description">This guy is so lazy that he left nothing</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://goushi.me/" title="ダーリンのblog" target="_blank">ダーリンのblog</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CS143-PA3-Semantic-Analyzer"><span class="nav-number">1.</span> <span class="nav-text">[CS143-PA3] Semantic Analyzer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheritance"><span class="nav-number">1.1.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Naming-and-Scoping"><span class="nav-number">1.2.</span> <span class="nav-text">Naming and Scoping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-Checking"><span class="nav-number">1.3.</span> <span class="nav-text">Type Checking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Generator-Interface"><span class="nav-number">1.4.</span> <span class="nav-text">Code Generator Interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SELF-TYPE"><span class="nav-number">1.5.</span> <span class="nav-text">SELF_TYPE</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aria</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+   
+  <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    hljs.initHighlighting();
+      $('pre code').each(function() {
+      var lines = $(this).text().split('\n').length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this)
+        .addClass('has-numbering')
+        .parent()
+        .append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>'));
+      }
+    });
+  });
+  </script>
+
+  <style>
+  pre {
+    position: relative;
+    padding: 0;
+  }
+
+  code.has-numbering {
+    margin-left: 2.5rem;
+  }
+
+  code.has-numbering::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pre-numbering {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .pre-numbering li {
+    list-style-type: decimal-leading-zero !important;
+  }
+
+  @media (max-width: 760px) {
+    .post-body pre {
+      padding: 0px;
+    }
+
+    .post-body .pre-numbering {
+      display: none;
+    }
+
+    code.has-numbering {
+      margin: 0;
+    }
+  }
+
+  </style>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'IymLYXEiDNakEwJDxlM131NL-gzGzoHsz',
+        appKey: 'yLV88RGE7RiUo5ybkLy6PqP7',
+        placeholder: '(ゝ∀･)ciao~',
+        avatar:'/hahah.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+
