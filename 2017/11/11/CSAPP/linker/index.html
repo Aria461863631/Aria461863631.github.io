@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-05-27.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-24-45.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Aria461863631/MarkdownPic/master/Screenshot%20from%202017-10-17%2022-25-42.png">
-<meta property="og:updated_time" content="2018-10-19T12:59:11.523Z">
+<meta property="og:updated_time" content="2019-05-27T02:03:15.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CS:APP-ch7] Linker">
 <meta name="twitter:description" content="LinkerSUMMARY1.链接器的任务 7.6 Symbol Resolution - 符号解析 7.7 Relocation - 重定位  2.链接方式 7.2 ～ 7.9 Static lib - 静态链接 7.10 Shared lib - 链接时的共享库 7.11 Shared lib - 运行时的共享库  3.PIC 7.12 Position Independent Code -">
@@ -540,7 +540,69 @@
 </pre></td></tr></table></figure>
 <p>目标文件的格式：这里主要讨论ELF格式<br><br></p>
 <hr>
-<h3 id="7-4-Relocatable-Object-Files-可重定位"><a href="#7-4-Relocatable-Object-Files-可重定位" class="headerlink" title="7.4 Relocatable Object Files - 可重定位"></a>7.4 Relocatable Object Files - 可重定位</h3><p>格式：<br>| 组成        | 解释   |<br>| ——–   | —– |<br>| ELF header | 生成此文件的系统等|<br>|.text|已编译程序的机器码|<br>|.radata|只读数据|<br>|.data|已初始化的全局/静态变量|<br>|.bss|未初始化的静态，初始化为0的全局/静态 |<br>||(未初始化全局是COM） |<br>|.symtab|所有 定义或引用 的 函数 和 全局变量|<br>|.rel.text|要重定位的函数在.text的位置|<br>|.rel.data|全局变量的重定位信息|<br>|.debug|<br>|.line|<br>|.strtab|<br>|Section header table|记录每个section的位置和大小|</p>
+<h3 id="7-4-Relocatable-Object-Files-可重定位"><a href="#7-4-Relocatable-Object-Files-可重定位" class="headerlink" title="7.4 Relocatable Object Files - 可重定位"></a>7.4 Relocatable Object Files - 可重定位</h3><p>格式：</p>
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ELF header</td>
+<td>生成此文件的系统等</td>
+</tr>
+<tr>
+<td>.text</td>
+<td>已编译程序的机器码</td>
+</tr>
+<tr>
+<td>.radata</td>
+<td>只读数据</td>
+</tr>
+<tr>
+<td>.data</td>
+<td>已初始化的全局/静态变量</td>
+</tr>
+<tr>
+<td>.bss</td>
+<td>未初始化的静态，初始化为0的全局/静态</td>
+</tr>
+<tr>
+<td></td>
+<td>(未初始化全局是COM）</td>
+</tr>
+<tr>
+<td>.symtab</td>
+<td>所有 定义或引用 的 函数 和 全局变量</td>
+</tr>
+<tr>
+<td>.rel.text</td>
+<td>要重定位的函数在.text的位置</td>
+</tr>
+<tr>
+<td>.rel.data</td>
+<td>全局变量的重定位信息</td>
+</tr>
+<tr>
+<td>.debug</td>
+<td></td>
+</tr>
+<tr>
+<td>.line</td>
+<td></td>
+</tr>
+<tr>
+<td>.strtab</td>
+<td></td>
+</tr>
+<tr>
+<td>Section header table</td>
+<td>记录每个section的位置和大小</td>
+</tr>
+</tbody>
+</table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -946,7 +1008,64 @@
 <p>array 就直接定位到了0x601018<br>（我这里没重定位绝对引用的就抄书了qwqqwqqwq）</p>
 <p><br></p>
 <hr>
-<h3 id="7-8-Executable-Object-File-可执行"><a href="#7-8-Executable-Object-File-可执行" class="headerlink" title="7.8 Executable Object File - 可执行"></a>7.8 Executable Object File - 可执行</h3><p>格式：<br>| 组成        | 解释 |<br>| ——–   | —–|<br>| ELF header | 只读 |<br>|segment header table|<br>|.init|<br>|.text|<br>|.radata|<br>|.data|读写|<br>|.bss|<br>|.symtab|不加载进内存|<br>|.debug|<br>|.line|<br>|.strtab|<br>|Section header table|</p>
+<h3 id="7-8-Executable-Object-File-可执行"><a href="#7-8-Executable-Object-File-可执行" class="headerlink" title="7.8 Executable Object File - 可执行"></a>7.8 Executable Object File - 可执行</h3><p>格式：</p>
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ELF header</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>segment header table</td>
+<td></td>
+</tr>
+<tr>
+<td>.init</td>
+<td></td>
+</tr>
+<tr>
+<td>.text</td>
+<td></td>
+</tr>
+<tr>
+<td>.radata</td>
+<td></td>
+</tr>
+<tr>
+<td>.data</td>
+<td>读写</td>
+</tr>
+<tr>
+<td>.bss</td>
+<td></td>
+</tr>
+<tr>
+<td>.symtab</td>
+<td>不加载进内存</td>
+</tr>
+<tr>
+<td>.debug</td>
+<td></td>
+</tr>
+<tr>
+<td>.line</td>
+<td></td>
+</tr>
+<tr>
+<td>.strtab</td>
+<td></td>
+</tr>
+<tr>
+<td>Section header table</td>
+</tr>
+</tbody>
+</table>
 <p>Program header table程序头部表描述了文件里的每一片映射到的连续内存段<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
@@ -1552,7 +1671,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
