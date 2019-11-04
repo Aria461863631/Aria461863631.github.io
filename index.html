@@ -299,6 +299,264 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/GSLA/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aria">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aria">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/04/GSLA/3/" itemprop="url">[GSLA ch-1,2,3] Vectors, Vector Spaces and Matrix</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-04T11:36:00+08:00">
+                2019-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Introduction-to-Linear-Algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">Introduction to Linear Algebra</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/04/GSLA/3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/04/GSLA/3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="GSLA-ch-1-2-3-Vectors-Vector-Spaces-and-Matrix"><a href="#GSLA-ch-1-2-3-Vectors-Vector-Spaces-and-Matrix" class="headerlink" title="[GSLA ch-1,2,3] Vectors, Vector Spaces and Matrix"></a>[GSLA ch-1,2,3] Vectors, Vector Spaces and Matrix</h1><h3 id="1-1-Vectors-and-Linear-Combination"><a href="#1-1-Vectors-and-Linear-Combination" class="headerlink" title="1.1 Vectors and Linear Combination"></a>1.1 Vectors and Linear Combination</h3><p>column vector $ v = \begin{bmatrix}v_1\\ v_2\end{bmatrix}$</p>
+<p>vector addition $ v = \begin{bmatrix}v_1\\ v_2\end{bmatrix} $ and $w = \begin{bmatrix}w_1 \\ w_2\end{bmatrix} $ add to $ v + w = \begin{bmatrix} v_1+w_1 \\v_2+w_2 \end{bmatrix}$</p>
+<p>scalar multiplication $ 2v = \begin{bmatrix} 2v_1 \\ 2v_2 \end{bmatrix} $</p>
+<p>linear combination $ cv+dw $</p>
+<p><br></p>
+<h3 id="3-1-Spaces-of-Vectors"><a href="#3-1-Spaces-of-Vectors" class="headerlink" title="3.1 Spaces of Vectors"></a>3.1 Spaces of Vectors</h3><p><strong>Vector Space</strong></p>
+<p><strong>Definition:</strong> A <em>vector space</em> is a <strong>set</strong> $ V $ on which two operations <strong>+</strong> and <strong>·</strong> are defined, called <em>vector addition</em> and <em>scalar multiplication.</em></p>
+<p>following the conditions for all $ u$, $ v $, $w \in V $ and $ c $, $ d \in R $</p>
+<ul>
+<li><p>The operation <strong>+</strong> (vector addition) must satisfy the following conditions <strong>(V is an abelian group)</strong>:</p>
+<ul>
+<li><em>Closure:</em> The sum $ u + v $ belongs to $ V $.</li>
+</ul>
+<ol>
+<li><em>Commutative law:</em>  $ u + v = v + u $</li>
+<li><em>Associative law:</em> $ u + (v + w) = (u + v) + w $</li>
+<li><em>Additive identity:</em> The set $ V $ contains an additive identity element, denoted by 0, where $ 0 + v = v $ and $ v + 0 = v $.</li>
+<li><em>Additive inverses:</em>  The equations $ v + x = 0$ and $ x + v = 0 $ have a solution $ x $ in $ V $, called an additive inverse of $ v $, and denoted by $ -v $.</li>
+</ol>
+</li>
+<li><p>The operation <strong>·</strong> (scalar multiplication) is defined between vectors and real numbers (or any other <strong>Field</strong> with addition + and multiplication x), must satisfy the following conditions:</p>
+<ul>
+<li><em>Closure:</em> The product $c · v$ belongs to $ V $.</li>
+</ul>
+<ol start="5">
+<li><em>Distributive law:</em>  $c · (u + v) = c · u + c · v $</li>
+<li><em>Distributive law:</em> $ (c+d) · v = c · v + d · v $</li>
+<li><em>Associative law:</em> $c · (d · v) = (cd) · v $</li>
+<li><em>Unitary law:</em> $ 1 · v = v $</li>
+</ol>
+</li>
+</ul>
+<p><br></p>
+<p>Examples </p>
+<ul>
+<li><p>The groups $ R^n$ and $C^n$ are vector spaces over $R$, with scalar multiplication given by<br>$$<br>λ(x_1 , . . . , x_n ) = (λx_1 , . . . , λx_n ),<br>$$</p>
+</li>
+<li><p>The ring $ R[X]_n $ of polynomials of degree at most n with real coefficients is a vector space over $ R $, with scalar multiplication $ λ·P (X) $ is given by<br>$$<br>λ · P (X) = λa_m X_m + λa_{m−1} X_{m−1} + · · · + λa_1 X + λa_0 .<br>$$</p>
+</li>
+</ul>
+<p>Counterexamples</p>
+<ul>
+<li>$ (x_1, x_2, …) + (y_1, y_2, … ) = (x_1 + y_2, x_2 + y_1,… ) $</li>
+<li>$ c \cdot (x_1, x_2, …) = (0, 0, …..) $</li>
+</ul>
+<p><br></p>
+<p><strong>subspace</strong></p>
+<p>Let $ V $ be a vector space, with operations <strong>+</strong> and <strong>·</strong>, and let $ W $ be a subset of $ V$. Then $ W $ is a subspace of $ V $ if and only if the following conditions hold</p>
+<ul>
+<li><em>Nonempty:</em> zero vector always belongs to $ W $</li>
+<li><em>Closure:</em> If $ u $ and $ v $ are any vectors in $ W $, then $ c · u + d · v \in W$</li>
+</ul>
+<p><br></p>
+<p>the “vectors” in vector space could be anything</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837804/2019-11-03_12-01.png" alt=""></p>
+<p><br></p>
+<h3 id="3-4-Independence-Basis-and-Dimension"><a href="#3-4-Independence-Basis-and-Dimension" class="headerlink" title="3.4 Independence, Basis and Dimension"></a>3.4 Independence, Basis and Dimension</h3><p><strong>Linear Independence</strong></p>
+<p>$ x_1v_1 +x_2v_2 + … + x_nv_n = 0 $ only happens when all x’s are zero</p>
+<p><strong>Span</strong></p>
+<p>A set of vectors spans a space if their linear combinations fill the space.</p>
+<p><strong>Basis</strong></p>
+<p>The basis vectors are linearly independent and they span the space.</p>
+<p><strong>Dimenision</strong></p>
+<p>The dimension of a space is the number of vectors in every basis.</p>
+<p><br></p>
+<h3 id="2-1-Vectors-and-Linear-Equations"><a href="#2-1-Vectors-and-Linear-Equations" class="headerlink" title="2.1 Vectors and Linear Equations"></a>2.1 Vectors and Linear Equations</h3><p>Solving two Equations</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-03_12-02.png" alt=""></p>
+<p>Row picture </p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837804/2019-11-03_12-02_1.png" alt=""></p>
+<p>Column picture</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-03_12-03.png" alt=""></p>
+<p>Represent as coefficient matrix multiplying scalar vector</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-03_12-06.png" alt=""></p>
+<h3 id="2-2-The-Idea-of-Elimination"><a href="#2-2-The-Idea-of-Elimination" class="headerlink" title="2.2 The Idea of Elimination"></a>2.2 The Idea of Elimination</h3><p>Multiply the first equation by $ a_{21}/ a_{11} $ and subtract from the second: then $ x_1 $ is eliminated</p>
+<p>The corner entry $ a_{11} $ is the first “pivot” and the ratio $ a_{21}/a_{11} $ is the first “multiplier”.</p>
+<h3 id="2-3-Elimination-Using-Matrices"><a href="#2-3-Elimination-Using-Matrices" class="headerlink" title="2.3 Elimination Using Matrices"></a>2.3 Elimination Using Matrices</h3><p>to solve $Ax=b$, we apply $ EAx = Eb $</p>
+<p>According to elimination steps, $ E $ is lower triangular with <strong>1</strong> in all diagonals and negative values under diagonal</p>
+<h3 id="2-4-Rules-for-Matrix-Operations"><a href="#2-4-Rules-for-Matrix-Operations" class="headerlink" title="2.4 Rules for Matrix Operations"></a>2.4 Rules for Matrix Operations</h3><p>Fundamental Law of Matrix Multiplication: $ (AB)C = A(BC) $</p>
+<p>left multiplication $ BA $ represents row combination of $ A $<br>right multiplication $ AB $ represents column combination of $ A $</p>
+<h3 id="2-5-Inverse-Matrices"><a href="#2-5-Inverse-Matrices" class="headerlink" title="2.5 Inverse Matrices"></a>2.5 Inverse Matrices</h3><p>$ A^{-1}A = AA^{-1} = I $</p>
+<p>$ (AB)^{-1} = B^{-1}A^{-1} $</p>
+<p>solving augmented matrix $ A^{-1} [ \ A \ \ I\ ] = [\ I\ \ A^{-1}\ ]$</p>
+<h3 id="2-6-Elimination-Factorization-A-LU"><a href="#2-6-Elimination-Factorization-A-LU" class="headerlink" title="2.6 Elimination = Factorization: A = LU"></a>2.6 Elimination = Factorization: A = LU</h3><h3 id="2-7-Transposes-and-Permutations"><a href="#2-7-Transposes-and-Permutations" class="headerlink" title="2.7 Transposes and Permutations"></a>2.7 Transposes and Permutations</h3><p><br></p>
+<h3 id="3-1-amp-3-2-Column-Space-and-Null-Space-of-A"><a href="#3-1-amp-3-2-Column-Space-and-Null-Space-of-A" class="headerlink" title="3.1 &amp; 3.2 Column Space and Null Space of A"></a>3.1 &amp; 3.2 Column Space and Null Space of A</h3><p>column space</p>
+<ul>
+<li>linear combination of column vectors $(R^m)$<br>$$<br>Ax = b \\<br>x_1\begin{bmatrix} \\ a_1 \\ \\ \end{bmatrix} + x_2\begin{bmatrix} \\ a_2 \\ \\ \end{bmatrix}… = \begin{bmatrix} \\ b \\ \\ \end{bmatrix}<br>$$</li>
+</ul>
+<p>null space</p>
+<ul>
+<li>linear combination of solution vector $(R^n)$<br>$$<br>Ax = 0 \\<br>c\begin{bmatrix} \\ x_1 \\ \\ \end{bmatrix} + d\begin{bmatrix} \\ x_2 \\ \\ \end{bmatrix}… = 0<br>$$</li>
+</ul>
+<p><strong>Rank</strong></p>
+<p>GSLA</p>
+<ul>
+<li>number of pivots = number of independent columns (rows) = dimension of column (row) space</li>
+</ul>
+<p>LADR</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-04_11-10_1.png" alt=""></p>
+<p>Math-Deep</p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837802/2019-11-04_11-10.png" alt=""></p>
+<p><br></p>
+<h3 id="3-3-Elimination-The-Big-Picture"><a href="#3-3-Elimination-The-Big-Picture" class="headerlink" title="3.3 Elimination: The Big Picture"></a>3.3 Elimination: The Big Picture</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837802/2019-11-04_11-19.png" alt=""></p>
+<h3 id="3-3-The-Complete-Solution-to-Ax-b"><a href="#3-3-The-Complete-Solution-to-Ax-b" class="headerlink" title="3.3 The Complete Solution to Ax = b"></a>3.3 The Complete Solution to Ax = b</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837873/2019-11-04_11-24.png" alt=""></p>
+<p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-04_11-20.png" alt=""></p>
+<h3 id="3-5-Dimensions-of-the-Four-Subspaces"><a href="#3-5-Dimensions-of-the-Four-Subspaces" class="headerlink" title="3.5 Dimensions of the Four Subspaces"></a>3.5 Dimensions of the Four Subspaces</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572837803/2019-11-04_11-21.png" alt=""></p>
+<p><br></p>
+<h3 id="1-2-Lengths-and-Dot-Products"><a href="#1-2-Lengths-and-Dot-Products" class="headerlink" title="1.2 Lengths and Dot Products"></a>1.2 Lengths and Dot Products</h3><p><img src="https://res.cloudinary.com/dsmx9qa2z/image/upload/v1572838250/2019-11-04_11-30.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/COOL/5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1805,178 +2063,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/ITOC/5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aria">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aria">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/31/ITOC/5/" itemprop="url">[ITOC-ch5] REDUCIBILITY</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-31T21:30:51+08:00">
-                2018-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Introduction-to-the-Theory-of-Computation/" itemprop="url" rel="index">
-                    <span itemprop="name">Introduction to the Theory of Computation</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/31/ITOC/5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/31/ITOC/5/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="ITOC-ch5-REDUCIBILITY"><a href="#ITOC-ch5-REDUCIBILITY" class="headerlink" title="[ITOC-ch5] REDUCIBILITY"></a>[ITOC-ch5] REDUCIBILITY</h2><p>If A reduces to B</p>
-<ul>
-<li>we can use a solution to B to solve A</li>
-<li>solving A is no harder than solving B</li>
-</ul>
-<p>$ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
-<p>$ A \ (undecidable) \longrightarrow B \Rightarrow B \ (undecidable) $</p>
-<p><br></p>
-<h3 id="5-1-UNDECIDABLE-PROBLEMS-FROM-LANGUAGE-THEORY"><a href="#5-1-UNDECIDABLE-PROBLEMS-FROM-LANGUAGE-THEORY" class="headerlink" title="5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY"></a>5.1 UNDECIDABLE PROBLEMS FROM LANGUAGE THEORY</h3><p><strong>General Idea</strong></p>
-<ul>
-<li><p>Contradiction on $ A \longrightarrow B \ (decidable) \Rightarrow A \ (decidable) $</p>
-</li>
-<li><p>If we have a TM R that decides $ HALT_{TM} $ ( or sth ).</p>
-</li>
-<li>Then we can use R to construct a TM S that decides $ A_{TM} $</li>
-<li>thus obtain a contradiction.</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/31/ITOC/5/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2031,7 +2117,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
